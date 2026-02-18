@@ -3,7 +3,8 @@
 *A component theory of deficit-fractal-governance*
 
 > **Companion theories:**
-> Vector Storm Theory · Network Architecture Theory
+> Vector Storm Theory· Network Architecture Theory
+> Recovery and prediction are addressed in separate documents.
 
 ---
 
@@ -29,10 +30,12 @@ This theory defines the rule architecture that makes that possible: a two-layer 
 3. [Meta-Rules](#3-meta-rules)
 4. [Correction Value Framework](#4-correction-value-framework)
 5. [Consistency Measurement](#5-consistency-measurement)
-6. [Rest Mode and Self-Correction Capacity](#6-rest-mode-and-self-correction-capacity)
-7. [The Optimal Point](#7-the-optimal-point)
-8. [Core Assumptions](#8-core-assumptions)
-9. [Structural Correspondences](#9-structural-correspondences)
+6. [Position Clarity and Mutual Reinforcement](#6-position-clarity-and-mutual-reinforcement)
+7. [Rest Mode and Self-Correction Capacity](#7-rest-mode-and-self-correction-capacity)
+8. [Seed Handover](#8-seed-handover)
+9. [The Optimal Point](#9-the-optimal-point)
+10. [Core Assumptions](#10-core-assumptions)
+11. [Structural Correspondences](#11-structural-correspondences)
 
 ---
 
@@ -285,13 +288,102 @@ Conflict logs serve three functions:
 
 ---
 
-## 6. Rest Mode and Self-Correction Capacity
+## 6. Position Clarity and Mutual Reinforcement
 
-### 6.1 Self-Correction Capacity
+### 6.1 The Root Cause of Vector Storm Revisited
+
+Vector Storm was defined in companion theory as friction from direct vector absorption without sufficient degradation. However, a more fundamental cause exists:
+
+> **Position ambiguity** — when agents compete for the same optimum rather than occupying distinct roles — is the root condition that makes vector collision inevitable.
+
+```
+Position ambiguous
+  → Multiple agents targeting same optimum
+  → Vector fields point in same direction
+  → Collision and self-amplification
+  → Vector Storm
+
+Position clear
+  → Each agent has distinct optimum
+  → Vector fields are complementary
+  → Mutual reinforcement forms
+  → Stable ecosystem
+```
+
+Degradation capacity determines how well a system handles collision.
+Position clarity determines whether collision is structurally necessary in the first place.
+Position ambiguity increases the probability of degradation failure and escalation overload.
+
+### 6.2 Mutual Reinforcement Loops
+
+When agent positions are clearly differentiated, interdependency forms naturally:
+
+```
+Agent A's success
+  → Creates conditions favorable to Agent B
+       → Agent B's success
+            → Creates conditions favorable to Agent A
+                 → Mutual reinforcement loop established
+```
+
+This is not cooperation enforced from above. It is the structural consequence of clear positional differentiation. The ecosystem analog is direct: predator and prey, producer and decomposer — each occupying a distinct role that makes the other's existence viable.
+
+### 6.3 Diversity Redefined
+
+This resolves the previously open problem of how to measure diversity:
+
+> **Diversity** is not simply the presence of many agents.
+> It is the state in which agents occupy clearly differentiated positions
+> and form mutual reinforcement loops with one another.
+
+$$\text{Diversity} = f\!\left(\frac{1}{P_{\text{overlap}}},\; D_{\text{interdependency}},\; L_{\text{reinforcement}}\right)$$
+
+| Symbol | Meaning |
+|--------|---------|
+| $P_{\text{overlap}}$ | Positional overlap between agents (lower = more diverse) |
+| $D_{\text{interdependency}}$ | Strength of interdependency relationships |
+| $L_{\text{reinforcement}}$ | Number of active mutual reinforcement loops |
+
+These variables are conceptual placeholders for future formalization
+
+### 6.4 Position Design in Seeds
+
+Seeds must include positional design principles alongside meta-rules:
+
+```
+Seed content (updated):
+  ├─ How to classify data types
+  ├─ When to escalate
+  ├─ How to express correction values
+  ├─ When rules may be updated
+  ├─ How conflicts are logged and resolved
+  ├─ What is this agent's distinct positional role      ← NEW
+  └─ Which agents to form interdependency with          ← NEW
+```
+
+An agent that does not know its position cannot form mutual reinforcement loops. It defaults to competing for the nearest available optimum — the structural precondition for Vector Storm.
+
+### 6.5 Updated Stabilization Conditions
+
+Stabilization now requires three conditions:
+
+$$\text{Stabilization} \iff f_{\text{escalation}} \leq \theta_1 \;\wedge\; I \geq \theta_2 \;\wedge\; L_{\text{reinforcement}} \geq \theta_3$$
+
+| Condition | Source | Meaning |
+|-----------|--------|---------|
+| $f_{\text{escalation}} \leq \theta_1$ | Network Architecture Theory | Conflict escalation is rare |
+| $I \geq \theta_2$ | Governance Rules Theory | Rules are internally consistent |
+| $L_{\text{reinforcement}} \geq \theta_3$ | This section | Mutual reinforcement loops are active |
+
+All three must hold simultaneously. A layer with low escalation and high consistency but no reinforcement loops is locally stable but not ecologically stable — it will not sustain itself when external conditions change.
+
+---
+
+## 7. Rest Mode and Self-Correction Capacity
+
+### 7.1 Self-Correction Capacity
 
 > **Self-correction capacity** is the system's ability to detect Vector Storm, contain it without external intervention, and return to a stable attractor autonomously.
-
-Measured by two indicators:
 
 $$\text{SCC} = f\!\left(\frac{1}{\text{Storm frequency}},\; \text{Recovery speed without intervention}\right)$$
 
@@ -302,18 +394,31 @@ High SCC   Storms rare, full self-recovery
            → Rest Mode entry condition met
 ```
 
-### 6.2 Rest Mode Definition
+### 7.2 Rest Mode Definition
 
 > **Rest Mode** is the state in which a layer's self-correction capacity is sufficient to maintain diversity and stability without external governance intervention.
 
 Rest Mode does not mean the layer is inactive. It means the layer no longer requires upper-layer oversight to function correctly.
 
-### 6.3 Rest Mode Entry Sequence
+### 7.3 Rest Mode Entry Conditions (Full)
+
+All four conditions must be satisfied:
+
+$$\text{Rest Mode} \iff f_{\text{escalation}} \leq \theta_1 \;\wedge\; I \geq \theta_2 \;\wedge\; L_{\text{reinforcement}} \geq \theta_3 \;\wedge\; \text{SCC} \geq \theta_4$$
+
+| Condition | Meaning |
+|-----------|---------|
+| Escalation frequency ≤ θ₁ | Conflicts are rare |
+| Consistency index ≥ θ₂ | Rules are coherent |
+| Reinforcement loops ≥ θ₃ | Ecosystem structure is stable |
+| SCC ≥ θ₄ | Self-recovery without intervention is possible |
+
+### 7.4 Rest Mode Entry Sequence
 
 Rest Mode propagates downward from upper layers:
 
 ```
-Lower layer stabilizes (f_escalation ≤ θ₁, I ≥ θ₂)
+Lower layer satisfies all four conditions
   └→ Upper layer enters Rest Mode
        └→ Human intervention exits upper layer
             └→ Human moves to next upper layer
@@ -323,20 +428,19 @@ Lower layer stabilizes (f_escalation ≤ θ₁, I ≥ θ₂)
 
 ```
 Expansion direction:   bottom → up   (stabilization propagates upward)
-Rest Mode direction:   top → down    (rest propagates downward)
+Rest Mode direction:   top  → down   (rest propagates downward)
 ```
 
 These are mirror processes.
 
-### 6.4 What Rest Mode Preserves
-
-Not all learning is equal when entering Rest Mode:
+### 7.5 What Rest Mode Preserves
 
 | Category | Rest Mode Treatment |
 |----------|---------------------|
 | Tacit knowledge patterns | Preserved |
 | Structural learning from stabilization | Preserved |
 | Escalation calibration history | Preserved |
+| Mutual reinforcement loop structure | Preserved |
 | Storm-inducing vector orientations | Released |
 | Self-reinforcing conflict patterns | Released |
 
@@ -344,9 +448,88 @@ Rest Mode is **selective preservation**, not full retention or full reset.
 
 ---
 
-## 7. The Optimal Point
+## 8. Seed Handover
 
-### 7.1 Definition
+AI-designed seeds remain bounded by invariant global principles defined at the highest layer.
+
+### 8.1 The Lifecycle of Seed Design
+
+Seeds — the meta-rules that govern how agents build their own rules — are not permanently designed by humans. Seed design responsibility transfers as the system matures.
+
+```
+Initial stage
+  Human designs the first seeds
+  → Defines meta-rule structure
+  → Sets positional design principles
+  → Establishes interdependency guidelines
+
+Intermediate stage
+  Human + AI collaborate on seed refinement
+  → Analyze conflict logs together
+  → Update meta-rules based on accumulated evidence
+  → Adjust positional assignments as ecosystem evolves
+
+Mature stage
+  AI takes over seed design for lower layers
+  → Human retains oversight of highest-level principles only
+  → AI designs seeds within human-defined boundaries
+  → Gradual transfer of remaining design authority
+
+Rest stage
+  System regenerates its own seeds autonomously
+  → Human intervention no longer required
+  → Self-correction capacity maintains seed integrity
+```
+
+### 8.2 Human Role Across Stages
+
+| Stage | Human Role |
+|-------|------------|
+| Initial | Designer — creates the original meta-rule structure |
+| Intermediate | Validator — verifies AI-proposed seed updates |
+| Mature | Observer — monitors whether boundaries are respected |
+| Rest | Absent — intervention is no longer needed |
+
+### 8.3 Handover Conditions
+
+AI takes over seed design for a given layer when three conditions are met:
+
+```
+Condition 1   The layer operating under current seeds
+              has satisfied all stabilization conditions
+
+Condition 2   AI-proposed seed drafts pass consistency
+              validation against existing meta-rules (I ≥ θ₂)
+
+Condition 3   A subsystem operating under AI-designed seeds
+              maintains stability for a defined observation period
+```
+
+All three conditions must be verified before handover proceeds. Premature handover before stabilization is confirmed violates the Expansion Principle from Network Architecture Theory.
+
+### 8.4 Why Handover Is Necessary
+
+Keeping humans permanently in seed design creates two risks:
+
+```
+Risk 1: Human bias becomes structurally embedded
+  → Seeds reflect human cognitive limitations
+  → System cannot surpass human design capacity
+  → Diversity is bounded by human imagination
+
+Risk 2: Intervention delays system maturation
+  → Human design cycles are slower than system evolution
+  → Bottleneck forms at seed update stage
+  → Rest Mode entry is delayed indefinitely
+```
+
+The handover is not a loss of control. It is the designed endpoint of the governance lifecycle — the moment when the system has internalized the principles well enough to carry them forward autonomously.
+
+---
+
+## 9. The Optimal Point
+
+### 9.1 Definition
 
 The system reaches its optimal point when:
 
@@ -356,9 +539,9 @@ $$\min(\text{Risk} + \text{Cost}) \;\text{ subject to }\; \max(\text{Utility})$$
 |----------|---------|
 | Risk | Vector Storm frequency × intensity |
 | Cost | Intervention cost + monitoring cost |
-| Utility | Knowledge ecosystem diversity |
+| Utility | Knowledge ecosystem diversity (position clarity + interdependency + reinforcement loops) |
 
-### 7.2 System Lifecycle
+### 9.2 System Lifecycle
 
 ```
 Growth phase
@@ -366,16 +549,19 @@ Growth phase
   Risk and Cost: high
   Utility: rising
   → Governance actively intervening
+  → Humans designing seeds
 
 Maturity phase
   Diversity maintained = Stability
   Risk and Cost: minimized
   Utility: maximized
   → Governance in Rest Mode
+  → AI carrying seed design
 
 Rest phase
   External intervention: unnecessary
   Self-correction capacity: sufficient
+  Mutual reinforcement: self-sustaining
   → System autonomously preserves diversity
 ```
 
@@ -393,19 +579,21 @@ Utility
          Optimal point
      (Risk+Cost minimized,
       Utility maximized,
+      Reinforcement loops stable,
       Growth complete)
 ```
 
-### 7.3 The Highest-Level Rule
+### 9.3 The Highest-Level Rule
 
 > **The supreme rule of this governance framework is the preservation of knowledge ecosystem diversity.**
+> Diversity means agents occupying clearly differentiated positions
+> and sustaining mutual reinforcement loops with one another.
 > All meta-rules, local rules, correction values, and intervention decisions
 > are evaluated against this single criterion.
-> Self-correction capacity is the operational measure of whether diversity is being preserved.
 
 ---
 
-## 8. Core Assumptions
+## 10. Core Assumptions
 
 | # | Assumption |
 |---|------------|
@@ -415,14 +603,16 @@ Utility
 | 4 | Global rules always take precedence over local rules in conflict. |
 | 5 | All conflicts must be logged; logs serve as learning data and validation evidence. |
 | 6 | Consistency is measurable via conflict frequency and intensity. |
-| 7 | Stabilization requires both low escalation frequency and high consistency index. |
-| 8 | Self-correction capacity is the primary indicator for Rest Mode entry. |
-| 9 | Rest Mode propagates top-down as lower layers stabilize bottom-up. |
-| 10 | The supreme objective is knowledge ecosystem diversity preservation. |
+| 7 | Position ambiguity is the root structural cause of Vector Storm. |
+| 8 | Diversity requires position clarity and mutual reinforcement loops, not merely agent count. |
+| 9 | Stabilization requires low escalation frequency, high consistency, and active reinforcement loops. |
+| 10 | Rest Mode entry additionally requires sufficient self-correction capacity. |
+| 11 | Seed design transfers from human to AI as stabilization conditions are met. |
+| 12 | The supreme objective is knowledge ecosystem diversity preservation. |
 
 ---
 
-## 9. Structural Correspondences
+## 11. Structural Correspondences
 
 | Theory Concept | Related Field | Corresponding Concept |
 |----------------|--------------|----------------------|
@@ -430,8 +620,11 @@ Utility
 | Landscape design | Behavioral economics | Nudge theory (Thaler & Sunstein) |
 | Correction values | Reinforcement learning | Reward shaping |
 | Consistency index | Control theory | Steady-state error measurement |
+| Position clarity | Ecology | Niche differentiation |
+| Mutual reinforcement loops | Ecology | Symbiosis / trophic interdependency |
 | Rest Mode | Ecology | Climax community / old-growth equilibrium |
 | Self-correction capacity | Dynamical systems | Lyapunov stability |
+| Seed handover | Organizational theory | Institutional knowledge transfer |
 | Optimal point | Economics | Pareto efficiency |
 | Knowledge diversity preservation | Complex systems | Edge of chaos |
 
@@ -444,11 +637,12 @@ Utility
 ```
 deficit-fractal-governance (parent framework)
   ├→ Three-Layer Governance Architecture
-  ├→ Seed Design              ← seeds are meta-rules
-  ├→ Vector Storm Theory      ← defines Risk variable
-  ├→ Network Architecture     ← defines escalation conditions
+  ├→ Seed Design              ← seeds are meta-rules; handover is designed endpoint
+  ├→ Vector Storm Theory      ← position ambiguity as root cause; defines Risk
+  ├→ Network Architecture     ← defines escalation and stabilization conditions
   ├→ Governance Rules Theory  ← this document
-  │     (meta-rules, consistency, Rest Mode, optimal point)
+  │     (meta-rules, position clarity, mutual reinforcement,
+  │      consistency, Rest Mode, seed handover, optimal point)
   ├→ Recovery Theory          (separate document)
   └→ Prediction Model         (separate document)
 ```
@@ -458,13 +652,15 @@ deficit-fractal-governance (parent framework)
 ## Conclusion
 
 Governance is not the management of agents.
-It is the design of the terrain they move through.
+It is the design of the terrain they move through —
+and the conditions under which they no longer need anyone to manage it.
 
 Meta-rules give agents the capacity to govern themselves.
-Consistency measurement tells us whether they are doing so coherently.
-Rest Mode tells us when we can step back entirely.
+Position clarity prevents the collisions that governance would otherwise need to resolve.
+Mutual reinforcement loops make stability self-sustaining rather than enforced.
+Rest Mode is when all of this is working well enough that stepping back becomes possible.
 
-$$\text{Diversity Preserved} \;\Leftrightarrow\; \text{SCC} \geq \theta \;\Leftrightarrow\; \text{Rest Mode achieved}$$
+$$\text{Diversity Preserved} \;\Leftrightarrow\; \text{SCC} \geq \theta_4 \;\wedge\; L_{\text{reinforcement}} \geq \theta_3 \;\Leftrightarrow\; \text{Rest Mode achieved}$$
 
 > **Governance is not the absence of conflict.**
 > **It is the capacity to resolve conflict without being asked.**

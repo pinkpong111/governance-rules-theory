@@ -3,7 +3,7 @@
 *A component theory of deficit-fractal-governance*
 
 > **Companion theories:**
-> [Vector Storm Theory](../vector-storm/README.md) · [Network Architecture Theory](../network-architecture/README.md)
+> Vector Storm Theory · Network Architecture Theory
 
 ---
 

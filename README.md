@@ -434,6 +434,49 @@ Medium SCC Storms occasional, partial self-recovery
 High SCC   Storms rare, full self-recovery
            → Rest Mode entry condition met
 ```
+### 7.1.1 The Asymptotic Structure of Self-Correction Capacity
+
+Self-correction capacity (SCC) increases as a system matures. A natural question follows: can SCC reach 100%? Can a sufficiently developed system fully self-correct without any residual instability?
+
+The answer follows directly from the fractal residual degradation structure:
+
+```
+SCC approaches maximum as
+  → Escalation frequency decreases
+  → Consistency index increases
+  → Reinforcement loops stabilize
+
+But SCC cannot reach 100% because
+  → Lowest fractal layer always retains residual degradation state
+  → Residual noise floor is structurally irreducible
+  → Some instability always originates below the governance minimum unit
+```
+
+This produces an asymptotic cost structure:
+
+```
+Stabilization cost
+  ↑
+  │\
+  │  \
+  │    \
+  │      \_____________
+  │                     ──────  (approaches zero, never reaches it)
+  └──────────────────────────→ System maturity
+```
+
+**This redefines Rest Mode entry precisely:**
+
+> **Rest Mode is not the state where SCC reaches 100%.**
+> **It is the state where the cost of external intervention exceeds the cost of residual instability.**
+
+$$\text{Rest Mode entry} \iff \text{Intervention cost} > \text{Residual instability cost}$$
+
+The system enters Rest Mode not because it has achieved perfection, but because external governance has become more expensive than the instability it would prevent.
+
+This also means Rest Mode is not a permanent destination. If external conditions change significantly enough to push residual instability above the intervention cost threshold, Rest Mode exits. The system is stable, not static.
+
+---
 
 ### 7.2 Rest Mode Definition
 

@@ -294,7 +294,7 @@ Conflict logs serve three functions:
 
 Vector Storm was defined in companion theory as friction from direct vector absorption without sufficient degradation. However, a more fundamental cause exists:
 
-> **Position ambiguity** — when agents compete for the same optimum rather than occupying distinct roles — is the root condition that makes vector collision inevitable.
+> **Position ambiguity** — when agents compete for the same optimum rather than occupying distinct roles — is the root condition that makes vector collision inevitable. Position ambiguity increases the probability of degradation failure and escalation overload.
 
 ```
 Position ambiguous
@@ -312,7 +312,6 @@ Position clear
 
 Degradation capacity determines how well a system handles collision.
 Position clarity determines whether collision is structurally necessary in the first place.
-Position ambiguity increases the probability of degradation failure and escalation overload.
 
 ### 6.2 Mutual Reinforcement Loops
 
@@ -344,7 +343,7 @@ $$\text{Diversity} = f\!\left(\frac{1}{P_{\text{overlap}}},\; D_{\text{interdepe
 | $D_{\text{interdependency}}$ | Strength of interdependency relationships |
 | $L_{\text{reinforcement}}$ | Number of active mutual reinforcement loops |
 
-These variables are conceptual placeholders for future formalization
+> These variables are conceptual placeholders for future formalization.
 
 ### 6.4 Position Design in Seeds
 
@@ -450,8 +449,6 @@ Rest Mode is **selective preservation**, not full retention or full reset.
 
 ## 8. Seed Handover
 
-AI-designed seeds remain bounded by invariant global principles defined at the highest layer.
-
 ### 8.1 The Lifecycle of Seed Design
 
 Seeds — the meta-rules that govern how agents build their own rules — are not permanently designed by humans. Seed design responsibility transfers as the system matures.
@@ -506,6 +503,8 @@ Condition 3   A subsystem operating under AI-designed seeds
 ```
 
 All three conditions must be verified before handover proceeds. Premature handover before stabilization is confirmed violates the Expansion Principle from Network Architecture Theory.
+
+> **AI-designed seeds remain bounded by invariant global principles defined at the highest layer.** Handover transfers design authority, not foundational constraint.
 
 ### 8.4 Why Handover Is Necessary
 
@@ -614,21 +613,33 @@ Utility
 
 ## 11. Structural Correspondences
 
-| Theory Concept | Related Field | Corresponding Concept |
-|----------------|--------------|----------------------|
-| Meta-rules | Philosophy of law | Constitutional vs. statutory law |
-| Landscape design | Behavioral economics | Nudge theory (Thaler & Sunstein) |
-| Correction values | Reinforcement learning | Reward shaping |
-| Consistency index | Control theory | Steady-state error measurement |
-| Position clarity | Ecology | Niche differentiation |
-| Mutual reinforcement loops | Ecology | Symbiosis / trophic interdependency |
-| Rest Mode | Ecology | Climax community / old-growth equilibrium |
-| Self-correction capacity | Dynamical systems | Lyapunov stability |
-| Seed handover | Organizational theory | Institutional knowledge transfer |
-| Optimal point | Economics | Pareto efficiency |
-| Knowledge diversity preservation | Complex systems | Edge of chaos |
+| Theory Concept | Related Field | Corresponding Concept | Key Figure |
+|----------------|--------------|----------------------|------------|
+| Meta-rules | Philosophy of law | Constitutional vs. statutory law | — |
+| Landscape design | Behavioral economics | Nudge theory | Thaler & Sunstein |
+| Correction values | Reinforcement learning | Reward shaping | — |
+| Consistency index | Control theory | Steady-state error measurement | — |
+| Position clarity | Ecology | Niche differentiation | Charles Elton |
+| Mutual reinforcement loops | Ecology | Symbiosis / trophic interdependency | Charles Elton |
+| Diversity as stability | Ecology | Diversity-stability relationship | Ramon Margalef |
+| Vector Storm as growth driver | Complex systems | Dissipative structures | Ilya Prigogine |
+| Optimal point | Complex systems | Edge of chaos | Stuart Kauffman |
+| Rest Mode | Ecology | Climax community / old-growth equilibrium | Arthur Tansley |
+| Self-correction capacity | Dynamical systems | Lyapunov stability | — |
+| Seed handover | Organizational theory | Institutional knowledge transfer | — |
+| Knowledge diversity preservation | Complex systems | Self-organization | Prigogine / Kauffman |
 
 > These are structural correspondences, not formal equivalences.
+
+### Key Theoretical Ancestors
+
+**Ilya Prigogine** (Nobel Prize, Chemistry 1977) developed the theory of dissipative structures — the observation that systems far from equilibrium can spontaneously generate higher-order organization through instability rather than despite it. This directly parallels the core premise of Vector Storm Theory: instability is not an error to be eliminated but a structural cost of growth that, when properly channeled, drives system maturation.
+
+**Stuart Kauffman** (Santa Fe Institute) formalized the concept of the Edge of Chaos — the critical zone between excessive order (rigidity) and excessive disorder (collapse) where the most complex and adaptive behavior emerges. This corresponds precisely to the optimal point in this theory, where Risk + Cost is minimized and Utility is maximized. A system locked in full Rest Mode too early becomes rigid; a system that never reaches Rest Mode collapses. The governance challenge is navigating between them.
+
+**Charles Elton** established the ecological niche concept — each organism occupies a distinct functional role within its ecosystem, and it is this differentiation, not mere coexistence, that produces stable interdependency. This is the ecological basis for the position clarity principle in this theory.
+
+**Ramon Margalef** quantified the relationship between biodiversity and ecosystem stability, demonstrating mathematically that diversity is a precondition for resilience. This provides empirical grounding for the supreme rule: knowledge ecosystem diversity preservation is not a normative preference but a structural requirement for system stability.
 
 ---
 
@@ -662,6 +673,12 @@ Rest Mode is when all of this is working well enough that stepping back becomes 
 
 $$\text{Diversity Preserved} \;\Leftrightarrow\; \text{SCC} \geq \theta_4 \;\wedge\; L_{\text{reinforcement}} \geq \theta_3 \;\Leftrightarrow\; \text{Rest Mode achieved}$$
 
+> **Governance is not the absence of conflict.**
+> **It is the capacity to resolve conflict without being asked.**
+
+---
+
+*This theory draws on cross-domain synthesis across behavioral economics, constitutional law, ecology, control theory, and complex systems science.*
 > **Governance is not the absence of conflict.**
 > **It is the capacity to resolve conflict without being asked.**
 

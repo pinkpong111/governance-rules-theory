@@ -226,6 +226,48 @@ Correction values translate directly into terrain features:
 
 ## 5. Consistency Measurement
 
+### 5.0 Why Thresholds Must Be Discrete
+
+The consistency measurement framework operates on discrete thresholds: θ₁, θ₂, θ₃, θ₄. Before defining how they are measured, it is worth stating why they must exist as discrete cutoff points rather than continuous monitoring targets.
+
+**The continuous monitoring problem**
+
+```
+Continuous consistency monitoring
+  Every rule interaction evaluated in real time
+  Every micro-conflict triggers governance response
+  Monitoring cost scales with system activity
+  → At sufficient scale: monitoring cost exceeds governance value
+  → Governance becomes the primary source of system load
+```
+
+Discrete thresholds solve this by design:
+
+```
+Below threshold    → no governance action triggered
+Above threshold    → governance response activated
+
+Processing cost    → fixed, independent of micro-fluctuation volume
+Governance load    → scales with threshold crossings, not total activity
+```
+
+**Thresholds as designed minimum units**
+
+The thresholds θ₁ through θ₄ function as the governance equivalent of a minimum unit — the boundary below which no processing occurs. This is structurally analogous to the Planck scale in physics: not a discovered property of the system, but a designed boundary that makes the system computationally viable.
+
+```
+Physical Planck scale     Below this: current physics does not apply
+Governance threshold      Below this: governance does not activate
+
+Both are discretization points.
+Both are necessary for the system to operate at scale.
+Both define a floor that cannot be reduced to zero
+without making the system inoperable.
+```
+
+> **Thresholds are not approximations of continuous targets.**
+> **They are designed discretization points — the minimum unit of governance activation.**
+
 ### 5.1 Two Dimensions
 
 System consistency is measured along two dimensions:

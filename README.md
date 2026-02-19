@@ -1,9 +1,9 @@
 # Governance Rules Theory
 ### Meta-Rule Architecture, Consistency Measurement, and Rest Mode
-*A component theory of deficit-fractal-governance*
+*A component theory of deficit-fractal-governancedeficit-fractal-governance
 
 > **Companion theories:**
-> Vector Storm Theory· Network Architecture Theory
+> Vector Storm Theory Network Architecture Theory
 > Recovery and prediction are addressed in separate documents.
 
 ---
@@ -85,7 +85,7 @@ Global Rules
   ├─ Immutable without upper-layer authorization
   └─ Examples:
        · Escalate on vector conflict detection
-       · Philosophical data: suppress degradation
+       · High-Context data: suppress degradation
        · Log all rule conflicts
 
 Local Rules
@@ -155,7 +155,7 @@ Local layer defines:    WHAT the rules say (Local Rules)
 
 ### 3.3 Seeds Are Meta-Rules
 
-This redefines the seed concept from the deficit-fractal-governance parent framework:
+This redefines the seed concept from the deficit-fractal-governancedeficit-fractal-governance parent framework:
 
 > A **seed** is not a set of specific rules.
 > It is a set of meta-rules — the generative principles by which an agent constructs its own rules.
@@ -218,7 +218,7 @@ Correction values translate directly into terrain features:
 | Data Type | Correction Approach |
 |-----------|---------------------|
 | Mathematical | Advantage on direct processing pathway |
-| Philosophical | Advantage on escalation pathway; penalty on local resolution |
+| High-Context | Advantage on escalation pathway; penalty on local resolution |
 | Tacit Knowledge | Neutral; penalty only on performance degradation |
 | Noise | Maximum penalty; discard at source |
 
@@ -325,7 +325,7 @@ Conflict logs serve three functions:
    Upper layer uses logs when re-validating local rules
 ```
 
-> Conflict logs are Philosophical data.
+> Conflict logs are High-Context data.
 > They require Human-AI collaboration to interpret and resolve.
 
 ---
@@ -434,9 +434,10 @@ Medium SCC Storms occasional, partial self-recovery
 High SCC   Storms rare, full self-recovery
            → Rest Mode entry condition met
 ```
+
 ### 7.1.1 The Asymptotic Structure of Self-Correction Capacity
 
-Self-correction capacity (SCC) increases as a system matures. A natural question follows: can SCC reach 100%? Can a sufficiently developed system fully self-correct without any residual instability?
+Self-correction capacity increases as a system matures. A natural question follows: can SCC reach 100%? Can a sufficiently developed system fully self-correct without any residual instability?
 
 The answer follows directly from the fractal residual degradation structure:
 
@@ -475,8 +476,6 @@ $$\text{Rest Mode entry} \iff \text{Intervention cost} > \text{Residual instabil
 The system enters Rest Mode not because it has achieved perfection, but because external governance has become more expensive than the instability it would prevent.
 
 This also means Rest Mode is not a permanent destination. If external conditions change significantly enough to push residual instability above the intervention cost threshold, Rest Mode exits. The system is stable, not static.
-
----
 
 ### 7.2 Rest Mode Definition
 
@@ -731,7 +730,7 @@ Utility
 ## Relationship to Other Theories
 
 ```
-deficit-fractal-governance (parent framework)
+deficit-fractal-governancedeficit-fractal-governance (parent framework)
   ├→ Three-Layer Governance Architecture
   ├→ Seed Design              ← seeds are meta-rules; handover is designed endpoint
   ├→ Vector Storm Theory      ← position ambiguity as root cause; defines Risk

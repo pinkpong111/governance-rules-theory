@@ -155,7 +155,7 @@ Local layer defines:    WHAT the rules say (Local Rules)
 
 ### 3.3 Seeds Are Meta-Rules
 
-This redefines the seed concept from the DDFG parent framework:
+This redefines the seed concept from the deficit-fractal-governance parent framework:
 
 > A **seed** is not a set of specific rules.
 > It is a set of meta-rules — the generative principles by which an agent constructs its own rules.

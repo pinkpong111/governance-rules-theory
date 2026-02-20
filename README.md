@@ -11,37 +11,62 @@
 
 ## Overview
 
-Governance in multi-agent systems is not about controlling what agents do.
-It is about designing the conditions under which agents naturally converge toward **stable, diverse, and self-sustaining** behavior.
+### The Central Distinction
 
-This theory defines the rule architecture that makes that possible: a two-layer structure of local rules and meta-rules, a consistency measurement framework, and the conditions under which external governance intervention becomes unnecessary.
+Governance of multi-agent systems has traditionally meant one thing: controlling what agents do. Issuing instructions, enforcing rules, penalizing violations, correcting behavior in real time.
 
-> **Core Premise**
->
-> The goal of governance is not perpetual intervention.
-> It is to reach a state where intervention is no longer needed.
-> **The endpoint is Rest Mode.**
+This theory proposes a different mechanism entirely.
+
+> **The goal is not to change what agents do.**
+> **The goal is to change the terrain they move through.**
+
+When the terrain changes, agents converge toward new behavior on their own — without instruction, without enforcement, without the cost of continuous oversight. This is **landscape design**, and it is the foundational mechanism of this theory.
+
+The distinction matters because it resolves a problem that direct intervention cannot:
+
+| Mechanism | What changes | What persists | Scales? |
+|-----------|-------------|---------------|---------|
+| **Direct Intervention** | Agent behavior (temporarily) | Original attractor | No — cost grows with n² |
+| **Landscape Design** | The terrain itself | New attractor | Yes — fractal across all layers |
+
+When you intervene directly, the agent's underlying attractor remains. Remove the intervention and behavior reverts. At scale, intervention cost compounds and agents begin treating corrections as external vectors — potentially inducing the very instability you were correcting for.
+
+Landscape design bypasses this. The terrain is modified; the agent chooses freely within it. The choice is the agent's own — but the right choice has become the easiest one.
+
+### Connection to Current AI Systems
+
+This is not an abstract distinction. Current AI training methods can be interpreted as landscape design already in practice: RLHF shapes the reward terrain, Constitutional AI installs invariant boundary conditions, and reward shaping modifies path costs throughout the exploration space. In each case, humans are not intervening in individual inference steps — they are modifying the terrain through which the model moves.
+
+This theory formalizes that intuition into a governance architecture: a structured set of rules for how terrain gets designed, updated, and validated — at every layer of a multi-agent system, including inside a single agent.
+
+### What This Theory Defines
+
+This theory defines the rule architecture that makes landscape-based governance operational:
+
+- A **two-layer rule structure** (global meta-rules and local rules) that preserves autonomy while maintaining system-wide consistency
+- A **consistency measurement framework** (τ thresholds, θ_d calibration, λ_log triggers) for detecting when the terrain needs adjustment
+- The **Seed Expansion Protocol** — how agents extend competence into unknown domains without upper-layer redesign
+- The conditions under which **external governance becomes unnecessary**: Rest Mode
+
+### The Endpoint
 
 **The measure of a mature system is not how well it is controlled — it is how little it needs to be.**
 
-As a system develops, upper layers do not accumulate more authority. They shed it. Risk and cost decrease not because the system is constrained more tightly, but because the lower layers have internalized the principles that make constraint unnecessary. The progressive silencing of upper-layer intervention is the structural signature of a system approaching its optimal point.
+As a system develops under landscape-based governance, upper layers do not accumulate more authority. They shed it. Risk and cost decrease not because the system is constrained more tightly, but because the lower layers have internalized the principles that make constraint unnecessary.
 
 ```
 Immature system:    Upper layers active, intervening frequently
-                    Risk high, Cost high
-                    Lower layers dependent
+                    Risk high, Cost high — lower layers dependent
 
 Developing system:  Upper layers intervening less
-                    Risk decreasing, Cost decreasing
-                    Lower layers self-calibrating
+                    Risk decreasing, Cost decreasing — lower layers self-calibrating
 
 Mature system:      Upper layers silent
-                    Risk minimized, Cost minimized
-                    Lower layers fully autonomous
+                    Risk minimized, Cost minimized — lower layers fully autonomous
                     → Rest Mode
 ```
 
-This is not a gradual loosening of control. It is the designed destination — the point at which the governance architecture has successfully transferred its logic into the system it governs.
+The progressive silencing of upper-layer intervention is the structural signature of a system approaching its optimal point. This is not a gradual loosening of control. It is the designed destination — the point at which the governance architecture has successfully transferred its logic into the system it governs.
 
 ---
 
@@ -432,17 +457,45 @@ Scenario 2 — Divergence (I collapses: I < τ₂)
 Scenario 3 — Non-stationary environment (domain statistics non-stationary within evaluation window)
   Domain conditions change faster than log accumulation can characterize
   → θ_d convergence structurally impossible
-  → Domain reclassified as High-Context
-  → Autonomous resolution abandoned
-  → Escalation path made permanent
-  → Transferred to human judgment domain
+  → Domain reclassified as High-Context at this layer
+  → Autonomous resolution abandoned at this layer
+  → Escalation path made permanent: decision routed to upper layer
 ```
 
 The three scenarios are mutually exclusive by trigger condition: Scenario 1 fires when I holds but θ_d is noisy; Scenario 2 fires when I itself collapses; Scenario 3 fires when the domain's statistical properties are non-stationary regardless of I.
 
 This mirrors the Subsidiarity Principle: self-resolution attempted first, human intervention only when lower-layer handling fails. **Socialization failure does not mean the layer is abandoned — it means the layer's autonomy boundary is redefined.**
 
-Scenario 3 is the permanent case: some domains are too dynamic to ever be socialized into. These remain under ongoing human oversight by design, not by failure.
+### 5.1.2 Permanently High-Context — Definition and Layer-Relative Scope
+
+A domain is **Permanently High-Context at a given layer** when it satisfies one or more of the following conditions:
+
+| Criterion | Description | Example |
+|-----------|-------------|---------|
+| **Statistical non-stationarity** | Domain conditions change faster than conflict log accumulation can characterize — θ_d convergence structurally impossible | Rapidly shifting geopolitical environment |
+| **Interpretive multiplicity** | The same conflict log admits multiple valid intervention directions — no single rule can be encoded as "correct" | Ethical trade-offs, value judgments, political decisions |
+| **Irreversible consequences** | Local resolution errors cannot be undone — failure cost too high to permit autonomous handling | Medical life-or-death decisions, safety-critical systems |
+
+> **Permanently High-Context is a layer-relative property, not an absolute one.**
+
+A domain that is Permanently High-Context at a lower layer may be a routine escalation case at the upper layer — because the upper layer has broader context, higher authority, and a different decision horizon. This is structurally identical to the parent–child relationship in human governance: a decision too consequential for the child is a normal responsibility for the parent.
+
+As the fractal structure matures and upper layers are progressively populated by capable agents (AI or human), the set of domains that require human intervention at the highest level contracts:
+
+```
+Early system:    Most decisions require human intervention
+                 → Permanently High-Context domains are numerous
+
+Mature system:   Routine decisions handled by lower AI layers
+                 Complex decisions escalate to upper AI layers
+                 → "Permanently" applies only to the highest-layer residual
+
+Full maturity:   Only irreversible, highest-stakes decisions
+                 remain under direct human judgment
+                 → Permanently High-Context scope has contracted to its minimum
+```
+
+This means **Rest Mode is not blocked by the existence of Permanently High-Context domains — it is shaped by them.** Each layer achieves Rest Mode for the domains it can handle; the rest escalate upward until they reach the layer with sufficient authority to resolve them.
 
 ### 5.2 Two Dimensions of Consistency
 
@@ -453,14 +506,17 @@ System consistency is measured along two dimensions:
 
 ### 5.3 Consistency Index
 
-$$I = 1 - \frac{\sum_{i}(f_i \cdot s_i)}{N}$$
+$$I = 1 - \frac{\sum_{i=1}^{n}(f_i \cdot s_i)}{M}$$
 
 | Symbol | Meaning |
 |--------|---------|
 | $I$ | Consistency index (0–1; higher = more consistent) |
+| $n$ | Number of rules under evaluation in the current window |
 | $f_i$ | Conflict frequency for rule $i$ over the evaluation window |
 | $s_i$ | Conflict severity for rule $i$ |
-| $N$ | Normalization constant: maximum expected conflict mass $\sum_i f_i^{\max} s_i^{\max}$ under the layer's activity budget over the evaluation window |
+| $M$ | Normalization constant: maximum expected conflict mass $\sum_{i=1}^{n} f_i^{\max} s_i^{\max}$ under the layer's activity budget over the evaluation window |
+
+> $n$ and $M$ are distinct. $n$ counts rules; $M$ is a mass ceiling derived from those rules under worst-case conditions. They are not interchangeable.
 
 ### 5.4 Severity Classification
 
@@ -590,13 +646,22 @@ $$\text{Stabilization} \iff f_{\text{escalation}} \leq \tau_1 \;\wedge\; I \geq 
 
 > **Self-correction capacity (SCC)** is the system's ability to detect Vector Storm, contain it without external intervention, and return to a stable attractor autonomously.
 
-$$\text{SCC} = f\!\left(\frac{1}{\text{Storm frequency}},\; \text{Recovery speed without intervention}\right)$$
+**Self-correction capacity (SCC)** is defined along two independent dimensions:
 
-| SCC Level | Description |
-|-----------|-------------|
-| Low | Storms frequent; external intervention required |
-| Medium | Storms occasional; partial self-recovery |
-| High | Storms rare; full self-recovery → Rest Mode entry condition met |
+| Dimension | Direction | Meaning |
+|-----------|-----------|---------|
+| Storm frequency | Lower = higher SCC | How rarely Vector Storm events occur within the layer's scope |
+| Recovery speed | Higher = higher SCC | How quickly the layer returns to a stable attractor after a storm, without external intervention |
+
+SCC increases as storm frequency decreases and recovery speed increases. These two dimensions are not additive — a layer with rare but unrecoverable storms does not have high SCC. Both dimensions must be favorable simultaneously.
+
+> A formal functional relationship between these dimensions is left for future quantitative work. At this stage, SCC is treated as an ordinal observable: measurable in direction, not yet in magnitude.
+
+| SCC Level | Storm frequency | Recovery speed | External intervention |
+|-----------|----------------|----------------|-----------------------|
+| Low | High | Slow or absent | Required |
+| Medium | Moderate | Partial | Occasionally required |
+| High | Rare | Full, autonomous | Not required → Rest Mode entry condition met |
 
 ### 7.1.1 The Asymptotic Structure of SCC
 
@@ -693,8 +758,9 @@ Lower layer socialization complete
             └→ Human attention moves to next unsocialized layer
                  └→ Socialization continues in parallel across layers
                       └→ Full Rest Mode: all socializable layers socialized;
-                         permanently High-Context domains remain governed
-                         by designated oversight channels
+                         Permanently High-Context domains at each layer
+                         escalate to the next layer up, contracting toward
+                         the minimum residual requiring direct human judgment
 ```
 
 **Relationship to Seed Handover:** Rest Mode achievement and Seed Handover completion are the same event viewed from different angles. Rest Mode describes the governance state (oversight internalized). Seed Handover describes the design authority state (the layer now generates its own seeds). A fully socialized layer reproduces the principles it was given — and passes them downward to the layers below it.
@@ -760,15 +826,34 @@ Keeping humans permanently in seed design creates two structural risks:
 
 ### 9.1 Definition
 
-$$\min(\text{Risk} + \text{Cost}) \;\text{ subject to }\; \max(\text{Utility})$$
+$$\min(\text{Risk} + \text{Cost}) \;\text{ subject to }\; \text{Utility} \geq U^*$$
 
-| Variable | Meaning |
-|----------|---------|
+| Symbol | Meaning |
+|--------|---------|
 | Risk | Vector Storm frequency × intensity within the layer's scope |
 | Cost | Intervention cost + monitoring cost |
 | Utility | Knowledge ecosystem diversity (position clarity + interdependency + reinforcement loops) |
+| $U^*$ | Minimum acceptable diversity threshold — the floor below which the system loses the structural conditions for self-sustaining stability |
 
 Risk, Cost, and Utility are treated as normalized layer-level observables computed over a fixed evaluation window, subject to the invariant constraints defined by the highest-level global rules.
+
+### 9.1.1 What U* Means
+
+$U^*$ is not an arbitrary parameter. It is the minimum level of knowledge ecosystem diversity below which the mutual reinforcement loops that make Rest Mode possible can no longer be sustained.
+
+Operationally, $U^*$ is crossed when:
+
+```
+P_overlap approaches 1        (agents converging to same position)
+  OR
+L_reinforcement approaches 0  (mutual reinforcement loops collapsing)
+  OR
+D_interdependency falls below minimum viable coupling
+```
+
+In other words: $U^*$ is the boundary between a diverse, self-sustaining ecosystem and a monoculture that appears stable but is structurally brittle. Minimizing Risk + Cost while Utility is above $U^*$ means the system is optimizing governance efficiency without sacrificing the diversity that makes the system worth governing.
+
+> This is why $U^*$ is a constraint rather than a co-objective. The goal is not to maximize diversity — it is to ensure diversity never falls below the level required for structural self-sufficiency. Once that floor is secured, governance effort is directed at reducing Risk and Cost.
 
 ### 9.2 System Lifecycle
 
@@ -820,9 +905,9 @@ Utility
 | 11 | Rest Mode entry additionally requires sufficient self-correction capacity. |
 | 12 | Rest Mode is stable but not permanent; it exits when intervention cost falls below residual instability cost. |
 | 13 | Rest Mode achievement and Seed Handover completion are the same event viewed from different angles. |
-| 14 | Full Rest Mode applies only to socializable layers; permanently High-Context domains remain under designated oversight channels. |
+| 14 | Permanently High-Context is a layer-relative property: a domain unresolvable at a lower layer escalates to the upper layer, where it may be handled as a routine decision. As fractal depth increases, the set of domains requiring direct human judgment contracts toward an irreducible minimum. |
 | 15 | Seed design transfers from human to AI as stabilization conditions are met. |
-| 16 | The supreme objective is knowledge ecosystem diversity preservation at all fractal scales. |
+| 16 | The supreme objective is knowledge ecosystem diversity preservation at all fractal scales. Formally: governance minimizes Risk + Cost subject to Utility ≥ U*, where U* is the minimum diversity threshold required for structural self-sufficiency. |
 
 ---
 
@@ -844,7 +929,7 @@ Utility
 | Vector Storm as growth driver | Complex systems | Dissipative structures | Ilya Prigogine |
 | Optimal point | Complex systems | Edge of chaos | Stuart Kauffman |
 | Rest Mode | Ecology | Climax community / old-growth equilibrium | Arthur Tansley |
-| Self-correction capacity | Dynamical systems | Lyapunov stability | — |
+| Self-correction capacity | Dynamical systems | Lyapunov stability (structural analogue only — no differentiability or smoothness assumed) | — |
 | Seed handover | Organizational theory | Institutional knowledge transfer | — |
 | Knowledge diversity preservation | Complex systems | Self-organization | Prigogine / Kauffman |
 

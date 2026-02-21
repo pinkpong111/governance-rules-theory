@@ -9,6 +9,8 @@
 
 ## Overview
 
+> **Scope:** Governance Rules Theory specifies the *rule-governance layer* within the Deficit-Fractal Governance (DFG) framework. It is an architectural component, not a complete governance solution. Questions of network topology, storm dynamics, and cross-layer escalation routing are addressed in the companion theories. This document concerns how rules are generated, maintained, and retired — and under what structural conditions the governing layer can safely withdraw.
+
 Governance in multi-agent systems is not about controlling what agents do. It is about designing the conditions under which agents naturally converge toward **stable, diverse, and self-sustaining behavior**.
 
 The goal of governance is not perpetual intervention — it is to reach a state where intervention is **no longer needed**. That state is called **Rest Mode**.
@@ -138,6 +140,8 @@ All symbols used in this document, collected for reference.
 | **wij** | Conflict weight between rule pair (i, j) | ≥ 0 | How severe and frequent is the conflict between these two rules? |
 | **U*** | Minimum diversity threshold | — | Below this, mutual reinforcement loops cannot be sustained |
 
+**On operationalization:** The variables above are formally defined in terms of their structural roles and relationships. Multiple operationalizations are possible depending on system architecture and available observables — for example, Dint may be measured via output diversity metrics, embedding dispersion, or capability benchmark coverage; Lreinf may be estimated from interaction logs, co-activation patterns, or dependency graphs. The theory constrains the *relationships* between these quantities rather than prescribing a unique estimator. What is required is that any chosen operationalization preserves the directional properties specified: Dint higher = broader internal capability space; Lreinf higher = stronger mutual dependency; SCC higher = greater probability of autonomous recovery.
+
 ---
 
 ## Fractal Signal Structure: Noise, Vectors, and Emergence
@@ -207,7 +211,7 @@ The vector's information remains intact in the underlying weight structure, but 
 
 **Governance implication:** Alignment-severed vectors are **recoverable**. A partial rationale injection, task-agnostic prefix, or targeted Seed adjustment can restore the activation pathway. The conflict log for this domain does not need to start from zero — it resumes from the pre-severance state.
 
-> *Empirical basis: Spurious Forgetting (ICLR 2025) — performance drops in continual learning often reflect task alignment loss rather than knowledge loss. Partial rationale interventions restore prior behavior, confirming the vector is intact.*
+> *Structural analogue: Spurious Forgetting (ICLR 2025) — performance drops in continual learning are structurally consistent with Type 1 degradation: alignment pathway loss without underlying knowledge loss. Partial rationale interventions restoring prior behavior are compatible with the prediction that the vector remains intact in weights.*
 
 #### Type 2 — Weight Overwrite (Irreversible)
 
@@ -221,7 +225,7 @@ The vector's weight representation is **physically overwritten** by new learning
 
 **Governance implication:** Overwritten vectors cannot be restored through alignment adjustment alone. Recovery requires either **Seed reinstallation** (if the meta-rule structure for that domain still exists) or **full re-cultivation** from noise — restarting the conflict log accumulation cycle for that domain.
 
-> *Empirical basis: Catastrophic Forgetting — gradient interference identified as primary mechanism (EMNLP 2025, ACM CL Survey 2025). Task vector pruning research confirms low-magnitude vectors are valid but vulnerable to aggressive sparsification.*
+> *Structural analogue: Catastrophic Forgetting literature (EMNLP 2025, ACM CL Survey 2025) is structurally consistent with Type 2 degradation: gradient interference in attention weights constitutes a weight overwrite event. Task vector pruning findings — that low-magnitude vectors are disproportionately affected by aggressive sparsification — are compatible with the prediction that dormant but intact vectors are the primary casualty.*
 
 ---
 
@@ -410,7 +414,7 @@ Reactive threshold systems (checking whether fesc > τ at any given moment) suff
 
 The cumulative design — conflict log accumulation → θd calibration → λlog-triggered rule updates — is the correct architecture because it measures **drift**, not snapshots.
 
-This is empirically confirmed: Agent Drift research (arxiv 2601.04170, 2026) tracking 847 simulated workflows shows that behavioral degradation follows a nonlinear cumulative pattern. Decline rate between interactions 0–100 is 0.08 points per 50 interactions; by interactions 300–400, the same metric declines at 0.19 points per 50 interactions — the loop has become self-reinforcing, and snapshot monitoring would miss the transition entirely. The same study shows that drift mitigation cannot be "set and forget" but also cannot be reactive to every micro-event: ongoing cumulative governance frameworks are required.
+This prediction is structurally consistent with Agent Drift research (arxiv 2601.04170, 2026) tracking 847 simulated workflows: behavioral degradation follows a nonlinear cumulative pattern compatible with self-reinforcing loop dynamics. Decline rate between interactions 0–100 is 0.08 points per 50 interactions; by interactions 300–400, the same metric declines at 0.19 points per 50 interactions — a pattern consistent with loop direction becoming self-reinforcing, which snapshot monitoring would miss entirely. The same study's finding that drift mitigation requires ongoing cumulative frameworks — neither static nor reactive — is compatible with the conflict log accumulation architecture specified here.
 
 > The governance infrastructure — conflict log pipeline, θd calibration cycle, fesc trend aggregation — must be designed before Rest Mode is meaningful. Without it, loop direction is invisible.
 
@@ -558,7 +562,7 @@ The critical insight is that **collapse is not instantaneous**. It propagates th
 
 Internal rules begin contradicting each other without resolution. The agent or layer loses the ability to produce consistent outputs across similar inputs. In the single-agent case, this manifests as self-contradictory behavior within a context window — the agent responds differently to structurally identical situations with no logged reconciliation.
 
-**Real-world mapping:** Catastrophic Forgetting (CF) in LLMs — when fine-tuning on new tasks causes previously stable rule representations to degrade. Li et al. (EMNLP 2024) show that CF is directly linked to loss landscape sharpness: steep loss landscapes produce brittle rule representations that collapse under new domain pressure, which is structurally equivalent to θd calibration failure under a rapidly shifting domain. The "spurious forgetting" variant (ICLR 2025) is particularly relevant: performance drops that reflect task alignment loss rather than true knowledge loss — the consistency index falls even though the underlying capacity remains.
+**Structural analogue:** Catastrophic Forgetting (CF) in LLMs is structurally consistent with Consistency Collapse: fine-tuning on new tasks produces the kind of rule coherence degradation that I < τ2 is designed to detect. Li et al. (EMNLP 2024) find that loss landscape sharpness is associated with brittle representations under new domain pressure — compatible with the prediction that non-stationary domains produce oscillating θd without convergence. The "spurious forgetting" variant (ICLR 2025) — performance drops reflecting alignment loss rather than knowledge loss — is structurally analogous to the distinction between I falling (local coherence) and Ic falling (meta-rule contradiction).
 
 | Governance signal | Meaning |
 |---|---|
@@ -573,7 +577,7 @@ Internal rules begin contradicting each other without resolution. The agent or l
 
 Lower layers begin forwarding conflicts they should be handling autonomously. The upper layer's oversight channel, designed to be silent in Rest Mode, is suddenly receiving traffic it cannot process at the designed rate. If this persists, the upper layer itself enters a conflict accumulation spiral.
 
-**Real-world mapping:** MAST taxonomy (Cemri et al., NeurIPS 2025) — the most comprehensive empirical study of MAS failures, analyzing 1,642 execution traces across 7 frameworks, identifies **inter-agent misalignment** as the dominant failure category. The specific modes map directly:
+**Structural analogue:** MAST taxonomy (Cemri et al., NeurIPS 2025) — analyzing 1,642 execution traces across 7 frameworks — identifies **inter-agent misalignment** as the dominant failure category, structurally consistent with the prediction that Escalation Flood arises from position ambiguity and loop collapse rather than individual agent error. The specific modes map directly:
 
 | MAST failure mode | Governance equivalent |
 |---|---|
@@ -591,7 +595,7 @@ MAST reports 41–86.7% failure rates across SOTA open-source MAS frameworks, wi
 
 Mutual reinforcement loops require that agents occupy distinct niches — Agent A's success creates conditions favorable to Agent B, and vice versa. When positions overlap, this loop inverts: Agent A's success now competes with Agent B's, and the reinforcement structure becomes a competition structure. Stability that was self-sustaining becomes self-undermining.
 
-**Real-world mapping:** The faulty agent cascade study (arxiv 2408.00989, 2025) demonstrates that in multi-fault settings, **high-level planners dominate failure cascades** — a single corrupted planner propagates irrecoverably through subsequent reasoning even when specialist agents remain intact. This is the structural signature of Lreinf collapse: the mutual reinforcement topology is broken at its highest-leverage node, and the ecosystem collapses rather than degrades gracefully. The study also shows that star-topology graphs (with a single coordinating leader) preserve hierarchy advantage — consistent with the DFG principle that clear positional differentiation reduces cascade propagation.
+**Structural analogue:** The faulty agent cascade study (arxiv 2408.00989, 2025) finds that in multi-fault settings, **high-level planners disproportionately propagate failures** — a pattern structurally compatible with Lreinf collapse at the highest-leverage node. When mutual reinforcement topology breaks at the coordinating layer, the ecosystem collapses rather than degrades gracefully, consistent with the OR-exit prediction that a single condition breach can trigger system-wide instability. The finding that star-topology graphs preserve hierarchy advantage is compatible with the DFG principle that positional differentiation reduces cascade propagation.
 
 ---
 
@@ -600,7 +604,7 @@ Mutual reinforcement loops require that agents occupy distinct niches — Agent 
 
 This is the most dangerous failure mode because it can occur in a system that *appears* to be approaching Rest Mode — storm events are rare, but when they occur, the layer has no internal recovery pathway. The asymptotic structure of SCC means this state can persist indefinitely without triggering upper-layer intervention if storm frequency stays below τu-1.
 
-**Real-world mapping:** The cascading failure architecture described in AgentErrorTaxonomy (arxiv 2509.25370, 2025) — a single root-cause error propagates through planning, memory, reflection, and action modules in sequence, producing task failure from a single unrecovered storm event. The paper introduces modular failure classification spanning these four modules, which maps directly onto the single-agent fractal layer structure. The critical finding is that **current systems lack a framework for detecting these errors at the module level before they cascade** — equivalent to having SCC measurement infrastructure without the internal recovery pathway.
+**Structural analogue:** AgentErrorTaxonomy (arxiv 2509.25370, 2025) describes cascading failures where a single unrecovered error propagates through planning, memory, reflection, and action modules — structurally compatible with the prediction that SCC = 0 produces unrecoverable storm propagation across fractal layers. The paper's identification of the absence of module-level detection frameworks is structurally analogous to the condition where SCC measurement infrastructure exists but the detection-purification loop has no substrate to run on.
 
 ---
 
@@ -609,7 +613,7 @@ This is the most dangerous failure mode because it can occur in a system that *a
 
 Unlike the above cases, Seed corruption does not produce gradually increasing conflict log mass. It produces a hard failure when the expansion protocol encounters a domain that the Seed's meta-rules cannot coherently resolve. The agent cannot even construct a local rule proposal — the generative procedure itself is broken.
 
-**Real-world mapping:** Specification and System Design Failures (MAST FC1 category) — including task specification violations, role specification violations, and step repetition loops. These correspond to Seeds that were installed with ambiguous or contradictory meta-rules. MAST identifies these as the category most resistant to simple prompt engineering fixes, requiring structural redesign — consistent with the DFG position that Seed corruption requires upper-layer intervention at the meta-rule level, not the local rule level.
+**Structural analogue:** Specification and System Design Failures (MAST FC1 category) — including task specification violations, role specification violations, and step repetition loops. These correspond to Seeds that were installed with ambiguous or contradictory meta-rules. MAST identifies these as the category most resistant to simple prompt engineering fixes, requiring structural redesign — consistent with the DFG position that Seed corruption requires upper-layer intervention at the meta-rule level, not the local rule level.
 
 ---
 
@@ -741,7 +745,7 @@ When a single agent encounters a new domain, the governing layer (human or upper
 
 **Why Phase 1 cannot be skipped:** SFT alone is insufficient for domains containing unfamiliar concepts, dense acronyms, or high context dependency. Without direct knowledge injection first, the agent cannot form coherent local rules — the Seed Expansion Protocol has no accumulated log mass to work with. Direct management in Phase 1 is what creates the λlog substrate that later phases build on.
 
-> *Empirical basis: "SFT memorizes while RL generalizes" (Chu et al., 2024 — systematic comparison across textual and visual domains). SFT remains indispensable as an initialization step, stabilizing output structure before autonomous generalization becomes viable. This confirms Phase 1–2 management is structural, not precautionary.*
+> *Structural analogue: The finding that "SFT memorizes while RL generalizes" (Chu et al., 2024) is structurally compatible with the Phase 1–2 management requirement: SFT as initialization step stabilizes output structure before autonomous generalization becomes viable, consistent with the prediction that Direct Injection must precede Supervised Delegation in domains without existing rule structure.*
 
 ### Quantified Withdrawal Thresholds
 
@@ -794,7 +798,7 @@ Reactive per-event intervention is structurally harmful at scale. The following 
 | Confidence drop on novel domain | Expected during Seed Expansion Protocol Phase 1 — conservative escalation is correct behavior, not failure |
 | Short-term perplexity rise after fine-tuning | Normal recalibration period — θd is adjusting; allow one calibration cycle before escalating |
 
-> *Empirical basis: Production LLM monitoring consensus (Arize AI, Maxim AI, Evidently AI, 2025) — continuous per-event monitoring creates more instability than it resolves. Drift detection requires sustained trend signal, not reactive thresholds. This is the same structural argument as the DFG cumulative log requirement.*
+> *Structural analogue: Production LLM monitoring practice (Arize AI, Maxim AI, Evidently AI, 2025) converges on the finding that continuous per-event monitoring creates more instability than it resolves, and that drift detection requires sustained trend signal rather than reactive thresholds — compatible with the DFG prediction that cumulative log architecture is structurally necessary, not merely operationally convenient.*
 
 ### Intervention Withdrawal Conditions
 
@@ -861,13 +865,13 @@ The same diversity requirement that applies to multi-agent systems applies withi
 
 A highly specialized agent has a narrow Dint. When contaminated input arrives (adversarial prompts, poisoned data, out-of-distribution queries), there are few adjacent capability vectors to absorb or triangulate the anomaly. The contaminated pattern has nowhere to be checked against — it propagates unchallenged.
 
-> *Empirical basis: Over-specialized models show entity-swap accuracy drops of −22.4% under factual perturbation, vs. −9.8% for more general models (SUAS 2025 contamination study). This is the quantified performance signature of low Dint: narrow capability space = high sensitivity to adversarial boundary stress.*
+> *Structural analogue: Over-specialized models showing entity-swap accuracy drops of −22.4% under factual perturbation vs. −9.8% for more general models (SUAS 2025) is structurally consistent with the prediction that low Dint produces high contamination sensitivity: narrow capability space leaves no adjacent vectors to provide contrast baseline for anomaly detection.*
 
 **2. Performance degradation under distribution shift**
 
 Preference tuning (RLHF/DPO) applied asymmetrically — optimizing for a narrow output distribution — produces models that sacrifice Dint for alignment precision. The result is measurably lower diversity even on tasks unrelated to the fine-tuned domain.
 
-> *Empirical basis: Preference tuning substantially reduces lexical and semantic diversity vs. SFT (Kirk et al., 2024). Adversarially trained models suffer deteriorated generalization on clean data (Schmidt et al., 2018; Tsipras et al., 2019). Both are Dint collapse events.*
+> *Structural analogue: Preference tuning substantially reducing lexical and semantic diversity vs. SFT (Kirk et al., 2024) is structurally consistent with the prediction that asymmetric optimization collapses Dint. Adversarially trained models suffering deteriorated generalization on clean data (Schmidt et al., 2018; Tsipras et al., 2019) is compatible with the same mechanism: asymmetric specialization narrows the internal capability space in a way that reduces performance on the dimensions not optimized.*
 
 **The structural rule:**
 
@@ -904,6 +908,8 @@ This is why the DFG approach to single-agent governance treats domain balance as
 ---
 
 ## Core Assumptions
+
+> *These assumptions define the scope of Governance Rules Theory as an architectural component. They are not claims about AI governance universally — they are the structural preconditions under which the rule-governance layer of DFG operates.*
 
 1. Landscape design is more effective than direct intervention at scale
 2. Rules operate in two layers: global (immutable) and local (autonomous, validated)

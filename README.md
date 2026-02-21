@@ -1,992 +1,988 @@
 # Governance Rules Theory
 
-### Meta-Rule Architecture, Consistency Measurement, and Rest Mode
+**Meta-Rule Architecture, Consistency Measurement, and Rest Mode**
 
-> A component theory of **Deficit-Fractal Governance (DFG)**
->
-> **Companion theories:** [Vector Storm Theory](../vector-storm/) · [Network Architecture Theory](../network-architecture/)
-> Recovery and prediction are addressed in separate documents.
+> A component theory of **Deficit-Fractal Governance (DFG)**  
+> Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
 
 ---
 
 ## Overview
 
-### The Central Distinction
+Governance in multi-agent systems is not about controlling what agents do. It is about designing the conditions under which agents naturally converge toward **stable, diverse, and self-sustaining behavior**.
 
-Governance of multi-agent systems has traditionally meant one thing: controlling what agents do. Issuing instructions, enforcing rules, penalizing violations, correcting behavior in real time.
+The goal of governance is not perpetual intervention — it is to reach a state where intervention is **no longer needed**. That state is called **Rest Mode**.
 
-This theory proposes a different mechanism entirely.
+> *The measure of a mature system is not how well it is controlled — it is how little it needs to be.*
 
-> **The goal is not to change what agents do.**
-> **The goal is to change the terrain they move through.**
-
-When the terrain changes, agents converge toward new behavior on their own — without instruction, without enforcement, without the cost of continuous oversight. This is **landscape design**, and it is the foundational mechanism of this theory.
-
-The distinction matters because it resolves a problem that direct intervention cannot:
-
-| Mechanism | What changes | What persists | Scales? |
-|-----------|-------------|---------------|---------|
-| **Direct Intervention** | Agent behavior (temporarily) | Original attractor | No — cost grows with n² |
-| **Landscape Design** | The terrain itself | New attractor | Yes — fractal across all layers |
-
-When you intervene directly, the agent's underlying attractor remains. Remove the intervention and behavior reverts. At scale, intervention cost compounds and agents begin treating corrections as external vectors — potentially inducing the very instability you were correcting for.
-
-Landscape design bypasses this. The terrain is modified; the agent chooses freely within it. The choice is the agent's own — but the right choice has become the easiest one.
-
-### Connection to Current AI Systems
-
-This is not an abstract distinction. Current AI training methods can be interpreted as landscape design already in practice: RLHF shapes the reward terrain, Constitutional AI installs invariant boundary conditions, and reward shaping modifies path costs throughout the exploration space. In each case, humans are not intervening in individual inference steps — they are modifying the terrain through which the model moves.
-
-This theory formalizes that intuition into a governance architecture: a structured set of rules for how terrain gets designed, updated, and validated — at every layer of a multi-agent system, including inside a single agent.
-
-### What This Theory Defines
-
-This theory defines the rule architecture that makes landscape-based governance operational:
-
-- A **two-layer rule structure** (global meta-rules and local rules) that preserves autonomy while maintaining system-wide consistency
-- A **consistency measurement framework** (τ thresholds, θ_d calibration, λ_log triggers) for detecting when the terrain needs adjustment
-- The **Seed Expansion Protocol** — how agents extend competence into unknown domains without upper-layer redesign
-- The conditions under which **external governance becomes unnecessary**: Rest Mode
-
-### The Endpoint
-
-**The measure of a mature system is not how well it is controlled — it is how little it needs to be.**
-
-As a system develops under landscape-based governance, upper layers do not accumulate more authority. They shed it. Risk and cost decrease not because the system is constrained more tightly, but because the lower layers have internalized the principles that make constraint unnecessary.
-
-```
-Immature system:    Upper layers active, intervening frequently
-                    Risk high, Cost high — lower layers dependent
-
-Developing system:  Upper layers intervening less
-                    Risk decreasing, Cost decreasing — lower layers self-calibrating
-
-Mature system:      Upper layers silent
-                    Risk minimized, Cost minimized — lower layers fully autonomous
-                    → Rest Mode
-```
-
-The progressive silencing of upper-layer intervention is the structural signature of a system approaching its optimal point. This is not a gradual loosening of control. It is the designed destination — the point at which the governance architecture has successfully transferred its logic into the system it governs.
+| Stage | Characteristics |
+|---|---|
+| **Immature** | Upper layers active, intervening frequently. Risk high, Cost high. Lower layers dependent. |
+| **Developing** | Upper layers intervening less. Risk and Cost decreasing. Lower layers self-calibrating. |
+| **Mature** | Upper layers silent. Risk and Cost minimized. Lower layers fully autonomous → **Rest Mode** |
 
 ---
 
-## Table of Contents
+## Core Principles
 
-1. [The Landscape Design Principle](#1-the-landscape-design-principle)
-2. [Global and Local Rules](#2-global-and-local-rules)
-3. [Meta-Rules](#3-meta-rules)
-4. [Correction Value Framework](#4-correction-value-framework)
-5. [Consistency Measurement](#5-consistency-measurement)
-6. [Position Clarity and Mutual Reinforcement](#6-position-clarity-and-mutual-reinforcement)
-7. [Rest Mode and Self-Correction Capacity](#7-rest-mode-and-self-correction-capacity)
-8. [Seed Handover](#8-seed-handover)
-9. [The Optimal Point](#9-the-optimal-point)
-10. [Core Assumptions](#10-core-assumptions)
-11. [Structural Correspondences](#11-structural-correspondences)
-
----
-
-## 1. The Landscape Design Principle
-
-### 1.1 Intervention vs. Landscape Design
-
-Governance operates through two fundamentally different mechanisms:
+### 1. Landscape Design vs. Direct Intervention
 
 | Mechanism | Behavior |
-|-----------|----------|
-| **Direct Intervention** | Forces agent behavior directly. Agent returns to original attractor when intervention ends. Does not scale with system complexity. |
-| **Landscape Design** | Changes the terrain itself. Agents naturally converge toward new attractors. Intervention ends but effect persists. Scales across all fractal layers. |
+|---|---|
+| **Direct Intervention** | Forces agent behavior. Effect disappears when intervention ends. Does not scale. |
+| **Landscape Design** | Changes the terrain itself. Agents naturally converge toward new attractors. Effect persists. Scales fractally. |
 
-> Landscape design means installing guardrails at cliffs and building highways on frequently traveled paths.
-> The agent chooses freely — but the terrain makes the right choice the easiest one.
+Landscape design means installing guardrails at cliffs and building highways on frequently traveled paths. The agent chooses freely — but the terrain makes the right choice the easiest one.
 
-### 1.2 Why Direct Intervention Fails at Scale
+Existing AI alignment techniques already implement landscape design:
+- **RLHF** — shapes the output space without per-inference intervention
+- **Constitutional AI** — replaces per-output correction with governing principles
+- **Reward shaping** — modifies the agent's value terrain while preserving the optimal policy
 
-As multi-agent systems grow in autonomy, direct intervention produces resistance:
+**DFG's contribution beyond these:** Existing techniques shape the space, but do not govern the lifecycle. DFG adds the operational layer that existing approaches omit:
 
-$$\text{Intervention cost} \propto n^2 \cdot \text{Autonomy level}$$
+| What existing alignment does | What DFG adds |
+|---|---|
+| Shapes output space via principles or rewards | Defines the procedure by which agents generate their own rules (Seed) |
+| Applies correction at inference or training time | Governs when to intervene and when to withdraw, via measurable convergence conditions |
+| Treats stability as a training outcome | Treats stability as a runtime state with explicit entry/exit conditions (AND-entry / OR-exit) |
 
-At sufficient scale, agents treat direct intervention as an external vector — triggering self-reinforcement responses and potentially inducing Vector Storm.
+The DFG-specific claim: a governance system is not complete until it specifies not just *what* constraints apply, but *how rules are generated* (Seed + λlog-based promotion), *when the governing layer withdraws* (Handover conditions), and *what structural conditions make that withdrawal safe* (AND-entry / OR-exit trend measurement).
 
-Landscape design bypasses this entirely. The terrain changes; the agent's choice remains its own.
+### 2. Subsidiarity Principle
 
-### 1.3 Landscape Design Is Already Happening
+> **The default state is autonomy. Intervention is the exception.**
 
-An important clarification for readers unfamiliar with fractal governance: **landscape design is not a one-time initialization step. It is an ongoing process operating at every layer of the system, including inside a single agent.**
+Decisions are handled at the lowest layer capable of resolving them. Upper layers intervene only when a threshold condition is breached — and the goal of intervention is always to *restore* autonomous operation, not replace it.
 
-Current AI systems can be interpreted as implementing landscape design continuously. RLHF, Constitutional AI, and reward shaping are operationally similar to terrain modification in this framework — humans do not intervene in every inference step, but instead shape the space within which the agent moves. The agent then navigates that terrain autonomously.
-
-```
-Human direct intervention (inefficient):
-  Every response → human reviews → human corrects
-  Cost: linear with activity
-  Scalability: none
-
-Landscape design (this framework):
-  Terrain shaped once (or periodically updated)
-  Agent navigates autonomously within shaped terrain
-  Terrain adjusted when τ thresholds are crossed
-  Cost: fixed + threshold-triggered
-  Scalability: fractal
-```
-
-This also resolves an apparent paradox: "isn't designing the landscape itself an intervention?" The answer is structural. Direct intervention specifies *what the agent does*. Landscape design specifies *the space within which the agent chooses*. The agent's choice remains its own — only the terrain has changed.
-
-Because the architecture is fractal, this same dynamic plays out inside a single agent's three-layer structure:
-
-```
-Single-agent landscape design (continuous):
-  Bottom layer explores freely
-  Middle layer adjusts internal terrain in real time
-    → penalizes paths leading toward uniform attractors
-    → rewards paths maintaining output diversity
-  Top layer holds invariant terrain boundaries
-  Human observes — intervenes only at τ threshold
-```
-
-### 1.4 The Subsidiarity Principle
-
-> **The default state is autonomy. Intervention is the exception, not the rule.**
-
-Governance operates on a subsidiarity basis: decisions are handled at the lowest layer capable of resolving them. Upper layers do not intervene unless a threshold condition is breached — and even then, the goal of intervention is to restore autonomous operation, not to replace it.
-
-```
-Default state:        Lower layer operates fully autonomously
-Below threshold:      Upper layer observes only — no intervention
-Threshold crossed:    Upper layer intervenes minimally
-Intervention goal:    Return lower layer to autonomous operation
-Post-intervention:    Upper layer withdraws
-```
-
-This applies identically at every fractal scale:
-
-```
-Single-agent internal structure:
-  Top layer    → Invariant principles (intervenes rarely)
-  Middle layer → Conflict detection and mediation
-  Bottom layer → Task execution (maximum autonomy)
-
-Multi-agent structure:
-  Upper agent  → Meta-rule authority (intervenes rarely)
-  Middle agent → Escalation handling and mediation
-  Lower agent  → Operational diversity (maximum autonomy)
-
-Both structures:
-  → Autonomy preserved until threshold is crossed
-  → Minimum intervention at threshold
-  → Withdrawal after resolution
-```
-
-**τ values are therefore not triggers for control — they are the boundaries of autonomy.** The design intent is always to keep all τ conditions comfortably unmet. A system where thresholds are never crossed is a system where autonomy is never interrupted.
+| Condition | Action |
+|---|---|
+| Below threshold | Upper layer observes only — no intervention |
+| Threshold crossed | Upper layer intervenes minimally |
+| Goal of intervention | Return lower layer to autonomous operation |
+| Post-intervention | Upper layer withdraws |
 
 ---
 
-## 2. Global and Local Rules
+## Rule Architecture
 
-### 2.1 Two-Layer Rule Structure
+### Global Rules (Upper Layer)
+- Apply at all fractal scales
+- Immutable without upper-layer authorization
+- Always take precedence over local rules
 
-```
-Global Rules
-  ├─ Defined by upper layer
-  ├─ Apply at all scales (fractal consistency)
-  ├─ Immutable without upper-layer authorization
-  └─ Examples:
-       · Escalate on vector conflict detection
-       · High-Context data: suppress degradation
-       · Log all rule conflicts
+### Local Rules (Layer-Autonomous)
+- Apply within that layer only
+- Require upper-layer validation before activation
+- Define local escalation thresholds, pathway advantages, penalties
 
-Local Rules
-  ├─ Defined by local layer (autonomous)
-  ├─ Apply within that layer only
-  ├─ Require upper-layer validation before activation
-  └─ Examples:
-       · Escalation threshold τ for this cluster
-       · Advantage value for this pathway = +0.3
-       · Penalty for boundary violation = −0.5
-```
-
-### 2.2 Priority and Conflict Resolution
-
-When global and local rules conflict:
-
-```
-Conflict detected
-  └→ Global rule executes immediately
-       └→ Local rule suspended
-            └→ Conflict logged (mandatory)
-                 └→ Local rule flagged for re-validation
-```
-
-> **Global rules always take precedence.** This is non-negotiable at every fractal level.
-
-### 2.3 Validation Flow
-
-```
-Local layer designs rule
-  └→ Submits to upper layer for validation
-       └→ Upper layer checks:
-            ├─ Does it conflict with global rules?
-            └─ Does it conflict with other local rules?
-                 ├→ No conflicts → Rule activated
-                 └→ Conflict found → Rule returned for revision
-```
+**On conflict:** Global rule executes immediately → local rule suspended → conflict logged → local rule flagged for re-validation.
 
 ---
 
-## 3. Meta-Rules
+## Meta-Rules
 
-### 3.1 Definition
-
-> **Meta-Rules** are rules about how rules are made.
-> The upper layer does not define the content of local rules.
-> It defines the **structure, format, and update conditions** that all rules must follow.
-
-This preserves local autonomy while maintaining system-wide consistency.
-
-```
-Upper layer defines:    HOW rules are made  (Meta-Rules)
-Local layer defines:    WHAT the rules say  (Local Rules)
-```
-
-### 3.2 What Meta-Rules Govern
+Meta-Rules are **rules about how rules are made**. The upper layer does not define the content of local rules — it defines the structure, format, and update conditions that all rules must follow.
 
 | Domain | Meta-Rule Content |
-|--------|-------------------|
+|---|---|
 | Expression format | Rules must be expressed numerically |
 | Symmetry requirement | Advantages and penalties must be structurally symmetric |
 | Logging obligation | All rule changes must be logged |
 | Update conditions | Rules may only change when conflict log threshold is exceeded |
-| Validation requirement | All local rules require upper-layer validation before activation |
 | Conflict priority | Global rules always supersede local rules |
 
-### 3.3 Seeds Are Meta-Rules
+### Seeds Are Meta-Rules
 
-> A **seed** is not a set of specific rules.
-> It is a set of meta-rules — the **generative principles** by which an agent constructs its own rules.
+A **Seed** is not a set of specific rules. It is a set of meta-rules — the generative principles by which an agent constructs its own rules:
+- How to classify data types
+- When to escalate
+- How to express correction values
+- How conflicts are logged and resolved
+- Which agents to form interdependency with
+- How to behave when encountering an unknown domain (Expansion Protocol)
 
-```
-Seed content:
-  ├─ How to classify data types
-  ├─ When to escalate
-  ├─ How to express correction values
-  ├─ When rules may be updated
-  ├─ How conflicts are logged and resolved
-  ├─ What is this agent's distinct positional role
-  ├─ Which agents to form interdependency with
-  └─ How to behave when encountering an unknown domain  ← EXPANSION PROTOCOL
-```
+### Seed Expansion Protocol
 
-Seeds give agents the capacity to govern themselves within a consistent structure — without upper layers dictating specific behavior.
+When an agent encounters an input outside its existing rules:
 
-### 3.4 Seed Expansion Protocol — How Agents Acquire New Domains
+1. **Classification attempt** — try to classify under existing data types
+2. **Conservative escalation** — if unknown, escalate with low τ and high consistency requirements
+3. **Conflict log accumulation** — domain characteristics emerge through logged patterns
+4. **Local rule formation** — once log mass exceeds λlog, agent proposes local rules → upper-layer validates → approved or returned for revision
 
-A critical function of the seed is defining agent behavior when encountering inputs that cannot be classified under existing rules. This is the mechanism by which a single agent extends its competence into new domains, and by which a multi-agent system incorporates new agent types.
-
-```
-Stage 1 — Classification attempt
-  New input arrives
-  → Agent attempts to classify under existing data types
-  → Success → existing θ_d values apply → resolved
-  → Failure → unknown domain flag raised
-
-Stage 2 — Conservative escalation
-  Unknown domain flagged
-  → Escalate to Middle layer
-  → Middle layer assigns temporary θ_d values
-  → Conservative by default: low τ₁ (escalates quickly),
-    high τ₂ (strict consistency requirement)
-  → Agent operates under temporary rules
-
-Stage 3 — Conflict log accumulation
-  Agent operates in new domain under temporary rules
-  → Conflict patterns recorded
-  → Which rules produce collisions, which hold
-  → Domain characteristics emerge from log structure
-
-Stage 4 — Local rule formation
-  Conflict log mass exceeds update trigger (λ_log)
-  → Agent proposes local rules for new domain
-  → Upper layer validates against global rules
-  → Approved → new domain added to agent's rule set
-  → θ_d calibrated to domain risk profile
-  → Temporary conservative θ_d replaced with domain-specific θ_d
-```
-
-**The seed does not contain the rules for the new domain. It contains the procedure for building them.** This is what makes fractal expansion possible without upper-layer redesign at each new domain boundary.
-
-### 3.5 Fractal Meta-Rule Consistency
-
-Because the architecture is fractal, meta-rules must apply identically at every scale:
-
-```
-Upper layer meta-rules
-  └→ Same structural principles
-       └→ Middle layer meta-rules
-            └→ Same structural principles
-                 └→ Lower layer local rules
-```
-
-A meta-rule that applies only at one scale breaks fractal consistency and creates boundary instability.
+> The seed does not contain rules for the new domain. It contains the **procedure for building them**.
 
 ---
 
-## 4. Correction Value Framework
+---
 
-### 4.1 Form vs. Content
+## Notation Reference
 
-Correction values (advantages and penalties applied to pathways and boundaries) are governed by **form at the global level** and **content at the local level**:
+All symbols used in this document, collected for reference.
 
-| Global (form) | Local (content) |
-|---------------|-----------------|
-| Numeric expression | Pathway A: +0.3 |
-| Symmetric structure | Boundary B: −0.5 |
-| Logging required | Threshold C: 0.7 |
-| Update conditions defined | Cluster D: +0.2 |
-
-### 4.2 Landscape Mapping
-
-| Terrain Feature | Correction Value | Meaning |
-|----------------|-----------------|---------|
-| Highway | High advantage | Frequently used, optimized pathway |
-| Guardrail | High penalty | Boundary near dangerous region |
-| Unpaved road | Neutral | Infrequent path, left as-is |
-| Blocked zone | Maximum penalty | Noise region or expansion-prohibited area |
-
-### 4.3 Correction Value by Data Type
-
-| Data Type | Correction Approach |
-|-----------|---------------------|
-| Mathematical | Advantage on direct processing pathway |
-| High-Context | Advantage on escalation pathway; penalty on local resolution |
-| Tacit Knowledge | Neutral; penalty only on performance degradation |
-| Noise | Maximum penalty; discard at source |
+| Symbol | Full name | Range | Answers |
+|---|---|---|---|
+| **τ** | Judgment thresholds | ≥ 0 | Has this layer stabilized / reached Rest Mode? |
+| **τu-1 … τu-4** | Rest Mode entry/exit thresholds (per condition) | ≥ 0 | Is this specific condition satisfied? |
+| **θd** | Domain calibration threshold | (0, 1] | How sensitive is this domain right now? |
+| **λlog** | Rule update trigger mass | ≥ 0 | When does accumulated log mass trigger a rule update? |
+| **fesc** | Escalation frequency | #escalations per K interactions (or per hour) | Is the upper layer being called more or less? |
+| **I** | Consistency index | [0, 1] | Are rules internally coherent? |
+| **Ic** | Meta-contradiction index | [0, 1] | Are global rules in direct conflict? |
+| **Lreinf** | Mutual reinforcement loop count | #active edges above weight ε | Are interdependencies strengthening or collapsing? |
+| **SCC** | Self-correction capacity | P(autonomous recovery within window W) | Can the layer recover without external intervention? |
+| **Poverlap** | Positional overlap | [0, 1] | Are agents/domains converging toward the same attractor? |
+| **Dint** | Internal diversity | [0, 1] | Is the internal capability space sufficiently diverse? |
+| **M** | Conflict mass normalization constant | ≥ 0 | Baseline for I calculation |
+| **wij** | Conflict weight between rule pair (i, j) | ≥ 0 | How severe and frequent is the conflict between these two rules? |
+| **U*** | Minimum diversity threshold | — | Below this, mutual reinforcement loops cannot be sustained |
 
 ---
 
-## 5. Consistency Measurement
+## Fractal Signal Structure: Noise, Vectors, and Emergence
 
-### 5.0 Symbol Definitions
+### Nothing Starts as a Vector
 
-This section uses three distinct symbols to avoid conflating different roles:
+A vector is not declared — it **emerges**. At the point of first encounter, every input is noise. The distinction between noise and vector is not a property of the input itself; it is the outcome of a governance process.
+
+| State | Definition |
+|---|---|
+| **Noise** | Input whose directional significance has not yet been established — unclassified, pattern unknown |
+| **Vector** | Input whose direction has been confirmed through accumulated conflict log patterns — structurally stable |
+| **Vectorization** | The process by which noise becomes a vector through log accumulation exceeding λlog |
+
+This means the system does not pre-sort inputs into signal and noise. It treats all new inputs as noise first, and **promotes them to vector status only after sufficient evidence accumulates**.
+
+### The Degraded Map
+
+The system maintains what can be understood as a *degraded map* — a representation of the input space where:
+
+- Known vectors occupy confirmed, stable positions
+- Noise occupies unresolved regions with no assigned direction
+- The boundary between them shifts as conflict logs accumulate
+
+The map is called *degraded* because it is never complete. New inputs continuously arrive from outside the current map boundary. The Seed Expansion Protocol is the mechanism by which the map extends itself — not by pre-defining new regions, but by growing them from repeated encounters with the unknown.
+
+### Three Structural Operations
+
+At any fractal scale, the governance architecture performs three simultaneous operations:
+
+| Operation | Target | Mechanism |
+|---|---|---|
+| **Separation** | Distinguish noise from vector | Data type classification; θd-gated escalation |
+| **Friction minimization** | Reduce conflict between established vectors | Position clarity; niche differentiation; correction value landscape |
+| **Noise cultivation** | Preserve unclassified inputs for potential vectorization | Conservative escalation (τ=1); conflict log accumulation; Seed Expansion Protocol |
+
+Noise is not discarded. It is held in a low-escalation, high-sensitivity state until patterns emerge. Discarding noise prematurely would permanently close off domains that have not yet accumulated sufficient evidence — collapsing the system's capacity for expansion.
+
+### Fractal Isomorphism
+
+This three-operation structure repeats identically at every scale:
+
+| Scale | Noise | Vector | Friction minimization |
+|---|---|---|---|
+| **Single agent (internal)** | Unknown input domain | Established processing pathway | Correct value landscape between pathways |
+| **Multi-agent system** | New agent without confirmed position | Agent with established niche | Position clarity; mutual reinforcement loops |
+
+The fractal structure does not simply repeat the same shape. It repeats the same **logic**: separate, minimize friction between what is known, and cultivate what is not yet known. This is why Rest Mode propagation is bottom-up — each layer must complete its own noise-to-vector conversion cycle before its upper layer can withdraw.
+
+> *Vectors are not given. They are grown.*
+
+---
+
+### Vector Degradation: The Reverse Path
+
+Vectorization is not a one-way process. Established vectors can degrade back toward noise through two structurally distinct mechanisms. This distinction is critical because the two types have different governance implications and recovery pathways.
+
+#### Type 1 — Alignment Severance (Reversible)
+
+The vector's information remains intact in the underlying weight structure, but the **pathway to activate it is severed**. The system can no longer reliably elicit the vector even though the knowledge exists.
+
+| Trigger | Mechanism | Observable signal |
+|---|---|---|
+| New task fine-tuning | Orthogonal weight updates disrupt instruction-to-rationale mapping | Performance drop without loss of underlying knowledge |
+| Conflict log stagnation | A vector that stops receiving conflict log reinforcement loses its activation alignment | Vector present in weights; inaccessible at runtime |
+| Seed reconfiguration | Meta-rule changes alter the classification pathway that routes inputs to the vector | Domain-specific failure while adjacent domains remain intact |
+
+**Governance implication:** Alignment-severed vectors are **recoverable**. A partial rationale injection, task-agnostic prefix, or targeted Seed adjustment can restore the activation pathway. The conflict log for this domain does not need to start from zero — it resumes from the pre-severance state.
+
+> *Empirical basis: Spurious Forgetting (ICLR 2025) — performance drops in continual learning often reflect task alignment loss rather than knowledge loss. Partial rationale interventions restore prior behavior, confirming the vector is intact.*
+
+#### Type 2 — Weight Overwrite (Irreversible)
+
+The vector's weight representation is **physically overwritten** by new learning. The knowledge itself is gone, not merely inaccessible.
+
+| Trigger | Mechanism | Observable signal |
+|---|---|---|
+| Catastrophic forgetting during fine-tuning | Gradient interference in attention weights destroys prior vector representation | Performance drop that does not recover with prompting |
+| Rapid successive task learning without replay | Each new task overwrites the previous without consolidation | Monotonic performance decay across earlier domains |
+| High-sparsity task vector pruning | Forced sparsification removes weight values below magnitude threshold, including dormant but valid vectors | Targeted capability loss in pruned domains |
+
+**Governance implication:** Overwritten vectors cannot be restored through alignment adjustment alone. Recovery requires either **Seed reinstallation** (if the meta-rule structure for that domain still exists) or **full re-cultivation** from noise — restarting the conflict log accumulation cycle for that domain.
+
+> *Empirical basis: Catastrophic Forgetting — gradient interference identified as primary mechanism (EMNLP 2025, ACM CL Survey 2025). Task vector pruning research confirms low-magnitude vectors are valid but vulnerable to aggressive sparsification.*
+
+---
+
+#### Implications for the Degraded Map
+
+The distinction between Type 1 and Type 2 degradation makes the *degraded map* dynamic in both directions:
+
+```
+Noise ──[λlog accumulation]──────────────► Vector   (Vectorization)
+
+Vector ──[alignment severance]──► Dormant ──[pathway restoration]──► Vector
+         (Type 1: reversible)
+
+Vector ──[weight overwrite]──────► Noise  ──[full recultivation]───► Vector
+         (Type 2: irreversible)            (new conflict log cycle required)
+```
+
+A system that accounts for both degradation types is modeling the **actual dynamics** of the knowledge ecosystem — where regions of the map can go dark, and the governance response depends on which type of darkness is occurring.
+
+**Governance diagnostic:** When a previously stable vector becomes unreliable, the first step is determining the degradation type. If prompting or pathway adjustment restores function → Type 1, apply alignment repair. If not → Type 2, initiate re-cultivation or Seed reinstallation.
+
+> *Vectors are not given. They are grown — and they can be lost. The degraded map records both.*
+
+---
+
+## Consistency Measurement
+
+### Key Parameters
 
 | Symbol | Role | Meaning |
-|--------|------|---------|
-| **τ₁, τ₂, τ₃, τ₄** | Judgment thresholds | Critical values used in stabilization and Rest Mode conditions — fixed per layer, set during seed design |
-| **θ_d** | Domain calibration parameter | Operating threshold for a specific domain — adjusts via conflict log accumulation |
-| **λ_log** | Update trigger | Conflict log mass level at which a local rule revision or new rule formation is triggered |
+|---|---|---|
+| **τ** | Judgment thresholds | Critical values for stabilization and Rest Mode conditions. Piecewise constant per evaluation regime — re-estimated at three trigger points: (1) Seed Handover phase transition, (2) new domain added to system scope, (3) Collapse recovery restart. |
+| **θd** | Domain calibration | Operating threshold for a specific domain. Convergence speed follows a power-law curve: rapid adjustment in early conflict accumulation, decelerating as domain patterns stabilize (D-CPT Law, 2024). **Update rule:** if drift metric exceeds baseline by θ_drift, then θd ↑ (increase sensitivity); if domain is stable across evaluation window, then θd ↓ (reduce sensitivity). Bounded to prevent runaway adjustment. |
+| **λlog** | Update trigger | Conflict-log mass threshold that triggers local rule revision or new rule formation. **Initial setting:** calibrated to approximately one θd calibration cycle. **Update rule:** if false-alarm rate in recent k-window is high, λlog ↑ (require more evidence before updating); if miss rate is high, λlog ↓ (trigger updates sooner). |
 
-> τ answers: "Has this layer stabilized / reached Rest Mode?"
-> θ_d answers: "How sensitive is this domain right now?"
-> λ_log answers: "When does the log trigger a rule update?"
+- **τ** answers: "Has this layer stabilized / reached Rest Mode?"
+- **θd** answers: "How sensitive is this domain right now?"
+- **λlog** answers: "When does accumulated log mass trigger a rule update?"
 
-### 5.0.1 Why Thresholds Must Be Discrete
+### Consistency Index (I)
 
-The consistency measurement framework operates on discrete judgment thresholds: **τ₁, τ₂, τ₃, τ₄**.
-
-**The continuous monitoring problem:**
+I measures rule coherence at the **rule-pair level** — not aggregate conflict mass, but the weighted sum of conflicts between specific rule pairs. This structure makes it possible to identify which rule relationships are generating instability, rather than knowing only that instability exists.
 
 ```
-Continuous consistency monitoring
-  → Every micro-conflict triggers governance response
-  → Monitoring cost scales with system activity
-  → At sufficient scale: monitoring cost exceeds governance value
-  → Governance becomes the primary source of system load
+I = 1 − (Σ wij) / M
 ```
-
-Discrete thresholds solve this by design:
-
-```
-Below τ  → no governance action triggered
-Above τ  → governance response activated
-
-Processing cost  → fixed, independent of micro-fluctuation volume
-Governance load  → scales with threshold crossings, not total activity
-```
-
-> **Judgment thresholds (τ) are not approximations of continuous targets.**
-> **They are designed discretization points — analogous to quantization thresholds in signal processing — the minimum unit of governance activation.**
-
-### 5.1 Domain-Specific θ_d Calibration
-
-θ_d values are not system-wide fixed constants. They are **domain-specific operating thresholds** that reflect the risk profile of the region being governed. Unlike judgment thresholds (τ), which are fixed per layer, θ_d values adjust continuously as conflict logs accumulate.
-
-```
-High-risk domain (near invariant boundaries, High-Context data):
-  θ_d low   → escalation triggers quickly
-  Effect:   small deviations immediately surface
-
-Standard domain (mathematical, repetitive tasks):
-  θ_d high  → wide tolerance for local resolution
-  Effect:   agent operates autonomously for longer
-
-Noise domain:
-  θ_d irrelevant
-  Maximum penalty applied immediately
-  No escalation — discard at source
-```
-
-Initial θ_d values are set by humans during seed design, calibrated to domain risk profile. As conflict logs accumulate, θ_d values converge toward the domain's natural stability point — the level at which escalation is rare but meaningful.
-
-```
-θ_d calibration lifecycle:
-  New domain       → conservative θ_d (human-set, sensitive)
-  Log accumulation → θ_d adjusts toward natural stability point
-  Domain mature    → θ_d stable, calibrated to risk profile
-  Domain changes   → θ_d re-calibrates via new conflict log cycle
-```
-
-### 5.1.1 θ_d Convergence Failure — Escalation Path
-
-θ_d calibration does not always converge. Three mutually exclusive failure scenarios exist:
-
-```
-Scenario 1 — Oscillation (I maintained, θ_d unstable but bounded)
-  I remains above τ₂, but θ_d fluctuates without settling
-  Middle layer detects oscillation
-  → Local rule review triggered
-  → Self-adjustment attempted without human intervention
-  → If self-adjustment fails → Scenario 2
-
-Scenario 2 — Divergence (I collapses: I < τ₂)
-  Conflict mass exceeds bounds; consistency index falls below judgment threshold
-  → Human-AI collaboration zone activated
-  → Human intervenes: domain reclassification or rule redesign
-  → New θ_d values assigned under human guidance
-  → Calibration cycle restarts
-
-Scenario 3 — Non-stationary environment (domain statistics non-stationary within evaluation window)
-  Domain conditions change faster than log accumulation can characterize
-  → θ_d convergence structurally impossible
-  → Domain reclassified as High-Context at this layer
-  → Autonomous resolution abandoned at this layer
-  → Escalation path made permanent: decision routed to upper layer
-```
-
-The three scenarios are mutually exclusive by trigger condition: Scenario 1 fires when I holds but θ_d is noisy; Scenario 2 fires when I itself collapses; Scenario 3 fires when the domain's statistical properties are non-stationary regardless of I.
-
-This mirrors the Subsidiarity Principle: self-resolution attempted first, human intervention only when lower-layer handling fails. **Socialization failure does not mean the layer is abandoned — it means the layer's autonomy boundary is redefined.**
-
-### 5.1.2 Permanently High-Context — Definition and Layer-Relative Scope
-
-A domain is **Permanently High-Context at a given layer** when it satisfies one or more of the following conditions:
-
-| Criterion | Description | Example |
-|-----------|-------------|---------|
-| **Statistical non-stationarity** | Domain conditions change faster than conflict log accumulation can characterize — θ_d convergence structurally impossible | Rapidly shifting geopolitical environment |
-| **Interpretive multiplicity** | The same conflict log admits multiple valid intervention directions — no single rule can be encoded as "correct" | Ethical trade-offs, value judgments, political decisions |
-| **Irreversible consequences** | Local resolution errors cannot be undone — failure cost too high to permit autonomous handling | Medical life-or-death decisions, safety-critical systems |
-
-> **Permanently High-Context is a layer-relative property, not an absolute one.**
-
-A domain that is Permanently High-Context at a lower layer may be a routine escalation case at the upper layer — because the upper layer has broader context, higher authority, and a different decision horizon. This is structurally identical to the parent–child relationship in human governance: a decision too consequential for the child is a normal responsibility for the parent.
-
-As the fractal structure matures and upper layers are progressively populated by capable agents (AI or human), the set of domains that require human intervention at the highest level contracts:
-
-```
-Early system:    Most decisions require human intervention
-                 → Permanently High-Context domains are numerous
-
-Mature system:   Routine decisions handled by lower AI layers
-                 Complex decisions escalate to upper AI layers
-                 → "Permanently" applies only to the highest-layer residual
-
-Full maturity:   Only irreversible, highest-stakes decisions
-                 remain under direct human judgment
-                 → Permanently High-Context scope has contracted to its minimum
-```
-
-This means **Rest Mode is not blocked by the existence of Permanently High-Context domains — it is shaped by them.** Each layer achieves Rest Mode for the domains it can handle; the rest escalate upward until they reach the layer with sufficient authority to resolve them.
-
-### 5.2 Two Dimensions of Consistency
-
-System consistency is measured along two dimensions:
-
-- **Conflict frequency** — how often do global and local rules collide?
-- **Conflict intensity** — how severe are the collisions?
-
-### 5.3 Consistency Index
-
-$$I = 1 - \frac{\sum_{i=1}^{n}(f_i \cdot s_i)}{M}$$
 
 | Symbol | Meaning |
-|--------|---------|
-| $I$ | Consistency index (0–1; higher = more consistent) |
-| $n$ | Number of rules under evaluation in the current window |
-| $f_i$ | Conflict frequency for rule $i$ over the evaluation window |
-| $s_i$ | Conflict severity for rule $i$ |
-| $M$ | Normalization constant: maximum expected conflict mass $\sum_{i=1}^{n} f_i^{\max} s_i^{\max}$ under the layer's activity budget over the evaluation window |
+|---|---|
+| I | Consistency index (0–1; higher = more consistent) |
+| wij | Conflict weight between rule pair (i, j) — product of conflict frequency and conflict severity for that specific pair |
+| M | Normalization constant — set as maximum observed total conflict weight during the system's highest-stress period. Re-estimated at each τ re-estimation trigger (Seed Handover transition, new domain addition, Collapse recovery). |
 
-> $n$ and $M$ are distinct. $n$ counts rules; $M$ is a mass ceiling derived from those rules under worst-case conditions. They are not interchangeable.
+**Why rule-pair structure matters:** A system where rule A repeatedly conflicts with rule B has a structural design problem that a total-mass index would obscure. The pair-level structure makes it possible to target intervention precisely — revise rule A or B, not the entire rule set.
 
-### 5.4 Severity Classification
+### Meta-Contradiction Index (Ic)
 
-| Severity Level | Conflict Type | Response |
-|----------------|--------------|----------|
-| Low | Local rules conflict with each other | Revise local rule |
-| Medium | Local rule conflicts with global boundary | Upper-layer validation required |
-| High | Global rules conflict internally | Human-AI collaboration zone activated |
-
-### 5.5 Stabilization Conditions
-
-$$\text{Stabilization} \iff f_{\text{escalation}} \leq \tau_1 \;\wedge\; I \geq \tau_2$$
-
-Both conditions must hold simultaneously. Either fails → stabilization incomplete → hold expansion.
-
-### 5.6 Log as Learning Data
-
-Conflict logs serve three functions:
-
-1. **Pattern detection** — Repeated conflicts signal a need to review global rules
-2. **Learning data** — Accumulated logs improve local rule design and θ_d calibration
-3. **Validation evidence** — Upper layer uses logs when re-validating local rules
-
-> Conflict logs are High-Context data: they are interpretable yet admit multiple valid interventions (policy adjustment, threshold tuning, role reassignment), making autonomous local resolution insufficient.
-
----
-
-## 6. Position Clarity and Mutual Reinforcement
-
-### 6.1 Position Ambiguity as a Primary Upstream Driver
-
-> **Position ambiguity** — when agents compete for the same optimum rather than occupying distinct roles — is a primary upstream driver that makes vector collision structurally likely.
-
-Degradation capacity governs how well a system survives collision. Position clarity governs the rate at which collision occurs in the first place. These are distinct failure modes operating on different timescales.
+High-severity conflicts — where two global rules are in direct opposition — are structurally different from low/medium severity conflicts and must not be mixed into I. They require governance redesign at the meta-rule level, not local rule revision. A single global-global conflict can render I meaningless if it dominates the sum.
 
 ```
-Position ambiguous               Position clear
-──────────────────               ──────────────
-Multiple agents → same optimum   Each agent → distinct optimum
-Vector fields collide            Vector fields complement
-Degradation failure likely       Mutual reinforcement forms
-→ Vector Storm                   → Stable ecosystem
+Ic = 1 − (Σ wij | both i and j are global rules) / Mc
 ```
 
-### 6.2 Mutual Reinforcement Loops
+| Ic value | Meaning | Response |
+|---|---|---|
+| Ic = 1.0 | No active global rule conflicts | Normal operation |
+| Ic falling | Global rule opposition emerging | Human-AI collaboration zone activates |
+| Ic < τc | Global rules directly contradicting | Governance redesign required — Seed-level intervention |
 
-When agent positions are clearly differentiated, interdependency forms naturally:
+> Ic is tracked separately from I. I can be high (local rules coherent) while Ic is low (global rules in conflict). Both conditions must be checked independently.
 
-```
-Agent A's success
-  → Creates conditions favorable to Agent B
-       → Agent B's success
-            → Creates conditions favorable to Agent A
-                 → Mutual reinforcement loop established
-```
+### Evaluation Window
 
-This is not cooperation enforced from above. It is the structural consequence of clear positional differentiation.
+Loop direction cannot be read from a single observation. "Sustained" trend is defined across two axes simultaneously:
 
-### 6.3 Diversity — Fractal Structure
+| Axis | Definition | Purpose |
+|---|---|---|
+| **Event-count window (N)** | Most recent N conflict events | Captures interaction-density-independent signal |
+| **Wall-clock window (T)** | Most recent T hours/days | Captures time-dependent drift patterns |
 
-Diversity operates at every fractal layer, including inside a single agent.
+**Judgment rule:** use whichever window is more conservative (shows a longer or more adverse trend). A system that looks stable over T but shows adverse trend over N — or vice versa — is not yet stable.
 
-At the **multi-agent level**, diversity means agents occupying clearly differentiated positions with active mutual reinforcement loops between them.
+Window sizes N and T are calibrated per domain during θd calibration. High-velocity domains (many interactions per hour) use smaller T and larger N. Low-velocity domains use larger T and smaller N. Both are updated at each τ re-estimation trigger.
 
-At the **single-agent level**, diversity means the agent's internal exploration space is not collapsing toward a single attractor in contexts where multiple valid solutions exist. A single agent that consistently produces uniform outputs across contexts where the solution manifold is genuinely broad is exhibiting internal diversity failure — its bottom layer's exploration paths have converged, suppressing the range of valid solutions. This does not apply to tasks where a single correct answer exists; uniformity there is accuracy, not failure.
+### Conflict Severity
 
-```
-Single-agent diversity failure:
-  Bottom layer → multiple exploration paths
-  → one attractor dominates
-  → other paths penalized as "incorrect"
-  → output becomes uniform and rigid
-  → equivalent to Position overlap = 1 in multi-agent terms
+| Severity | Conflict Type | Response |
+|---|---|---|
+| **Low** | Local rules conflict with each other | Revise local rule |
+| **Medium** | Local rule conflicts with global boundary | Upper-layer validation required |
+| **High** | Global rules conflict internally | Human-AI collaboration zone activated |
 
-Single-agent diversity preserved:
-  Bottom layer → multiple exploration paths maintained
-  Middle layer → resists premature attractor convergence
-  → range of valid outputs preserved
-  → equivalent to active reinforcement loops in multi-agent terms
-```
+**Low — production signal:** Output drift within acceptable range — perplexity rising, semantic coherence falling slightly. No human required; θd recalibration cycle handles. *(Arize AI, Evidently AI, 2025: drift detected via perplexity increase or semantic similarity drop below baseline.)*
 
-This fractal equivalence is why the same three variables describe diversity at both scales:
+**Medium — production signal:** Hallucination score crossing threshold; token-level confidence below 0.8; output deviates from ground truth. This is the most frequent intervention trigger in production (hallucination rates 15–38%). *(AWS Bedrock Agents, 2024: score < threshold → human review queue. HaluGate, vLLM 2025: confidence < 0.8 → human-in-the-loop escalation.)*
 
-$$\text{Diversity} = f\!\left(\frac{1}{P_{\text{overlap}}},\; D_{\text{interdependency}},\; L_{\text{reinforcement}}\right)$$
+**High — production signal:** Two global objectives pulling in opposite directions — safety vs. utility; confidentiality vs. helpfulness; alignment vs. capability. Tracked via **Ic (meta-contradiction index)**, not I — this conflict exists above the local rule layer and must not be mixed into the I calculation. Does not resolve through θd recalibration. Requires human involvement for governance redesign at the meta-rule level. *(AI Control, arXiv:2504.05259, 2025: when model behavior diverges from intent and internal monitoring cannot adjudicate, human review of reasoning process required.)*
 
-| Symbol | Single-agent meaning | Multi-agent meaning |
-|--------|---------------------|---------------------|
-| $P_{\text{overlap}}$ | Attractor convergence degree (lower = more diverse output) | Positional overlap between agents |
-| $D_{\text{interdependency}}$ | Weighted feedback density between internal layers | Weighted edge density of functional dependencies between agents |
-| $L_{\text{reinforcement}}$ | Number of active exploration paths maintained | Number of active mutual reinforcement loops |
+### Stabilization Conditions
 
-The three variables are not arbitrary. They are the minimal sufficient set for measuring whether a system — at any fractal scale — is maintaining the structural conditions for non-uniform, adaptive behavior. Overlap measures convergence pressure. Interdependency measures structural coupling. Reinforcement loops measure whether diversity is actively sustained rather than passively present.
-
-> These variables are conceptual placeholders for future formalization.
-
-### 6.4 Position Design in Seeds
-
-```
-Seed content:
-  ├─ How to classify data types
-  ├─ When to escalate
-  ├─ How to express correction values
-  ├─ When rules may be updated
-  ├─ How conflicts are logged and resolved
-  ├─ What is this agent's distinct positional role
-  ├─ Which agents to form interdependency with
-  └─ How to resist internal attractor convergence     ← diversity preservation
-```
-
-### 6.5 Updated Stabilization Conditions
-
-$$\text{Stabilization} \iff f_{\text{escalation}} \leq \tau_1 \;\wedge\; I \geq \tau_2 \;\wedge\; L_{\text{reinforcement}} \geq \tau_3$$
+All of the following must hold simultaneously:
 
 | Condition | Source | Meaning |
-|-----------|--------|---------|
-| $f_{\text{escalation}} \leq \tau_1$ | Network Architecture Theory | Conflict escalation is rare |
-| $I \geq \tau_2$ | Governance Rules Theory | Rules are internally consistent |
-| $L_{\text{reinforcement}} \geq \tau_3$ | This section | Mutual reinforcement loops are active |
+|---|---|---|
+| fesc ≤ τ1 | Network Architecture Theory | Conflict escalation is rare |
+| I ≥ τ2 | Governance Rules Theory | Local rules are internally consistent |
+| Ic ≥ τc | Governance Rules Theory | No active global rule contradictions |
+| Lreinf ≥ τ3 | Position Clarity | Mutual reinforcement loops are active |
+| SCC ≥ τ4 | Three System States | Self-correction capacity sufficient for autonomous recovery |
 
-> A layer with low escalation and high consistency but no reinforcement loops is **locally stable but not ecologically stable** — it will not sustain itself when external conditions change.
-
----
-
-## 7. Rest Mode and Self-Correction Capacity
-
-### 7.1 Self-Correction Capacity
-
-> **Self-correction capacity (SCC)** is the system's ability to detect Vector Storm, contain it without external intervention, and return to a stable attractor autonomously.
-
-**Self-correction capacity (SCC)** is defined along two independent dimensions:
-
-| Dimension | Direction | Meaning |
-|-----------|-----------|---------|
-| Storm frequency | Lower = higher SCC | How rarely Vector Storm events occur within the layer's scope |
-| Recovery speed | Higher = higher SCC | How quickly the layer returns to a stable attractor after a storm, without external intervention |
-
-SCC increases as storm frequency decreases and recovery speed increases. These two dimensions are not additive — a layer with rare but unrecoverable storms does not have high SCC. Both dimensions must be favorable simultaneously.
-
-> A formal functional relationship between these dimensions is left for future quantitative work. At this stage, SCC is treated as an ordinal observable: measurable in direction, not yet in magnitude.
-
-| SCC Level | Storm frequency | Recovery speed | External intervention |
-|-----------|----------------|----------------|-----------------------|
-| Low | High | Slow or absent | Required |
-| Medium | Moderate | Partial | Occasionally required |
-| High | Rare | Full, autonomous | Not required → Rest Mode entry condition met |
-
-### 7.1.1 The Asymptotic Structure of SCC
-
-SCC cannot reach 100% because the lowest fractal layer always retains residual degradation state — a structurally irreducible noise floor. As a result, the marginal value of continued intervention diminishes as the system matures:
-
-```
-Marginal value of intervention
-  ↑
-  │\
-  │  \
-  │    \_____________
-  │                   ──────  (diminishing returns; approaches zero, never reaches it)
-  └──────────────────────────→ System maturity
-```
-
-**Rest Mode entry is therefore defined as:**
-
-$$\text{Rest Mode entry} \iff \text{Intervention cost} > \text{Residual instability cost}$$
-
-> Rest Mode is not the state where SCC reaches 100%.
-> It is the state where **the cost of external intervention exceeds the cost of residual instability**.
-
-### 7.2 Rest Mode Definition
-
-> **Rest Mode** is the state in which a layer has internalized the principles of governance sufficiently to maintain diversity and stability without external intervention — even in the presence of local storm events within its scope.
-
-Rest Mode is not the absence of Vector Storm. It is the condition in which Vector Storm occurs within the layer's scope but is resolved internally, without requiring outside help. The layer has been socialized.
-
-**External control → Internal control.** This is the defining transition. In early stages, stability is maintained because an upper layer enforces it. In Rest Mode, stability is maintained because the layer has absorbed the logic that made enforcement necessary — and now applies it to itself.
-
-```
-Pre-Rest Mode:    Stability enforced from outside
-                  Upper-layer oversight active, corrects, intervenes
-                  Vector Storm within scope → escalate upward
-
-Rest Mode:        Stability maintained from inside
-                  Upper-layer oversight channel goes silent
-                  Vector Storm within scope → self-detected, self-resolved
-```
-
-Rest Mode does not mean the layer is inactive. It means the upper-layer oversight channel for that layer is no longer needed — the oversight has been internalized, not removed.
-
-**Exit condition:** Rest Mode exits when residual instability cost rises above intervention cost under a sustained shift in environment or topology. Rest Mode is stable, not permanent.
-
-### 7.3 Rest Mode Entry Conditions (Full)
-
-$$\text{Rest Mode} \iff f_{\text{escalation}} \leq \tau_1 \;\wedge\; I \geq \tau_2 \;\wedge\; L_{\text{reinforcement}} \geq \tau_3 \;\wedge\; \text{SCC} \geq \tau_4$$
-
-| Condition | Single-agent interpretation | Multi-agent interpretation |
-|-----------|----------------------------|---------------------------|
-| $f_{\text{escalation}} \leq \tau_1$ | Internal layer conflicts rarely reach top layer | Inter-agent conflicts rarely escalate |
-| $I \geq \tau_2$ | Internal rules are coherent | System-wide rules are coherent |
-| $L_{\text{reinforcement}} \geq \tau_3$ | Exploration paths actively maintained | Agent interdependencies actively maintained |
-| $\text{SCC} \geq \tau_4$ | Self-recovery from local Vector Storm possible | Self-recovery from system-wide Vector Storm possible |
-
-All four conditions must be satisfied simultaneously. Together they describe the same thing at any fractal scale: **the governance logic has been internalized.**
-
-### 7.4 Rest Mode Propagation — Socialization Spreading Downward
-
-The socialization process propagates in a specific direction:
-
-```
-Socialization direction:   top-down   (principles flow from upper to lower layers via Seeds)
-Rest Mode direction:       bottom-up  (as lower layers are socialized, upper oversight withdraws)
-```
-
-**Seeds are the transmission mechanism of socialization.** The upper layer does not socialize the lower layer through repeated intervention — it installs a Seed containing the meta-rules by which the lower layer builds its own governance. Socialization occurs as the lower layer operates under those meta-rules, accumulates conflict logs, and calibrates its own θ_d values. The Seed is the carrier; the conflict log cycle is the process; internalization is the result.
-
-This is a two-phase process:
-
-```
-Phase 1 — Socialization (top-down via Seed)
-  Upper layer installs Seed in lower layer
-  → Lower layer operates under Seed meta-rules
-  → Conflict logs accumulate
-  → θ_d values calibrate toward domain stability
-  → Lower layer gradually internalizes governance principles
-
-Phase 2 — Rest Mode propagation (bottom-up)
-  Lower layer socialization complete
-  → Upper-layer oversight over that layer enters Rest Mode
-  → Human attention withdraws from that oversight channel
-  → Human attention moves to next unsocialized layer
-  → Process repeats upward
-  → Full Rest Mode: all layers socialized, all oversight channels silent
-```
-
-**Socialization speed varies by layer.** Layers with stable, well-defined domains socialize faster. Layers in complex or rapidly changing domains socialize more slowly. These proceed in parallel — each layer's Rest Mode entry is independent, determined by when its own four τ conditions are satisfied. A fast-socializing layer does not wait for a slow one; the system achieves partial Rest Mode progressively.
-
-```
-Lower layer socialization complete
-  └→ Upper-layer oversight over that layer enters Rest Mode
-       └→ Human withdraws from that oversight channel
-            └→ Human attention moves to next unsocialized layer
-                 └→ Socialization continues in parallel across layers
-                      └→ Full Rest Mode: all socializable layers socialized;
-                         Permanently High-Context domains at each layer
-                         escalate to the next layer up, contracting toward
-                         the minimum residual requiring direct human judgment
-```
-
-**Relationship to Seed Handover:** Rest Mode achievement and Seed Handover completion are the same event viewed from different angles. Rest Mode describes the governance state (oversight internalized). Seed Handover describes the design authority state (the layer now generates its own seeds). A fully socialized layer reproduces the principles it was given — and passes them downward to the layers below it.
-
-### 7.5 What Rest Mode Preserves
-
-| Category | Rest Mode Treatment |
-|----------|---------------------|
-| Tacit knowledge patterns | ✓ Preserved |
-| Structural learning from stabilization | ✓ Preserved |
-| Escalation calibration history | ✓ Preserved |
-| Mutual reinforcement loop structure | ✓ Preserved |
-| Storm-inducing vector orientations | ✗ Released |
-| Self-reinforcing conflict patterns | ✗ Released |
-
-Rest Mode is **selective preservation** — not full retention or full reset.
+These four conditions correspond directly to the Rest Mode entry conditions. Stabilization is the per-layer confirmation that all four are trending virtuous — it is the precondition for Rest Mode entry, not a separate standard.
 
 ---
 
-## 8. Seed Handover
+## Position Clarity and Diversity
 
-### 8.1 The Lifecycle of Seed Design
+### Position Ambiguity as a Storm Driver
 
-| Stage | Description |
-|-------|-------------|
-| **Initial** | Human designs the first seeds — defines meta-rule structure, positional principles, interdependency guidelines, expansion protocol |
-| **Intermediate** | Human + AI collaborate on seed refinement — analyze conflict logs, update meta-rules, adjust positional assignments |
-| **Mature** | AI takes over seed design for lower layers — human retains oversight of highest-level principles only |
-| **Rest** | System regenerates its own seeds autonomously — human intervention no longer required |
+When agents compete for the same optimum instead of occupying distinct roles, vector fields collide — making Vector Storm structurally likely.
 
-### 8.2 Human Role Across Stages
+| Position Ambiguous | Position Clear |
+|---|---|
+| Multiple agents → same optimum | Each agent → distinct optimum |
+| Vector fields collide | Vector fields complement |
+| → Vector Storm | → Stable ecosystem |
 
-| Stage | Human Role |
-|-------|------------|
-| Initial | **Designer** — creates the original meta-rule structure |
-| Intermediate | **Validator** — verifies AI-proposed seed updates |
-| Mature | **Observer** — monitors whether boundaries are respected |
-| Rest | **Absent** — intervention is no longer needed |
+### Fractal Diversity Variables
 
-### 8.3 Handover Conditions
+| Symbol | Single-agent meaning | Multi-agent meaning |
+|---|---|---|
+| **Poverlap** | Attractor convergence degree | Positional overlap between agents |
+| **Dint** | Weighted feedback density between internal layers | Weighted edge density of functional dependencies |
+| **Lreinf** | Number of active exploration paths | Number of active mutual reinforcement loops |
 
-AI takes over seed design for a given layer when all three conditions are met:
-
-1. The layer operating under current seeds has satisfied all stabilization conditions
-2. AI-proposed seed drafts pass consistency validation against existing meta-rules (I ≥ τ₂)
-3. A subsystem operating under AI-designed seeds maintains stability for a defined observation period
-
-> **AI-designed seeds remain bounded by invariant global principles defined at the highest layer.**
-> Handover transfers design authority, not foundational constraint.
-
-### 8.4 Why Handover Is Necessary
-
-Keeping humans permanently in seed design creates two structural risks:
-
-- **Human bias becomes embedded** — Seeds reflect cognitive limitations; diversity is bounded by human imagination
-- **Intervention delays maturation** — Human design cycles are slower than system evolution; Rest Mode entry is delayed indefinitely
-
-> The handover is not a loss of control. It is the **designed endpoint** of the governance lifecycle.
+Diversity must be maintained at every fractal layer — including within a single agent.
 
 ---
 
-## 9. The Optimal Point
+## Three System States
 
-### 9.1 Definition
+A layer exists in exactly one of three states at any given time:
 
-$$\min(\text{Risk} + \text{Cost}) \;\text{ subject to }\; \text{Utility} \geq U^*$$
+| State | Loop Direction | Upper Layer | Description |
+|---|---|---|---|
+| **Rest Mode** | Self-reinforcing virtuous cycle | Monitoring only | Diversity sustains stability; stability sustains diversity. System improves as loop runs. |
+| **Active Mode** | Loop not yet stabilized | Intervening | Governance actively correcting. Loop direction being shaped toward virtuous. |
+| **Collapse** | Self-reinforcing vicious cycle | Overwhelmed or absent | Instability erodes diversity; diversity loss increases instability. System degrades as loop runs. |
 
-| Symbol | Meaning |
-|--------|---------|
-| Risk | Vector Storm frequency × intensity within the layer's scope |
+The fundamental distinction between Rest Mode and Active Mode is not the presence or absence of storms — it is the **direction of the self-reinforcing loop**. A system in Rest Mode may still experience local Vector Storms, but the loop dynamics ensure they are absorbed rather than amplified.
+
+**Rest Mode is not zero intervention — it is a change in the form of intervention.**
+
+As a system matures from Active Mode toward Rest Mode, the governing layer's involvement does not disappear. It transforms:
+
+| Stage | Intervention form | Granularity |
+|---|---|---|
+| Early Active Mode | Directive — governing layer specifies outputs or rules directly | Per-event |
+| Late Active Mode | Validating — governing layer reviews and approves agent-proposed rules | Per-rule |
+| Rest Mode | Statistical — governing layer monitors drift distributions; intervenes only when distribution-level threshold is breached | Per-distribution |
+
+In Rest Mode, the governing layer is still present — but its intervention channel has zero per-event bandwidth. It acts only when the distribution of behavior shifts beyond the evaluation window thresholds, not in response to individual conflict events. This is why Rest Mode does not require the governing layer to disappear, only to become silent at the event level.
+
+### Loop Direction as the Core Diagnostic
+
+The three states are defined by loop direction, not by instantaneous metric values:
+
+| Metric | Instantaneous value | Loop direction signal |
+|---|---|---|
+| fesc | Current escalation count | **Trend** — is upper-layer workload growing or shrinking? |
+| I | Current consistency index | **Trend** — is rule coherence increasing or decreasing? |
+| Lreinf | Current reinforcement loop count | **Trend** — are interdependencies strengthening or collapsing? |
+| SCC | Current self-correction capacity | **Trend** — is recovery speed improving or degrading? |
+
+A layer with I = 0.8 falling is in worse structural condition than a layer with I = 0.6 rising. The value alone is insufficient — the direction determines which state the layer is moving toward.
+
+**fesc trend is the primary observable.** Because fesc directly measures upper-layer workload, it is the most structurally interpretable signal: if the upper layer is doing less over time, the lower layer is internalizing governance. If the upper layer is doing more, it is not.
+
+### Why Measurement Must Be Cumulative, Not Reactive
+
+This is a critical infrastructure requirement. The loop direction cannot be read from a single observation — it requires accumulated evidence over time.
+
+Reactive threshold systems (checking whether fesc > τ at any given moment) suffer from two structural failures:
+
+1. **Micro-fluctuation noise** — any individual conflict event can temporarily push fesc above threshold without representing a real trend change. Reactive systems treat noise as signal.
+2. **Monitoring as load** — at scale, continuous per-event governance responses become the primary source of system load. The monitoring system creates the instability it is trying to detect.
+
+The cumulative design — conflict log accumulation → θd calibration → λlog-triggered rule updates — is the correct architecture because it measures **drift**, not snapshots.
+
+This is empirically confirmed: Agent Drift research (arxiv 2601.04170, 2026) tracking 847 simulated workflows shows that behavioral degradation follows a nonlinear cumulative pattern. Decline rate between interactions 0–100 is 0.08 points per 50 interactions; by interactions 300–400, the same metric declines at 0.19 points per 50 interactions — the loop has become self-reinforcing, and snapshot monitoring would miss the transition entirely. The same study shows that drift mitigation cannot be "set and forget" but also cannot be reactive to every micro-event: ongoing cumulative governance frameworks are required.
+
+> The governance infrastructure — conflict log pipeline, θd calibration cycle, fesc trend aggregation — must be designed before Rest Mode is meaningful. Without it, loop direction is invisible.
+
+### Self-Correction Capacity (SCC)
+
+SCC is the system's ability to detect contamination or Vector Storm, contain it **without external intervention**, and return to a stable attractor autonomously.
+
+SCC is not an independent property — it is the emergent result of two structural conditions being simultaneously satisfied:
+
+**Dint (internal diversity)** — each vector has grown sufficiently that it occupies a distinct, well-defined position in the capability space. A well-developed vector has adjacent vectors nearby that differ from it in known, stable ways.
+
+**Lreinf (mutual reinforcement loops)** — vectors are not isolated. They are linked through active interdependencies: each vector's stability is partly maintained by its neighbors.
+
+When both conditions hold, contamination detection and purification become structurally automatic:
+
+```
+Contaminated input arrives
+  │
+  ├─ Adjacent vectors provide contrast baseline
+  │   → contaminated pattern deviates from expected neighborhood
+  │   → deviation is logged as conflict (fesc event)
+  │
+  └─ Lreinf pulls contaminated vector back toward stable neighborhood
+      → if contamination is local and loops are strong,
+        purification completes without upper-layer involvement
+      → SCC loop closes: detect → log → correct → stabilize
+```
+
+**SCC fails when either structural condition is absent:**
+
+- Dint too low → adjacent vectors do not exist or are too similar → contaminated pattern has no contrast baseline → detection fails silently
+- Lreinf too low → vectors are isolated → no corrective pull from neighbors → contamination propagates unchallenged even if detected
+
+This is why SCC is downstream of Dint and Lreinf, not independent of them. A system cannot have high SCC with low Dint or collapsed Lreinf — the detection-purification loop has no substrate to run on.
+
+| SCC Level | Storm frequency | Recovery speed | Loop direction |
+|---|---|---|---|
+| Low | High | Slow or absent | Vicious — storms accumulate faster than recovery |
+| Medium | Moderate | Partial | Transitional — loop direction not yet determined |
+| High | Rare | Full, autonomous | Virtuous — recovery outpaces storm generation → **Rest Mode** |
+
+**Measurement units:**
+- **fesc** — number of escalations per K interactions, or per hour. K is calibrated per domain velocity during θd calibration.
+- **Lreinf** — number of active mutually reinforcing edges above weight ε, where ε is the minimum edge weight considered structurally meaningful (calibrated during domain stabilization).
+- **SCC** — probability of autonomous recovery within evaluation window W, estimated from historical recovery events in the conflict log. Equivalently: inverse of expected recovery time (ERT) normalized to [0, 1].
+
+### Rest Mode Entry Conditions (AND — all four required)
+
+Entry requires all four conditions simultaneously satisfied and trending in the virtuous direction. This is a high bar by design — stability must not be declared prematurely.
+
+| Condition | Instantaneous check | Trend requirement |
+|---|---|---|
+| fesc ≤ τu-1 | Escalation rare | fesc decreasing or stable over evaluation window |
+| I ≥ τu-2 | Local rules coherent | I increasing or stable over evaluation window |
+| Ic ≥ τu-c | No global rule contradiction | Ic stable or increasing over evaluation window |
+| Lreinf ≥ τu-3 | Loops active | Lreinf increasing or stable over evaluation window |
+| SCC ≥ τu-4 | Self-recovery possible | Recovery speed improving or stable over evaluation window |
+
+### Rest Mode Exit Conditions (OR — any one sufficient)
+
+Exit requires only one condition degrading into a sustained vicious trend. This asymmetry is structural, not arbitrary.
+
+| Condition | Exit trigger | Cascade risk |
+|---|---|---|
+| fesc > τu-1 sustained | Upper-layer workload growing — lower layer losing autonomy | Medium — upper layer may absorb if capacity allows |
+| I < τu-2 sustained | Local rule coherence collapsing — consistency entering vicious cycle | High — directly undermines all other conditions |
+| Ic < τu-c sustained | Global rules in active contradiction — meta-rule structure destabilizing | Critical — no local rule revision can resolve; governance redesign required |
+| Lreinf < τu-3 sustained | Reinforcement loops breaking — mutual dependencies inverting to competition | High — position clarity erodes rapidly once loops collapse |
+| SCC < τu-4 sustained | Self-recovery failing — storms accumulating without resolution | Critical — vicious cycle locks in without external intervention |
+
+**Why asymmetric:** Entry is a sufficient condition claim ("the system has internalized governance"). Exit is a necessary condition violation ("the system can no longer sustain itself"). These are structurally different logical operations and should not be forced into symmetric form.
+
+In ecological terms: a climax community takes decades to establish (AND-entry) but can be disrupted by a single species collapse or external shock (OR-exit). The asymmetry reflects the thermodynamic reality that ordered states are harder to build than to destroy.
+
+**"Sustained" is defined by the evaluation window**, not by a single observation. A single spike in fesc does not trigger exit — the cumulative log must show a directional trend across the window. This preserves the anti-reactive property of the governance architecture.
+
+### State Transition Map
+
+```
+Active Mode
+  │
+  │ All four entry conditions met (AND)
+  │ All four trends virtuous simultaneously
+  ▼
+Rest Mode ◄──────────────────────────────┐
+  │                                       │
+  │ Any one exit condition triggered (OR) │ Recovery complete
+  │ Sustained vicious trend detected      │ (return to Active)
+  ▼                                       │
+Active Mode (upper layer reactivates) ───►┘
+  │
+  │ SCC = 0, upper layer overwhelmed
+  │ Vicious cycle self-reinforcing, no recovery pathway
+  ▼
+Collapse
+  │
+  │ External intervention + Seed reinstallation
+  ▼
+Active Mode (restart from Phase 1 socialization)
+```
+
+### Rest Mode Propagation
+
+**Socialization direction:** top-down (principles flow via Seeds)  
+**Rest Mode direction:** bottom-up (as layers are socialized, upper oversight withdraws)
+
+- **Phase 1 — Socialization:** Upper layer installs Seed → conflict logs accumulate → θd calibrates → lower layer internalizes governance principles
+- **Phase 2 — Rest Mode propagation:** Lower layer loop transitions to virtuous → upper-layer oversight enters Rest Mode → human attention moves to next unsocialized layer
+
+### What Rest Mode Preserves
+
+| Category | Treatment | Basis |
+|---|---|---|
+| Tacit knowledge patterns | ✓ Preserved | Spurious Forgetting (ICLR 2025): knowledge persists in weights even when activation paths are severed — Type 1 degradation is reversible |
+| Structural learning from stabilization | ✓ Preserved | θd calibration history embedded in conflict log accumulation — not dependent on active intervention |
+| Escalation calibration history | ✓ Preserved | Conflict log is a persistent data structure, not a runtime state |
+| Mutual reinforcement loop structure | ✓ Preserved | Lreinf is structural — loop topology survives Rest Mode entry as long as positions remain distinct |
+| Storm-inducing vector orientations | ✗ Released | Conflict log drains below λlog for dormant storm patterns — no active reinforcement → natural decay |
+| Self-reinforcing conflict patterns | ✗ Released | Without conflict log mass sustaining them, local rules expire on next θd calibration cycle |
+
+---
+
+## Rest Mode Failure: When the System Collapses
+
+Rest Mode is stable but not permanent. When conditions shift beyond what the internalized governance can absorb, the system crosses a threshold and enters a failure trajectory. These are not random breakdowns — each failure mode corresponds to a specific structural condition being violated, and each has empirical counterparts in current LLM research.
+
+### The Threshold Structure of Collapse
+
+Failure does not begin at Rest Mode exit. It begins when one of the four entry conditions degrades beyond its τ threshold and the layer's SCC is insufficient to self-recover. The sequence is:
+
+```
+Rest Mode entry condition degraded
+→ SCC insufficient to recover internally
+→ upper-layer oversight channel must reactivate
+→ if upper layer also unavailable or overloaded → cascade begins
+→ system collapse
+```
+
+The critical insight is that **collapse is not instantaneous**. It propagates through the fractal structure, and the rate of propagation is determined by how many layers share the same degraded condition simultaneously.
+
+### Failure Case Taxonomy
+
+#### Case 1 — Consistency Collapse (I < τ2)
+**Trigger:** Conflict log mass accumulates faster than θd can calibrate. Rule coherence breaks down.
+
+Internal rules begin contradicting each other without resolution. The agent or layer loses the ability to produce consistent outputs across similar inputs. In the single-agent case, this manifests as self-contradictory behavior within a context window — the agent responds differently to structurally identical situations with no logged reconciliation.
+
+**Real-world mapping:** Catastrophic Forgetting (CF) in LLMs — when fine-tuning on new tasks causes previously stable rule representations to degrade. Li et al. (EMNLP 2024) show that CF is directly linked to loss landscape sharpness: steep loss landscapes produce brittle rule representations that collapse under new domain pressure, which is structurally equivalent to θd calibration failure under a rapidly shifting domain. The "spurious forgetting" variant (ICLR 2025) is particularly relevant: performance drops that reflect task alignment loss rather than true knowledge loss — the consistency index falls even though the underlying capacity remains.
+
+| Governance signal | Meaning |
+|---|---|
+| I falling toward τ2 | Early warning — rule conflicts accumulating faster than resolution |
+| I < τ2 sustained | Consistency collapse — layer cannot self-resolve, escalation mandatory |
+| θd oscillating without convergence | Domain is non-stationary; reclassify as Permanently High-Context |
+
+---
+
+#### Case 2 — Escalation Flood (fesc > τ1)
+**Trigger:** Conflict volume at lower layers exceeds upper-layer absorption capacity.
+
+Lower layers begin forwarding conflicts they should be handling autonomously. The upper layer's oversight channel, designed to be silent in Rest Mode, is suddenly receiving traffic it cannot process at the designed rate. If this persists, the upper layer itself enters a conflict accumulation spiral.
+
+**Real-world mapping:** MAST taxonomy (Cemri et al., NeurIPS 2025) — the most comprehensive empirical study of MAS failures, analyzing 1,642 execution traces across 7 frameworks, identifies **inter-agent misalignment** as the dominant failure category. The specific modes map directly:
+
+| MAST failure mode | Governance equivalent |
+|---|---|
+| Role drift — planner starts writing code | Position ambiguity → Poverlap rising → vector field collision |
+| Conversation reset loop | fesc cycling without resolution — upper layer re-entering intervention repeatedly |
+| Information withholding between agents | Mutual reinforcement loops collapsing — Lreinf falling below τ3 |
+| Task derailment | Local attractor diverging from global objective — landscape design failure |
+
+MAST reports 41–86.7% failure rates across SOTA open-source MAS frameworks, with inter-agent misalignment accounting for the largest share. This is the empirical signature of a system where Rest Mode was either never fully achieved or where topology shifts triggered exit.
+
+---
+
+#### Case 3 — Reinforcement Loop Collapse (Lreinf < τ3)
+**Trigger:** Positional differentiation breaks down. Agents converge toward overlapping attractors.
+
+Mutual reinforcement loops require that agents occupy distinct niches — Agent A's success creates conditions favorable to Agent B, and vice versa. When positions overlap, this loop inverts: Agent A's success now competes with Agent B's, and the reinforcement structure becomes a competition structure. Stability that was self-sustaining becomes self-undermining.
+
+**Real-world mapping:** The faulty agent cascade study (arxiv 2408.00989, 2025) demonstrates that in multi-fault settings, **high-level planners dominate failure cascades** — a single corrupted planner propagates irrecoverably through subsequent reasoning even when specialist agents remain intact. This is the structural signature of Lreinf collapse: the mutual reinforcement topology is broken at its highest-leverage node, and the ecosystem collapses rather than degrades gracefully. The study also shows that star-topology graphs (with a single coordinating leader) preserve hierarchy advantage — consistent with the DFG principle that clear positional differentiation reduces cascade propagation.
+
+---
+
+#### Case 4 — SCC Failure: Unrecoverable Storm
+**Trigger:** Vector Storm occurs within scope, but self-correction mechanisms cannot contain it. Storm frequency is low but recovery speed is zero or undefined.
+
+This is the most dangerous failure mode because it can occur in a system that *appears* to be approaching Rest Mode — storm events are rare, but when they occur, the layer has no internal recovery pathway. The asymptotic structure of SCC means this state can persist indefinitely without triggering upper-layer intervention if storm frequency stays below τu-1.
+
+**Real-world mapping:** The cascading failure architecture described in AgentErrorTaxonomy (arxiv 2509.25370, 2025) — a single root-cause error propagates through planning, memory, reflection, and action modules in sequence, producing task failure from a single unrecovered storm event. The paper introduces modular failure classification spanning these four modules, which maps directly onto the single-agent fractal layer structure. The critical finding is that **current systems lack a framework for detecting these errors at the module level before they cascade** — equivalent to having SCC measurement infrastructure without the internal recovery pathway.
+
+---
+
+#### Case 5 — Seed Corruption
+**Trigger:** The meta-rule structure itself becomes internally inconsistent, or the Seed is installed with a design flaw that only manifests under specific domain conditions.
+
+Unlike the above cases, Seed corruption does not produce gradually increasing conflict log mass. It produces a hard failure when the expansion protocol encounters a domain that the Seed's meta-rules cannot coherently resolve. The agent cannot even construct a local rule proposal — the generative procedure itself is broken.
+
+**Real-world mapping:** Specification and System Design Failures (MAST FC1 category) — including task specification violations, role specification violations, and step repetition loops. These correspond to Seeds that were installed with ambiguous or contradictory meta-rules. MAST identifies these as the category most resistant to simple prompt engineering fixes, requiring structural redesign — consistent with the DFG position that Seed corruption requires upper-layer intervention at the meta-rule level, not the local rule level.
+
+---
+
+### Fractal Collapse Propagation
+
+The above cases are not independent. At sufficient scale, they interact:
+
+```
+Case 2 (escalation flood) → upper layer overwhelmed
+→ upper layer's own I begins falling → Case 1 at upper layer
+→ upper layer cannot adjudicate lower-layer conflicts
+→ lower layer Lreinf collapses → Case 3
+→ full fractal collapse
+```
+
+In multi-agent environments, misinformation propagation leads to poisoned information being enhanced through collaborative reasoning, creating cascading security breaches across the system — which is the security-domain expression of the same structural dynamic.
+
+The collapse propagation rate is determined by three factors: topology density (how many layers share the same degraded condition), the δ between current I and τ2 at each layer, and whether the permanently High-Context oversight channels remain operational. The last point is critical: **Rest Mode collapse does not disable permanently High-Context channels**, because those channels never entered Rest Mode in the first place. They remain the final containment structure.
+
+### Summary: Failure Mode to Governance Condition Mapping
+
+| Failure Case | Violated Condition | Early Signal | Empirical Reference |
+|---|---|---|---|
+| Consistency Collapse | I < τ2 | θd oscillating | Catastrophic Forgetting — Li et al., EMNLP 2024 |
+| Escalation Flood | fesc > τ1 | Conflict log growth rate accelerating | MAST taxonomy — Cemri et al., NeurIPS 2025 |
+| Reinforcement Loop Collapse | Lreinf < τ3 | Poverlap rising between adjacent agents | Faulty agent cascade — arxiv 2408.00989 |
+| Unrecoverable Storm | SCC < τu-4 | Storm events present but recovery absent | AgentErrorTaxonomy — arxiv 2509.25370 |
+| Seed Corruption | Meta-rule incoherence | Hard failure on novel domain | MAST FC1 Specification Failures |
+
+> Rest Mode failure is not the end of governance. It is the signal that governance must restart — at the layer where the condition first broke, with the upper layer reactivating only long enough to restore autonomous operation.
+
+---
+
+### Failure Diagnosis Flowchart
+
+When a layer exits Rest Mode or shows degradation signals, use this flowchart to identify the failure case before selecting a response.
+
+```
+System shows degradation signal
+  │
+  ├─ Is Ic falling (global rule conflict)?
+  │     YES → Case 5 path: Human-AI collaboration zone
+  │            Ic < τc → Governance redesign (Seed-level)
+  │
+  └─ Is Ic stable? Continue below:
+       │
+       ├─ Is I falling (rule coherence degrading)?
+       │     YES → Case 1: Consistency Collapse
+       │            Check: is θd oscillating without convergence?
+       │            → if yes: domain is non-stationary, reclassify
+       │            → if no: rule revision cycle, θd recalibration
+       │
+       ├─ Is fesc rising (escalation flood)?
+       │     YES → Case 2: Escalation Flood
+       │            Check SCC: is self-recovery still possible?
+       │            → SCC present: Feedback-only recovery (Supervised Delegation entry)
+       │            → SCC absent: Direct Injection restart required
+       │
+       ├─ Is Lreinf falling (loops collapsing)?
+       │     YES → Case 3: Reinforcement Loop Collapse
+       │            Positional re-differentiation required
+       │            → Direct Injection restart (topology must be rebuilt)
+       │
+       └─ Is SCC falling (recovery failing)?
+             YES → Case 4: Unrecoverable Storm
+                    Self-correction substrate degraded
+                    → Direct Injection restart
+                    Check Type 1 vs Type 2 before proceeding
+                    (see Collapse Recovery procedure below)
+```
+
+### Collapse Recovery: Practical Decision Procedure
+
+The State Transition Map shows `"External intervention + Seed reinstallation → Active Mode (restart from Phase 1)"` as a single line. In practice, this is the highest-cost and highest-judgment operation in the governance lifecycle. The decision procedure has three steps:
+
+**Step 1 — Determine degradation type before intervening**
+
+Before any reinstallation, apply the Type 1 / Type 2 diagnostic from the Vector Degradation section:
+
+| Test | Method | Interpretation |
+|---|---|---|
+| Pathway restoration attempt | Inject partial rationale; apply task-agnostic prefix; adjust Seed routing | If performance recovers → Type 1 (alignment severance). Do NOT reinstall Seed. |
+| Non-response to pathway restoration | No recovery after 2–3 targeted alignment interventions | Type 2 (weight overwrite). Proceed to Step 2. |
+
+**Step 2 — Identify which failure case triggered collapse**
+
+Different failure cases require different recovery entry points:
+
+| Failure Case | Recovery entry point | Why |
+|---|---|---|
+| Consistency Collapse (I < τ2) | Supervised Delegation | θd calibration structure intact; only rule coherence needs re-establishment via labeled validation |
+| Escalation Flood (fesc > τ1) — SCC present | Feedback Only | Self-correction capacity still exists; reward signal is sufficient to restore autonomous operation without direct management |
+| Escalation Flood (fesc > τ1) — SCC absent | Supervised Delegation | Self-correction gone; need validation layer before autonomous judgment is viable |
+| Reinforcement Loop Collapse (Lreinf < τ3) | Direct Injection | Loop structure requires positional re-differentiation — must restart knowledge topology from substrate |
+| Unrecoverable Storm (SCC < τu-4) | Direct Injection | Self-correction capacity must be rebuilt from substrate |
+| Seed Corruption | Full Seed reinstallation → Direct Injection | Meta-rule structure itself is broken; no lower-phase entry is coherent |
+
+**Step 3 — Confirm Seed integrity before Phase 1 restart**
+
+If Seed reinstallation is required (Seed Corruption or full Type 2 collapse), verify that the new Seed does not carry the same design flaw that caused the original failure. Specifically: check that the expansion protocol can coherently classify the domain that triggered the hard failure. A Seed reinstalled with the original flaw will reproduce the failure on first encounter with the same domain type.
+
+> *The governing layer's goal in collapse recovery is not to restore the previous state — it is to rebuild the substrate for a governance cycle that does not fail in the same way.*
+
+---
+
+## Seed Handover
+
+Seed Handover applies at two scales: **multi-agent system evolution** (the upper layer withdrawing from lower layers as they mature) and **single-agent new domain development** (the governing layer withdrawing from a specific domain as it stabilizes). Both follow the same logic — direct management is the exception, not the rule, and withdrawal is governed by measurable convergence conditions, not elapsed time.
+
+### Multi-Agent Handover Stages
+
+| Stage | Human Role | Description |
+|---|---|---|
+| **Initial** | Designer | Creates meta-rule structure, positional principles, expansion protocol |
+| **Intermediate** | Validator | Verifies AI-proposed seed updates; analyzes conflict logs |
+| **Mature** | Observer | AI takes over seed design for lower layers; human monitors boundary compliance |
+| **Rest** | Absent | System regenerates its own seeds autonomously |
+
+### Single-Agent New Domain: The Four-Phase Withdrawal Protocol
+
+When a single agent encounters a new domain, the governing layer (human or upper-layer agent) does not observe from a distance — it manages directly until domain stabilization is confirmed. This mirrors the standard domain adaptation pipeline in LLM research: **DAP → SFT → Preference Optimization → Deployment**, where each transition is governed by measurable convergence, not fixed epochs.
+
+| Phase | DFG Name | Practical Analogue | Governing Layer Role | Withdrawal Condition |
+|---|---|---|---|---|
+| **1** | Direct Injection | Domain-Adaptive Pre-training (DAP) | Directly supplies domain corpus; structures knowledge topology | Conflict log growth rate stabilizing — domain patterns beginning to emerge |
+| **2** | Supervised Delegation | Supervised Fine-Tuning (SFT) | Provides labeled examples; agent executes but governing layer validates each output | I trend positive across θd calibration cycles; escalation rate fesc falling |
+| **3** | Feedback Only | Preference Optimization (DPO/RLHF) | Agent makes autonomous judgments; governing layer provides reward signal only | fesc ≤ τu-1 sustained; I ≥ τu-2 trending stable |
+| **4** | Withdrawal | Autonomous Deployment | Governing layer monitors drift signals only; intervenes only on threshold breach | All four Rest Mode entry conditions met (AND) |
+
+**Why Phase 1 cannot be skipped:** SFT alone is insufficient for domains containing unfamiliar concepts, dense acronyms, or high context dependency. Without direct knowledge injection first, the agent cannot form coherent local rules — the Seed Expansion Protocol has no accumulated log mass to work with. Direct management in Phase 1 is what creates the λlog substrate that later phases build on.
+
+> *Empirical basis: "SFT memorizes while RL generalizes" (Chu et al., 2024 — systematic comparison across textual and visual domains). SFT remains indispensable as an initialization step, stabilizing output structure before autonomous generalization becomes viable. This confirms Phase 1–2 management is structural, not precautionary.*
+
+### Quantified Withdrawal Thresholds
+
+Domain adaptation research provides empirical anchors for the Handover transition points:
+
+| Threshold | Empirical finding | DFG mapping |
+|---|---|---|
+| **Replay ratio** | R* ≈ 30–50% maximizes domain transfer without general capability loss; >50% shows diminishing returns (D-CPT Law, Gu et al. 2024) | λlog accumulation zone — below 30% is insufficient log mass; above 50% is over-management |
+| **Convergence signal** | Four-pillar evaluation: general retention + target task acquisition + domain benchmark + forward/backward transfer must stabilize simultaneously (CPT literature, Wu et al. 2024) | AND-entry condition for Phase 4 withdrawal — all four DFG metrics must trend stable |
+| **Management necessity** | Tasks with few hundred examples and familiar domain can skip Phase 1; tasks with unfamiliar concepts, dense acronyms, or large context requirements cannot (State of SFT, 2025) | Seed Expansion Protocol trigger — whether the domain requires DAP depends on whether existing rule structure can classify it |
+
+### Handover Completion Conditions
+
+The governing layer withdraws from a domain when — and only when — all of the following hold simultaneously. This is the domain-level AND condition, parallel to the system-level Rest Mode entry:
+
+1. I ≥ τu-2 **and trending stable** across at least one full θd calibration cycle
+2. fesc ≤ τu-1 **and trending downward** — the domain is no longer generating upper-layer load
+3. Lreinf ≥ τu-3 — the domain has formed mutual reinforcement relationships with adjacent domains
+4. A subsystem operating under agent-designed seeds for this domain has maintained stability for a duration equivalent to at least **two θd calibration cycles**
+
+> Handover transfers design authority, not foundational constraint. The governing layer's withdrawal from a domain does not remove global rules — it removes the obligation to actively manage local rule formation.
+
+---
+
+## Single-Agent Intervention: When and How
+
+> *This section applies the Three System States and Seed Handover frameworks to production monitoring decisions. Concepts like Rest Mode, Active Mode, fesc, I, and the Four-Phase Withdrawal Protocol are defined in the preceding sections.*
+
+In practice, governing a single-agent system means knowing when to intervene, what type of intervention is appropriate, and when to withdraw. The following maps real-world production intervention patterns to the DFG governance framework.
+
+### Intervention Trigger Taxonomy
+
+| Trigger Type | Observable signal | DFG mapping | Intervention type |
+|---|---|---|---|
+| **Hallucination threshold breach** | Hallucination score < 0.8 (token-level); answer relevancy drop; factual accuracy < baseline | I falling — rule coherence degrading; θd recalibration needed | Medium severity: human review queue; RAG grounding check |
+| **Behavioral drift** | Perplexity rising over time; semantic coherence falling; output distribution shifting from baseline | fesc trend rising — lower layer generating increasing noise load | Cumulative log trigger: θd recalibration cycle; not per-event intervention |
+| **Prompt injection / adversarial input** | Input-output semantic mismatch; safety filter triggered; unexpected tool call pattern | Noise entering as contaminated vector — Dint boundary stress | Pre-output filter (guardrail); log event for contamination tracking |
+| **Global objective conflict** | Safety constraint vs. task completion pulling in opposite directions; refusal rate anomalous for domain | High severity: global rules conflicting internally | Human-AI collaboration zone: meta-rule review, not local rule revision |
+| **Out-of-distribution domain** | Novel input type with no existing classification pathway; conservative escalation triggered | Seed Expansion Protocol activating — conflict log accumulation begins | Upper layer enters Phase 1 direct management for that domain |
+| **Performance degradation (non-hallucination)** | Task completion rate falling; latency increasing; reasoning loop repetition detected | SCC degrading — self-correction capacity insufficient | Check for Type 1 vs. Type 2 vector degradation; apply alignment repair or re-cultivation |
+
+### When NOT to intervene
+
+Reactive per-event intervention is structurally harmful at scale. The following signals should **not** trigger human intervention:
+
+| False alarm signal | Why it is not an intervention trigger |
+|---|---|
+| Single fesc spike | Does not represent trend — requires cumulative evaluation window |
+| Temporary output variance | Non-determinism is inherent; single-event variance is noise, not signal |
+| Confidence drop on novel domain | Expected during Seed Expansion Protocol Phase 1 — conservative escalation is correct behavior, not failure |
+| Short-term perplexity rise after fine-tuning | Normal recalibration period — θd is adjusting; allow one calibration cycle before escalating |
+
+> *Empirical basis: Production LLM monitoring consensus (Arize AI, Maxim AI, Evidently AI, 2025) — continuous per-event monitoring creates more instability than it resolves. Drift detection requires sustained trend signal, not reactive thresholds. This is the same structural argument as the DFG cumulative log requirement.*
+
+### Intervention Withdrawal Conditions
+
+Intervention should withdraw as soon as — and not before — the trigger condition resolves:
+
+| Trigger type | Withdrawal condition |
+|---|---|
+| Hallucination breach | Hallucination score returns above threshold AND stable across 2+ evaluations |
+| Behavioral drift | fesc trend reverses; perplexity returns to baseline across evaluation window |
+| OOD domain | Seed Expansion Protocol completes Phase 2 (SFT stage) — λlog threshold crossed for that domain |
+| Global objective conflict | Meta-rule redesign validated; I returns above τ2 |
+
+> The governing layer withdraws from each trigger type independently. Withdrawal from one trigger does not imply withdrawal from all — each domain and each trigger type has its own calibration state.
+
+---
+
+## The Optimal Point
+
+| Variable | Meaning |
+|---|---|
+| Risk | Vector Storm frequency × intensity |
 | Cost | Intervention cost + monitoring cost |
-| Utility | Knowledge ecosystem diversity (position clarity + interdependency + reinforcement loops) |
-| $U^*$ | Minimum acceptable diversity threshold — the floor below which the system loses the structural conditions for self-sustaining stability |
+| Utility | Knowledge ecosystem diversity |
+| U* | Minimum acceptable diversity threshold |
 
-Risk, Cost, and Utility are treated as normalized layer-level observables computed over a fixed evaluation window, subject to the invariant constraints defined by the highest-level global rules.
+### U* Quantification
 
-### 9.1.1 What U* Means
-
-$U^*$ is not an arbitrary parameter. It is the minimum level of knowledge ecosystem diversity below which the mutual reinforcement loops that make Rest Mode possible can no longer be sustained.
-
-Operationally, $U^*$ is crossed when:
+U* is not an arbitrary parameter. It is the minimum level of diversity below which mutual reinforcement loops — and thus Rest Mode — can no longer be sustained. It is expressed as a function of the three measurable diversity variables:
 
 ```
-P_overlap approaches 1        (agents converging to same position)
-  OR
-L_reinforcement approaches 0  (mutual reinforcement loops collapsing)
-  OR
-D_interdependency falls below minimum viable coupling
+U* = f(Poverlap, Lreinf, Dint)
+
+where:
+  Poverlap  = positional overlap between agents/domains (0–1; lower = more distinct)
+  Lreinf    = strength of mutual reinforcement loops (0–1; higher = stronger interdependency)
+  Dint      = internal diversity of each agent/domain (0–1; higher = richer local capability space)
 ```
 
-In other words: $U^*$ is the boundary between a diverse, self-sustaining ecosystem and a monoculture that appears stable but is structurally brittle. Minimizing Risk + Cost while Utility is above $U^*$ means the system is optimizing governance efficiency without sacrificing the diversity that makes the system worth governing.
-
-> This is why $U^*$ is a constraint rather than a co-objective. The goal is not to maximize diversity — it is to ensure diversity never falls below the level required for structural self-sufficiency. Once that floor is secured, governance effort is directed at reducing Risk and Cost.
-
-### 9.2 System Lifecycle
+**Operational definition:**
 
 ```
-Utility
-  ↑
-  │               plateau (Rest Mode)
-  │           ___________________
-  │          /
-  │         /  growth phase
-  │        /
-  └───────────────────────────→ Time
-              ↑
-         Optimal point
-     (Risk+Cost minimized,
-      Utility maximized,
-      Reinforcement loops stable,
-      Growth complete)
+U* is violated when ANY of the following holds:
+
+  Poverlap  > θ_overlap   (positions converging — niche collapse beginning)
+  Lreinf    < θ_reinf     (loops weakening — mutual dependency inverting to competition)
+  Dint      < θ_dint      (internal capability space narrowing — over-specialization)
 ```
+
+This is again an OR condition: any single variable crossing its threshold indicates that the diversity ecosystem is no longer self-sustaining. The system does not need all three to degrade simultaneously — one is sufficient to trigger governance intervention.
+
+**Threshold anchoring:**
+
+The individual thresholds θ_overlap, θ_reinf, θ_dint are not universal constants. They are calibrated per system through the conflict log accumulation process — the same θd calibration mechanism that governs local rule formation. A system that has never stressed its diversity boundaries will have uncalibrated thresholds. Conflict log accumulation under boundary stress is what makes U* empirically observable.
+
+> *Empirical anchor: Preference tuning substantially reduces lexical and semantic diversity compared to SFT (Kirk et al., 2024; Guo et al., 2024 — Benchmarking Linguistic Diversity of LLMs, TACL 2025). This documents Dint collapse under over-alignment — a measurable U* violation in single-agent systems.*
+
+---
+
+### Asymmetric Specialization: The Single-Agent U* Violation
+
+The same diversity requirement that applies to multi-agent systems applies within a single agent. An agent that develops capabilities in an asymmetric pattern — deepening one domain while leaving others underdeveloped — violates U* at the internal scale. This has two structural consequences:
+
+**1. Contamination vulnerability**
+
+A highly specialized agent has a narrow Dint. When contaminated input arrives (adversarial prompts, poisoned data, out-of-distribution queries), there are few adjacent capability vectors to absorb or triangulate the anomaly. The contaminated pattern has nowhere to be checked against — it propagates unchallenged.
+
+> *Empirical basis: Over-specialized models show entity-swap accuracy drops of −22.4% under factual perturbation, vs. −9.8% for more general models (SUAS 2025 contamination study). This is the quantified performance signature of low Dint: narrow capability space = high sensitivity to adversarial boundary stress.*
+
+**2. Performance degradation under distribution shift**
+
+Preference tuning (RLHF/DPO) applied asymmetrically — optimizing for a narrow output distribution — produces models that sacrifice Dint for alignment precision. The result is measurably lower diversity even on tasks unrelated to the fine-tuned domain.
+
+> *Empirical basis: Preference tuning substantially reduces lexical and semantic diversity vs. SFT (Kirk et al., 2024). Adversarially trained models suffer deteriorated generalization on clean data (Schmidt et al., 2018; Tsipras et al., 2019). Both are Dint collapse events.*
+
+**The structural rule:**
+
+```
+Dint must be maintained across ALL capability domains, not just the primary deployment domain.
+
+An agent with:
+  Dint(domain_A) = 0.9    ← deep specialization
+  Dint(domain_B) = 0.2    ← atrophied
+  Dint(domain_C) = 0.1    ← near-absent
+
+...has a system-level Dint = min(Dint_i) = 0.1, not mean(Dint_i) = 0.4
+
+U* uses the minimum, not the average. A single atrophied domain is a contamination entry point
+for the entire agent — regardless of strength elsewhere.
+```
+
+This is why the DFG approach to single-agent governance treats domain balance as a first-class concern, not a secondary optimization. The minimum Dint across domains determines the agent's true contamination resistance.
+
+**Connection to SCC:** Dint collapse in any domain directly degrades SCC for the entire agent. When a domain's Dint falls below θ_dint, the detection-purification loop in that domain loses its contrast baseline — contaminated patterns arrive with no adjacent vectors to flag them as anomalous. The contamination does not just persist in that domain; because vectors are connected through Lreinf, an undetected contamination in a weak domain propagates into adjacent domains whose Dint is still intact. A single atrophied domain is not just a local vulnerability — it is an unmonitored entry point into the entire vector network.
+
+---
+
+**System Lifecycle:**
 
 | Phase | Characteristics |
-|-------|----------------|
-| **Growth** | Diversity increasing > Stability. High risk and cost. Governance actively intervening. |
-| **Maturity** | Diversity maintained = Stability. Risk and cost minimized. Governance in Rest Mode. |
-| **Rest** | External intervention unnecessary. Self-correction capacity sufficient. Mutual reinforcement self-sustaining. |
+|---|---|
+| Growth | Diversity increasing. Risk and cost high. Governance actively intervening. |
+| Maturity | Diversity maintained. Risk and cost minimized. Governance in Rest Mode. |
+| Rest | External intervention unnecessary. Self-correction capacity sufficient. |
 
-### 9.3 The Highest-Level Rule
-
-> **The supreme rule of this governance framework is the preservation of knowledge ecosystem diversity.**
->
-> Diversity means agents occupying clearly differentiated positions and sustaining mutual reinforcement loops with one another — at every fractal scale, from internal agent layers to the full multi-agent hierarchy. All meta-rules, local rules, correction values, and intervention decisions are evaluated against this single criterion.
+> *The supreme rule: preserve knowledge ecosystem diversity at all fractal scales — including the internal scale of a single agent.*
 
 ---
 
-## 10. Core Assumptions
+## Core Assumptions
 
-| # | Assumption |
-|---|------------|
-| 1 | Landscape design is more effective than direct intervention at scale — and operates continuously at every fractal layer, not only during initialization. |
-| 2 | Rules operate in two layers: global (immutable) and local (autonomous, validated). |
-| 3 | Upper layers define meta-rules; lower layers define rule content within that structure. |
-| 4 | Global rules always take precedence over local rules in conflict. |
-| 5 | All conflicts must be logged; logs serve as learning data, θ_d calibration input, and validation evidence. |
-| 6 | Consistency is measurable via conflict frequency and intensity. |
-| 7 | Judgment thresholds (τ₁–τ₄) are fixed per layer and set during seed design; domain calibration parameters (θ_d) adjust via conflict log accumulation; update triggers (λ_log) define when log mass produces rule changes. These three symbols are not interchangeable. |
-| 8 | Position ambiguity is a primary upstream driver of Vector Storm (not the sole cause). |
-| 9 | Diversity requires position clarity and mutual reinforcement loops at every fractal scale — including within a single agent — in contexts where multiple valid solutions exist. |
-| 10 | Stabilization requires low escalation frequency, high consistency, and active reinforcement loops. |
-| 11 | Rest Mode entry additionally requires sufficient self-correction capacity. |
-| 12 | Rest Mode is stable but not permanent; it exits when intervention cost falls below residual instability cost. |
-| 13 | Rest Mode achievement and Seed Handover completion are the same event viewed from different angles. |
-| 14 | Permanently High-Context is a layer-relative property: a domain unresolvable at a lower layer escalates to the upper layer, where it may be handled as a routine decision. As fractal depth increases, the set of domains requiring direct human judgment contracts toward an irreducible minimum. |
-| 15 | Seed design transfers from human to AI as stabilization conditions are met. |
-| 16 | The supreme objective is knowledge ecosystem diversity preservation at all fractal scales. Formally: governance minimizes Risk + Cost subject to Utility ≥ U*, where U* is the minimum diversity threshold required for structural self-sufficiency. |
+1. Landscape design is more effective than direct intervention at scale
+2. Rules operate in two layers: global (immutable) and local (autonomous, validated)
+3. Upper layers define meta-rules; lower layers define rule content
+4. Global rules always take precedence over local rules
+5. All conflicts must be logged; logs serve as learning data and θd calibration input
+6. τ, θd, and λlog are distinct and non-interchangeable
+7. Position ambiguity is a primary upstream driver of Vector Storm
+8. Diversity requires position clarity and mutual reinforcement loops at every fractal scale
+9. Rest Mode is stable but not permanent — exits when any one of the four entry conditions develops a sustained vicious trend (OR-exit condition)
+10. Rest Mode achievement and Seed Handover completion are the same event viewed from different angles
+11. The supreme objective is knowledge ecosystem diversity preservation
 
 ---
 
-## 11. Structural Correspondences
+## Structural Correspondences
 
-| Theory Concept | Related Field | Corresponding Concept | Key Figure |
-|----------------|--------------|----------------------|------------|
-| Meta-rules | Philosophy of law | Constitutional vs. statutory law | — |
-| Landscape design | Behavioral economics | Nudge theory | Thaler & Sunstein |
-| Subsidiarity principle | Political theory | Subsidiarity (EU constitutional law) | — |
-| Correction values | Reinforcement learning | Reward shaping | — |
-| Domain-specific θ_d calibration | Control theory | Gain scheduling | — |
-| Consistency index | Control theory | Steady-state error measurement | — |
-| Seed expansion protocol | Developmental psychology | Schema assimilation / accommodation | Piaget |
-| Position clarity | Ecology | Niche differentiation | Charles Elton |
-| Mutual reinforcement loops | Ecology | Symbiosis / trophic interdependency | Charles Elton |
-| Diversity as stability | Ecology | Diversity-stability relationship | Ramon Margalef |
-| Single-agent diversity | Cognitive science | Cognitive flexibility / divergent thinking | — |
-| Vector Storm as growth driver | Complex systems | Dissipative structures | Ilya Prigogine |
-| Optimal point | Complex systems | Edge of chaos | Stuart Kauffman |
-| Rest Mode | Ecology | Climax community / old-growth equilibrium | Arthur Tansley |
-| Self-correction capacity | Dynamical systems | Lyapunov stability (structural analogue only — no differentiability or smoothness assumed) | — |
-| Seed handover | Organizational theory | Institutional knowledge transfer | — |
-| Knowledge diversity preservation | Complex systems | Self-organization | Prigogine / Kauffman |
-
-> These are structural correspondences, not formal equivalences.
-
-### Key Theoretical Ancestors
-
-**Ilya Prigogine** (Nobel Prize, Chemistry 1977) developed the theory of dissipative structures — systems far from equilibrium can spontaneously generate higher-order organization through instability rather than despite it. This parallels the core premise of Vector Storm Theory: instability is not an error to be eliminated but a structural cost of growth that, when properly channeled, drives system maturation.
-
-**Stuart Kauffman** (Santa Fe Institute) formalized the Edge of Chaos — the critical zone between excessive order (rigidity) and excessive disorder (collapse) where the most complex and adaptive behavior emerges. This corresponds precisely to the optimal point in this theory, where Risk + Cost is minimized and Utility is maximized.
-
-**Charles Elton** established the ecological niche concept — each organism occupies a distinct functional role within its ecosystem, and this differentiation produces stable interdependency. This is the ecological basis for the position clarity principle.
-
-**Ramon Margalef** quantified the relationship between biodiversity and ecosystem stability, demonstrating mathematically that diversity is a precondition for resilience — providing empirical grounding for the supreme rule.
-
-**Jean Piaget**'s schema theory describes how cognitive structures expand through assimilation (fitting new input into existing schemas) and accommodation (restructuring schemas when assimilation fails). The Seed Expansion Protocol follows identical logic: classify under existing rules (assimilation), and when that fails, build new rules through conflict log accumulation (accommodation).
+| Theory Concept | Related Field | Corresponding Concept |
+|---|---|---|
+| Meta-rules | Philosophy of law | Constitutional vs. statutory law |
+| Landscape design | Behavioral economics | Nudge / choice architecture (Thaler & Sunstein, 2008) |
+| Subsidiarity | Political theory | EU constitutional subsidiarity (Follesdal, 1998) |
+| Correction values | Reinforcement learning | Reward shaping (Ng et al., 1999) |
+| θd calibration | Control theory / ML training dynamics | Gain scheduling; CPT learning rate decay curve (D-CPT Law, 2024) — power-law convergence as domain stabilizes |
+| Seed expansion | Developmental psychology | Piaget's schema assimilation/accommodation |
+| Position clarity | Ecology | Niche differentiation (Elton, 1927) |
+| Mutual reinforcement | Ecology | Symbiosis / trophic interdependency |
+| Diversity as stability | Ecology | Diversity-stability relationship (de Mazancourt et al., 2013) |
+| Rest Mode | Ecology | Climax community / old-growth equilibrium |
+| SCC | Dynamical systems | Lyapunov stability (structural analogue) |
+| Vector Storm as growth driver | Complex systems | Dissipative structures (Prigogine) |
+| Optimal point | Complex systems | Edge of chaos (Kauffman) |
 
 ---
 
 ## Relationship to Other Theories
 
 ```
-Deficit-Fractal Governance (parent framework)
-  ├→ Three-Layer Governance Architecture
-  ├→ Seed Design              ← seeds are meta-rules; handover = Rest Mode completion
-  ├→ Vector Storm Theory      ← position ambiguity as upstream driver; defines Risk
-  ├→ Network Architecture     ← defines escalation and stabilization conditions
-  ├→ Governance Rules Theory  ← this document
-  │     (landscape design, subsidiarity, meta-rules, domain θ_d calibration,
-  │      seed expansion, position clarity, fractal diversity,
-  │      consistency, Rest Mode, seed handover, optimal point)
-  ├→ Recovery Theory          (separate document)
-  └→ Prediction Model         (separate document)
+Deficit-Fractal Governance (DFG)
+│
+├── Three-Layer Governance Architecture
+├── Vector Storm Theory          — defines Risk; position ambiguity as upstream driver
+├── Network Architecture Theory  — defines escalation and stabilization conditions
+├── Governance Rules Theory      — this document
+├── Recovery Theory              (separate document)
+└── Prediction Model             (separate document)
 ```
 
 ---
 
-## Conclusion
+## References
 
-$$\text{Diversity Preserved} \;\Leftrightarrow\; \text{SCC} \geq \theta_4 \;\wedge\; L_{\text{reinforcement}} \geq \theta_3 \;\Leftrightarrow\; \text{Rest Mode achieved}$$
-
-Governance is not the management of agents.
-It is the design of the terrain they move through —
-and the conditions under which they no longer need anyone to manage it.
-
-Meta-rules give agents the capacity to govern themselves.
-Position clarity prevents the collisions that governance would otherwise need to resolve.
-Mutual reinforcement loops make stability self-sustaining rather than enforced.
-
-**The clearest signal that a system is maturing is that its upper layers are becoming quieter.** Not because they have been disabled — but because the lower layers no longer need them. Risk and cost decrease not through tighter control, but through the progressive internalization of the principles that made control necessary in the first place. The upper layer's silence is the sound of the architecture working.
-
-Rest Mode is not a reward granted at the end of development.
-It is the proof that development succeeded.
-
-> **Governance is not the absence of conflict.**
-> **It is the capacity to resolve conflict without being asked.**
+1. Thaler, R. H., & Sunstein, C. R. (2008). *Nudge*. Yale University Press.
+2. Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. *NeurIPS*.
+3. Bai, Y., et al. (2022). Constitutional AI: Harmlessness from AI Feedback. *arXiv:2212.08073*.
+4. Ng, A. Y., Harada, D., & Russell, S. (1999). Policy invariance under reward transformations. *ICML*.
+5. Follesdal, A. (1998). Survey article: Subsidiarity. *Journal of Political Philosophy, 6*(2).
+6. van Geert, P. (1998). A dynamic systems model of basic developmental mechanisms. *Psychological Review, 105*(4).
+7. Elton, C. S. (1927). *Animal Ecology*. Sidgwick & Jackson.
+8. de Mazancourt, C., et al. (2013). Biodiversity inhibits species' first-rank dominance. *Ecology Letters, 16*(5).
+9. Prigogine, I., & Stengers, I. (1984). *Order Out of Chaos*. Bantam Books.
+10. Kauffman, S. A. (1993). *The Origins of Order*. Oxford University Press.
+11. Spurious Forgetting in Continual Learning of Language Models. *ICLR 2025*. (Task alignment loss vs. true knowledge loss; orthogonal weight updates as primary mechanism.)
+12. Mitigating Catastrophic Forgetting in Large Language Models with Task Vector Pruning. *EMNLP 2025*. (Gradient interference; redundancy in task vector weights; sparsification risks.)
+13. Continual Learning of Large Language Models: A Comprehensive Survey. *ACM Computing Surveys, 2025*. (Temporal knowledge shifts; three-objective CL framework: retention, acquisition, update.)
+14. D-CPT Law: Domain-specific Continual Pre-Training Scaling Law for Large Language Models. Que et al., *arXiv:2406.01375*, 2024. (Optimal replay ratio R* ≈ 30–50%; closed-form domain loss prediction.)
+15. On the Generalization of SFT: A Reinforcement Learning Perspective with Reward Rectification. *arXiv:2508.05629*, 2025. (SFT memorizes, RL generalizes; SFT as indispensable initialization stage.)
+16. Continual Post-Training (CPT) Strategy. Emergent Mind synthesis, 2025. (Four-pillar convergence evaluation; RFT mitigates forgetting more effectively than SFT via implicit reward variance regularization.)
+17. Benchmarking Linguistic Diversity of Large Language Models. Guo et al., *TACL*, 2025. (Preference tuning substantially reduces lexical and semantic diversity vs. SFT — quantified Dint collapse under asymmetric alignment.)
+18. Data Contamination or Genuine Generalization. SUAS 2025. (Entity-swap accuracy drop −22.4% for over-specialized models vs. −9.8% for general models — quantified contamination vulnerability under low Dint.)
+19. Adversarial training generalization cost. Schmidt et al., 2018; Tsipras et al., 2019. (Adversarially trained models suffer deteriorated clean-data generalization — Dint collapse under asymmetric robustness optimization.)
+20. Reducing Hallucinations in LLMs with Custom Intervention. AWS Bedrock Agents blog, 2024. (Hallucination score < threshold → SNS escalation to human queue — production implementation of Medium severity trigger.)
+21. HaluGate: Token-Level Hallucination Detection. vLLM Blog, 2025. (Token confidence threshold 0.8; 72.2% efficiency gain via pre-classification; 76–162ms overhead — production-grade intervention threshold data.)
+22. Mitigating LLM Hallucinations: A Comprehensive Review. Preprints.org, 2025. (Hallucination rates 15–38% in production; hybrid RAG 35–60% error reduction; NeMo guardrails 92% detection rate.)
+23. LLM-based Agents Suffer from Hallucinations: A Survey. Lin et al., arXiv:2509.18970, 2025. (18 triggering causes; taxonomy of agent hallucination types across planning/memory/tool-use/MAS stages.)
+24. How to Evaluate Control Measures for LLM Agents. arXiv:2504.05259, 2025. (AI Control framework: when internal monitoring cannot adjudicate, human review of reasoning process required — High severity structural basis.)
 
 ---
 
-*This theory draws on cross-domain synthesis across behavioral economics, constitutional law, ecology, control theory, complex systems science, and cognitive developmental psychology.*
+*Governance is not the management of agents. It is the design of the terrain they move through — and the conditions under which they no longer need anyone to manage it.*
+
+*Rest Mode is not a reward granted at the end of development. It is the proof that development succeeded.*

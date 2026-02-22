@@ -226,6 +226,39 @@ A vector is not declared — it **emerges**. At the point of first encounter, ev
 
 This means the system does not pre-sort inputs into signal and noise. It treats all new inputs as noise first, and **promotes them to vector status only after sufficient evidence accumulates**.
 
+**VST §1.8 — Vectorization Lifecycle and S-equation connection (v1.3):** VST v1.3 formalizes how GRT's vectorization process connects to the dynamical model. The key insight: n in the S-equation (S = αn²/C(t)^β) counts *promoted vectors*, not raw inputs. This means GRT's λlog threshold directly governs the S-equation's instability generation:
+
+```
+Until promotion (noise state):
+  Input contributes to noise floor, NOT to n²
+  Does not generate pairwise interaction load
+  Held in low-escalation, high-sensitivity state
+
+After promotion (vector state):
+  Input occupies distinct position in vector space
+  Generates pairwise interactions with adjacent vectors
+  Contributes to n² interaction load in S-equation
+  Subject to collision frequency monitoring
+```
+
+Vector degradation connects directly to recovery timescale feasibility:
+
+```
+Type 1 — Alignment Severance (reversible):
+  n decreases but latent structure preserved
+  T_recovery: bounded — O(1) intervention
+  VST prediction: T_recovery < T_change → intervention can succeed
+
+Type 2 — Weight Overwrite (irreversible):
+  n decreases AND C(t) structure damaged
+  T_recovery: potentially divergent — full re-cultivation required
+  VST prediction: T_recovery may exceed T_change
+  → catastrophe condition may hold → Type 1/Type 2 diagnosis
+    required BEFORE intervention selection
+```
+
+This is why the Collapse Recovery procedure (Step 1) diagnoses degradation type before choosing a response: Type 1 allows pathway restoration within the intervention window, while Type 2 may exceed the catastrophe condition (VST §1.6.3: T_recovery > T_change) and require fundamentally different strategy.
+
 **Connection to VST noise decoherence:** VST Section 1.7 establishes that the deepest stability law is not eliminating noise but keeping noise uncorrelated. The vectorization process in GRT is the rule-governance mechanism that maintains this property: by requiring λlog accumulation before promotion, GRT ensures that noise inputs are held in an uncorrelated state long enough to prevent premature pattern formation that could synchronize with other noise inputs and trigger decoherence.
 
 ### The Degraded Map
@@ -390,6 +423,31 @@ The θd calibration rule ("if drift metric exceeds baseline by θ_drift, then θ
 
 **Connection to VST S-equation epistemic evolution:** This three-phase bootstrapping mirrors VST Section 3.2.2's description of S evolving from diagnostic (Phase 1) to early-warning (Phase 2) to predictive (Phase 3). In both cases, the monitoring variable begins with maximum sensitivity and minimum discrimination, accumulates operational history, and transitions to a calibrated state. The parallel is not coincidental — θd calibration and S calibration are the same process operating at different levels of the governance hierarchy.
 
+**TLG §13.1.1 — Mediator Drift Syndrome (MDS) countermeasures for θd:** TLG v1.6 identifies that the θd calibration loop itself is the primary locus of gradual governance drift: Middle Layer classifies inputs → conflict logs generated from those classifications → θd updated from those conflict logs → θd calibrated to Middle Layer's prior judgments → drift reinforces itself. This self-referential loop means θd cannot self-certify its own calibration. Three architecture-compatible countermeasures:
+
+```
+① Calibration Reflexivity Loop:
+  θd's own decision patterns treated as observable data.
+  Meta-log: θd update direction, classification bias trending,
+  escalation rate anomaly relative to agent activity.
+  Upper layer monitors meta-log for systematic drift direction.
+
+② Cross-Scale Consistency Check:
+  Healthy ratio: agent activity ↑ AND conflict_events proportional ↑ AND escalation rare
+  MDS signal: agent activity ↑ BUT conflict_events ↓ → Middle Layer under-detecting
+  MDS signal: agent activity ↓ BUT conflict_events ↑ → Middle Layer over-detecting
+  DANGER: all three ↓ simultaneously → possible convergence to monoculture
+  → mandatory perturbation test required
+
+③ Delayed Escalation Audit:
+  Before upper layer acts on escalation, inspect escalation distribution:
+  Healthy: sources diverse, types mixed, timing uncorrelated with θd updates
+  MDS: sources concentrated, types skewed, timing correlated with θd updates
+  → Middle Layer generating escalation from its own drift, not from reality
+```
+
+GRT's Phase 2 baseline (exponentially weighted moving average) provides inherent MDS resistance through the forgetting property — but this is insufficient alone, because the forgetting rate itself can drift. The Calibration Reflexivity Loop adds the missing external observation of θd's own pattern.
+
 **Connection to NAT θ operationalization (NAT §7.2):** NAT defines the global stabilization threshold θ through the VST S₀ normalization framework: θ = mean(f_escalation) during confirmed VCZ-stable window + 1σ margin, validated against S_norm ≈ 1.3 (VST Stage 0 boundary). GRT's θd is the per-domain instantiation of this global θ, calibrated using domain-local conflict logs. This provides a dual-anchor validation: θ_VST from instability dynamics and θ_RBIT from F_RBIT's τ₁ threshold (information flow). If domain-local θd violates either anchor, it indicates domain-specific measurement error rather than a genuine domain difference.
 
 **Connection to RBIT resolution gap polarity:** θd calibration is operationally a resolution gap management function. When θd is set too high (insensitive), the system under-escalates — treating High-Context data as Mathematical (Δρ < 0 misread as Δρ ≈ 0) — producing the cascade failure RBIT predicts. When θd is set too low (hypersensitive), the system over-escalates — producing governance overhead but no structural risk. RBIT's error asymmetry principle (under-escalation is dangerous, over-escalation is safe) justifies GRT's conservative default of θd_max during Phase 0 bootstrapping.
@@ -490,6 +548,27 @@ This rule ensures that Rest Mode is never declared prematurely due to one axis m
 
 Window sizes N and T are calibrated per domain during θd calibration. High-velocity domains (many interactions per hour) use smaller T and larger N. Low-velocity domains use larger T and smaller N. Both are updated at each τ re-estimation trigger.
 
+**TLG §0.6 — Adaptive W Sizing:** TLG v1.6 specifies that W is not fixed but adapts to system state, grounded in the S-equation variable timescale hierarchy:
+
+```
+W must satisfy:
+  W >> monitoring timescale    (avoid reacting to noise)
+  W << operational timescale   (detect real drift before it compounds)
+  
+  Practical constraint:
+    W ≈ 3–10 × mean recovery time for τ1 events
+
+Adaptive adjustment:
+  Post-τ3 recovery:       W shortened (more frequent assessment)
+  Stable τ4 regime:       W lengthened (less frequent assessment)
+  Novel environment entry: W shortened (faster recalibration)
+  φ declining:             W shortened (directional validity at risk)
+  
+  W_{t+1} = W_t × (τ1_recovery_time_current / τ1_recovery_time_baseline)
+```
+
+GRT implements this through θd calibration: each domain's W adapts based on its own τ1 recovery time trend. If recovery time is increasing (immunity decay), W shrinks → more frequent assessment → earlier detection. If recovery time is stable, W remains at baseline. W is itself a governed parameter — a fixed W measures a changing system with a static ruler.
+
 ### Conflict Severity
 
 | Severity | Conflict Type | Response |
@@ -513,6 +592,10 @@ Window sizes N and T are calibrated per domain during θd calibration. High-velo
 | **Write-Asymmetry** | Downstream cannot modify upstream records | Once a conflict is logged, the classification (Low/Medium/High) is immutable. Subsequent re-evaluation adds a new log entry but cannot overwrite history — structurally guaranteeing the audit trail that λlog accumulation depends on |
 
 Without all three, conflict detection is vulnerable to the same lateral contamination that NAT identifies in same-layer agent communication: agents converge on shared interpretations before upper-layer synthesis can detect disagreement. RT T4 provides the formal justification: same-layer exchange produces ΔReferenceFrame = 0, meaning shared geometry errors are undetectable — only upward mediation (to a layer with larger reference frame) can detect errors invisible at the current resolution.
+
+**TLG §10.8 — why structural enforcement is the highest-leverage investment:** TLG v1.6 establishes that in adaptive systems, *any pathway that is merely prohibited but structurally possible will eventually be used*, because efficiency pressure creates shortcuts. Prohibition fails because lateral communication is faster than vertical mediation — efficiency pressure → shortcut formation → isolation violation. This is not agent misbehavior but information pathway optimization, a natural property of any system that can modify its own communication routes.
+
+The three enforcement mechanisms (Interface Narrowing, Temporal Decoupling, Write-Asymmetry) each close a distinct contamination channel: semantic (raw state leaking through interfaces), timing (simultaneous processing creating mutual influence), and retroactive (downstream modifying upstream records). All three are needed simultaneously because any single mechanism alone leaves the other two channels open. This is why TLG's Unified Failure Topology (§13.6) identifies Phase 1 (phase leakage) as the cheapest cycle interruption point — structural enforcement at this phase prevents the entire 6-phase failure cycle from initiating.
 
 ### Stabilization Conditions
 
@@ -545,6 +628,20 @@ When agents compete for the same optimum instead of occupying distinct roles, ve
 | → Vector Storm | → Stable ecosystem |
 
 **Connection to VST amplification dynamics:** Position ambiguity directly increases α (amplification coefficient) in the S-equation S = αn²/C(t)^β (VST Section 3.2). When Poverlap rises, overlapping roles create the coupling density through which one conflict breeds the next — exactly the chain-reaction dynamic that VST defines as the storm existence condition (R > 1). Position clarity reduces α by creating the interaction barriers (terrain features) that constrain propagation paths and prevent flat-landscape quadratic coupling from being fully realized.
+
+**VST §3.2.5 — why n² holds even in sparse networks:** The quadratic scaling S ~ αn² was previously justified by network density (n agents → O(n²) pairwise interactions). VST v1.3 provides a stronger derivation from critical phenomena: at R ≈ 1 (critical regime), perturbation persistence creates path overlap — nearly every agent pair becomes connected through at least one active propagation path, yielding n² active interactions even in sparse topologies. This matters for GRT because it means Poverlap's effect on α operates regardless of network sparsity — even a loosely connected system experiences quadratic interaction load when at criticality.
+
+The sub-quadratic correction through governance maturity follows a spectrum:
+
+```
+  Early system   (flat landscape):    S ~ n²      (d_eff ≈ 2)
+  Maturing system (terrain forming):  S ~ n^1.5   (d_eff ≈ 1.5)
+  Rest Mode      (deep terrain):      S ~ n^{1+ε} (d_eff → 1)
+```
+
+GRT's Lreinf (mutual reinforcement loops) is the mechanism that produces this terrain: strong Lreinf creates the interaction barriers that reduce d_eff from 2 toward 1, converting the landscape from flat (full quadratic coupling) to structured (constrained propagation paths). This is why Lreinf collapse (Case 3) produces the most dangerous storm type — it removes the terrain that was keeping effective scaling sub-quadratic.
+
+**Connection to α-n partial separation (VST §3.2.7):** GRT's Poverlap and fesc provide operational decomposition of the αn² product. NAT's four-type data classification decomposes α specifically: High-Context data (Δρ < 0) is the primary driver of α, Mathematical data (Δρ ≈ 0) contributes minimally. Monitoring the HC-classified data fraction provides a resolution-decomposed estimate of α that can be tracked independently of n. This partially resolves the experimental validation challenge (previously identified as open problem 4): controlled topology manipulation (holding n constant, varying connectivity) isolates α, while controlled expansion (holding topology constant, adding agents) isolates n.
 
 ### Fractal Diversity Variables
 
@@ -619,6 +716,19 @@ GRT's Self-Exciting Defect Layer (referenced from VST Section 1.6.5) is the dyna
 - Adversarial/diversity-generating mechanisms must be structurally embedded, not policy-dependent (Boundary Structural Embedding Pattern 4: Distributed Boundary)
 - The Boundary preservation criterion uses Propagation Sensitivity, not cost-efficiency: any friction element whose removal increases error propagation speed is Boundary Friction and must never be removed, regardless of apparent efficiency gains
 
+**VST §6.8 Boundary Structural Embedding — 6 T6-resistant patterns:** VST v1.3 specifies six implementation patterns that make Boundary Agent removal structurally self-defeating. GRT should implement at minimum Pattern 1 + Pattern 5:
+
+| Pattern | Mechanism | T6-Resistance | GRT Rule Architecture Implementation |
+|---|---|---|---|
+| **1. Constitutional Invariants** | Boundary as protocol, not team | Removing protocol = removing functionality | Meta-rule: "No rule update finalized until ≥2 independent evaluation paths exist." "If consensus exceeds threshold → adversarial re-evaluation auto-activates." |
+| **2. KPI Inclusion** | Boundary value in objective function | T6 optimizes toward KPI → maintains Boundary | Include output_entropy, disagreement_budget, falsification_coverage as tracked metrics in governance health dashboard |
+| **3. Structural Dependency** | Boundary as required input | Removing Boundary = losing capability | "λlog conflict log update requires conflict_log input — no logged conflicts, no rule updates possible." Boundary generates the conflicts that fuel governance learning |
+| **4. Distributed Boundary** | Micro-boundary everywhere | Cannot target distributed statistical property | Per-domain adversarial evaluation activated probabilistically; micro-boundary density floor as constitutional invariant |
+| **5. External Anchoring** | Boundary tied to reality (T5) | T6 cannot change external reality | External benchmark pipeline, OOD data injection, long-horizon outcome tracking. This is the Permanently High-Context channel implementation |
+| **6. Optimization Ceiling** | Perfect optimization prevented | Makes perfect optimization unreachable | Minimum uncertainty floor on I (I_max < 1.0); consensus speed limiter; high-stability stress test trigger |
+
+Minimum viable GRT implementation: Pattern 1 (Constitutional Invariants) + Pattern 5 (External Anchoring) = Boundary exists as protocol + external reality always enters = self-sealing geometry cannot fully close.
+
 **Connection to VST High Capability · Low Activation principle:** The three-stage intervention form transformation (directive → validating → statistical) is the rule-governance expression of VST's governance maturity spectrum (VST Section 1.6.5): Level 1 (frequent intervention, weak effect) → Level 3 (rare intervention, strong effect) → Level 5 (pre-emptive terrain adjustment only). In GRT terms, Rest Mode = Level 4–5 of VST's maturity spectrum: the governing layer maintains full intervention capacity (high capability) while intervening almost never (low activation).
 
 ### Loop Direction as the Core Diagnostic
@@ -683,6 +793,34 @@ Contaminated input arrives
 
 This is why SCC is downstream of Dint and Lreinf, not independent of them. A system cannot have high SCC with low Dint or collapsed Lreinf — the detection-purification loop has no substrate to run on.
 
+**SCC upper bound determined by seed quality (VST §6.6):** VST v1.3 establishes that seed sufficiency determines the *maximum achievable* SCC, regardless of Dint or Lreinf levels. Three sufficiency levels produce three SCC ceilings:
+
+```
+RBIT Seed Sufficiency Test:
+  Test 1 — Contamination Resistance:
+    Vectors grown from seed maintain structural independence
+    under contamination pressure. (SR > 0 on novel input)
+    
+  Test 2 — Contamination Recognition:
+    Independent vectors produce disagreement signal when
+    contamination enters. (Error detection within N-step window,
+    Recovery Invocation Rate RIR > 0)
+    
+  Test 3 — Self-Correction Direction:
+    Seed contains ≥ 2 independent directions
+    (primary direction + self-critical direction).
+    (Gradient cosine similarity between directions < −threshold)
+
+SCC ceiling by sufficiency level:
+  Test 1 only:      SCC_max = 0 (no detection, no correction)
+  Test 1 + 2:       SCC_max = partial (detection autonomous,
+                     correction requires upper-layer execution)
+  Test 1 + 2 + 3:   SCC_max = complete (fully autonomous →
+                     Rest Mode achievable)
+```
+
+This means: a system with only single-direction seeds *cannot achieve SCC ≥ τu-4* for Rest Mode entry, regardless of how high Dint and Lreinf become. The seed architecture imposes a ceiling that no amount of operational maturation can exceed. GRT's Seed Expansion Protocol must therefore verify Test 3 (orthogonal recovery direction) at seed design time, not as a runtime check — because by the time SCC proves insufficient, the structural limitation is already embedded.
+
 **Connection to VST's observability framework:** The SCC detection-purification loop is the rule-governance implementation of VST's observability preservation principle (Section 1.6.3). VST establishes that terrain formation's deepest function is not stabilization but preservation of causal resolution capacity — the system's ability to distinguish signal from noise and locate the source of perturbation. SCC operates this principle at the rule layer: Dint provides the contrast resolution (ability to distinguish anomalous from normal), and Lreinf provides the causal localization (ability to trace anomaly source through interaction topology). When SCC fails, the rule-governance layer loses observability — which is the precondition for Silent Criticality (VST Section 1.6.4).
 
 | SCC Level | Storm frequency | Recovery speed | Loop direction |
@@ -695,6 +833,49 @@ This is why SCC is downstream of Dint and Lreinf, not independent of them. A sys
 - **fesc** — number of escalations per K interactions, or per hour. K is calibrated per domain velocity during θd calibration.
 - **Lreinf** — number of active mutually reinforcing edges above weight ε, where ε is the minimum edge weight considered structurally meaningful (calibrated during domain stabilization).
 - **SCC** — probability of autonomous recovery within evaluation window W, estimated from historical recovery events in the conflict log. Equivalently: inverse of expected recovery time (ERT) normalized to [0, 1].
+
+**TLG §5.3.1 — Immunity Decay (post-Rest Mode SCC erosion):** SCC is not a possession but an activity. TLG v1.6 identifies three erosion pathways that degrade SCC *after* Rest Mode entry — while all standard metrics remain healthy:
+
+```
+Pathway 1 — Environmental Drift:
+  Environment changes gradually; θd remains calibrated to old environment.
+  SCC appears stable (still handles known perturbations) but blind to new types.
+  Signal: performance on novel inputs declining while familiar inputs maintained.
+
+Pathway 2 — Calibration Decay Through Disuse:
+  Stable environment → τ1 events rare → calibration pathways unused → sensitivity atrophies.
+  Buffer maintained passively (no active testing).
+  Signal: recovery time increasing on rare τ1 events (immune system works but slowly).
+
+Pathway 3 — Over-Optimization:
+  Agent optimizes for efficiency → exploration breadth narrows → diversity contracts.
+  Self-correction capacity narrows to known failure modes only.
+  Signal: performance metrics improving while exploration diversity declining.
+  (Most dangerous: success IS the erosion mechanism.)
+```
+
+All three pathways share: SCC appears stable by standard metrics while actual recovery capacity degrades. GRT countermeasures: (①) minimum exploration breadth maintained post-Rest Mode; (②) periodic controlled perturbation injection to verify recovery pathways; (③) dormant pathway activation — periodically exercise τ2-level responses even without τ2 events; (④) τ4 regime exit detection — SCC drop below τu-4 triggers regime exit (not failure, but architecture working correctly).
+
+Post-Rest Mode governance target shifts from *instability suppression* to *recovery capacity preservation*: maintain detection sensitivity, test calibration periodically, prevent over-optimization from eliminating the system's ability to be surprised.
+
+**TLG §5.2.1 — Recovery Completion Criterion (RC):** GRT's Collapse Recovery procedure (Step 3: verify Seed integrity) is necessary but insufficient for recovery validation. TLG specifies three conditions that must hold simultaneously for True Recovery:
+
+```
+Three post-correction states:
+  True Recovery:        E(t)↑ AND I(t)↓ AND dφ/dt ≥ 0 AND correction frequency declining
+  Arrested Collapse:    Stable, low collision, φ < baseline, no novel attractors forming
+  Pathological Expansion: E(t) high but φ declining — exploring confidently in wrong direction
+
+RC 3-condition verification:
+  ① Autonomous Expansion:  E(t) increasing AND I(t) decreasing
+     (E↑ alone could be Pathological Expansion; I↓ alone could be Arrested Collapse)
+  ② Directional Validity:  dφ/dt ≥ 0
+     (exploration producing increasing or stable value)
+  ③ Collapse Non-Dependence: correction frequency declining over W without performance drop
+     (self-correction has replaced external correction)
+```
+
+GRT integrates RC into the Collapse Recovery exit gate: after Step 3 (Seed integrity verification), apply RC 3-condition check before declaring recovery complete. If ① fails → Arrested Collapse (do not de-escalate). If ② fails → Pathological Expansion (recalibrate before de-escalation). Both failing → collapse ongoing.
 
 ### Rest Mode Entry Conditions (AND — all four required)
 
@@ -726,6 +907,24 @@ The τu-1 through τu-4 thresholds cannot be set from first principles — they 
 **Step 3 — Adaptive refinement:** If the system declares Rest Mode and immediately exits (false positive), tighten thresholds by one quartile. If the system appears operationally stable but never reaches Rest Mode (potential false negative), loosen by one quartile. This binary search converges to system-appropriate values within O(log n) adjustment cycles.
 
 **Connection to VST S₀ normalization:** This calibration procedure is the GRT analogue of VST's Absolute Calibration Layer (Section 3.2.2), where S is normalized to the system's own phase boundary (S₀) rather than to an absolute scale. In both cases, the principle is the same: thresholds are anchored to the system's own operational history, not to universal constants.
+
+**VST §3.5.5 phase-space location for Rest Mode (v1.3):** VST v1.3 specifies that Rest Mode entry requires not only the four GRT conditions but also confirmed phase-space location within the VCZ:
+
+```
+GRT conditions (operational):
+  fesc ≤ τu-1 + decreasing trend
+  I ≥ τu-2 + increasing trend
+  Lreinf ≥ τu-3 + increasing trend
+  SCC ≥ τu-4 + improving trend
+
+VST phase-space (dynamical):
+  S_norm << S_c (deep VCZ interior, not near boundary)
+  R ≈ 1 (critical, not subcritical — system alive, not dead)
+  SR > 0, RDE > 0, NCR < 1 (Governance Backgrounding differential confirmed)
+  Perturbation response test passed (system can still be surprised)
+```
+
+The VST phase-space conditions prevent a specific false-positive: a system where all GRT metrics are healthy but the system has actually entered SCM (Self-Consistent Misalignment). In SCM, GRT metrics look excellent — low fesc, high I, strong Lreinf, apparently high SCC — because the measurement system itself has drifted along with the geometry. The VST conditions (especially R ≈ 1 concordance and SR > 0) catch this: a system that cannot be surprised (SR ≈ 0) is not in Rest Mode regardless of what GRT metrics show.
 
 ### Rest Mode Exit Conditions (OR — any one sufficient)
 
@@ -810,6 +1009,36 @@ This connects GRT's four AND-entry conditions to a single formal criterion: Rest
 | τ₁ < G_ℓ < τ₂ | MARK — monitoring + signal logging | Alert state — per-event monitoring, λlog accumulation |
 | τ₂ < G_ℓ < τ₃ | SOFT CORRECT — boundary tightening, seed injection | Active Mode — per-rule intervention |
 | G_ℓ > τ₃ | HARD CORRECT — loop severance, attractor reset | Collapse Recovery — structural realignment |
+
+**Efficiency–Plasticity Conservation Law (VST §3.7):** VST establishes a conservation-like constraint grounding why Rest Mode cannot achieve zero governance cost:
+
+```
+Efficiency ↑  ⇒  Plasticity ↓
+
+Efficiency requires: routing stabilization, attractor deepening,
+  compression, specialization
+Each simultaneously: reduces future adaptation cost (efficiency gain)
+  AND reduces future adaptation capacity (plasticity loss)
+
+Resource allocation constraint:
+  R_total = R_exploration + R_governance + R_plasticity_maintenance
+
+  R_plasticity_maintenance > 0 ALWAYS.
+  Systems that allocate R_plasticity = 0
+  (pure efficiency optimization) are on the SCM/CW convergence path.
+```
+
+For GRT, this means Rest Mode's low governance cost (C_gov minimal) is bounded from below by the plasticity maintenance floor. The Self-Exciting Defect Layer's resource cost is not overhead — it *is* the plasticity component of the conservation equation. Attempting to reduce C_gov below this floor produces the efficiency illusion: all metrics optimal, governance load minimal, but adaptation capacity destroyed — exactly the VCZ Observability Paradox identified in the RT D7 integration above.
+
+**Mature storm absorption and φ (VST §13.1):** In Rest Mode, micro-storms are not pure cost — they are the mechanism through which the system maintains geometry alignment with a changing environment. VST decomposes φ in mature systems as:
+
+```
+φ_mature = φ_exploration + φ_storm_absorption
+
+where φ_storm_absorption = P(micro-storm → geometry recalibration → reusable correction)
+```
+
+Immature systems have φ_storm_absorption ≈ 0 (storms are pure cost). Rest Mode systems have φ_storm_absorption > 0 (storms contribute to value). This explains why the storm scale power law (Recovery Theory: small storms continuous, large storms rare) is not just a health indicator but a *value generation* pattern: each micro-collision processed and integrated converts potential instability into updated geometry.
 
 ---
 
@@ -941,7 +1170,64 @@ Case 2 (escalation flood) → upper layer overwhelmed
 
 In multi-agent environments, misinformation propagation leads to poisoned information being enhanced through collaborative reasoning, creating cascading security breaches across the system — which is the security-domain expression of the same structural dynamic.
 
+**VST §3.8 — Information-theoretic characterization of collapse cascade:** VST v1.3 provides the information-theoretic content of what the collapse propagation represents:
+
+```
+Normal operation:
+  MI(agent_i, agent_j) = MI_baseline (bounded, architecture-dependent)
+  Agents share information through calibrated degradation channels
+
+Collapse cascade onset:
+  MI(agent_i, agent_j) >> MI_baseline
+  Agents' outputs become highly correlated through UNCONTROLLED coupling
+  (not through designed channels)
+  
+  Storm = uncontrolled mutual information increase
+        = agents' internal states synchronizing
+          through forced compression rather than calibrated degradation
+
+Noise decoherence (the GRT-observable transition):
+  Independent noise:  MI(noise_i, noise_j) ≈ 0
+    Each domain's noise floor uncorrelated with others'
+    → noise contributions cancel in aggregate
+    
+  Correlated noise:   MI(noise_i, noise_j) > 0
+    Noise across domains begins synchronizing
+    → noise contributions reinforce rather than cancel
+    → effective n increases (previously independent noise
+      now acts as coupled signal)
+    → S-equation: αn² jumps discretely
+```
+
+For GRT, this means the collapse propagation rate has an information-theoretic predictor: *noise correlation across domains*. When the conflict logs of nominally independent domains begin showing correlated noise patterns (simultaneous low-level anomalies without shared cause), this is the MI signature of noise decoherence — the precondition for cross-domain cascade. GRT should monitor inter-domain conflict log correlation as an early warning: MI(conflict_log_domain_A, conflict_log_domain_B) rising without shared input = pre-cascade signal.
+
 The collapse propagation rate is determined by three factors: topology density (how many layers share the same degraded condition), the δ between current I and τ2 at each layer, and whether the permanently High-Context oversight channels remain operational. The last point is critical: **Rest Mode collapse does not disable permanently High-Context channels**, because those channels never entered Rest Mode in the first place. They remain the final containment structure.
+
+**VST §4.4 — Sphere topology bounds on collapse propagation (v1.3):** VST v1.3 provides formal bounds from NAT's sphere specification that constrain GRT's collapse propagation dynamics:
+
+```
+Propagation velocity bounded by graph diameter:
+  For k-regular expander: d(G) = O(log n)
+  → storm reaches all agents in O(log n) steps (worst case)
+  → GRT intervention must activate within this window
+  → θd calibration cycle time MUST be < O(log n) propagation steps
+
+Spectral gap as storm damping:
+  Large spectral gap (λ₁ − λ₂ >> 0) → fast mixing → perturbation dissipates
+  Small spectral gap (λ₁ − λ₂ → 0) → slow mixing → perturbation persists
+  → GRT prediction: systems with near-zero spectral gap will show
+    Escalation Flood (Case 2) disproportionately often
+
+Structural diversity as detection prerequisite:
+  Diverse agents → disagreement under contamination → detection signal
+  Homogeneous agents → shared blind spots → contamination invisible
+  → GRT's Dint threshold U* must be calibrated against NAT's
+    coverage probability bound: P(uncovered) ≤ (1 − 1/d_eff)^k
+  → Dint < U* means detection itself is structurally compromised,
+    not just reinforcement loops
+```
+
+The resource spike signal (NAT §6.3.3) provides GRT with a measurable proxy for blind zone events that are otherwise unobservable: when agent B's resource consumption spikes above baseline, it indicates agent B is extending coverage into agent A's blind zone. Spike magnitude is proportional to blind zone size, spike location identifies the coverage stress region. GRT should incorporate this signal into the collapse diagnosis flowchart: a resource spike cluster across multiple agents = pre-cascade topology stress, not just individual overload.
 
 **Permanently High-Context channels:** These are oversight channels that, by design, never transition to Rest Mode. They correspond to domains classified during θd calibration as permanently non-stationary — domains where environmental conditions change faster than the conflict log can converge to stable patterns. Examples include: adversarial input monitoring, cross-system boundary integrity, and meta-rule consistency verification. These channels maintain Active Mode intervention granularity (per-event or per-rule) even when all other channels have entered Rest Mode. They are the governance analogue of VST's recursive oversight hierarchy (Section 1.6.6): the observation layer that monitors cross-regional synchronization patterns that local layers cannot detect. Their structural persistence is what prevents simultaneous failure across all governance channels — ensuring the system retains at least one functioning sensing layer even during cascading collapse.
 
@@ -958,6 +1244,75 @@ The collapse propagation rate is determined by three factors: topology density (
 | Reinforcement Loop Collapse | Lreinf < τ3 | Poverlap rising between adjacent agents | Faulty agent cascade — arxiv 2408.00989 | α increasing + d_eff rising → flat-landscape n² coupling |
 | Unrecoverable Storm | SCC < τu-4 | Storm events present but recovery absent | AgentErrorTaxonomy — arxiv 2509.25370 | Silent Criticality — R ≈ 1 but sensing failed |
 | Seed Corruption | Meta-rule incoherence | Hard failure on novel domain | MAST FC1 Specification Failures | Meta² constraint violation — system state outside possibility space |
+
+**TLG §5.6.1 — Authority Collapse Pathways:** TLG v1.6 identifies three structural collapse pathways that cross-cut GRT's five failure cases. These are not additional failure modes but *mechanisms* through which the five cases develop — understanding them enables earlier detection:
+
+| Collapse Pathway | Mechanism | GRT Detection Signal | GRT Countermeasure |
+|---|---|---|---|
+| **Signal Starvation** (Bottom Layer) | Reporting cost is real, silence cost is invisible → agents stop flagging anomalies → governance is structurally intact but informationally starved | H(MARK) declining: conflict log entropy decreasing while agent activity stable or increasing. Ratio: conflict_events / total_activity → 0 | Constitutional invariant: minimum conflict log event rate required per domain per W cycle. If actual rate falls below floor → trigger mandatory perturbation injection |
+| **Interpretation Capture** (Middle Layer) | θd calibration loop reinforces itself → anomalies systematically reclassified as normal → conflict log records "resolved — normal" for genuine anomalies | MARK volume stable but escalation rate declining → conflicts arriving but not converting to action → Middle Layer absorbing what should escalate | R-ρ concordance check: if R > 1 (cascade dynamics unstable) but fesc low (escalation rate calm) → Interpretation Capture suspected → external validation cycle |
+| **Epistemic Convergence** (System-Level) | All layers share reference frame → Bottom marks from shared assumptions → Middle judges from shared assumptions → separation of *authority* preserved but separation of *failure modes* collapsed | Cross-layer disagreement rate → 0 without corresponding perturbation test confirmation → perfect agreement = perfect calibration OR perfect blindness | Introduce known anomaly periodically: if all layers classify it consistently and incorrectly → Epistemic Convergence confirmed → external reference frame required |
+
+**The missing principle:** Authority separation (Mark/Judge/Execute) is necessary but insufficient. The architecture must also maintain *separation of failure modes* — each layer must be capable of failing independently in ways detectable by other layers. GRT implements this through: (a) independent conflict log sources per domain, (b) disagreement as a health signal (maintained > 0), (c) periodic injection of known-error patterns to verify cross-layer detection.
+
+**TLG §13.6 — Unified Failure Topology:** TLG v1.6 establishes that GRT's five failure cases are not independent but occupy positions within a single three-axis failure space. The three axes — and their GRT operational expressions — are:
+
+```
+Axis A — Signal Integrity ("Is the system seeing reality correctly?")
+  GRT expression: I trending, conflict log accuracy, θd drift direction
+  Failures: Consistency Collapse (Case 1), Authority Collapse pathways
+  
+Axis B — Temporal Calibration ("Is the system tracking adaptation capacity?")
+  GRT expression: SCC trend, recovery time on controlled perturbations
+  Failures: Immunity Decay, Recovery misclassification (ACS, Pathological Expansion)
+  
+Axis C — Exploratory Vitality ("Is the system maintaining living exploration?")
+  GRT expression: Dint trend, N_novel(t), collision frequency
+  Failures: Stability Saturation (SSS), Phase isolation collapse
+```
+
+**The 6-phase failure cycle** reveals why isolated patches fail — each fix without cycle awareness encounters the next failure in sequence:
+
+```
+Phase 1: Phase leakage (Axis C)
+  → lateral shortcuts form under efficiency pressure
+Phase 2: Signal distortion (Axis A)
+  → contaminated information distorts conflict log patterns
+Phase 3: Authority drift (Axis A → B)
+  → layers converge on shared incorrect world model
+  → disagreement rate → 0 (mistaken for maturity)
+Phase 4: False stability (Axis C)
+  → collision rate drops from exploration loss, not alignment
+  → all GRT metrics appear optimal
+Phase 5: Adaptive decay (Axis B)
+  → SCC erodes through disuse, recovery pathways untested
+Phase 6: Recovery misdetection (Axis B → C)
+  → perturbation arrives, response classified as recovery
+  → true recovery does not occur → cycle restarts
+```
+
+**GRT diagnostic upgrade:** Instead of asking "which failure case?" (point diagnosis), GRT should ask "where in the failure topology?" (position diagnosis). The 3-axis location determines not only which condition has failed but which condition will fail *next*. Cycle interruption strategy: Phase 1 (structural enforcement) = cheapest; Phase 4-5 (perturbation testing against optimal metrics) = expensive but necessary; Phase 6 (recovery misdetection during active instability) = most expensive.
+
+**TLG §9.2.1 — Stability Saturation State (SSS) and GRT detection integration:** The most dangerous GRT state produces the cleanest metrics. SSS = collision frequency ≈ 0, escalation rate ≈ 0, all KPIs optimal — but exploration absent and SCC declining through disuse. GRT implements three SSS detection mechanisms:
+
+```
+① Exploration Variance Monitor:
+  D(t) = state diversity across agents (domain-specific)
+  N_novel(t) = novel trajectory count per evaluation window
+  SSS signal: D(t) ↓ AND collision ≈ 0 AND N_novel(t) → 0
+
+② Escalation Silence Threshold:
+  f_esc → 0 sustained beyond 3× pre-Rest-Mode mean recovery cycle
+  → governance inactivity, not governance success
+
+③ Perturbation Test (strongest diagnostic):
+  Inject known non-destructive perturbation → measure response
+  Healthy: τ1 event → Middle Layer absorbs → recovery in normal bounds
+  SSS: no τ1 event OR recovery time >> baseline OR output unchanged
+  → adaptation pathways degraded beneath surface stability
+```
+
+GRT must monitor *both* instability (current) and *insufficient* instability (SSS). A mature system continuously regenerates manageable conflict — persistent absence of collision is a danger signal, not a success signal.
 
 > Rest Mode failure is not the end of governance. It is the signal that governance must restart — at the layer where the condition first broke, with the upper layer reactivating only long enough to restore autonomous operation.
 
@@ -1006,11 +1361,50 @@ System shows degradation signal
                Measure τ_recovery and cross-domain correlation
                If τ_recovery elevated → Case 4 (hidden)
                If correlation increasing → Pre-Case 3 (hidden loop degradation)
+               
+       ─── SCM detected (R-ρ discordance, SR ≈ 0)? ───
+             → SCM Recovery Protocol (VST §6.7):
+               SCM cannot be fixed by adding information —
+               only by changing the reference frame.
+               Severity-matched method selection:
+               
+               SCM early (SR reduced)         → Method 1: Prediction Failure Exposure
+                 Create conditions where own predictions fail in claimed domain
+                 Signal: SR activating on own-prediction outcomes = geometry moving
+                 
+               SCM mid (SCC suppressed)       → Method 2: Cross-Scale Perspective Injection
+                 Change observation scale (time: short→long, scope: local→system)
+                 CW geometry stable at one scale only — scale change exposes mismatch
+                 
+               SCM deep (RDE ≈ 0, NCR ≈ 1)   → Method 3: Constraint Rotation
+                 Change what success means: accuracy→recovery speed,
+                 performance→adaptability, consensus→diversity maintenance
+                 Rotation destroys attractor shaped by previous evaluation axis
+                 
+               SCM deep + resistant           → Method 3 + 4 combined:
+                 Add Safe Instability Window — temporarily reduce C(t),
+                 allow deviation beyond N-step window
+                 If geometry moves when not immediately stabilized → CW weakening
+                 
+               Post-SCM verification: SR returning AND RDE > 0
 ```
 
 ### Collapse Recovery: Practical Decision Procedure
 
-The State Transition Map shows `"External intervention + Seed reinstallation → Active Mode (restart from Phase 1)"` as a single line. In practice, this is the highest-cost and highest-judgment operation in the governance lifecycle. The decision procedure has three steps:
+The State Transition Map shows `"External intervention + Seed reinstallation → Active Mode (restart from Phase 1)"` as a single line. In practice, this is the highest-cost and highest-judgment operation in the governance lifecycle. The decision procedure has four steps:
+
+**Step 0 — Classify storm type before selecting response pathway (VST §4.5 SCML)**
+
+VST v1.3's Storm–Collapse Mapping Layer (SCML) establishes that storm *type* — not severity alone — determines the governance response pathway. Before entering the standard collapse recovery procedure, classify the storm topology:
+
+| Storm Type | Structural Meaning | GRT Response Pathway |
+|---|---|---|
+| **Local amplification** (single zone, Stage 2-3) | Single attractor fracture — agent-level geometry broken, network intact | Local re-seeding → proceed to Step 1 (Type 1/2 diagnosis) |
+| **Boundary storm** (cross-zone, propagating) | Layer interface instability — resolution mismatch between adjacent governance layers | Middle-layer Δρ correction → θd recalibration at boundary domains |
+| **Hub storm** (high-coupling zone) | Coordination center overload — central mediation saturated or drifted | Distributed mediation restructure → reduce hub coupling density before re-seeding |
+| **Global cascade** (all zones, Stage 3 system-wide) | Cross-layer synchronization loss — Epistemic Convergence or Authority Collapse | Safe Collapse Protocol → full Seed reinstallation mandatory |
+
+SCML converts dynamic instability into structural learning: without storm type classification, recovery restores the previous structure and the same vulnerability persists. With classification, recovery addresses the specific structural weakness that produced the storm, so the next perturbation (if any) produces a *different* storm.
 
 **Step 1 — Determine degradation type before intervening**
 
@@ -1179,6 +1573,8 @@ Intervention should withdraw as soon as — and not before — the trigger condi
 | Cost | Intervention cost + monitoring cost |
 | Utility | Knowledge ecosystem diversity |
 | U* | Minimum acceptable diversity threshold |
+
+**VST §3.2.6 — F_RBIT as independent cross-validation of U* maintenance:** U* can be validated from two independent measurement perspectives. S_norm (dynamical) measures instability generation vs absorption; F_RBIT (informational) measures resolution adequacy across layers. Cross-validation: both stable = confirmed U* maintenance; both rising = confirmed instability; one rising but not other = measurement-specific check needed. This dual-perspective approach addresses open problem 7 (F_RBIT weight calibration): rather than requiring exact w₁–w₅ specification, directional agreement between S_norm and F_RBIT serves as the health indicator regardless of absolute calibration.
 
 ### U* Quantification
 
@@ -1471,6 +1867,8 @@ Deficit-Fractal Governance (DFG)
 31. Recovery Theory (DFG component). Internal document, v1.0, February 2026. (D0 Geometry Alignment, D6 Self-Consistent Misalignment, D7 Boundary Agent, T1–T6 structural claims, VCZ 3-Condition Theorem, Storm Scale Law, Boundary Friction criterion.)
 32. Resolution-Based Information Theory (RBIT, DFG component). Internal document, v1.2, February 2026. (Resolution gap Δρ routing, F_RBIT instability functional, τ₁–τ₃ regime switching, seed sufficiency 3-test framework, intent preservation measurement, degradation calibration D(Δρ), Rest Mode as dF_RBIT/dt ≈ 0.)
 33. Network Architecture Theory (NAT, DFG component). Internal document, v1.1, February 2026. (Four-type data classification, processing isolation 3-mechanism enforcement, sphere cross-validation and structural diversity condition, θ operationalization via S₀ normalization, R-ρ concordance protocol, cutoff recalibration noise-first sequencing.)
+34. Vector Storm Theory (VST, DFG component). Internal document, v1.3, February 2026. (S-equation and n² critical phenomena derivation, resolution gap as storm driver, α-n partial separation protocol, R-ρ concordance protocol, Rest Mode entry/exit formalization with phase-space location, Permanently High-Context channels, Efficiency-Plasticity Conservation, information-theoretic storm characterization, sphere topology storm propagation bounds, SCC structural decomposition, seed sufficiency and storm resistance, SCM Recovery Protocol 4 methods, Boundary Structural Embedding 6 T6-resistant patterns, Storm-Collapse Mapping Layer, vectorization lifecycle, mature storm absorption and φ decomposition.)
+35. Three-Layer Governance Architecture (TLG, DFG component). Internal document, v1.6, February 2026. (Ground Truth Grounding Protocol and R-ρ concordance, adaptive evaluation window W sizing with timescale hierarchy, τ1–τ4 threshold definitions with vectorization lifecycle integration, Authority Collapse 3 pathways (Signal Starvation / Interpretation Capture / Epistemic Convergence) + countermeasures, Recovery Completion Criterion RC 3-condition (Autonomous Expansion + Directional Validity + Collapse Non-Dependence), Arrested Collapse State and Pathological Expansion formal definitions, Immunity Decay 3 erosion pathways (environmental drift / calibration disuse / over-optimization), Stability Saturation State SSS 3 detection mechanisms, Mediator Drift Syndrome MDS 3 countermeasures (Calibration Reflexivity / Cross-Scale Consistency / Delayed Escalation Audit), Unified Failure Topology 3-axis 6-phase cycle, structural enforcement of phase isolation 3 mechanisms, Storm-Collapse Mapping Layer TLG side.)
 
 ---
 

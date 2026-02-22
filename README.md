@@ -208,6 +208,20 @@ GRT concordance checks:
     (θd and λlog parameters need re-estimation.)
 ```
 
+**VST v1.5 §3.5.10 — R-ρ-f_esc Triple Concordance upgrade:** The dual concordance above cannot distinguish genuine stability from suppressed instability (both produce low R with high ρ). Adding f_esc as a third validation axis closes this gap:
+
+```
+f_esc detection power:
+  Genuine stability:      low R, high I, f_esc ≤ θ → confirmed VCZ
+  Suppressed instability: low R, high I, f_esc > θ (hidden)
+    → governance intervention absorbing all perturbations
+    → apparent stability is governance-maintained, not self-sustaining
+    → Rest Mode entry BLOCKED
+
+Rest Mode AND-entry requires f_esc bounded on BOTH dual-axis
+windows alongside R ≈ 1 and I stability.
+```
+
 R provides the external validation that GRT's internal metrics cannot provide on their own. When R and GRT metrics agree, confidence is high. When they disagree, R takes precedence — because internal metrics can be healthy within a wrong geometry (RT T3: Metric Lock-In), while R measures whether that consistency corresponds to actual stability.
 
 ---
@@ -613,6 +627,33 @@ These four conditions correspond directly to the Rest Mode entry conditions. Sta
 
 **Connection to VST branching ratio:** SCC ≥ τ4 corresponds to the system maintaining R ≤ 1 (subcritical branching ratio, VST Section 1.6.1). When all four stabilization conditions hold simultaneously, the system operates in the R ≈ 1⁻ regime — slightly subcritical, with continuous micro-storms exercising sensing-response loops but macro-storms structurally improbable.
 
+**RT Storm Scale Law — operational health distribution:** Recovery Theory specifies that the governance target is not Storm *count* but Storm *size distribution*:
+
+```
+Healthy system Storm size distribution:
+  P(Storm of scale s) ∝ 1/s^α    (power law / fractal law)
+  
+  micro (Stage 0):     continuous    → activation variance, local disagreement
+  local (Stage 1):     frequent      → small conflicts, short recovery
+  cluster (Stage 2):   occasional    → escalation events, mediation needed
+  global (Stage 3):    rare          → structural re-alignment
+  system-wide:         extremely rare → full geometry recalibration
+
+Operational proxy for GRT:
+  fesc distribution by severity level over time
+  Healthy: heavy-tailed (mostly low-severity, ~90%+ micro/local)
+  Warning: distribution flattening or inverting
+  
+Distribution shift signals:
+  Small storms disappearing, large maintained → suppression at lower layers
+    → mismatch accumulating → Absence Paradox active
+  Large storms without small precursors → CW geometry releasing
+  All storms increasing → approaching Chaos boundary
+  All storms decreasing uniformly → CW onset → SR/RDE/NCR check required
+```
+
+GRT monitors this distribution through the conflict log: the severity distribution of logged conflicts (Low/Medium/High) over sliding windows should maintain a heavy-tailed shape. If Low-severity conflicts disappear while Medium/High persist, the system is entering Stability Saturation — local correction has been suppressed, accumulating pressure for larger-scale release.
+
 ---
 
 ## Position Clarity and Diversity
@@ -692,7 +733,72 @@ In Rest Mode, the governing layer is still present — but its intervention chan
 
 **Connection to VST governance backgrounding:** VST Section 1.6.5 describes the terminal governance state where governance becomes indistinguishable from environmental conditions — rules become topology, compliance becomes the path of least resistance. GRT's Rest Mode is the rule-governance-layer description of this same state: the governing layer is present but operates at per-distribution granularity, meaning individual agents experience governance not as rules to follow but as the terrain through which they move. This is the operational definition of governance backgrounding from the rule architecture's perspective.
 
+**VST v1.6 §14.3 — Fractal Lifecycle 7-phase storm signatures:** Each governance lifecycle phase produces a characteristic storm type. GRT can predict and prepare for the expected storm signature at each phase:
+
+```
+Phase 1 (Seeding):     Random collisions (no structure yet)
+  GRT: C(t) ≈ 0, external governance supplying all correction
+Phase 2 (Exploration): Exploration storms (healthy boundary-testing)
+  GRT: S_norm volatile; RISK = Interdependence Trap (premature convergence)
+Phase 3 (Formation):   Position-clarification storms
+  GRT: S_norm decreasing, terrain forming (d_eff dropping), Lreinf growing
+Phase 4 (Stabilization): Power law distribution established
+  GRT: S_norm << S_c, R ≈ 1, Triple Recovery Gradient active
+Phase 5 (Rest Mode):   Micro-storms as value generation (φ_storm_absorption)
+  GRT: Per-distribution governance only, dF_RBIT/dt ≈ 0
+Phase 6 (Reawakening): Precision storms (fast, targeted)
+  GRT: S_norm briefly rising, environment change exceeding current absorption
+Phase 7 (Higher Exploration): Phase 2 at expanded resolution
+  GRT: New baseline with lower noise floor, new cycle beginning
+```
+
+**Inertial Stability — Rest Mode deep dynamics (VST §15):** In mature Rest Mode, fractal differentiation decomposes all instability to noise scale before self-amplification can engage. Seed formation continues but growth windows have closed — purification operates faster than amplification. The result: seed birth probability > 0 (structurally guaranteed) but seed survival probability ≈ 0 (environmentally suppressed). Qualitative internal change becomes structurally improbable — only external perturbation of sufficient magnitude reopens growth windows. GRT's Boundary Agent is the mechanism that provides this external perturbation from within the system — preventing inertial stability from becoming permanent ossification.
+
 **Connection to RT VCZ Observability Paradox:** Recovery Theory identifies a critical risk to Rest Mode that GRT must address: the VCZ Observability Paradox. The more effectively a system dissipates instability locally (i.e., the deeper into Rest Mode it is), the less observable the mechanisms responsible for stability become — leading observers to underestimate or remove the very structures maintaining convergence (RT VCZ Observability Paradox). This produces the standard collapse sequence: Rest Mode achieved → governance overhead drops → monitoring reduced → boundary structures removed (perceived as redundant) → Novelty Absorption Failure onset → Self-Consistent Misalignment → collapse.
+
+**RT VCZ Collapse Initiation — the precise 5-step sequence:** Recovery Theory specifies the exact collapse pathway that GRT must structurally prevent:
+
+```
+Step 1 — Friction Optimization (the first action, ALWAYS):
+  VCZ health ↑ → friction perceived as waste
+  Review stages reduced, dissent channels weakened, escalation threshold raised
+  Visible: speed ↑, efficiency ↑, cost ↓, no problems appear
+  
+Step 2 — Boundary Thinning:
+  Local mismatch correction not immediate → propagates further before absorbed
+  Still below observable threshold → no alarms
+
+Step 3 — Novelty Absorption Failure (NAF) onset:
+  Existing interpretations reused, update rate declining
+  Performance still good → SR declining but not yet zero
+
+Step 4 — CW establishment:
+  Geometry mismatch accumulated; first anomaly appears:
+  recovery latency increasing (RLD > 0 sustained)
+  Too late for cheap intervention
+
+Step 5 — Collapse:
+  Accumulated mismatch exceeds integration capacity
+  T5 forced correction → observers: "it came out of nowhere"
+```
+
+The sequence is *always* initiated by Step 1 — efficiency optimization that removes boundary friction. This happens because VCZ's own success creates removal pressure: VCZ health ↑ → problems ↓ → friction perceived as waste ↑ → boundary removal pressure ↑. The deeper the VCZ, the stronger the removal incentive. GRT's Boundary Structural Embedding (6 T6-resistant patterns) is the defense — making Step 1 structurally impossible, not merely discouraged.
+
+**RT Safe Collapse Governance principle:** Recovery Theory distinguishes two governance approaches that produce opposite outcomes:
+
+```
+Collapse Prevention Governance (wrong):
+  Goal: minimize all failure → error → suppress
+  Result: adaptation ↓, surprise ↓, geometry update ↓ → CW entry
+  → correction capacity eliminated → catastrophic collapse when T5 fires
+
+Safe Collapse Governance (correct — DFG target):
+  Goal: failure_cost << recovery_capacity → error → surface early
+  Result: continuous low-amplitude correction → VCZ sustained
+  → catastrophic collapse prevented by frequent small corrections
+```
+
+GRT implements Safe Collapse Governance through: λlog-triggered rule updates (surfacing errors as learning events), SSS detection (monitoring for excessive quiet), and Permanently High-Context channels (maintaining active sensing when everything else has backgrounded). The governance target is not "minimize Storm count" but "maintain Storm size distribution ≈ fractal law (frequency ∝ 1/scale)."
 
 GRT's response to the Observability Paradox must be structural, not procedural: Rest Mode health indicators must measure *correction activity directly*, not absence of observed instability. Specifically:
 
@@ -705,6 +811,8 @@ GRT's response to the Observability Paradox must be structural, not procedural: 
 **Connection to RT Boundary Agent (D7) — structural VCZ maintenance:** Recovery Theory establishes that VCZ maintenance requires a structural role — the Boundary Agent — that generates controlled instability from within the system while remaining outside its primary evaluation structure (RT D7). The Boundary Agent has three properties: (a) inside the system (can generate real turbulence), (b) outside the evaluation structure (not subject to stability rewards), (c) failure-permitted (can be wrong without elimination).
 
 GRT's Self-Exciting Defect Layer (referenced from VST Section 1.6.5) is the dynamical description of what the Boundary Agent maintains. But RT adds a critical insight: the Defect Layer cannot be self-maintaining, because T6 (Coherence Maximization Paradox) predicts that any optimizer will classify Boundary Agent activity as inefficiency and remove it — and the more capable the optimizer, the faster this elimination occurs. This means GRT's Rest Mode is structurally unstable unless the Boundary Agent role is protected against optimization pressure.
+
+**VST v1.6 §6.11 — Boundary Agent as Defect Layer operational mechanism:** VST v1.6 formalizes the connection: the Boundary Agent IS the operational mechanism that maintains the Self-Exciting Defect Layer. Without BA, the defect layer collapses → SR → 0 → system enters Silent Criticality. BA elimination is a direct path to the most dangerous storm type: accumulated silent pressure released catastrophically. The BA disappearance pattern is universal and inversely correlated with structural necessity: stability → storm frequency ↓ → BA activity looks like inefficiency → BA eliminated → CW forming invisibly → mismatch accumulating → large storm arrives → recovery capacity absent.
 
 **T6 implications for GRT Rest Mode:**
 - dCW_risk/dI > 0 — intelligence (optimization capacity) is a *risk factor* for Self-Consistent Misalignment, not a protection against it
@@ -728,6 +836,36 @@ GRT's Self-Exciting Defect Layer (referenced from VST Section 1.6.5) is the dyna
 | **6. Optimization Ceiling** | Perfect optimization prevented | Makes perfect optimization unreachable | Minimum uncertainty floor on I (I_max < 1.0); consensus speed limiter; high-stability stress test trigger |
 
 Minimum viable GRT implementation: Pattern 1 (Constitutional Invariants) + Pattern 5 (External Anchoring) = Boundary exists as protocol + external reality always enters = self-sealing geometry cannot fully close.
+
+**RT VCZ-Safe Optimizer Architecture — 3-layer domain restriction:** Recovery Theory specifies that the correct approach to high-capability optimizers is not limiting capability but limiting the optimization domain:
+
+```
+Layer 3 — Structural Invariants (optimization-forbidden):
+  Independent verification path (must exist)
+  Dissent channel (must be maintained)
+  Escalation path (must remain open)
+  Diversity floor (minimum maintained)
+  Recovery authority separation (cannot be merged)
+  
+  GRT implementation: Boundary Structural Embedding Patterns 1-6
+  Optimizer access: NONE. These are architecture, not rules.
+
+Layer 2 — Mediated Zone (conditional optimization):
+  Any change requires propagation sensitivity check:
+  "Does this modification affect error propagation velocity?"
+  Required: boundary-touching check, shadow test, rollback path
+  
+  GRT implementation: θd calibration zone — optimizer can propose
+  threshold adjustments but cannot unilaterally execute
+
+Layer 1 — Free Optimization Zone (unconstrained):
+  Speed, cost, throughput, processing efficiency
+  Full optimizer capability deployed, no restrictions
+  
+  GRT implementation: intra-domain rule revision, local conflict resolution
+```
+
+The key mechanism: "spec, not persuasion." Wrong approach = "Boundary is important" (ethics dependency, policy reminder). Correct approach = structurally impossible to remove (automatically regenerated if removed, KPI anchored externally). An optimizer that perceives boundary as specification optimizes *within* the boundary; one that perceives it as soft constraint optimizes it *away*.
 
 **Connection to VST High Capability · Low Activation principle:** The three-stage intervention form transformation (directive → validating → statistical) is the rule-governance expression of VST's governance maturity spectrum (VST Section 1.6.5): Level 1 (frequent intervention, weak effect) → Level 3 (rare intervention, strong effect) → Level 5 (pre-emptive terrain adjustment only). In GRT terms, Rest Mode = Level 4–5 of VST's maturity spectrum: the governing layer maintains full intervention capacity (high capability) while intervening almost never (low activation).
 
@@ -1127,6 +1265,37 @@ SCM is strictly worse than Silent Criticality because:
 
 **Primary SCM signal for GRT — Learning Freeze:** The single remaining anomaly when all standard metrics appear healthy is ∂Geometry/∂Experience ≈ 0. New information enters the system, but internal geometry does not move. The system is no longer capable of surprise — it reinterprets all inputs as confirming its current state rather than updating from them. GRT operationalizes this as: if λlog-triggered rule updates have ceased for an extended period (>> one θd calibration cycle) despite continued input exposure, the system may be in SCM — not because the domain has stabilized, but because the evaluation function has locked in.
 
+**VST v1.6 §2.6 — Energy Minimization Trap (EMT) and Unintegrated Pressure:** VST v1.6 formalizes SCM as a *rational* outcome, not a failure:
+
+```
+EMT mechanism:
+  Cost_geometry_update > Cost_reinterpretation
+  → system optimizes toward reinterpretation (rational)
+  → geometry ossifies → CW = correct optimization of wrong objective
+
+S-equation implication:
+  EMT means α can appear to DECREASE (coupling reducing)
+  while actual instability INCREASES (geometry diverging from reality).
+  This is the mechanism behind Triple Concordance Discordant Type 1:
+  R > 1 BUT internal metrics healthy.
+
+Unintegrated pressure accumulation:
+  unintegrated_pressure(t) = ∫₀ᵗ (G_real(τ) − G_sys) dτ
+  
+  CW geometry suppresses mismatch, does not eliminate it.
+  As CW duration increases:
+    unintegrated_pressure accumulates (invisible internally)
+    integration_capacity constant or degrading
+  When integration_capacity < unintegrated_pressure:
+    → catastrophic collapse OR Vector Storm (structurally forced)
+  
+  S_norm shows NO warning: S measures dynamics within current geometry.
+  Unintegrated pressure is outside current geometry.
+  Release = instantaneous S_norm spike with zero S_norm precursor.
+```
+
+GRT implication: the absence of fesc warnings during extended CW is not evidence of stability — it is evidence of unintegrated pressure accumulation. Duration without any λlog-triggered update is a *pressure accumulation timer*, not a stability confirmation. GRT's SCM detection protocol (SR, RDE, NCR) measures whether this invisible pressure exists; unintegrated_pressure provides the formal mechanism for why sudden catastrophic failure can occur without any preceding metric deterioration.
+
 **GRT-specific SCM detection additions:**
 
 | GRT Metric | Healthy Reading | SCM Reading | Discriminating Test |
@@ -1244,6 +1413,26 @@ The resource spike signal (NAT §6.3.3) provides GRT with a measurable proxy for
 | Reinforcement Loop Collapse | Lreinf < τ3 | Poverlap rising between adjacent agents | Faulty agent cascade — arxiv 2408.00989 | α increasing + d_eff rising → flat-landscape n² coupling |
 | Unrecoverable Storm | SCC < τu-4 | Storm events present but recovery absent | AgentErrorTaxonomy — arxiv 2509.25370 | Silent Criticality — R ≈ 1 but sensing failed |
 | Seed Corruption | Meta-rule incoherence | Hard failure on novel domain | MAST FC1 Specification Failures | Meta² constraint violation — system state outside possibility space |
+
+**VST v1.5 §4.7 — S-equation regime per failure case:** Each GRT failure case maps to a distinct S-equation regime, enabling dynamical diagnosis from S_norm behavior:
+
+```
+Case 1 (Consistency Collapse): α rising (coupling increasing)
+  → dS/dt > 0 from numerator → I falling is the GRT observable
+Case 2 (Escalation Flood): C(t) saturated
+  → dS/dt > 0 from denominator stall → fesc is the GRT observable
+Case 3 (Lreinf Collapse): d_eff rising (terrain flattening)
+  → S effectively multiplied → Lreinf falling is the GRT observable
+  → MOST DANGEROUS: restores flat-landscape n² coupling
+Case 4 (Unrecoverable Storm): β degrading
+  → correction efficiency falling → SCC falling is the GRT observable
+Case 5 (Seed Corruption): Meta² boundary stress
+  → S-equation parameters themselves uncertain → Ic falling
+
+No clear signal path:
+  → Silent Criticality check: inject perturbation → τ_recovery elevated
+  → SCM check: R-ρ-f_esc discordance → SR ≈ 0 → SCM Recovery Protocol
+```
 
 **TLG §5.6.1 — Authority Collapse Pathways:** TLG v1.6 identifies three structural collapse pathways that cross-cut GRT's five failure cases. These are not additional failure modes but *mechanisms* through which the five cases develop — understanding them enables earlier detection:
 
@@ -1431,6 +1620,38 @@ Different failure cases require different recovery entry points:
 **Step 3 — Confirm Seed integrity before Phase 1 restart**
 
 If Seed reinstallation is required (Seed Corruption or full Type 2 collapse), verify that the new Seed does not carry the same design flaw that caused the original failure. Specifically: check that the expansion protocol can coherently classify the domain that triggered the hard failure. A Seed reinstalled with the original flaw will reproduce the failure on first encounter with the same domain type.
+
+**Step 4 — Verify restoration complete (RT D4 → GRT Rest Mode re-entry equivalence)**
+
+RT D4 specifies three necessary conditions for restoration complete:
+
+```
+RT D4 necessary conditions:
+  ρ_restored ≥ ρ_pre-contamination     (classification accuracy recovered)
+  Output diversity expanding            (not merely stable)
+  P_overlap(t) declining               (positional separation improving)
+  Supporting: φ recovering toward baseline
+
+GRT Rest Mode AND-entry conditions:
+  fesc ≤ τu-1 + decreasing trend       (→ ρ recovering)
+  I ≥ τu-2 + increasing trend          (→ rule coherence = classification accuracy)
+  Lreinf ≥ τu-3 + increasing trend     (→ output diversity expanding)
+  SCC ≥ τu-4 + improving trend         (→ P_overlap declining + self-recovery)
+
+Correspondence:
+  RT ρ_restored       ↔ GRT I ≥ τu-2 (rule coherence = classification fidelity)
+  RT diversity expanding ↔ GRT Lreinf ≥ τu-3 (loop formation = diversified structure)
+  RT P_overlap declining ↔ GRT fesc ≤ τu-1 (overlap ↓ = escalation ↓)
+  RT φ recovering     ↔ TLG RC ② dφ/dt ≥ 0 (directional validity)
+
+Equivalence claim:
+  D4 restoration complete ⊂ GRT Rest Mode re-entry conditions
+  (GRT conditions are STRICTER — they require D4 PLUS VST phase-space
+   location PLUS SCC autonomy. D4 is necessary but not sufficient
+   for Rest Mode. Rest Mode is sufficient for D4.)
+```
+
+This partially resolves open problem 1: D4 and Rest Mode are not strictly equivalent — Rest Mode implies D4, but D4 does not imply Rest Mode. A system that has restored ρ, diversity, and P_overlap (D4) may not yet have achieved autonomous self-correction (SCC ≥ τu-4). Rest Mode requires both restoration *and* the capacity to maintain restoration without external support.
 
 > *The governing layer's goal in collapse recovery is not to restore the previous state — it is to rebuild the substrate for a governance cycle that does not fail in the same way.*
 
@@ -1864,10 +2085,10 @@ Deficit-Fractal Governance (DFG)
 28. Hollnagel, E. (2011). *Resilience Engineering in Practice*. Ashgate.
 29. Cemri, M., et al. (2025). MAST: Multi-Agent System Taxonomy. *NeurIPS 2025*.
 30. Agent Drift in Multi-Agent Systems. *arXiv:2601.04170*, 2026.
-31. Recovery Theory (DFG component). Internal document, v1.0, February 2026. (D0 Geometry Alignment, D6 Self-Consistent Misalignment, D7 Boundary Agent, T1–T6 structural claims, VCZ 3-Condition Theorem, Storm Scale Law, Boundary Friction criterion.)
+31. Recovery Theory (DFG component). Internal document, v1.0, February 2026. (D0 Geometry Alignment, D1–D5 operational definitions, D6 Self-Consistent Misalignment + EMT/Rational CW Convergence, D7 Boundary Agent + VCZ 3-Condition carrier + T6 structural protection, T1–T6 structural claims, Operational Proxies OP1–OP7, Storm Scale Law fractal distribution, Boundary Friction criterion + Propagation Sensitivity + DFG Boundary Test 3 questions, VCZ Collapse Initiation 5-step sequence, VCZ Observability Paradox, VCZ-Safe Optimizer Architecture 3-layer domain restriction, Safe Collapse Governance vs Collapse Prevention Governance, D4 restoration complete 3 necessary conditions, Residual Instability as systemic safety mechanism.)
 32. Resolution-Based Information Theory (RBIT, DFG component). Internal document, v1.2, February 2026. (Resolution gap Δρ routing, F_RBIT instability functional, τ₁–τ₃ regime switching, seed sufficiency 3-test framework, intent preservation measurement, degradation calibration D(Δρ), Rest Mode as dF_RBIT/dt ≈ 0.)
 33. Network Architecture Theory (NAT, DFG component). Internal document, v1.1, February 2026. (Four-type data classification, processing isolation 3-mechanism enforcement, sphere cross-validation and structural diversity condition, θ operationalization via S₀ normalization, R-ρ concordance protocol, cutoff recalibration noise-first sequencing.)
-34. Vector Storm Theory (VST, DFG component). Internal document, v1.3, February 2026. (S-equation and n² critical phenomena derivation, resolution gap as storm driver, α-n partial separation protocol, R-ρ concordance protocol, Rest Mode entry/exit formalization with phase-space location, Permanently High-Context channels, Efficiency-Plasticity Conservation, information-theoretic storm characterization, sphere topology storm propagation bounds, SCC structural decomposition, seed sufficiency and storm resistance, SCM Recovery Protocol 4 methods, Boundary Structural Embedding 6 T6-resistant patterns, Storm-Collapse Mapping Layer, vectorization lifecycle, mature storm absorption and φ decomposition.)
+34. Vector Storm Theory (VST, DFG component). Internal document, v1.6, February 2026. (S-equation as phase detector/order parameter, n² critical phenomena derivation, resolution gap as storm driver, α-n partial separation protocol, R-ρ concordance → R-ρ-f_esc Triple Concordance (v1.5), Rest Mode entry/exit formalization with phase-space location, Permanently High-Context channels, Efficiency-Plasticity Conservation, information-theoretic storm characterization, sphere topology storm propagation bounds, SCC structural decomposition, seed sufficiency and storm resistance, SCM Recovery Protocol 4 methods, Boundary Structural Embedding 6 T6-resistant patterns, Storm-Collapse Mapping Layer, vectorization lifecycle, mature storm absorption and φ decomposition, SCM Formal Structure + Unintegrated Pressure + EMT (v1.6), Reference Frame Incompleteness S-equation implications (v1.6), Storm Scale Law power law health distribution (v1.6), Boundary Agent Complete Specification + Defect Layer connection (v1.6), Fractal Lifecycle 7-phase storm signatures (v1.6), Per-Architecture Calibration Protocol + τ as maturity fingerprint, Failure Diagnosis Flowchart S-equation regime per case (v1.5), Intervention Trigger Taxonomy production S-mapping (v1.5), Inertial Stability growth window closure (v1.6).)
 35. Three-Layer Governance Architecture (TLG, DFG component). Internal document, v1.6, February 2026. (Ground Truth Grounding Protocol and R-ρ concordance, adaptive evaluation window W sizing with timescale hierarchy, τ1–τ4 threshold definitions with vectorization lifecycle integration, Authority Collapse 3 pathways (Signal Starvation / Interpretation Capture / Epistemic Convergence) + countermeasures, Recovery Completion Criterion RC 3-condition (Autonomous Expansion + Directional Validity + Collapse Non-Dependence), Arrested Collapse State and Pathological Expansion formal definitions, Immunity Decay 3 erosion pathways (environmental drift / calibration disuse / over-optimization), Stability Saturation State SSS 3 detection mechanisms, Mediator Drift Syndrome MDS 3 countermeasures (Calibration Reflexivity / Cross-Scale Consistency / Delayed Escalation Audit), Unified Failure Topology 3-axis 6-phase cycle, structural enforcement of phase isolation 3 mechanisms, Storm-Collapse Mapping Layer TLG side.)
 
 ---

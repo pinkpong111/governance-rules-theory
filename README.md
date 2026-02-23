@@ -7,9 +7,29 @@
 
 ---
 
+> ### DFG Ontology Lock Declaration
+>
+> This document is a component theory of the Deficit-Fractal Governance (DFG) framework and is bound by the **[DFG Terminology Canon](./DFG_Terminology_Canon.md)**.
+>
+> **Axis:** Rule Ontology — GRT governs how constraints are generated, maintained, and retired through the rule lifecycle.
+>
+> **Term qualifications in this document (Canon §3):**
+> - **rule** → *constraint generator* — the primary object of this theory. "Rule" is used freely here and is the canonical term for this axis (Canon §3.2).
+> - **layer** → *governance layer* in this document (Canon §3.1). Standalone "layer" refers to governance-layer boundaries unless otherwise qualified.
+> - **network** → replaced by *structure* or *interaction structure* in this document (Canon §3.3). "Network" appears only in explicit cross-references to NAT.
+> - **vector** → *rule pressure direction* — the directional constraint tendency within a governance rule space (Canon §4.1).
+>
+> **Cross-theory imports used in this document:**
+> - (Vector Storm — adopted from VST)
+> - (Resolution Gap — adopted from RBIT)
+> - (VCZ — adopted from Recovery Theory)
+> - (Boundary Agent — adopted from TLG)
+
+---
+
 ## Overview
 
-> **Scope:** Governance Rules Theory specifies the *rule-governance layer* within the Deficit-Fractal Governance (DFG) framework. It is an architectural component, not a complete governance solution. Questions of network topology, storm dynamics, and cross-layer escalation routing are addressed in the companion theories. This document concerns how rules are generated, maintained, and retired — and under what structural conditions the governing layer can safely withdraw.
+> **Scope:** Governance Rules Theory specifies the *governance layer* within the Deficit-Fractal Governance (DFG) framework. It is an architectural component, not a complete governance solution. Questions of interaction topology, storm dynamics, and cross-layer escalation routing are addressed in the companion theories. This document concerns how rules are generated, maintained, and retired — and under what structural conditions the governing layer can safely withdraw.
 
 Governance in multi-agent systems is not about controlling what agents do. It is about designing the conditions under which agents naturally converge toward **stable, diverse, and self-sustaining behavior**.
 
@@ -157,7 +177,7 @@ All symbols used in this document, collected for reference.
 | **fesc** | Escalation frequency | #escalations per K interactions (or per hour) | Is the upper layer being called more or less? |
 | **I** | Consistency index | [0, 1] | Are rules internally coherent? |
 | **Ic** | Meta-contradiction index | [0, 1] | Are global rules in direct conflict? |
-| **Lreinf** | Mutual reinforcement loop count | #active edges above weight ε | Are interdependencies strengthening or collapsing? |
+| **Lreinf** | Mutual reinforcement loop count | #active mutually reinforcing edges within top-q% weight quantile (default q=25) | Are interdependencies strengthening or collapsing? |
 | **SCC** | Self-correction capacity | P(autonomous recovery within window W) | Can the layer recover without external intervention? |
 | **Poverlap** | Positional overlap | [0, 1] | Are agents/domains converging toward the same attractor? |
 | **Dint** | Internal diversity | [0, 1] | Is the internal capability space sufficiently diverse? |
@@ -411,7 +431,7 @@ RBIT operationalizes these through two measurable invariances: exploration invar
 | Symbol | Role | Meaning |
 |---|---|---|
 | **τ** | Judgment thresholds | Critical values for stabilization and Rest Mode conditions. Piecewise constant per evaluation regime — re-estimated at three trigger points: (1) Seed Handover phase transition, (2) new domain added to system scope, (3) Collapse recovery restart. |
-| **θd** | Domain calibration | Operating threshold for a specific domain. Convergence speed follows a power-law curve: rapid adjustment in early conflict accumulation, decelerating as domain patterns stabilize (D-CPT Law, 2024). **Update rule:** if drift metric exceeds baseline by θ_drift, then θd ↑ (increase sensitivity); if domain is stable across evaluation window, then θd ↓ (reduce sensitivity). Bounded to prevent runaway adjustment. |
+| **θd** | Domain calibration | Operating threshold for a specific domain. Convergence speed follows a power-law curve: rapid adjustment in early conflict accumulation, decelerating as domain patterns stabilize (D-CPT Law, 2024). **Update rule:** if drift metric exceeds baseline by θ_drift, then θd ↑ (increase sensitivity); if domain is stable across evaluation window, then θd ↓ (reduce sensitivity). Bounded to prevent runaway adjustment. **θ_drift initialization:** θ_drift(0) = Q₉₅(drift_metric) − Q₅₀(drift_metric) computed from Phase 0 accumulated statistics — the 95th–50th percentile spread of the drift metric distribution during burn-in. Updated via EWMA: θ_drift ← (1−λ_θ)·θ_drift + λ_θ·observed_margin, where λ_θ is calibrated to the same decay rate as the Phase 2 EWMA baseline. |
 | **λlog** | Update trigger | Conflict-log mass threshold that triggers local rule revision or new rule formation. **Initial setting:** calibrated to approximately one θd calibration cycle. **Update rule:** if false-alarm rate in recent k-window is high, λlog ↑ (require more evidence before updating); if miss rate is high, λlog ↓ (trigger updates sooner). |
 
 - **τ** answers: "Has this layer stabilized / reached Rest Mode?"
@@ -670,7 +690,7 @@ When agents compete for the same optimum instead of occupying distinct roles, ve
 
 **Connection to VST amplification dynamics:** Position ambiguity directly increases α (amplification coefficient) in the S-equation S = αn²/C(t)^β (VST Section 3.2). When Poverlap rises, overlapping roles create the coupling density through which one conflict breeds the next — exactly the chain-reaction dynamic that VST defines as the storm existence condition (R > 1). Position clarity reduces α by creating the interaction barriers (terrain features) that constrain propagation paths and prevent flat-landscape quadratic coupling from being fully realized.
 
-**VST §3.2.5 — why n² holds even in sparse networks:** The quadratic scaling S ~ αn² was previously justified by network density (n agents → O(n²) pairwise interactions). VST v1.3 provides a stronger derivation from critical phenomena: at R ≈ 1 (critical regime), perturbation persistence creates path overlap — nearly every agent pair becomes connected through at least one active propagation path, yielding n² active interactions even in sparse topologies. This matters for GRT because it means Poverlap's effect on α operates regardless of network sparsity — even a loosely connected system experiences quadratic interaction load when at criticality.
+**VST §3.2.5 — why n² holds even in sparse interaction structures:** The quadratic scaling S ~ αn² was previously justified by interaction density (n agents → O(n²) pairwise interactions). VST v1.3 provides a stronger derivation from critical phenomena: at R ≈ 1 (critical regime), perturbation persistence creates path overlap — nearly every agent pair becomes connected through at least one active propagation path, yielding n² active interactions even in sparse topologies. This matters for GRT because it means Poverlap's effect on α operates regardless of interaction-structure sparsity — even a loosely connected system experiences quadratic interaction load when at criticality.
 
 The sub-quadratic correction through governance maturity follows a spectrum:
 
@@ -745,7 +765,7 @@ Phase 3 (Formation):   Position-clarification storms
 Phase 4 (Stabilization): Power law distribution established
   GRT: S_norm << S_c, R ≈ 1, Triple Recovery Gradient active
 Phase 5 (Rest Mode):   Micro-storms as value generation (φ_storm_absorption)
-  GRT: Per-distribution governance only, dF_RBIT/dt ≈ 0
+  GRT: Per-distribution governance only, all F_RBIT components bounded
 Phase 6 (Reawakening): Precision storms (fast, targeted)
   GRT: S_norm briefly rising, environment change exceeding current absorption
 Phase 7 (Higher Exploration): Phase 2 at expanded resolution
@@ -969,7 +989,12 @@ This means: a system with only single-direction seeds *cannot achieve SCC ≥ τ
 
 **Measurement units:**
 - **fesc** — number of escalations per K interactions, or per hour. K is calibrated per domain velocity during θd calibration.
-- **Lreinf** — number of active mutually reinforcing edges above weight ε, where ε is the minimum edge weight considered structurally meaningful (calibrated during domain stabilization).
+- **Lreinf** — count of mutually reinforcing edges in the **top-q% of edge weights** within the interaction graph (default q = 25, i.e., top quartile). Edges are ranked by co-activation weight; only the top-q% are counted as structurally meaningful. This eliminates the ε threshold arbitrariness: rather than asking "is this edge above ε?", the criterion asks "is this edge among the strongest q% of all edges?" — which scales automatically with system size and activity level.
+
+  *Calibration:* q defaults to 25 (top quartile) and is recalibrated at each τ re-estimation trigger using the same EWMA procedure as θd. A system with uniform edge weights (all edges equally weak) will show Lreinf ≈ n_edges × 0.25 — uniformly distributed rather than structured. A system with strong mutual reinforcement will show Lreinf concentrated in a small fraction of dominant edges, with the top-q% count exceeding the uniform-weight baseline. This distributional signature (concentration above expected) is the structural indicator of active reinforcement loops, not the absolute count.
+
+  *Scale comparison:* Lreinf normalized by system size n gives a scale-invariant measure: Lreinf / n. This allows cross-system comparison and prevents τu-3 thresholds from needing recalibration when system size changes.
+
 - **SCC** — probability of autonomous recovery within evaluation window W, estimated from historical recovery events in the conflict log. Equivalently: inverse of expected recovery time (ERT) normalized to [0, 1].
 
 **TLG §5.3.1 — Immunity Decay (post-Rest Mode SCC erosion):** SCC is not a possession but an activity. TLG v1.6 identifies three erosion pathways that degrade SCC *after* Rest Mode entry — while all standard metrics remain healthy:
@@ -1024,23 +1049,52 @@ Entry requires all four conditions simultaneously satisfied and trending in the 
 | fesc ≤ τu-1 | Escalation rare | fesc decreasing or stable over evaluation window |
 | I ≥ τu-2 | Local rules coherent | I increasing or stable over evaluation window |
 | Ic ≥ τu-c | No global rule contradiction | Ic stable or increasing over evaluation window |
-| Lreinf ≥ τu-3 | Loops active | Lreinf increasing or stable over evaluation window |
+| Lreinf/n ≥ τu-3 | Loops active | Lreinf/n increasing or stable over evaluation window (τu-3 is a normalized threshold — Lreinf expressed as fraction of system size n) |
 | SCC ≥ τu-4 | Self-recovery possible | Recovery speed improving or stable over evaluation window |
 
 #### Initial τ Threshold Calibration
 
-The τu-1 through τu-4 thresholds cannot be set from first principles — they are system-specific values that emerge from operational history. The following calibration procedure provides a principled starting point:
+The τu-1 through τu-4 thresholds cannot be set from first principles — they are system-specific values that emerge from operational history. The following calibration procedure provides a principled starting point, including a **cold-start mode** for systems with no prior operational history.
 
-**Step 1 — Theoretical bounds:** Each threshold has structural upper and lower bounds:
+**Cold-Start Mode (no prior history available):**
+
+A new system cannot use historical percentiles to set τu thresholds before data exists. Cold-start mode uses structurally conservative initial values that are biased toward false negatives (never declaring Rest Mode prematurely):
+
+```
+Cold-start initial values:
+  τu-1 (fesc):   set to 0 — any escalation above zero is flagged
+                 (most conservative: prevents Rest Mode until fesc is confirmed low)
+  τu-2 (I):      set to 0.5 — moderate coherence required initially
+  τu-3 (Lreinf): set to Lreinf/n > 0.05 — at least 5% of edges per agent
+                 must be in the top-q% reinforcing set (non-trivial loop structure)
+                 This is calibrated to the quantile-based definition:
+                 a fully uniform (structureless) system has Lreinf/n ≈ q/100,
+                 so 0.05 requires concentration above the uniform baseline
+                 (for default q=25, baseline ≈ 0.25; cold-start floor is low
+                 enough to be non-trivial but not require prior history)
+  τu-4 (SCC):    set to 0.5 — moderate self-recovery required
+
+Recalibration unlock: cold-start values are replaced by percentile-based
+values after the system has completed at least two full θd calibration
+cycles AND accumulated sufficient conflict log volume (≥ 30 events per
+domain, same as Phase 0→1 transition trigger).
+
+Until recalibration unlock: system operates in cold-start mode and
+Rest Mode is not declared regardless of observed metrics.
+```
+
+*Cold-start mode prevents the circular dependency: τu cannot be set from history that doesn't yet exist. The conservative initial values ensure that τu miscalibration in cold-start mode produces false negatives (system never declares Rest Mode too early) rather than false positives. This is the same error asymmetry principle as Phase 0 θd_max initialization.*
+
+**Step 1 — Theoretical bounds (post cold-start):**
 
 | Threshold | Lower bound (too permissive) | Upper bound (too restrictive) | Meaningful range |
 |---|---|---|---|
 | τu-1 (fesc) | 0 (any escalation triggers exit) | historical maximum fesc (never achievable) | 5th–25th percentile of historical fesc distribution |
 | τu-2 (I) | 0 (any coherence suffices) | 1.0 (perfect coherence required) | 75th–95th percentile of historical I distribution |
-| τu-3 (Lreinf) | 0 (any loops suffice) | theoretical max edges | 75th–95th percentile of historical Lreinf distribution |
+| τu-3 (Lreinf) | 0 (any loops suffice) | 1.0 (Lreinf/n = 1, impossible — would require all edges to be top-q%) | 75th–95th percentile of historical Lreinf/n distribution |
 | τu-4 (SCC) | 0 (any recovery suffices) | 1.0 (perfect recovery required) | 75th–95th percentile of historical SCC distribution |
 
-**Step 2 — Operational calibration:** After the system has completed at least two full θd calibration cycles, set initial thresholds at the 25th percentile for fesc (low is good) and 75th percentile for I, Lreinf, SCC (high is good) of observed distributions. These are conservative starting points.
+**Step 2 — Operational calibration:** After cold-start unlock conditions are met, set initial thresholds at the 25th percentile for fesc (low is good) and 75th percentile for I, Lreinf, SCC (high is good) of observed distributions. These are conservative starting points.
 
 **Step 3 — Adaptive refinement:** If the system declares Rest Mode and immediately exits (false positive), tighten thresholds by one quartile. If the system appears operationally stable but never reaches Rest Mode (potential false negative), loosen by one quartile. This binary search converges to system-appropriate values within O(log n) adjustment cycles.
 
@@ -1052,7 +1106,7 @@ The τu-1 through τu-4 thresholds cannot be set from first principles — they 
 GRT conditions (operational):
   fesc ≤ τu-1 + decreasing trend
   I ≥ τu-2 + increasing trend
-  Lreinf ≥ τu-3 + increasing trend
+  Lreinf/n ≥ τu-3 + increasing trend    (τu-3 normalized; see §Initial τ Calibration)
   SCC ≥ τu-4 + improving trend
 
 VST phase-space (dynamical):
@@ -1126,27 +1180,31 @@ Active Mode (restart from Phase 1 socialization)
 | Storm-inducing vector orientations | ✗ Released | Conflict log drains below λlog for dormant storm patterns — no active reinforcement → natural decay |
 | Self-reinforcing conflict patterns | ✗ Released | Without conflict log mass sustaining them, local rules expire on next θd calibration cycle |
 
-**RBIT formal grounding — Rest Mode as dF_RBIT/dt ≈ 0 (RBIT Appendix §5):** RBIT defines Rest Mode as the thermodynamic steady state of the resolution-based instability functional:
+**RBIT formal grounding — Rest Mode as all-fᵢ bounded (RBIT Appendix §5):** RBIT defines Rest Mode as the state in which all five components of the F_RBIT health vector remain bounded and non-monotone simultaneously:
 
 ```
-Rest Mode condition:  dF_RBIT/dt ≈ 0,  but  F_RBIT ≠ 0
+Rest Mode condition (vector form):
+  Each fᵢ ∈ (f₁,...,f₅) bounded and non-monotone over window W
+  No component in sustained rising trend
+  F_RBIT ≠ (0,0,0,0,0)   [residual instability maintained]
 
 Not: zero instability (impossible — Landauer floor, RBIT Argument 2)
 But: bounded fluctuation equilibrium —
-     information intake and internal dissipation remain balanced,
-     preventing long-term accumulation of unresolved structural entropy
+     information intake and internal dissipation remain balanced
+     across all five dimensions, preventing long-term accumulation
+     on any single axis
 ```
 
-This connects GRT's four AND-entry conditions to a single formal criterion: Rest Mode is the state where the instability functional's time derivative approaches zero — meaning that misclassification (1 − ρ), resolution mismatch (Φ(−Δρ)), buffer instability (Ψ(B)), escalation load (E), and resource cost (C) are all in dynamic equilibrium. Each GRT entry condition (fesc ≤ τu-1, I ≥ τu-2, Lreinf ≥ τu-3, SCC ≥ τu-4) constrains a different component of F_RBIT, and all four must be satisfied simultaneously because dF_RBIT/dt ≈ 0 requires *all* components bounded — a single diverging component produces net instability growth regardless of the others.
+This connects GRT's four AND-entry conditions to a single formal criterion: Rest Mode is the state where all F_RBIT components are bounded — meaning misclassification (f₁ = 1−ρ), resolution mismatch (f₂ = Φ(−Δρ)), buffer instability (f₃ = Ψ(B)), escalation load (f₄ = E), and resource cost (f₅ = C) are all in dynamic equilibrium. Each GRT entry condition (fesc ≤ τu-1, I ≥ τu-2, Lreinf ≥ τu-3, SCC ≥ τu-4) constrains a different component of F_RBIT, and all four must be satisfied simultaneously because bounded-vector Rest Mode requires *all* components stable — a single diverging component produces net instability growth regardless of the others.
 
-**RBIT τ₁–τ₃ regime switching and GRT state mapping:** RBIT's τ₁–τ₃ thresholds (RBIT Appendix §3) provide the formal framework connecting GRT's governance states to graduated instability response:
+**RBIT τ₁–τ₃ regime switching and GRT state mapping:** RBIT's τ₁–τ₃ thresholds (RBIT Appendix §3) provide the formal framework connecting GRT's governance states to graduated instability response. Under the vector representation, thresholds correspond to component-count conditions:
 
 | F_RBIT regime | RBIT response | GRT state mapping |
 |---|---|---|
-| G_ℓ < τ₁ | No intervention needed | Rest Mode — per-distribution governance |
-| τ₁ < G_ℓ < τ₂ | MARK — monitoring + signal logging | Alert state — per-event monitoring, λlog accumulation |
-| τ₂ < G_ℓ < τ₃ | SOFT CORRECT — boundary tightening, seed injection | Active Mode — per-rule intervention |
-| G_ℓ > τ₃ | HARD CORRECT — loop severance, attractor reset | Collapse Recovery — structural realignment |
+| All fᵢ bounded, no trend | No intervention needed | Rest Mode — per-distribution governance |
+| 1 component rising (f₁ or f₄ first) | MARK — monitoring + signal logging | Alert state — per-event monitoring, λlog accumulation |
+| ≥ 2 components rising, or f₂ > 0 | SOFT CORRECT — boundary tightening, seed injection | Active Mode — per-rule intervention |
+| ≥ 3 components rising, or majority monotone worsening | HARD CORRECT — loop severance, attractor reset | Collapse Recovery — structural realignment |
 
 **Efficiency–Plasticity Conservation Law (VST §3.7):** VST establishes a conservation-like constraint grounding why Rest Mode cannot achieve zero governance cost:
 
@@ -1588,7 +1646,7 @@ VST v1.3's Storm–Collapse Mapping Layer (SCML) establishes that storm *type* �
 
 | Storm Type | Structural Meaning | GRT Response Pathway |
 |---|---|---|
-| **Local amplification** (single zone, Stage 2-3) | Single attractor fracture — agent-level geometry broken, network intact | Local re-seeding → proceed to Step 1 (Type 1/2 diagnosis) |
+| **Local amplification** (single zone, Stage 2-3) | Single attractor fracture — agent-level geometry broken, interaction structure intact | Local re-seeding → proceed to Step 1 (Type 1/2 diagnosis) |
 | **Boundary storm** (cross-zone, propagating) | Layer interface instability — resolution mismatch between adjacent governance layers | Middle-layer Δρ correction → θd recalibration at boundary domains |
 | **Hub storm** (high-coupling zone) | Coordination center overload — central mediation saturated or drifted | Distributed mediation restructure → reduce hub coupling density before re-seeding |
 | **Global cascade** (all zones, Stage 3 system-wide) | Cross-layer synchronization loss — Epistemic Convergence or Authority Collapse | Safe Collapse Protocol → full Seed reinstallation mandatory |
@@ -1795,7 +1853,7 @@ Intervention should withdraw as soon as — and not before — the trigger condi
 | Utility | Knowledge ecosystem diversity |
 | U* | Minimum acceptable diversity threshold |
 
-**VST §3.2.6 — F_RBIT as independent cross-validation of U* maintenance:** U* can be validated from two independent measurement perspectives. S_norm (dynamical) measures instability generation vs absorption; F_RBIT (informational) measures resolution adequacy across layers. Cross-validation: both stable = confirmed U* maintenance; both rising = confirmed instability; one rising but not other = measurement-specific check needed. This dual-perspective approach addresses open problem 7 (F_RBIT weight calibration): rather than requiring exact w₁–w₅ specification, directional agreement between S_norm and F_RBIT serves as the health indicator regardless of absolute calibration.
+**VST §3.2.6 — F_RBIT as independent cross-validation of U* maintenance:** U* can be validated from two independent measurement perspectives. S_norm (dynamical) measures instability generation vs absorption; F_RBIT (informational) measures resolution adequacy across layers via its five-component health vector. Cross-validation uses directional concordance — no weights required: majority of F_RBIT components stable AND S_norm stable = confirmed U* maintenance; majority rising AND S_norm rising = confirmed instability; one perspective rising but not the other = measurement-specific check needed. This dual-perspective approach eliminates the open problem of F_RBIT weight calibration entirely: directional agreement between S_norm and F_RBIT components serves as the health indicator regardless of any scalar aggregation.
 
 ### U* Quantification
 
@@ -1847,7 +1905,7 @@ A highly specialized agent has a narrow Dint. When contaminated input arrives (a
 
 **Why Dint = min(Dint_i) rather than mean(Dint_i):**
 
-The minimum aggregation rule reflects the contamination entry point principle: a single weak domain provides an unmonitored pathway into the entire vector network. The question is whether strong Lreinf in other domains can compensate — i.e., whether mutual reinforcement loops can contain contamination that enters through a weak domain.
+The minimum aggregation rule reflects the contamination entry point principle: a single weak domain provides an unmonitored pathway into the entire vector structure. The question is whether strong Lreinf in other domains can compensate — i.e., whether mutual reinforcement loops can contain contamination that enters through a weak domain.
 
 The answer is structurally no, and the reason is the detection-purification asymmetry:
 
@@ -1895,7 +1953,7 @@ for the entire agent — regardless of strength elsewhere.
 
 This is why the DFG approach to single-agent governance treats domain balance as a first-class concern, not a secondary optimization. The minimum Dint across domains determines the agent's true contamination resistance.
 
-**Connection to SCC:** Dint collapse in any domain directly degrades SCC for the entire agent. When a domain's Dint falls below θ_dint, the detection-purification loop in that domain loses its contrast baseline — contaminated patterns arrive with no adjacent vectors to flag them as anomalous. The contamination does not just persist in that domain; because vectors are connected through Lreinf, an undetected contamination in a weak domain propagates into adjacent domains whose Dint is still intact. A single atrophied domain is not just a local vulnerability — it is an unmonitored entry point into the entire vector network.
+**Connection to SCC:** Dint collapse in any domain directly degrades SCC for the entire agent. When a domain's Dint falls below θ_dint, the detection-purification loop in that domain loses its contrast baseline — contaminated patterns arrive with no adjacent vectors to flag them as anomalous. The contamination does not just persist in that domain; because vectors are connected through Lreinf, an undetected contamination in a weak domain propagates into adjacent domains whose Dint is still intact. A single atrophied domain is not just a local vulnerability — it is an unmonitored entry point into the entire vector structure.
 
 ---
 
@@ -2025,7 +2083,7 @@ Deficit-Fractal Governance (DFG)
 ├── Three-Layer Governance Architecture
 ├── RBIT (Resolution-Based Information Theory) — information-theoretic foundation
 │     ↕ GRT connection: resolution gap Δρ ↔ Seed Expansion Protocol routing;
-│       F_RBIT functional ↔ Rest Mode formal definition (dF_RBIT/dt ≈ 0);
+│       F_RBIT health vector ↔ Rest Mode formal definition (all fᵢ bounded);
 │       τ₁–τ₃ regime switching ↔ GRT state transitions (Rest/Alert/Active/Collapse);
 │       seed sufficiency 3-test framework ↔ Seed Expansion validation;
 │       intent preservation (exploration + interpretation) ↔ vector degradation diagnosis;
@@ -2086,7 +2144,7 @@ Deficit-Fractal Governance (DFG)
 29. Cemri, M., et al. (2025). MAST: Multi-Agent System Taxonomy. *NeurIPS 2025*.
 30. Agent Drift in Multi-Agent Systems. *arXiv:2601.04170*, 2026.
 31. Recovery Theory (DFG component). Internal document, v1.0, February 2026. (D0 Geometry Alignment, D1–D5 operational definitions, D6 Self-Consistent Misalignment + EMT/Rational CW Convergence, D7 Boundary Agent + VCZ 3-Condition carrier + T6 structural protection, T1–T6 structural claims, Operational Proxies OP1–OP7, Storm Scale Law fractal distribution, Boundary Friction criterion + Propagation Sensitivity + DFG Boundary Test 3 questions, VCZ Collapse Initiation 5-step sequence, VCZ Observability Paradox, VCZ-Safe Optimizer Architecture 3-layer domain restriction, Safe Collapse Governance vs Collapse Prevention Governance, D4 restoration complete 3 necessary conditions, Residual Instability as systemic safety mechanism.)
-32. Resolution-Based Information Theory (RBIT, DFG component). Internal document, v1.2, February 2026. (Resolution gap Δρ routing, F_RBIT instability functional, τ₁–τ₃ regime switching, seed sufficiency 3-test framework, intent preservation measurement, degradation calibration D(Δρ), Rest Mode as dF_RBIT/dt ≈ 0.)
+32. Resolution-Based Information Theory (RBIT, DFG component). Internal document, v1.2, February 2026. (Resolution gap Δρ routing, F_RBIT health vector (5-component), τ₁–τ₃ regime switching, seed sufficiency 3-test framework, intent preservation measurement, degradation calibration D(Δρ), Rest Mode as all-fᵢ bounded.)
 33. Network Architecture Theory (NAT, DFG component). Internal document, v1.1, February 2026. (Four-type data classification, processing isolation 3-mechanism enforcement, sphere cross-validation and structural diversity condition, θ operationalization via S₀ normalization, R-ρ concordance protocol, cutoff recalibration noise-first sequencing.)
 34. Vector Storm Theory (VST, DFG component). Internal document, v1.6, February 2026. (S-equation as phase detector/order parameter, n² critical phenomena derivation, resolution gap as storm driver, α-n partial separation protocol, R-ρ concordance → R-ρ-f_esc Triple Concordance (v1.5), Rest Mode entry/exit formalization with phase-space location, Permanently High-Context channels, Efficiency-Plasticity Conservation, information-theoretic storm characterization, sphere topology storm propagation bounds, SCC structural decomposition, seed sufficiency and storm resistance, SCM Recovery Protocol 4 methods, Boundary Structural Embedding 6 T6-resistant patterns, Storm-Collapse Mapping Layer, vectorization lifecycle, mature storm absorption and φ decomposition, SCM Formal Structure + Unintegrated Pressure + EMT (v1.6), Reference Frame Incompleteness S-equation implications (v1.6), Storm Scale Law power law health distribution (v1.6), Boundary Agent Complete Specification + Defect Layer connection (v1.6), Fractal Lifecycle 7-phase storm signatures (v1.6), Per-Architecture Calibration Protocol + τ as maturity fingerprint, Failure Diagnosis Flowchart S-equation regime per case (v1.5), Intervention Trigger Taxonomy production S-mapping (v1.5), Inertial Stability growth window closure (v1.6).)
 35. Three-Layer Governance Architecture (TLG, DFG component). Internal document, v1.6, February 2026. (Ground Truth Grounding Protocol and R-ρ concordance, adaptive evaluation window W sizing with timescale hierarchy, τ1–τ4 threshold definitions with vectorization lifecycle integration, Authority Collapse 3 pathways (Signal Starvation / Interpretation Capture / Epistemic Convergence) + countermeasures, Recovery Completion Criterion RC 3-condition (Autonomous Expansion + Directional Validity + Collapse Non-Dependence), Arrested Collapse State and Pathological Expansion formal definitions, Immunity Decay 3 erosion pathways (environmental drift / calibration disuse / over-optimization), Stability Saturation State SSS 3 detection mechanisms, Mediator Drift Syndrome MDS 3 countermeasures (Calibration Reflexivity / Cross-Scale Consistency / Delayed Escalation Audit), Unified Failure Topology 3-axis 6-phase cycle, structural enforcement of phase isolation 3 mechanisms, Storm-Collapse Mapping Layer TLG side.)

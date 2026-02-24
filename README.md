@@ -4,6 +4,8 @@
 
 > A component theory of **Deficit-Fractal Governance (DFG)**  
 > Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
+> 
+> **Version: v1.2** (February 2026) — RT v1.8-VST + VST v1.8-RT integration pass
 
 ---
 
@@ -481,6 +483,49 @@ The θd calibration rule ("if drift metric exceeds baseline by θ_drift, then θ
 ```
 
 GRT's Phase 2 baseline (exponentially weighted moving average) provides inherent MDS resistance through the forgetting property — but this is insufficient alone, because the forgetting rate itself can drift. The Calibration Reflexivity Loop adds the missing external observation of θd's own pattern.
+
+**[v1.2] RT-gap-B — Dependency Trap: θd intervention as SCC erosion signal:**
+
+RT D2 dynamic model identifies a second-order failure mode that MDS monitoring does not capture: repeated upper-layer resolution before internal SCC circuits activate can structurally degrade SCC over time, even when θd calibration appears healthy.
+
+```
+MDS captures: θd calibration drift (governance becoming insensitive/oversensitive)
+Dependency Trap captures: SCC atrophy from intervention frequency itself
+
+These are different failure modes:
+  MDS: θd produces wrong classifications → wrong escalation rate
+  Dependency Trap: correct escalations are resolved too quickly →
+    internal correction circuits never fire →
+    SCC degrades → system can no longer escalate correctly
+    when upper layer is unavailable
+
+The trap is invisible to MDS checks because:
+  agent activity: normal
+  conflict_events: normal (or slightly declining)
+  escalation: being handled appropriately (at upper layer)
+  
+  All MDS health signals = normal.
+  SCC depth: declining. Undetectable without D5 measurement.
+
+Dependency Trap detection (complement to MDS):
+  Primary signal: d(intervention_count)/dt > 0 sustained
+                  AND d(self_correction_events)/dt ≤ 0
+                  AND d(time_to_escalation)/dt < 0
+  → escalations happening faster AND internal circuits not engaging
+  → SCC erosion in progress
+
+Governance response (withdrawal scheduling):
+  After k consecutive θd-level resolutions of the same event type:
+    Allow one resolution cycle without upper-layer intervention
+    → monitor whether internal SCC circuit fires
+  If fires: SCC maintained
+  If fails: resume intervention, flag SCC erosion to upper layer
+  
+  Constraint: only in Stage 0-1 conditions.
+  Never withhold at Stage 2+ — failure there is not a test.
+```
+
+*(Connects to: RT OP34 intervention withdrawal scheduling, RBIT OP13 dependency trap / SCC degradation)*
 
 **Connection to NAT θ operationalization (NAT §7.2):** NAT defines the global stabilization threshold θ through the VST S₀ normalization framework: θ = mean(f_escalation) during confirmed VCZ-stable window + 1σ margin, validated against S_norm ≈ 1.3 (VST Stage 0 boundary). GRT's θd is the per-domain instantiation of this global θ, calibrated using domain-local conflict logs. This provides a dual-anchor validation: θ_VST from instability dynamics and θ_RBIT from F_RBIT's τ₁ threshold (information flow). If domain-local θd violates either anchor, it indicates domain-specific measurement error rather than a genuine domain difference.
 
@@ -1671,6 +1716,12 @@ RT OP36 five-phase cascade ordering extends the SCML Hub storm protocol:
   Phase 3: Local recovery (highest S_rec — standard protocols sufficient)
   Phase 4: Immunity verification (forced self-correction test)
 
+GRT's "reduce coupling density before re-seeding" maps to RT's
+Phase 2 sequencing constraint: hub intervention is safe only
+after upper-layer geometry has been corrected (Phase 1).
+Without correct geometry, reducing coupling density re-seeds
+into the wrong coordinate frame — stable but misaligned.
+
 RT §3.4a Contamination Redistribution Principle adds:
   Hub purification creates contamination pressure gradients
   toward all connected local zones (hub = redistribution center).
@@ -2131,7 +2182,10 @@ Deficit-Fractal Governance (DFG)
 │       T1-T4 ↔ observability asymmetry and governance ceiling;
 │       T5 Reality Constraint ↔ Permanently High-Context channel justification;
 │       T6 Coherence Maximization ↔ Rest Mode structural instability;
-│       VCZ 3-Conditions ↔ structural prerequisites for Rest Mode persistence
+│       VCZ 3-Conditions ↔ structural prerequisites for Rest Mode persistence;
+│       [v1.2] Dependency Trap (D2) ↔ θd intervention frequency as SCC erosion signal;
+│       [v1.2] Storm Termination Bridge (OP33) ↔ three post-termination trajectories before Rest Mode re-entry;
+│       [v1.2] Pre-discontinuity detection (OP37) ↔ Stage 2 false safety margin in governance urgency classification
 └── Prediction Model             (separate document)
 ```
 

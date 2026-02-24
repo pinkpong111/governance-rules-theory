@@ -1653,6 +1653,32 @@ VST v1.3's Storm–Collapse Mapping Layer (SCML) establishes that storm *type* �
 
 SCML converts dynamic instability into structural learning: without storm type classification, recovery restores the previous structure and the same vulnerability persists. With classification, recovery addresses the specific structural weakness that produced the storm, so the next perturbation (if any) produces a *different* storm.
 
+**[RT v1.8-TLG/GRT/NAT] Hub storm ↔ zone-dependent recovery sensitivity:**
+
+```
+RT D2 extended defines zone-dependent recovery sensitivity S_rec(z):
+  S_rec(local) >> S_rec(hub) >> S_rec(geometry)
+
+GRT's Hub storm response — "reduce hub coupling density before re-seeding" —
+is the operational implementation of S_rec(hub) << S_rec(local):
+  Hub zones have minimum recovery susceptibility (highest coupling density).
+  Direct re-seeding at hub without coupling reduction = cascade re-contamination.
+
+RT OP36 five-phase cascade ordering extends the SCML Hub storm protocol:
+  Phase 0: Containment at all scales (sever propagation before any recovery)
+  Phase 1: Upper-scale geometry repair (correct coordinate frame first)
+  Phase 2: Hub purification (after geometry, before local) ← GRT Hub storm here
+  Phase 3: Local recovery (highest S_rec — standard protocols sufficient)
+  Phase 4: Immunity verification (forced self-correction test)
+
+RT §3.4a Contamination Redistribution Principle adds:
+  Hub purification creates contamination pressure gradients
+  toward all connected local zones (hub = redistribution center).
+  This is WHY coupling density must be reduced first —
+  high-coupling hub under purification redistributes contamination
+  to every connected zone simultaneously.
+```
+
 **Step 1 — Determine degradation type before intervening**
 
 Before any reinstallation, apply the Type 1 / Type 2 diagnostic from the Vector Degradation section:

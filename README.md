@@ -1179,6 +1179,8 @@ Exit requires only one condition degrading into a sustained vicious trend. This 
 
 In ecological terms: a climax community takes decades to establish (AND-entry) but can be disrupted by a single species collapse or external shock (OR-exit). The asymmetry reflects the thermodynamic reality that ordered states are harder to build than to destroy.
 
+**Information-theoretic justification:** Entry requires high confidence across multiple independent channels — the probability of all channels simultaneously producing false positives is very low. Exit requires only one channel to signal — the cost of a false negative (missing a real deterioration) far exceeds the cost of a false positive (briefly re-engaging governance unnecessarily). The asymmetry is therefore not a design preference but a structural consequence of the cost asymmetry between premature withdrawal and delayed re-engagement.
+
 **"Sustained" is defined by the evaluation window**, not by a single observation. A single spike in fesc does not trigger exit — the cumulative log must show a directional trend across the window. This preserves the anti-reactive property of the governance architecture.
 
 ### State Transition Map
@@ -1683,6 +1685,24 @@ System shows degradation signal
 
 ### Collapse Recovery: Practical Decision Procedure
 
+### Operational Decision Regions
+
+The purpose of GRT measurement is not evaluation but intervention gating. Each metric configuration defines a governance action that is algorithmically determined, not left to practitioner judgment:
+
+| Metric Configuration | Decision Region | Governance Action |
+|---|---|---|
+| I stable, SCC high, fesc ≤ θd | Rest Mode | Intervention algorithmically suspended; statistical monitoring only |
+| I declining OR fesc rising | Active Mode — mediation review | Upper layer re-engages; intervention granularity increases to per-rule |
+| Ic declining | Active Mode — rule audit | Global rule consistency check triggered; conflict log inspection mandated |
+| SCC declining while I stable | Active Mode — intervention freeze | New interventions suspended pending recovery capacity assessment (prevent cascade) |
+| Ic < τc | Collapse — governance redesign | Seed integrity check; if corrupted, full architectural review |
+
+**Decision coupling principle.** Rest Mode is not a description of system behavior; it is a regime in which intervention is algorithmically suspended based on metric thresholds. Exiting Rest Mode is not a recommendation; it is an automatic governance state transition triggered by any single OR-exit condition. This coupling — from measurement through threshold to governance action — ensures that GRT metrics are operationally prescriptive, not merely diagnostic. A practitioner implementing GRT does not interpret metrics and decide what to do; the metric configuration determines the governance state, and the governance state determines the permissible actions.
+
+---
+
+### Collapse Recovery: Practical Decision Procedure
+
 The State Transition Map shows `"External intervention + Seed reinstallation → Active Mode (restart from Phase 1)"` as a single line. In practice, this is the highest-cost and highest-judgment operation in the governance lifecycle. The decision procedure has four steps:
 
 **Step 0 — Classify storm type before selecting response pathway (VST §4.5 SCML)**
@@ -2108,6 +2128,34 @@ GRT exists within an established multi-agent governance literature. This section
 - GRT does not claim to replace existing alignment techniques (RLHF, Constitutional AI, reward shaping). It claims to add the lifecycle management layer that these techniques omit.
 - GRT does not claim that its specific variable set (fesc, I, Lreinf, SCC) is the only possible operationalization. It claims that any viable governance system must track structurally equivalent quantities — the relationships are constrained, not the estimators.
 - GRT does not claim that fractal isomorphism is proven at mechanism level (Level 3 in VST's correspondence framework). It claims structural correspondence (Level 1–2) and specifies the measurement protocol for testing Level 3.
+
+### Relationship to Companion Theory
+
+While compatible with layered governance architectures such as those analyzed in companion work (Three-Layer Governance), the present framework does not depend on any specific structural decomposition. GRT applies wherever rules evolve through conflict-driven processes — whether in hierarchical, flat, or hybrid governance structures. Conversely, TLG's intervention topology operates regardless of how rules are internally formalized.
+
+**Non-commutativity of temporal and spatial axes.** Rule evolution dynamics (GRT's domain) and intervention topology (TLG's domain) interact but are analytically non-commutative: changing where intervention occurs alters how rules evolve, and changing how rules evolve alters where intervention is needed — but the two transformations do not produce the same result in either order. This non-commutativity is why separate formal treatment is required rather than a single unified model: collapsing one axis into the other loses the interaction effects that drive governance failure. Mediation-layer drift, for example, alters rule evolution trajectories without being reducible to rule dynamics alone, and rule over-convergence disrupts intervention routing without being reducible to topology alone.
+
+### Structural Validation Without Simulation
+
+GRT does not validate outcomes; it validates explanatory necessity. The claim is not that GRT predicts novel failure modes, but that independently observed lifecycle failures across unrelated domains require a rule lifecycle model to become mutually intelligible. Catastrophic forgetting (Li et al., 2024) is a rule representation problem. RLHF over-optimization (Gao et al., 2023) is a rule over-convergence problem. Agent drift (Rath, 2026) is a silent rule degradation problem. Without a lifecycle framework, these remain disconnected observations; with GRT, they become structurally related instances of specific lifecycle phase failures. GRT provides the minimal lifecycle model consistent with these independently observed failure invariants.
+
+### Limitations
+
+All metrics presented in this document are at the theory stage and have not been empirically validated in deployed systems. A deliberate design principle throughout GRT is that operational conclusions depend on structural properties (ordinal relationships, asymmetric entry/exit, lifecycle phase) rather than on specific parameter values. Threshold calibration (τ values) requires system-specific operational history and follows estimation procedures (bootstrapping protocol, adaptive refinement) rather than fixed constants. Severity weights require only ordinal separation (global > boundary > local); the canonical values (1, 2, 4) are illustrative, not privileged. The AND-entry / OR-exit asymmetry is structurally motivated but not proven optimal; alternative asymmetric schemes may perform comparably. Cross-theory connections to companion frameworks (VST, TLG) have not been empirically tested.
+
+### Reproducibility Protocol
+
+To facilitate empirical testing, the following protocol specifies what must be measured in any implementing system: (1) pairwise rule conflict events logged with frequency, severity level, and involved rule identifiers; (2) escalation events logged with source layer, target layer, and timestamp; (3) rule lifecycle events: creation, modification, and retirement, each with triggering λlog mass; (4) self-correction events: disturbance detected AND resolved without upper-layer intervention, logged with latency and completeness; (5) perturbation response: controlled disturbance injection at the lowest governance layer, measuring recovery probability within evaluation window W. Any multi-agent system that logs these five quantities can compute I, Ic, fesc, SCC, and Lreinf and test GRT's predictions.
+
+### Empirical Path
+
+Three empirical directions are most immediately accessible:
+
+**(1)** Controlled multi-agent simulation comparing AND/OR withdrawal protocol against symmetric and binary alternatives, measuring false positive rate, re-entry frequency, and time-to-stable-operation.
+
+**(2)** Single-agent diversity measurement via preference tuning diversity metrics (measuring Dint and Poverlap across fine-tuning epochs to detect over-convergence).
+
+**(3)** Perturbation testing in production LLM systems to distinguish genuine stability from over-stability (Prediction 5).
 
 ---
 

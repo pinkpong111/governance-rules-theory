@@ -5,7 +5,13 @@
 > A component theory of **Deficit-Fractal Governance (DFG)**  
 > Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
 > 
-> **Version: v1.2** (February 2026) — RT v1.8-VST + VST v1.8-RT integration pass
+> **Version: v1.3-RTseries** (February 2026) — RT-series v2.0 integration
+>
+> v1.3-RTseries changes from v1.2 (RT-1/2/3/4 v2.0 integration):
+> - **Recovery Theory connections extended:** RT-1 three restoration conditions mapped to state transitions; RT-2 Metric Lock-In deepens Case 4 to structural invisibility; RT-3 observer (V,A,B,S) mapped to monitoring requirements; RT-4 Shared Vulnerability as conflict-is-governance-resource; Identity Declaration as premature Rest Mode risk; Structural Humility as θd verification persistence
+> - All previous content preserved.
+>
+> v1.2 changes from v1.1 (RT v1.8-VST + VST v1.8-RT integration pass):
 
 ---
 
@@ -767,6 +773,95 @@ Identical agents: same empty spaces → false consensus → corruption invisible
 ```
 
 For GRT, this means Dint is not merely a diversity score to maintain above threshold — it is the structural precondition for conflict detection itself. When Dint falls below U*, the system loses not just reinforcement loop capacity but also the ability to detect that it has lost it (because homogeneous perspectives cannot identify shared blind spots). This is why Dint minimum (U*) violations are classified as the most dangerous failure mode in GRT's taxonomy — they undermine the measurement system, not just the measured property.
+
+### RT-4 Integration: Relational Reversibility and Recovery Capacity Generation
+
+Recovery capacity is not an individual agent property — it is a network property generated through trust topology and cooperative coherence. RT-4 establishes a three-level scaling law with direct implications for GRT's governance rules:
+
+```
+Three-Level Reversibility Scaling Law (RT-4 §3):
+  Rᵢ = Rᵢʳⁿᵗ · (1 + α Σⱼ Tᵢⱼ) · g(λ₂(L))
+  
+  Individual × relational × network
+  Any factor = 0 → all = 0
+  
+  Rᵢʳⁿᵗ = individual agent's intrinsic absorption capacity
+  Tᵢⱼ = trust coefficient: Pr(info from j reduces prediction error of i)
+  g(λ₂) = network connectivity function of algebraic connectivity
+  
+  GRT implication: governance rules must maintain all three levels.
+  Individual capacity without trust topology → isolated fragility.
+  Trust without network connectivity → local resilience only.
+```
+
+**Shared Vulnerability Principle (RT-4 §5):** Recovery capacity requires mutual visibility of failure modes between agents. But this visibility produces recovery capacity only when disclosure remains admissible:
+
+```
+Shared Vulnerability mechanism:
+  I_sv^eff = I_sv · A_accept
+  
+  I_sv = structural vulnerability information available
+  A_accept = admissibility of vulnerability disclosure
+  
+  Recovery barrier = rational suppression of visible weakness
+  When disclosure cost > disclosure benefit → suppression → I_sv^eff ↓
+  → dR/dt < 0 (recovery capacity declining)
+  
+  GRT implementation:
+    Conflict logs ARE shared vulnerability information
+    λlog-triggered rule updates ARE admissibility mechanisms
+    If conflict logging carries punishment → A_accept → 0 → 
+    recovery capacity degrades even as operational metrics improve
+    
+  Design principle: conflict is a governance resource, not a failure.
+  Rules that suppress conflict reporting suppress recovery capacity.
+```
+
+**Identity Declaration Instability (RT-4 Conjecture 4):** When agents declare fixed identity (positional commitment), they suppress disclosure of uncertainty. Observable metrics may IMPROVE during this degradation:
+
+```
+Identity Declaration mechanism:
+  D_id → suppressed disclosure → I_sv^eff ↓ → dR/dt < 0
+  
+  Observable: metrics IMPROVE ("false calm") during degradation.
+  = Behavioral mechanism for SCM entry in networked systems.
+  
+  GRT warning: premature Rest Mode entry may correspond to 
+  Identity Declaration — agents have stopped reporting uncertainty,
+  not stopped experiencing it.
+  
+  Detection: if all Rest Mode entry metrics are met BUT λlog 
+  conflict log update rate drops to zero → Identity Declaration 
+  suspicion → do NOT declare Rest Mode.
+```
+
+**Structural Humility (RT-4 §6):** The maintenance condition for continued recovery capacity generation:
+
+```
+O(t+1) = O(t) − α·D_id(t) + β·H(t)
+
+  H(t) = structural humility: continued verification despite capability
+  
+  Verification persistence despite capability = dR/dt ≥ 0 preservation
+  
+  GRT implementation: θd verification persistence
+  Even in Rest Mode, θd calibration cycles must continue running.
+  If θd stops updating → structural humility = 0 → recovery 
+  capacity atrophying → VCZ destabilization inevitable.
+```
+
+**Reversibility Phase Transition (RT-4 Conjecture 5):**
+
+```
+R > R_c → perturbations absorbed (VCZ)
+R < R_c → cascade regression (Storm)
+R_c ≈ 0.43 in toy model
+
+GRT implication: there exists a sharp threshold in trust topology 
+connectivity below which recovery capacity collapses nonlinearly.
+Governance rules must monitor aggregate trust topology metrics 
+and prevent degradation below R_c.
+```
 
 NAT quantifies this: coverage probability P(blind spot uncovered) ≤ (1 − 1/d_eff)^k, where d_eff is effective representation dimensionality and k is neighbor degree. As structural diversity decreases (d_eff → ∞ for homogeneous agents), coverage probability approaches 1 regardless of system size. GRT's Dint threshold U* should therefore be calibrated not just against reinforcement loop sustainability but against the coverage probability bound — ensuring sufficient structural diversity to maintain detection capability.
 
@@ -2233,7 +2328,22 @@ Deficit-Fractal Governance (DFG)
 │       VCZ 3-Conditions ↔ structural prerequisites for Rest Mode persistence;
 │       [v1.2] Dependency Trap (D2) ↔ θd intervention frequency as SCC erosion signal;
 │       [v1.2] Storm Termination Bridge (OP33) ↔ three post-termination trajectories before Rest Mode re-entry;
-│       [v1.2] Pre-discontinuity detection (OP37) ↔ Stage 2 false safety margin in governance urgency classification
+│       [v1.2] Pre-discontinuity detection (OP37) ↔ Stage 2 false safety margin in governance urgency classification;
+│       [v1.3-RTseries] RT-1 v2.0: three restoration conditions (ρ + diversity + P_overlap)
+│         ↔ Rest Mode entry requires ALL THREE (not stability alone);
+│         arrested collapse ↔ Case 3 false stability;
+│         withdrawal DI→SD→FO→W ↔ staged governance reduction;
+│       [v1.3-RTseries] RT-2 v2.0: Metric Lock-In (Prop 5)
+│         ↔ Case 4 deepened: zero-gradient makes consistency metrics blind to SCM;
+│         Observability Emergence Threshold ↔ monitoring maturation cannot be forced;
+│       [v1.3-RTseries] RT-3 v1.0: observer O = (V, A, B, S)
+│         ↔ V = multiple conflict-surface perspectives; A = signal speed > drift speed;
+│         S = per-event vs per-distribution evaluation switching (scope duality);
+│       [v1.3-RTseries] RT-4 v1.0: Shared Vulnerability
+│         ↔ visible disagreement enables correction (conflict as governance resource);
+│         suppressed conflict (A_accept → 0) = Case 4 pathway;
+│         Identity Declaration ↔ premature Rest Mode declaration risk;
+│         Structural Humility ↔ θd verification persistence despite capability
 └── Prediction Model             (separate document)
 ```
 

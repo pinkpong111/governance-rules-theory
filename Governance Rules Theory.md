@@ -5,7 +5,29 @@
 > A component theory of **Deficit-Fractal Governance (DFG)**  
 > Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
 > 
-> **Version: v1.6-expanded** (March 2026) — Major expansion: AGM integration (Affective Gain Module coupling), Endogenous Perturbation Theory, T_eff governance temperature formalization, Bifurcation-Failure taxonomy unification, Momentum-bearing vector dynamics, Flow-Rest Mode equivalence, Stochastic Freedom as landscape design requirement, Weight Dynamics as AGM gain modulation
+> **Version: v1.8-expanded** (March 2026) — Major expansion: EDT deep integration (Three-Axis Architecture, Curvature Theory, Friction Management, Risk Index κ, Terrain Resonance, Carrying Capacity, Ecological Succession, Seed Propagation dynamics)
+>
+> v1.8-expanded changes from v1.7-expanded:
+> - **Three-Axis Architecture Integration:** Boundary Design (Axis 1), Gain Design (Axis 2), Coupling Geometry Design (Axis 3) mapped to GRT landscape design components; axis interactions and S-equation correspondence; gain-induced effective potential; spectral radius reduction via branching
+> - **Curvature Theory:** Curvature = compressed survival history; curvature accumulation dynamics (Hebbian-like terrain learning); Curvature Ceiling Theorem (upper-layer curvature must not exceed lower-layer autonomous curvature); curvature withdrawal schedule; curvature information content via Fisher information; curvature excess pathology
+> - **Friction Management:** Zero Friction Pathology theorem; optimal friction band; buffer as friction transformer; therapeutic terrain disturbance; friction-learning phase diagram with hysteresis; anomalous friction reduction as coordinate distortion signal
+> - **Risk Index κ:** Endogenous environment drift (τ_E), capacity adaptation timescale (τ_C), κ_C capacity-tracking risk, κ_L lock-budget risk, κ* hybrid index, κ-trajectory classification (4 types), three-alarm operational detection
+> - **Terrain Resonance:** Constructive/destructive resonance conditions; terrain-agent co-evolutionary fixed points; timescale collision avoidance; resonance avoidance as EDT §30 contribution
+> - **Carrying Capacity:** Maximum sustainable complexity for terrain quality; overshoot dynamics; graceful degradation protocol; capacity-quality coupling
+> - **Ecological Succession:** Pioneer→Colonist→Climax community lifecycle; seasonal seeding metaphor; receptivity windows; premature/delayed seeding costs
+> - **GRT ↔ EDT Integration Protocol:** Full bidirectional coupling specification; three-axis → S-equation parameter mapping; curvature → governance history; friction → learning rate; κ → early warning; contamination permeability → phase-dependent control
+> - All previous content preserved.
+>
+> v1.7-expanded changes from v1.6-expanded:
+> - **Circular Closure Theory Integration:** Circle (원) as fundamental governance unit, expansion→circulation conversion, layered cone architecture, S-equation decomposition under partitioning, effective dimensionality compression, integration preconditions
+> - **Contamination Dynamics:** Cross-scale contamination flux Φ_contam = P·max(0, S−R), three contamination modes (coupling, frame drift, timescale leakage), bottom-up propagation principle, contamination-aware terrain design
+> - **Self-Purification Capacity Decomposition:** SCC expanded to R_i = D·F·V·T (Decoupling × Feedback × Variance × Time), multiplicative criticality, immunity paradox (zero contamination destroys capacity), exercise-dependent maintenance
+> - **Cube Domination Coupling:** Frame competition dynamics, information-theoretic frame selection (MDL), frame dispersion Σ(t), frame adoption softmax, collapse-aversion governance, optimal Storm window for frame selection
+> - **Attractor Basin Geometry:** Basin depth vs width distinction, landscape evolution ODE, Kramers pre-exponential factor, multi-dimensional escape correction, stochastic resonance connection, basin depth deepening through repetition
+> - **Terrain Design Protocol:** 4-phase circle formation (isolation→exposure→coupling→mature), valley-pass-gradient geometry, terrain as S-equation modulator, EDT three-axis correspondence
+> - **North Star Architecture Integration:** Criterion (기준) vs Principle (원칙) separation mapped to GRT Global vs Local rules, eyes-and-feet principle, continuous correction requirement, criterion identification test
+> - **S-equation ↔ ODE Resolution:** S̃ governance-level → Φ mechanistic-level mapping, effective density n_eff = n/B under branching, Retention-Supply Duality for C(t), four intervention levers
+> - All previous content preserved.
 >
 > v1.6-expanded changes from v1.5-expanded:
 > - **AGM ↔ GRT Integration Protocol:** Full bidirectional coupling specification, T_eff as governance temperature parameter, endogenous perturbation source formalization, stochastic weight redistribution as correction value mechanism
@@ -261,6 +283,632 @@ Existing AI alignment techniques already implement landscape design:
 - **RLHF** — shapes the output space without per-inference intervention
 - **Constitutional AI** — replaces per-output correction with governing principles
 - **Reward shaping** — modifies the agent's value terrain while preserving the optimal policy
+
+**EDT Integration — Three-Axis Architecture of Landscape Design (EDT §4):**
+
+EDT formalizes landscape design through exactly three structural axes, corresponding to the three degrees of freedom in the S-equation. Every governance landscape intervention operates on one or more of these axes:
+
+```
+Three Axes of Environment Architecture (EDT §4):
+
+  Axis 1 — Boundary Design (EDT §4.1):
+    Defines where the system MUST NOT go.
+    Does not specify goals — only forbidden zones.
+    
+    Formal structure:
+      U_boundary(x) = { 0        if x ∈ Ω_allowed
+                       { +∞       if x ∈ Ω_forbid
+                       { steep wall if x → ∂Ω_forbid
+    
+    GRT mapping:
+      Global Rules = boundary definitions
+      "Never violate these" rather than "always do this"
+      Boundaries are nearly environment-invariant (stable across contexts)
+      Goals are environment-dependent (unstable across contexts)
+      
+    S-equation effect:
+      Prevents S(t) from entering Storm regime
+      Hard limits on coupling intensity α and concentration n_local
+      
+    Design principle:
+      Goal-setting: "Go here" → closes exploration → Storm when goal obsolete
+      Boundary-setting: "Not there" → preserves exploration → adaptation when change
+    
+  Axis 2 — Gain Design (EDT §4.2):
+    Modifies the energetic landscape of choices
+    without specifying which choice to make.
+    
+    Formal structure:
+      ẋ = g(x; z) · f(x)
+      
+      g(x; z) ∈ (0, 1] modulates the TIME SCALE of dynamics:
+        g ↓ → effective time slows → system protected during vulnerability
+        g ↑ → autonomous growth permitted → exploration enabled
+      
+      This is TEMPO CONTROL, not direction control.
+      
+    GRT mapping:
+      Correction values = gain modulation at rule level
+      θd calibration = gain tuning for sensitivity
+      AGM T_eff = gain modulation of governance temperature
+      
+    Key insight (EDT Proposition 4.2.1):
+      Gain modulation IMPLICITLY creates curvature:
+        U_gain_eff(x) = -∫ (1/g(x;z) - 1) · f(x) · dx
+      Low-gain regions create effective barriers
+      High-gain regions create effective wells
+      The gain landscape IS secretly a curvature landscape
+      
+    S-equation effect:
+      Modulates effective α (coupling intensity experienced by agents)
+      without changing structural coupling
+    
+  Axis 3 — Coupling Geometry Design (EDT §4.3):
+    The deepest and most consequential axis.
+    Controls mutual-reference coupling directly.
+    
+    Goal: maintain ρ(J_couple) < 1
+    
+    Methods:
+      Direct connection reduction (decrease interaction density)
+      Mediator layer insertion (buffer between coupled agents)
+      Temporal decoupling (time delays in feedback loops)
+      Buffer layer formation (absorptive zones)
+    
+    GRT mapping:
+      Subsidiarity = mediator layer insertion
+      Processing isolation = temporal decoupling
+      Meta-rules = buffer architecture specification
+      Position clarity = connection reduction through niche separation
+      
+    S-equation effect (the core landscape design result):
+      Without branching: S = α · n² / C^β
+      With branching:    S = α · (n/B)² / C^β
+      
+      B = branching capacity = number of effective phase-space partitions
+      Same agent count, dramatically reduced Storm probability
+      
+    Spectral radius reduction (EDT Proposition 4.3.1):
+      ρ(J_eff) ≤ ρ(J_within) + (1/B) · ρ(J_between)
+      For well-separated branches: ρ(J_eff) ≈ ρ(J_within) ≪ ρ(J)
+      
+  Three-Axis Interaction:
+    The three axes are not independent — they co-determine landscape shape:
+    
+    Boundary alone: hard walls but flat interior → insufficient guidance
+    Gain alone: soft gradients but no hard limits → Storm still possible
+    Coupling alone: separated domains but no direction → fragmentation risk
+    
+    Complete landscape design requires all three:
+    Boundary provides safety limits
+    Gain provides preference gradients
+    Coupling provides structural containment
+    
+    GRT's landscape design IS the simultaneous management of all three axes.
+```
+
+**EDT Integration — Curvature Theory (EDT §6):**
+
+EDT's Curvature Theory provides the formal understanding of how governance history accumulates in landscape structure — curvature is not designed, it is the compressed record of past selection pressure:
+
+```
+Curvature Theory (EDT §6):
+
+  Core insight:
+    Curvature is NOT a force applied by governance.
+    Curvature IS the compressed record of past selection pressure.
+    
+    U(x) = -log P_survival(x)
+    The survival probability distribution itself becomes the potential function.
+    
+    Curvature = survival statistics.
+    
+  Curvature accumulation dynamics (EDT §6.2):
+    ∂U/∂t = η_acc · [I_failure(x,t) − I_success(x,t)] − γ_decay · U
+    
+    η_acc = accumulation learning rate (how fast terrain learns)
+    γ_decay = forgetting rate (how fast unused terrain flattens)
+    
+    This is a continuous-time Hebbian-like learning rule
+    for terrain geometry: failures steepen barriers,
+    successes deepen wells, disuse flattens everything.
+    
+  GRT mapping:
+    Conflict log accumulation (λlog) = curvature accumulation
+    Each resolved conflict adds curvature to the governance landscape
+    Each unresolved conflict deepens a pathological basin
+    γ_decay = why evaluation windows W are needed:
+      curvature from old conflicts must be allowed to decay
+      if W is too long, obsolete curvature persists
+      if W is too short, useful curvature is erased
+      
+  Curvature = History (EDT §6.3):
+    A completely flat landscape (∇U = 0) means:
+      No learning, no memory, no direction, no restoration
+    = a world without governance history
+    
+    Curvature information content:
+      I(U) ≤ ∫ [∂²U/∂x²]² dx / (8π² · σ²)
+    = Fisher information of the survival distribution
+    = curvature is information encoded geometrically
+    
+    History Erasure Risk:
+      Artificially reducing curvature (forced simplification, "clean slate")
+      erases survival history, forcing re-learning at cost proportional to
+      I(U_erased) / η_acc
+      
+    GRT implication:
+      Resetting governance rules erases accumulated curvature
+      The cost of a "governance reset" is proportional to the
+      information content of the rules being discarded
+      This is why partial rule modification is preferred over
+      wholesale replacement: preserve accumulated survival statistics
+      
+  Curvature Ceiling Theorem (EDT Proposition 6.5.1):
+    For systems requiring autonomous attractor formation:
+      λ_max(H(U_top)) < λ_min(H(U_autonomous))
+    
+    If upper-layer curvature exceeds lower-layer self-generated curvature,
+    the lower layer cannot develop independent attractors
+    = permanent governance dependency
+    
+    GRT correspondence:
+      If meta-rules are too prescriptive → local rules cannot develop
+      If global rules constrain too tightly → domain autonomy impossible
+      Subsidiarity is not just a design preference but a STRUCTURAL NECESSITY:
+      upper-layer governance must be weaker than lower-layer self-governance
+      for autonomous operation to emerge
+      
+  Curvature Withdrawal Schedule (EDT Corollary 6.5.1):
+    λ_max(H(U_top(t))) = max(0, λ_max(J_f(t)) - 1 - λ_min(H(U_autonomous(t))))
+    
+    As lower layer develops its own curvature, upper layer withdraws:
+      Start strong → protection during vulnerability (Phase 0)
+      Gradually weaken → enabling autonomous attractor formation (Phase 1-2)
+      Ultimately become background field → silent governance (Rest Mode)
+      
+    This IS the maturation arrow of governance:
+    GRT's Rest Mode withdrawal protocol is formally equivalent
+    to EDT's curvature withdrawal schedule.
+    
+  Curvature Excess (EDT §6.5):
+    Too much curvature → over-constraint:
+      Local minima everywhere → agents trapped
+      Exploration suppressed → innovation impossible
+      Dependency forms → agents cannot function without governance
+      
+    GRT correspondence:
+      Excessive rule density = curvature excess
+      Too many rules → system cannot move without rule consultation
+      Paradoxically, MORE governance produces WORSE outcomes
+      when curvature exceeds the autonomous curvature ceiling
+```
+
+**EDT Integration — Friction Management Theory (EDT §34):**
+
+EDT's Friction Management provides the formal theory for why governance must maintain productive conflict rather than eliminate all friction:
+
+```
+Friction Management Theory (EDT §34):
+
+  Zero Friction Pathology (EDT Theorem 34.1.1):
+    Contrary to intuition, zero friction produces zero learning:
+    
+    f(0) = 0            (no friction → no error signal → no learning)
+    f(F_opt) = max       (optimal friction maximizes learning)
+    f(F > F_collapse) → negative  (excessive friction → trauma)
+    
+    Learning requires error signals.
+    Error signals arise from discrepancy between expected and actual.
+    In frictionless terrain, all actions produce expected outcomes.
+    No error signal → no parameter update → no learning.
+    
+  GRT mapping:
+    Conflict log entries = friction events
+    If conflict_rate = 0 → system has stopped learning
+    = SR = 0 = SSS onset = T_eff → 0 (AGM)
+    
+    The Self-Exciting Defect Layer, AGM's T_min, FCN's Immunity Paradox,
+    and EDT's Zero Friction Pathology are FOUR DESCRIPTIONS of the SAME
+    structural necessity — now confirmed from a fifth theoretical angle.
+    
+  Anomalous Friction Reduction (EDT Corollary 34.1.1):
+    When friction drops without terrain improvement:
+      Suspect: measurement system distortion
+      Not: optimization achieved
+    
+    "The ruler has been broken to produce comfortable readings"
+    
+    GRT correspondence:
+      If fesc drops to zero but environment hasn't changed:
+      → θd may have drifted (measuring the wrong thing)
+      → conflict log may have corrupted (logging the wrong events)
+      → domain boundaries may have shifted (avoiding conflictual areas)
+      → ALL are more likely than "all conflicts genuinely resolved"
+      
+  Optimal Friction Band (EDT §34.2):
+    Productive zone: 0 < Friction < Recovery_Capacity
+    Below lower bound: learning death
+    Above upper bound: traumatic overload
+    
+    GRT mapping:
+      Lower bound = minimum conflict rate for learning (T_eff > T_min)
+      Upper bound = SCC capacity (conflicts cannot exceed recovery rate)
+      Optimal = conflicts arrive at rate SCC can process them
+      = the governance system learning at maximum rate
+      
+  Buffer as Friction Transformer (EDT Proposition 34.2.1):
+    Buffer role: transform raw shock into learnable disturbance
+    
+    Preserves information content while reducing amplitude:
+      I(Learnable; Source) ≈ I(Raw; Source) but ‖Learnable‖ ≪ ‖Raw‖
+      
+    GRT mapping:
+      Meta-rules = buffer that transforms raw domain conflicts
+      into structured governance events (classified, prioritized, routed)
+      The meta-rule layer doesn't hide problems — it makes them processable
+      
+  Therapeutic Terrain Disturbance (EDT §34.3):
+    When friction drops below threshold:
+      Buffer must actively DISTURB the terrain
+      Constraint: Δ < Recovery_capacity_local
+      Goal: friction → optimal band
+      
+    This appears destructive but is therapeutically essential.
+    A subsystem without friction accumulates invisible coherence debt.
+    
+    GRT correspondence:
+      Controlled perturbation injection post-Rest Mode
+      = EDT's therapeutic disturbance
+      = AGM's maintained T_eff > T_min
+      = FCN's immunity exercise
+      = GRT's dormant pathway activation (④ countermeasure)
+```
+
+**EDT Integration — Risk Index κ (EDT §9):**
+
+EDT's endogenous environment change Risk Index provides GRT with a formal early-warning metric that captures the rate mismatch between terrain drift and governance adaptation:
+
+```
+Risk Index κ (EDT §9):
+
+  Core insight: "We change the terrain we stand on."
+    Agents modify the environment by operating within it.
+    The changed environment then changes the agents.
+    = co-evolutionary dynamics
+    
+  Endogenous drift timescale:
+    τ_E(t) = 1 / (|d ln S / dt| + ε)
+    τ_E small → S changes rapidly → high endogenous drift
+    
+  Capacity adaptation timescale:
+    τ_C(t) = C(t) / (|Ċ(t)| + ε)
+    τ_C large → capacity changes slowly → adaptation lags
+    
+  Capacity-Tracking Risk Index:
+    κ_C(t) = τ_C(t) / τ_E(t)
+    
+    κ_C > 1 sustained → environment changes faster than capacity adapts
+    = DANGER: governance falling behind its own terrain
+    
+  Lock-Budget Risk Index:
+    κ_L(t) = τ_L(t) / τ_E(t)
+    
+    Rules hardening while environment deteriorating
+    = rules becoming more rigid as they become less appropriate
+    
+  Hybrid Risk Index:
+    κ*(t) = w_C · κ_C + w_L · κ_L    (w_C + w_L = 1)
+    
+  GRT mapping:
+    κ_C corresponds to: θd recalibration speed vs environment change rate
+    κ_L corresponds to: rule update frequency vs environment change rate
+    
+    κ* > 1 sustained → governance is falling behind
+    = the formal version of "governance can't keep up with self-created change"
+    
+  κ-Trajectory Classification (4 types):
+    Type I (Safe):     κ* < 1 converging → healthy adaptation
+    Type II (Warning): κ* oscillating around 1 → borderline
+    Type III (Danger): κ* > 1 sustained → active desertification
+    Type IV (Critical): κ* > 1 accelerating → imminent collapse
+    
+    GRT correspondence:
+      Type I → Rest Mode or healthy Active Mode
+      Type II → Active Mode with intervention needed
+      Type III → SSS or early Collapse
+      Type IV → Collapse imminent, emergency response required
+      
+    Type II → III transition = critical early-warning window
+    Detection at Type II permits preemptive intervention
+    Detection at Type III requires emergency response
+    
+  Three-Alarm Detection:
+    Alarm 1: S rising (d ln S / dt > 0 sustained)
+    Alarm 2: Quality stagnation (Ċ ≤ 0 or β̇ ≤ 0)
+    Alarm 3: Timescale reversal (τ_governance / τ_environment > 1)
+    
+    Two of three simultaneously → danger entry
+    
+    GRT operationalization:
+      Alarm 1 = rising conflict density or severity
+      Alarm 2 = stagnant SCC or declining I
+      Alarm 3 = θd recalibration lagging behind conflict rate change
+```
+
+**EDT Integration — Terrain Resonance (EDT §30) and Carrying Capacity (EDT §31):**
+
+```
+Terrain Resonance Theory (EDT §30):
+
+  When agent dynamics frequency matches terrain natural frequency:
+    Constructive resonance → amplified productive behavior
+    Destructive resonance → amplified pathological behavior
+    
+  Resonance avoidance condition:
+    Timescale separation: τ_agent ≪ τ_terrain OR τ_agent ≫ τ_terrain
+    
+  GRT mapping:
+    θd calibration cycle must NOT resonate with domain conflict cycle
+    If θd update period ≈ conflict generation period → amplification
+    This is why timescale separation between layers is essential:
+      Local rule updates (fast) must not resonate with
+      meta-rule updates (slow) or global rule updates (very slow)
+      
+    EDT §30's formal avoidance condition maps to GRT's requirement
+    for W (evaluation window) to be chosen to avoid resonance
+    with domain-specific conflict cycles.
+
+Environment Carrying Capacity (EDT §31):
+
+  Maximum sustainable complexity for given terrain quality:
+    n_max = f(terrain_quality, C, β)
+    
+  Adding agents beyond n_max produces overshoot:
+    Temporary S increase → terrain degradation → capacity decline
+    → S further increases → positive feedback → collapse
+    
+  GRT mapping:
+    Each governance domain has a carrying capacity
+    = maximum number of active rules/vectors it can sustain
+    Adding rules beyond capacity degrades the domain
+    (too many rules → confusion → contradictions → I collapse)
+    
+    Graceful degradation protocol:
+      Monitor n_domain vs n_max(domain)
+      If approaching: consolidate rules (reduce n without losing coverage)
+      If exceeded: split domain (create new circle at lower layer)
+      
+    The carrying capacity is not fixed — it increases with
+    terrain quality (β maturation), governance capacity (C growth),
+    and feedback density (F from R_i decomposition)
+```
+
+**FCN Integration — Circular Closure as Scaling Mechanism:**
+
+The Circular Closure Theory (FCN §32.8.1) resolves the central scaling gap in landscape design: **how does a designed landscape survive scaling?** The answer is that stable growth requires converting expansion into circulation:
+
+```
+Circular Closure Theory (FCN §32.8.1):
+
+  The naive scaling trajectory is open-chain expansion:
+    A → B → C → D → E → ...
+    
+    In any open chain:
+      distance_max ~ O(n)       (coordination distance grows linearly)
+      conflict ~ O(n²)          (pairwise channels grow quadratically)
+      S̃ = α·n²/C(t)^β → ∞    (instability diverges)
+      
+  The scaling insight: stable growth converts expansion into circulation:
+    A → B → C → D
+    ↑           ↓
+    └───────────┘    (closed loop = "circle" 원)
+    
+    In a closed loop:
+      distance_max ~ O(1)       (bounded coordination distance)
+      conflict contained within circle boundaries
+      S̃ remains bounded as system grows
+      
+  Definition (Circle 원):
+    A subsystem achieves circular closure when its internal feedback 
+    loop is complete — output feeds back through the environment 
+    into input without requiring external coordination reference:
+      dx/dt = F(x, x_history)        [self-referential closure]
+    rather than:
+      dx/dt = F(x, x_external)       [external-reference dependency]
+      
+  GRT Integration:
+    Rest Mode IS circular closure at the governance level.
+    When all AND-entry conditions are met, the governance system
+    operates as a self-sustaining loop that doesn't require
+    external reference for maintenance:
+      Rule execution → conflict detection → log accumulation
+      → threshold evaluation → rule adjustment → improved execution
+      = complete feedback cycle
+      
+    Active Mode = open-chain governance
+      (requires external input to maintain direction)
+    Rest Mode = circular closure achieved
+      (self-sustaining governance cycle)
+    Collapse = circular closure broken
+      (feedback loop interrupted at one or more points)
+
+Layered Circular Architecture — The Cone Structure:
+
+  Circles stack layer-by-layer with a geometric constraint:
+  the base is wide (many agents, fast, high variance)
+  and the apex is narrow (few variables, slow, constraint):
+  
+         ▲  (narrow: summary, slow, constraint)
+        / \
+       / · \     ← upper circles: direction, boundary
+      /·····\
+     /·······\   ← middle circles: coordination, translation
+    /·········\
+   /···········\ ← lower circles: execution, exploration
+  ─────────────
+    (wide: many agents, fast, high variance)
+    
+  S-equation decomposition under layered architecture:
+    Before layering: S̃ = α·n²/C^β               (monolithic)
+    After layering:  S̃_total = Σ_i α·n_i²/C_i^β + ε·coupling
+    
+    Since Σ n_i² ≪ (Σ n_i)² when partition is non-trivial:
+      S̃_layered ≪ S̃_monolithic    for K > 1 circles
+    
+  GRT mapping:
+    Lower circles = domain-level governance (local rules, fast θd)
+    Middle circles = cross-domain coordination (meta-rules, buffer)
+    Upper circles = system-level constraint (global rules, slow)
+    
+    Rest Mode = all circles in self-sustaining closure
+    Active Mode = some circles require external stabilization
+    Collapse = one or more circles have broken closure
+
+  Effective dimensionality compression:
+    The upper circle does not see all n agents.
+    It sees only the summary output of lower circles:
+      n_eff(L) = compression(L) · n_below(L)
+      
+    If each layer compresses by factor r < 1:
+      n_eff(top) = r^L · N → bounded for L ≥ log(N)/log(1/r)
+      
+    GRT correspondence:
+      Subsidiarity = information compression between layers
+      Each layer handles only the conflicts it can resolve
+      Unresolvable conflicts escalate = information that survives compression
+      This is why λlog only captures conflicts above threshold:
+      below-threshold conflicts are compressed away by the lower circle
+
+Terrain Design Protocol for Circle Formation (FCN §32.8.1):
+
+  Circles don't form by decree. Agents minimize local cost.
+  Circles must emerge from the terrain — the cost landscape
+  that shapes which interactions are cheap vs expensive.
+  
+  Principle: Make internal circulation cheaper than external dependency.
+    Cost(internal interaction) ≪ Cost(external interaction)
+    
+  When this holds, agents naturally form closed loops because
+  the lowest-cost path is internal cycling, not external reaching.
+  
+  Optimal terrain geometry:
+    ❌ Flat:   all connections equally cheap → no circles → S ~ n²
+    ❌ Walled: all connections blocked → isolation → no coordination
+    ✅ Valley: internal cheap, external possible but costly
+              → circles form in valleys, connect through passes
+              
+  GRT landscape design specifications:
+    Valley depth = strength of local rule autonomy
+    Pass height = cost of cross-domain escalation (fesc barrier)
+    Gradient steepness = timescale separation between layers
+    Valley width = domain capacity bound (how much one domain handles)
+    
+  Four-phase terrain formation protocol:
+    Phase 1 — Initial isolation: boundaries closed
+      Purpose: allow SCC growth without cross-domain interference
+      Duration: until SCC > S_domain with safety margin
+      GRT: Phase 0 bootstrapping, θd_max sensitivity
+      
+    Phase 2 — Controlled exposure: permeability ramps up
+      Condition: S_domain/SCC < θ_safety (safety ratio < 1)
+      Purpose: test self-correction under real cross-domain load
+      GRT: Phase 1 baseline, λlog accumulating
+      
+    Phase 3 — Operational coupling: design-level permeability
+      Condition: perturbation testing confirms decay
+      Purpose: functional integration with acceptable contamination
+      GRT: Phase 2 steady-state, θd calibrated
+      
+    Phase 4 — Mature operation: adaptive permeability
+      Raises under stability, drops under stress
+      Purpose: dynamic equilibrium
+      GRT: Rest Mode, AND-entry sustained, OR-exit monitoring active
+```
+
+**North Star Architecture Integration (FCN §32.8.1):**
+
+The North Star concept from FCN provides the formal bridge between GRT's Global Rules and the direction-maintenance problem in scaled governance:
+
+```
+North Star = Criterion (기준) vs. Principle (원칙):
+
+  Criterion (기준):
+    Almost never changes. Defines system identity.
+    "What must not be violated for the system to remain a system."
+    Changing this collapses the entire governance architecture.
+    
+    GRT mapping: Global Rules
+      → immutable without upper-layer authorization
+      → identity anchor A(t) in AGM terms
+      → the reference that all other rules close against
+    
+  Principle (원칙):
+    Changes with terrain. Implementation strategy for criteria.
+    "How we currently maintain the criterion in this terrain."
+    Must change when environment changes; rigidity here causes
+    criterion violation.
+    
+    GRT mapping: Local Rules + Meta-Rules
+      → layer-autonomous, require validation
+      → adaptive to domain conditions
+      → generated by Seeds expanding to meet local needs
+      
+  The most common governance failure is confusing principles
+  for criteria — treating a particular implementation strategy
+  as an inviolable rule. This freezes the map against a changing
+  terrain, producing the map-terrain mismatch that generates
+  non-productive friction.
+  
+  GRT failure case correspondence:
+    Case 1 (Consistency Collapse) can result from:
+      criteria actually being principles → environment changes
+      → "criteria" no longer consistent → I collapses
+      
+    SSS (Stability Saturation) results from:
+      principles hardening into de facto criteria
+      → no update capacity → SR → 0 → SCM
+      
+  Criterion Identification Test:
+    For any candidate rule X, ask:
+    "If X is modified, does system coherence improve or degrade?"
+    Improve → X was a principle (modifiable)
+    Degrade → X is close to a criterion (protect it)
+    
+    GRT operationalization:
+    Change X experimentally → measure I, SCC, fesc
+    I rises → X was constraining coherence → principle
+    I falls → X was supporting coherence → criterion
+
+Eyes-and-Feet Principle (Observation-Exploration Separation):
+
+  Upper layer (eyes 눈):    Observe, maintain direction, must stay clean
+  Middle layer:             Translate, buffer, absorb contamination
+  Lower layer (feet 발):    Explore, experiment, get dirty
+  
+  Contamination policy:
+    Feet: deliberately dirty (exploration requires contact with unknown)
+    Eyes: always clean (direction requires uncorrupted observation)
+    Middle: filter/purifier between dirty feet and clean eyes
+    
+  GRT mapping:
+    Upper = Global Rules + system-level metrics → must not be contaminated
+    Middle = Meta-Rules + cross-domain coordination → absorbs noise
+    Lower = Local Rules + domain execution → generates and resolves conflicts
+    
+  Critical requirement: eyes must not be fixed.
+    Observation(t) = scan(all subspaces, period < drift_accumulation_time)
+    
+    If the observation layer locks onto a single metric → frame lock
+    = looking in one direction while terrain shifts beneath
+    
+    GRT: this is the formal justification for dual-axis (N, T) 
+    measurement over single-axis assessment, and for R-ρ-fesc
+    Triple Concordance requiring multiple independent measurement 
+    channels. No single metric is sufficient because each metric
+    is a projection from one "eye direction" — multiple directions
+    required to avoid frame lock.
+```
 
 **AGM Integration — Stochastic Freedom as Landscape Design Requirement:**
 
@@ -1063,6 +1711,21 @@ All symbols used in this document, collected for reference.
 | **κ** | Exploration-interpretation ratio (AGM) | ≥ 0 | What is the balance between search and classification? |
 | **δ(t)** | Anchor misalignment (AGM) | [0, 2] | How far is the current direction from the identity anchor? |
 | **H(t)** | Endurance reserve (AGM) | [0, 1] | How much governance capacity remains before exhaustion? |
+| **Φ** | Regime scalar (FCN ODE) | ≥ 0 | Φ < 1: stable; Φ > 1: Storm regime; mechanistic resolution of S̃ |
+| **B** | Branching capacity (FCN/EDT) | ≥ 1 | How many topologically separated interaction channels exist? |
+| **n_eff** | Effective interaction density (FCN) | ≥ 0 | Post-branching density: n_eff = n/B |
+| **Φ_contam** | Contamination flux (FCN) | ≥ 0 | Rate of instability leaking across scale boundaries |
+| **R_i** | Self-purification capacity (FCN) | ≥ 0 | R_i = D·F·V·T — internal recovery rate of circle i |
+| **Σ(t)** | Frame dispersion (FCN Cube) | ≥ 0 | How far apart local coordination frames have diverged |
+| **W_{gh}** | Inter-cluster coupling (FCN Cube) | [0, 1] | Coupling between frames g and h, decays with distance |
+| **ΔU** | Basin depth (FCN attractor) | ≥ 0 | Energy barrier height in governance potential landscape |
+| **σ_basin** | Basin width (FCN attractor) | ≥ 0 | Geometric extent of governance state's catchment area |
+| **κ_C** | Capacity-tracking risk (EDT) | ≥ 0 | τ_C/τ_E: is governance capacity keeping up with terrain drift? |
+| **κ_L** | Lock-budget risk (EDT) | ≥ 0 | τ_L/τ_E: are rules hardening while environment deteriorates? |
+| **κ*** | Hybrid risk index (EDT) | ≥ 0 | w_C·κ_C + w_L·κ_L: unified governance lag metric |
+| **η_acc** | Curvature accumulation rate (EDT) | ≥ 0 | How fast does terrain learn from failures? |
+| **γ_decay** | Curvature decay rate (EDT) | ≥ 0 | How fast does unused terrain curvature flatten? |
+| **n_max** | Carrying capacity (EDT) | > 0 | Maximum sustainable rule/vector count per domain |
 
 **On operationalization:** The variables above are formally defined in terms of their structural roles and relationships. Multiple operationalizations are possible depending on system architecture and available observables — for example, Dint may be measured via output diversity metrics, embedding dispersion, or capability benchmark coverage; Lreinf may be estimated from interaction logs, co-activation patterns, or dependency graphs. The theory constrains the *relationships* between these quantities rather than prescribing a unique estimator. What is required is that any chosen operationalization preserves the directional properties specified: Dint higher = broader internal capability space; Lreinf higher = stronger mutual dependency; SCC higher = greater probability of autonomous recovery.
 
@@ -2171,6 +2834,134 @@ Competitive Exclusion Prevention — Governance Mechanisms:
       agents that differentiate gain more from cooperation loops.
 ```
 
+**Cube Domination Dynamics (FCN §7.5 Integration):**
+
+FCN's Cube Domination theory extends niche differentiation from positional clarity of individual agents to **coordination frame competition** — the dynamics governing which shared reference frame dominates when the global coordination frame collapses:
+
+```
+Cube Domination (FCN §7.5):
+
+  When global coordination collapses, the system doesn't simply
+  fragment — it enters structured competition between local frames,
+  each attempting to become the dominant reference.
+  
+  Definition: A regime in which the geometry of interaction —
+  rather than any individual agent — constrains collective dynamics.
+  A dominant frame R_{i*} emerges such that:
+    Dim(Accessible space) < Dim(Unconstrained space)
+    
+  Unlike classical dominance (one agent outperforms on one metric),
+  Cube Domination operates across multiple axes simultaneously —
+  relational, temporal, and conditional — creating a multi-dimensional
+  constraint volume (hence "cube").
+
+Frame Competition State Variables:
+  
+  (A) Local Coordination Frame R_g(t):
+    Each cluster g develops local interpretation rules and standards
+    dR_g/dt = η_g(t) + Φ_g(selection pressure)
+    
+  (B) Frame Dispersion Σ(t) = Var(R₁, ..., R_K):
+    How far apart reference frames have diverged
+    Rising Σ = progressive loss of mutual intelligibility
+    
+  (C) Inter-Cluster Coupling:
+    W_{gh}(t) = exp(−α|R_g − R_h|)
+    Coupling decays exponentially with frame distance
+    As Σ rises → mean coupling W̄ falls → fragmentation threshold W_frag
+    
+  GRT Mapping:
+    R_g = domain-specific rule interpretation
+    Σ = cross-domain rule consistency variance
+    W_{gh} = cross-domain Lreinf coupling strength
+    W_frag = fragmentation threshold = I < τu-2
+
+Information-Theoretic Frame Selection:
+
+  Frame selection is equivalent to finding the frame R_{i*} that
+  minimizes total description length of system state:
+    R_{i*} = argmin_i Σ_g D_KL(P_g ‖ P_i) + λ·H(R_i)
+    
+  = Minimum Description Length (MDL) competition:
+  The winning frame is not the most accurate but the one requiring
+  least re-encoding effort across all clusters.
+  
+  Principle: Translation > Quality
+  The dominant rule framework is not the one that works best
+  for any single domain, but the one most easily adopted
+  across diverse domains.
+  
+  GRT implication for meta-rule design:
+    Meta-rules should optimize for TRANSLATABILITY, not precision.
+    A meta-rule that is 90% accurate but universally applicable
+    dominates a meta-rule that is 99% accurate in one domain
+    but requires costly translation to others.
+    
+    This is why Seeds (generative principles) outperform
+    explicit rules (specific procedures): seeds have lower
+    description length across diverse domains.
+
+Frame Adoption with Collapse-Aversion:
+
+  Selection probability (softmax over quality minus cost):
+    P_{g→i} = exp(βQ_i − γC_{gi} − δR_i) / Σ_j exp(...)
+    
+    Q_i = frame quality score
+    C_{gi} = translation cost for cluster g to adopt frame i
+    R_i = collapse risk of frame i
+    δ = collapse-aversion sensitivity
+    
+  The −δR_i term implements boundary-based governance:
+    "Never choose a frame with collapse risk above threshold"
+    rather than
+    "Choose the best frame"
+    
+  Aversion Stagnation Threshold:
+    If δ > δ_crit → no frame accumulates sufficient adoption
+    → permanent fragmentation → "safe but static"
+    
+  GRT correspondence:
+    δ too high → system refuses to settle on any rule framework
+    → perpetual Active Mode without convergence toward Rest
+    → over-cautious governance preventing organizational learning
+    
+    The viable governance corridor: 0 < δ < δ_crit
+    = sufficient caution to avoid collapse
+    + insufficient caution to prevent convergence
+
+Vector Storm as Frame Selection Pressure (FCN §7.5):
+
+  Storm creates selection pressure on competing frames:
+    dQ_i/dt = a·S − b·S² − c_i
+    
+    a·S:   Storm exposes weak frames (selection benefit, linear)
+    b·S²:  Excessive Storm destroys all frames (universal damage, quadratic)
+    c_i:   Intrinsic structural vulnerability of frame i
+    
+  Optimal Storm Window:
+    S* = a / 2b
+    
+    Below S_min: frame differentiation insufficient for selection
+    Above S_max = a/b = 2S*: Storm destroys faster than it selects
+    At S*: net selection pressure maximized
+    
+  GRT implication:
+    This provides the formal justification for why storms are
+    beneficial up to a point — they force frame selection that
+    could not occur during stability.
+    
+    The "creative destruction" aspect of governance failures:
+    Moderate rule framework disruption → forces re-evaluation
+    → better framework emerges through competitive selection
+    
+    Excessive rule disruption → no framework survives
+    → system cannot converge on any governance standard
+    
+    GRT's Storm management goal is maintaining S near S*:
+    enough disruption to select better governance frameworks,
+    not enough to destroy the selection process itself.
+```
+
 **Connection to NAT sphere cross-validation (NAT §3.0, §3.5):** NAT establishes that diversity is not a performance optimization — it is the *mathematical condition for corruption detection*. The sphere architecture works because structurally diverse agents produce different empty spaces when upscaling compressed signals. Identical agents produce identical blind spots and cannot detect each other's errors:
 
 ```
@@ -2406,6 +3197,135 @@ Metastability Analysis:
       < 1: system is on healthy maturation trajectory
       ≈ 1: system is at governance decision point — small perturbation
            determines which direction it goes
+```
+
+**Attractor Basin Geometry (FCN §11 Integration):**
+
+FCN's attractor dynamics formalization provides GRT's energy barrier model with precise geometric structure — distinguishing basin depth from basin width and formalizing landscape evolution under learning:
+
+```
+Basin Geometry (FCN §11):
+
+  Each governance state (Rest, Active, Collapse) corresponds to a
+  local minimum of a governance potential U(x; θ):
+    Basin(x*) = {x₀ ∈ state_space : trajectory from x₀ converges to x*}
+    
+  Two distinct geometric properties determine state persistence:
+  
+    Depth:  ΔU = U(x_saddle) − U(x*)
+            = energy barrier to escape (= ΔF in GRT notation)
+            Deep basin → hard to leave (exponential in ΔU)
+            
+    Width:  σ_basin = √(det(∇²U(x*))^{-1})
+            = geometric extent of the basin
+            Wide basin → robust to parameter uncertainty
+    
+  Four basin configurations and their governance meanings:
+    
+    Deep + Narrow = strongly attracting but FRAGILE
+      Small parameter changes can eliminate the basin entirely
+      GRT: a system deeply in Rest Mode but with narrow tolerance
+      → one environmental shift can destroy the entire state
+      
+    Deep + Wide = strongly attracting and ROBUST
+      Hard to escape AND tolerant of perturbation
+      GRT: healthy mature Rest Mode with wide operating margins
+      → this is the governance design target
+      
+    Shallow + Wide = weakly attracting but RESILIENT
+      Easy to leave but always returning from a wide catchment area
+      GRT: early Active Mode → system oscillates but doesn't collapse
+      
+    Shallow + Narrow = weakly attracting and FRAGILE
+      Easy to leave AND small catchment → practically transient
+      GRT: unstable Active Mode → system doesn't stay in any state
+      
+  Governance design implication:
+    Landscape design should create DEEP + WIDE basins for Rest Mode
+    and SHALLOW + NARROW basins for Collapse
+    (easy to escape from Collapse, hard to fall into it)
+
+Landscape Evolution Under Learning (FCN §11):
+
+  The governance landscape itself evolves as the system learns:
+    ∂U/∂t = −η_learn · ∇_θ L(x, θ) · ∂U/∂θ + η_decay · (U − U₀)
+    
+    First term: deepens basins near frequently visited states
+      (= Hebbian learning → success reinforces the successful pattern)
+    Second term: regularization toward default landscape U₀
+      (= homeostatic decay → unused basins gradually flatten)
+    
+  PATHOLOGICAL CASE:
+    When η_learn exceeds η_decay for dysfunctional basins:
+      → landscape develops increasingly deep traps
+      → the system learns to be stuck
+      = the mathematical mechanism of SSS (Stability Saturation)
+      
+    Repeated success deepens the Rest Mode basin through learning
+    while simultaneously eliminating alternative basins through decay.
+    The result: Rest Mode becomes the ONLY basin → zero exploration
+    → when environment shifts, there's nowhere else to go.
+    
+  This provides the dynamical mechanism for the SSS → SCM cascade:
+    η_learn > η_decay sustained →
+    Rest Mode basin deepens →
+    Alternative basins decay →
+    Exploration capacity vanishes →
+    Environmental shift finds no alternative basin →
+    System trapped in obsolete configuration →
+    SCM (Self-Consistent Misalignment)
+
+Kramers Escape Time with Pre-Exponential Factor (FCN §11):
+
+  The full Kramers escape formula includes geometric detail:
+    E[τ_escape] ≈ K · exp(ΔU / D)
+    
+    where K = (2π / ω_saddle) · √(det(∇²U(x*)) / |det(∇²U(x_saddle))|)
+    
+    ω_saddle = curvature of unstable direction at saddle
+    = how often the system "attempts" to escape
+    
+  Multi-dimensional correction (FCN §11):
+    E[τ_escape] ≈ K · exp(ΔU / D) · (D/ΔU)^{(d-1)/2}
+    
+    The polynomial prefactor means HIGH-DIMENSIONAL systems
+    (many interacting agents) can escape attractors more readily
+    than LOW-DIMENSIONAL ones (isolated agents).
+    
+  GRT implication:
+    Multi-agent systems with high n (exploration dimensionality)
+    have SHORTER escape times from pathological governance states
+    than small systems — because the higher dimensionality provides
+    more escape directions at the saddle point.
+    
+    This is why large organizations (high n) can sometimes
+    restructure more easily than small teams (low n):
+    the high dimensionality provides more pathways out of bad states.
+    (Counterintuitive: bigger systems have MORE escape routes,
+     not fewer — though they also have more ways to enter bad states.)
+
+Stochastic Resonance Connection (FCN §11):
+
+  When noise intensity D is structured (periodic or correlated):
+    P_escape(D) = P₀ · exp(-ΔU/D) · [1 − exp(-T_window/τ_D)]
+    
+    First factor: increases with D (more energy to escape)
+    Second factor: probability system remains coherent during escape
+    
+    Maximum escape probability at:
+      D* ≈ ΔU / ln(T_window · ω_saddle)
+      = the optimal Storm intensity
+      
+  This is the mathematical foundation for the Cube Domination
+  optimal Storm window (FCN §7.5, S* = a/2b):
+    Too little perturbation → cannot destabilize pathological states
+    Too much perturbation → destroys alternative basins
+    
+  GRT correspondence:
+    D* = the optimal governance perturbation level
+    = how much controlled disruption is needed to enable transitions
+    = the T_eff value at which governance transitions are most likely
+      to succeed while maintaining structural coherence
 ```
 
 **Governance Entropy Theory:**
@@ -2938,6 +3858,205 @@ RC 3-condition verification:
 ```
 
 GRT integrates RC into the Collapse Recovery exit gate: after Step 3 (Seed integrity verification), apply RC 3-condition check before declaring recovery complete. If ① fails → Arrested Collapse (do not de-escalate). If ② fails → Pathological Expansion (recalibrate before de-escalation). Both failing → collapse ongoing.
+
+**FCN Integration — Contamination Dynamics (FCN §32.8.1):**
+
+FCN's Contamination Theory provides the formal mechanism for how governance failures propagate across scale boundaries. Contamination is not error per se — it is *error that crosses scale boundaries without being absorbed*:
+
+```
+Contamination Theory (FCN §32.8.1):
+
+  Definition: Contamination occurs when instability generated at 
+  scale L_i propagates to scale L_{i+1} without being absorbed.
+  
+  For each governance circle L_i, define:
+    S_i(t) = internal instability (S-equation within circle i)
+    R_i(t) = self-purification capacity (internal recovery rate)
+    P_i(t) = boundary permeability (transmission rate to L_{i+1})
+    
+  Contamination Flux:
+    Φ_contam(i) = P_i · max(0, S_i − R_i)
+    
+    S_i < R_i → self-purification succeeds → Φ_contam = 0
+    S_i > R_i → unresolved instability → Φ_contam > 0
+    
+  Cascaded contamination (upper circle overwhelmed):
+    Σ_j Φ_contam(j) > R_{i+1}
+    = aggregate contamination from lower circles exceeds 
+      upper circle's own purification capacity
+      
+  GRT Failure Case Reinterpretation via Contamination:
+  
+    Case 1 (Consistency Collapse):
+      Multiple lower domains generate Φ_contam > 0 simultaneously
+      → meta-rule layer overwhelmed → I collapses
+      = contamination mode 1 (coupling contamination)
+      
+    Case 2 (Escalation Flood):
+      Lower-layer permeability P_i too high
+      → every local conflict escalates to upper layer
+      → upper layer saturated → fesc explosion
+      = contamination mode 3 (timescale leakage)
+      
+    Case 3 (Lreinf Collapse):
+      R_i drops because reinforcement loops break
+      → previously contained S_i now exceeds R_i
+      → contamination begins propagating upward
+      
+    Case 4 (SCC Failure):
+      R_i → 0 globally → ALL instability propagates
+      → system-wide contamination cascade
+      
+    SCM (Self-Consistent Misalignment):
+      Frame drift contamination: R_g(L_i) ≠ R_g(L_j)
+      → different circles adopt divergent coordinate systems
+      → translation layer failure
+      → all metrics healthy within each circle
+        but circles are answering different questions
+      = contamination mode 2 (frame drift)
+      
+  Three Contamination Modes:
+    Mode 1 — Coupling contamination: α_between ↑↑
+      Lower circles' conflicts couple directly into upper dynamics
+      Mechanism: insufficient buffering between layers
+      GRT: fesc from lower domains overloading meta-rule processing
+      
+    Mode 2 — Frame drift: R_g(L_i) ≠ R_g(L_j)
+      Different circles adopt divergent reference frames
+      Mechanism: translation layer failure
+      GRT: domains developing incompatible rule interpretations
+      → I appears stable within each domain
+      → cross-domain I collapses
+      
+    Mode 3 — Timescale leakage: τ_fast → τ_slow direct coupling
+      Fast-loop oscillations penetrate slow-loop dynamics
+      Mechanism: breakdown of timescale separation
+      GRT: domain-level θd oscillations affecting system-level
+      calibration directly (bypassing the buffer)
+      
+  Contamination always originates at the bottom:
+    Bottom layer has highest n (most conflict channels)
+    Bottom layer has fastest τ (errors amplify quickly)
+    Bottom layer has highest variance (most noise generation)
+    
+  First visible symptom: unnecessary friction at execution level
+  — friction that does not lead to learning or adaptation
+  
+  GRT detection protocol:
+    Monitor fesc DISTRIBUTION, not just fesc count.
+    If fesc events cluster in lower domains with upward propagation
+    pattern (lower fesc → upper fesc with time lag):
+    → contamination active
+    → intervene at source (lower layer), not symptom (upper layer)
+```
+
+**FCN Integration — Self-Purification Capacity Decomposition (FCN §32.8.1):**
+
+FCN decomposes the self-purification capacity R_i into four multiplicative factors, providing GRT with a deeper structural understanding of SCC:
+
+```
+Self-Purification Decomposition:
+
+  R_i = D_i · F_i · V_i · T_i
+  
+  (A) Decoupling Strength D_i:
+    Degree to which circle's internal dynamics are isolated
+    from external perturbation.
+    D_i ∝ 1/α_external
+    
+    GRT mapping: subsidiarity enforcement strength
+    High D = local rules handle local conflicts independently
+    Low D = every local fluctuation propagates externally
+    
+  (B) Feedback Density F_i:
+    Frequency and quality of internal error-detection loops.
+    F_i ∝ error_detection_frequency × correction_accuracy
+    
+    GRT mapping: θd calibration quality × conflict log completeness
+    High F = errors detected and logged promptly
+    Low F = contamination accumulates silently (Silent Criticality)
+    
+  (C) Variance Absorption V_i:
+    Internal diversity — multiple interpretive frames,
+    response modes, or solution pathways.
+    V_i ∝ internal_diversity (= Dint)
+    
+    GRT mapping: position clarity + adjacent vector diversity
+    High V = perturbations absorbed by alternative pathways
+    Low V = no buffer for contamination (d → 0 in ODE)
+    
+  (D) Time Buffering T_i:
+    Grace period available before consequences cascade.
+    T_i ∝ τ_buffer
+    
+    GRT mapping: evaluation window W margin
+    High T = slow correction mechanisms have time to operate
+    Low T = every error demands immediate response
+    
+  CRITICAL: R_i is MULTIPLICATIVE, not additive.
+    If ANY component → 0, R_i → 0 regardless of others.
+    
+    Perfect decoupling but zero feedback = zero purification
+    Perfect feedback but zero diversity = zero absorption
+    Perfect diversity but zero time = zero processing
+    Perfect time but zero decoupling = zero isolation
+    
+    This explains why SCC failure (Case 4) can occur even when
+    individual components seem adequate: the multiplicative
+    structure means weakness in ONE dimension destroys the
+    entire purification capacity.
+    
+  GRT SCC ↔ FCN R_i correspondence:
+    SCC = f(Dint, Lreinf) [existing GRT definition]
+    R_i = D · F · V · T   [FCN decomposition]
+    
+    Mapping:
+      Dint → V (variance absorption)
+      Lreinf → D × F (decoupling × feedback density)
+        Strong Lreinf provides both isolation (D) through
+        mutual support and detection (F) through contrast
+      W margin → T (time buffering)
+    
+    The FCN decomposition reveals a previously implicit component:
+    T (time buffering) is not captured by Dint or Lreinf alone.
+    A system can have perfect diversity and strong loops but
+    if evaluation windows are too short (T → 0), recovery cannot
+    complete before the next perturbation arrives.
+    
+    New GRT recommendation:
+      SCC should be evaluated as SCC = f(Dint, Lreinf, W_margin)
+      where W_margin = remaining evaluation window after conflict
+      processing completes (= time available for correction to take
+      effect before next measurement cycle)
+
+The Immunity Paradox (FCN §32.8.1):
+
+  Self-purification capacity requires ongoing exercise:
+    dR_i/dt = λ_learn · min(S_i, R_i) − λ_decay · R_i
+    
+    When S_i = 0: dR_i/dt = −λ_decay · R_i → R_i → 0 exponentially
+    When 0 < S_i < R_i: R_i stabilizes at R* > 0
+    
+  "100% cleanliness destroys the immune system."
+  
+  Mature circles maintain small positive contamination level
+  (0 < S_i ≪ R_i) as operational necessity —
+  not tolerance of error but cultivation of recovery capacity.
+  
+  GRT correspondence:
+    This IS the formal basis for the Self-Exciting Defect Layer
+    and the AGM's controlled stochastic freedom:
+    
+    Self-Exciting Defect Layer = small S_i maintained deliberately
+    AGM T_eff > T_min = noise that keeps S_i above zero
+    Controlled perturbation injection = preventing R_i decay
+    
+    The Immunity Paradox, Self-Exciting Defect Layer (VST),
+    and Minimum Viable Temperature (AGM) are THREE DESCRIPTIONS
+    of the SAME structural necessity:
+      adaptive systems must maintain endogenous perturbation
+      to preserve their capacity to handle exogenous perturbation.
+```
 
 ### Rest Mode Entry Conditions (AND — all four required)
 
@@ -4324,6 +5443,42 @@ Systems with higher aggregate momentum P_system should require proportionally mo
 
 *Falsification condition:* If governance transition effort does not correlate with pre-transition P_system, the momentum-bearing vector model adds no predictive power for transition planning.
 
+**Prediction 14 — Circular closure predicts Rest Mode stability duration:**
+
+Domains that achieve complete feedback loop closure (output feeds back to input without external coordination reference) should maintain Rest Mode significantly longer than domains with open-chain governance dependencies. Rest Mode duration should correlate with the ratio of internal feedback density to external dependency count.
+
+*Falsification condition:* If Rest Mode duration shows no correlation with internal feedback loop completeness, or if open-chain domains maintain Rest Mode as reliably as closed-loop domains, the circular closure model adds no predictive power.
+
+**Prediction 15 — Contamination flux propagates bottom-up with measurable lag:**
+
+Cross-scale governance failures should originate at lower levels (higher n, faster timescale) and propagate upward with a measurable time lag proportional to the inter-layer buffer capacity. The contamination flux Φ_contam = P·max(0, S−R) should be estimable from the temporal pattern of escalation events — lower-domain fesc should precede upper-domain fesc by at least one evaluation window.
+
+*Falsification condition:* If governance failures show no preferential bottom-up propagation, or if upper-layer failures precede lower-layer failures as frequently as the reverse, the contamination directionality prediction fails.
+
+**Prediction 16 — Self-purification R_i multiplicative structure produces identifiable vulnerability signatures:**
+
+Systems with one R_i component near zero (D, F, V, or T) should exhibit a qualitatively distinct failure pattern compared to systems with all components moderately low. Specifically, zero-D failures (decoupling failure) should show rapid external propagation; zero-F failures (feedback failure) should show silent accumulation; zero-V failures (variance failure) should show brittle response; zero-T failures (time buffer failure) should show cascading overreaction.
+
+*Falsification condition:* If failure patterns do not cluster according to which R_i component is weakest, or if the multiplicative structure produces no better failure prediction than additive SCC measurement, the decomposition adds no diagnostic value.
+
+**Prediction 17 — Risk Index κ* trajectory predicts governance state transitions:**
+
+Systems with κ* Type II trajectory (oscillating around 1) that transition to Type III (κ* > 1 sustained) should enter Active Mode or Collapse within a bounded time window proportional to 1/(κ* − 1). The Type II → III transition should provide at least one evaluation window of early warning before governance metrics (I, fesc, SCC) show degradation.
+
+*Falsification condition:* If κ* > 1 sustained does not predict subsequent governance degradation, or if κ* provides no lead time over standard GRT metrics, the risk index adds no early-warning value.
+
+**Prediction 18 — Curvature ceiling violation produces governance dependency:**
+
+Systems where meta-rule prescriptiveness exceeds domain self-governance strength (upper-layer curvature > lower-layer autonomous curvature) should exhibit permanent dependency signatures: inability to maintain Rest Mode without continuous upper-layer involvement, lower SCC than comparable systems with weaker meta-rules, and inability to develop novel local rules without meta-rule authorization.
+
+*Falsification condition:* If systems with highly prescriptive meta-rules achieve Rest Mode and high SCC as reliably as systems with minimal meta-rules, the Curvature Ceiling Theorem has no governance predictive power.
+
+**Prediction 19 — Anomalous friction reduction precedes governance failure:**
+
+A sustained decrease in conflict rate (fesc → 0) without corresponding improvement in environment quality should precede governance failure (I decline, SCC decline) within a bounded time window. The friction reduction should be distinguishable from genuine conflict resolution by checking environmental change indicators: genuine resolution occurs alongside environmental improvement, while anomalous reduction occurs alongside environmental stagnation or deterioration.
+
+*Falsification condition:* If fesc → 0 is equally likely to indicate genuine resolution as impending failure, or if no environmental indicator reliably distinguishes the two cases, the anomalous friction reduction signal has no diagnostic value.
+
 ### Quantitative Test Design Framework
 
 The ten predictions above are qualitative directional claims. For empirical testing, each prediction must be converted to a quantitative hypothesis with specified effect size and sample size requirements:
@@ -4889,20 +6044,21 @@ VST ─────────────────────────�
  │  Storm topology (SCML)             │  Conflict logs → RBIT F_RBIT      │  T1-T6 structural claims
  │  Critical phenomena                │  U* status → RT recovery readiness│  VCZ conditions
  │                                    │  T_eff → AGM temperature status   │  Storm Scale Law
+ │                                    │  Rule architecture → FCN ODE params│
  │                                    │                                    │
 RBIT ─────────────────────────────── │ ──────────────────────────────── NAT
  │                                    │                                    │
- │ IMPORTS to GRT:                    │            AGM                     │ IMPORTS to GRT:
- │  Δρ resolution gap routing         │             │                     │  Processing isolation
- │  F_RBIT health vector              │  IMPORTS to GRT:                  │  θ operationalization
- │  Seed sufficiency tests            │   T_eff governance temperature    │  Sphere topology bounds
- │  Channel capacity                  │   s(t) sensitivity parameter     │  R-ρ concordance
- │  Error asymmetry principle         │   Stochastic perturbation σ·ξ    │  Coverage probability
- │                                    │   Event distribution P(A)∝A^{-τ} │
- │                                    │   Weight redistribution dynamics  │
- │                                    │   Momentum p_i(t)                │
- │                                    │   Flow state conditions           │
- │                                    │   Freeze/Runaway classification   │
+ │ IMPORTS to GRT:                    │       AGM          FCN             │ IMPORTS to GRT:
+ │  Δρ resolution gap routing         │        │            │             │  Processing isolation
+ │  F_RBIT health vector              │  T_eff, s(t)   S̃→ODE decomp    │  θ operationalization
+ │  Seed sufficiency tests            │  σ·ξ perturb   Circular Closure  │  Sphere topology bounds
+ │  Channel capacity                  │  Flow-Rest     Contamination Φ   │  R-ρ concordance
+ │  Error asymmetry principle         │  Freeze/Run    R_i=D·F·V·T      │  Coverage probability
+ │                                    │  Momentum p    Cube Domination   │
+ │                                    │  Weight dyn    Basin geometry     │
+ │                                    │  No-Free-Lunch Terrain protocol  │
+ │                                    │  Event dist    North Star arch   │
+ │                                    │                S-equation levers │
  └────────────────────────────── TLG ──────────────────────────────────────┘
                                   │
                                   │ IMPORTS to GRT:
@@ -5112,6 +6268,248 @@ GRT → NAT (governance variables as network observables):
     Protocol: domain-level fesc aggregated for system-level θ
 ```
 
+### GRT ↔ EDT Integration Protocol
+
+The GRT-EDT interface provides the terrain architecture and cultivation dynamics for governance landscape:
+
+```
+EDT → GRT (terrain architecture):
+
+  Three-Axis Architecture → landscape design decomposition:
+    Axis 1 (Boundary) → Global Rules: forbidden zones, hard curvature
+    Axis 2 (Gain) → Correction values: tempo control, energetic gradients  
+    Axis 3 (Coupling) → Subsidiarity + position clarity: branching B, ρ(J) < 1
+    Protocol: every GRT landscape intervention maps to one or more axes
+    
+  Curvature accumulation → governance history encoding:
+    EDT provides: ∂U/∂t = η_acc · [I_failure − I_success] − γ_decay · U
+    GRT uses: conflict log = curvature accumulation substrate
+    Protocol: λlog accumulation = curvature deepening;
+              W aging = curvature decay (γ_decay);
+              rule consolidation = curvature information compression
+    
+  Curvature Ceiling Theorem → subsidiarity necessity:
+    EDT provides: λ_max(H(U_top)) < λ_min(H(U_autonomous))
+    GRT uses: meta-rule prescriptiveness must not exceed domain self-governance
+    Protocol: measure local rule autonomy vs meta-rule constraint strength
+    
+  Curvature Withdrawal Schedule → Rest Mode maturation:
+    EDT provides: upper curvature withdraws as lower self-curvature grows
+    GRT uses: governance withdrawal is curvature withdrawal
+    Protocol: as domain SCC grows, reduce meta-rule intervention frequency
+    
+  Friction theory → learning rate management:
+    EDT provides: zero friction = zero learning; optimal friction band
+    GRT uses: conflict rate as learning proxy
+    Protocol: monitor conflict_rate vs SCC;
+              conflict_rate → 0 → therapeutic disturbance needed;
+              conflict_rate > SCC → traumatic overload → reduce exposure
+    
+  Risk Index κ → early warning system:
+    EDT provides: κ* = timescale mismatch between terrain drift and adaptation
+    GRT uses: κ* as governance lag detector
+    Protocol: κ_C from θd recalibration speed / conflict rate change;
+              κ_L from rule update frequency / environment change rate;
+              κ* > 1 sustained → governance falling behind → preemptive action
+    
+  Terrain Resonance → timescale collision avoidance:
+    EDT provides: resonance conditions between agent and terrain dynamics
+    GRT uses: W and θd cycle must avoid resonance with conflict cycles
+    Protocol: verify τ_agent ≪ τ_terrain OR τ_agent ≫ τ_terrain;
+              if resonance detected → adjust W or θd update period
+    
+  Carrying Capacity → domain size bounds:
+    EDT provides: n_max = f(terrain_quality, C, β)
+    GRT uses: maximum rule/vector count per domain
+    Protocol: monitor n_domain vs n_max(domain);
+              approaching capacity → consolidate;
+              exceeded → split domain into new circle
+    
+  Contamination Permeability → phase-gated exposure:
+    EDT provides: P(phase) schedule (EDT §35.2)
+    GRT uses: cross-domain exposure timing
+    Protocol: Phase 1 (P≈0) → Phase 0 bootstrapping;
+              Phase 2 (P=P_min) → Phase 1 baseline;
+              Phase 3 (P=f(R)) → Phase 2 steady-state;
+              Phase 4 (P adaptive) → Rest Mode
+
+GRT → EDT (governance specification):
+
+  Rule architecture → terrain structure specification:
+    GRT provides: rules that define terrain boundaries and gradients
+    EDT uses: rules as curvature injection mechanism
+    Protocol: Global rules → hard boundary curvature;
+              Local rules → soft gradient curvature;
+              Meta-rules → curvature management rules;
+              Seeds → curvature accumulation programs
+    
+  Failure case taxonomy → terrain failure classification:
+    GRT provides: 5 failure cases + SCM
+    EDT uses: terrain pathology diagnosis
+    Protocol: Case 1 → curvature contradiction (competing barriers);
+              Case 2 → curvature permeability failure (boundaries leaking);
+              Case 3 → curvature collapse (terrain flattening);
+              Case 4 → curvature measurement failure (no detection);
+              Case 5 → curvature generation corruption (wrong patterns)
+    
+  Rest Mode metrics → terrain health indicators:
+    GRT provides: I, fesc, Lreinf, SCC with thresholds
+    EDT uses: terrain quality assessment
+    Protocol: I high → curvature coherent;
+              fesc low → boundaries holding;
+              Lreinf high → terrain structure intact;
+              SCC high → self-purification active
+    
+  θd calibration → terrain sensitivity tuning:
+    GRT provides: EWMA-calibrated detection thresholds
+    EDT uses: terrain-agent coupling strength parameter
+    Protocol: θd tracks terrain velocity through sensitivity adjustment
+```
+
+### GRT ↔ FCN Integration Protocol
+
+The GRT-FCN interface provides the mechanistic ODE resolution of governance dynamics and the structural scaling architecture:
+
+```
+FCN → GRT (mechanistic resolution):
+
+  S-equation → ODE decomposition:
+    FCN resolves S̃ = α·n²/C^β into constituent dynamics:
+    
+    S-equation (governance level):
+      S̃ = α · ñ² / C̃(t)^β
+      
+    ODE scalar (mechanistic level):
+      Φ = β_s · n² / (C · T · d)
+      
+    where:
+      C = capacity (GRT: governance throughput)
+      T = temperature (GRT: exploration/noise = T_eff from AGM)
+      d = diversity (GRT: Dint position clarity)
+      n = interaction density (GRT: number of active conflict channels)
+      Φ = regime scalar (GRT: state indicator)
+      
+    Φ < 1: VCZ interior (Rest or healthy Active)
+    Φ > 1: Storm regime (Collapse approach)
+    Φ = 1: critical boundary
+    
+  Branching-reduced effective density:
+    FCN establishes that appropriate terrain design reduces
+    effective conflict density from n² to (n/B)²:
+      S̃_effective = α · (n/B)² / C̃(t)^β
+      
+    where B = branching capacity (topologically separated channels)
+    
+    GRT mapping:
+      B = number of independent governance domains
+      n/B = per-domain conflict density
+      Landscaping that increases B effectively reduces S̃
+      without reducing actual agent count n
+      
+    EDT Terrain Cultivation Sufficiency:
+      ∃ B* = O(√n) such that S(t) < S_critical for all t
+      when B ≥ B*
+      
+      = there exists a branching capacity that guarantees stability
+        scaling as √n rather than n² — this is why landscape design
+        works at all
+        
+  Four intervention levers on S-equation:
+    Lever 1: Reduce n (constrain exploration) — LEAST PREFERRED
+      Sacrifices coverage and innovation
+      GRT: restricting domain count or conflict diversity
+      
+    Lever 2: Reduce α (lower coupling) — coupling geometry
+      Reduce role overlap, clarify boundaries
+      GRT: improve position clarity (Poverlap reduction)
+      
+    Lever 3: Increase β (improve degradation quality) — maturity
+      Better rules, better routing, better classification
+      GRT: improve meta-rule quality, seed expansion completeness
+      
+    Lever 4: Increase C(t) (add processing capacity) — resources
+      More governance throughput
+      GRT: expand evaluation capacity, increase θd precision
+      
+    GRT governance preference: Levers 2-4 > Lever 1
+    (absorb instability rather than suppress exploration)
+
+  Circular Closure → Rest Mode structural mechanism:
+    FCN's circular closure (self-referential feedback loop)
+    = GRT's Rest Mode (self-sustaining governance cycle)
+    
+    Protocol:
+      Circular closure achieved → AND-entry conditions met
+      Circular closure broken → OR-exit triggered
+      Circle integration → domain consolidation
+      Circle formation → new domain governance establishing
+      
+  Contamination flux → failure case routing:
+    FCN's Φ_contam = P · max(0, S − R)
+    provides the dynamical mechanism for GRT's failure propagation
+    
+    Protocol:
+      Φ_contam(domain_i) > 0 → domain i leaking instability
+      Σ Φ_contam > R_{upper} → meta-rule layer overwhelmed
+      Contamination mode → failure case type prediction
+      
+  Self-purification R_i → SCC decomposition:
+    FCN's R_i = D · F · V · T decomposes SCC into components
+    
+    Protocol:
+      D (decoupling) → subsidiarity enforcement
+      F (feedback) → θd calibration quality
+      V (variance) → position clarity (Dint)
+      T (time buffer) → evaluation window margin
+      Any component → 0 triggers SCC warning
+
+  Cube Domination → position clarity dynamics:
+    FCN's frame competition → GRT's niche differentiation
+    
+    Protocol:
+      Frame dispersion Σ rising → cross-domain I falling
+      Frame adoption score → convergence toward common standards
+      Optimal Storm window → governance disruption management
+      
+  Attractor basin geometry → energy barrier precision:
+    FCN's basin depth/width → GRT's ΔF structure
+    
+    Protocol:
+      Deep+wide basin = healthy Rest Mode target
+      Basin evolution ODE → landscape learning dynamics
+      Kramers pre-exponential → attempt frequency for transitions
+      Multi-dimensional correction → scaling effects on transition
+
+GRT → FCN (governance architecture):
+
+  Rule architecture → ODE parameter specification:
+    GRT's rules determine the shape of FCN's potential landscape U(x;θ)
+    
+    Protocol:
+      Global rules → set basin locations (where attractors are)
+      Local rules → set basin widths (how tolerant each domain is)
+      Meta-rules → set barrier heights (how hard state transitions are)
+      Seeds → set landscape evolution rate (how fast learning occurs)
+      
+  Failure case taxonomy → ODE regime identification:
+    GRT's 5 cases → FCN's Φ trajectory classification
+    
+    Protocol:
+      Case 1 → Φ oscillating (contradictory attractors)
+      Case 2 → Φ rising rapidly (Storm approach)
+      Case 3 → Φ flat then spike (terrain collapse)
+      Case 4 → Φ silent then catastrophic (Silent Criticality)
+      Case 5 → Φ gradual drift (seed corruption)
+      
+  θd calibration → ODE temperature control:
+    GRT's θd → FCN's D (noise intensity)
+    
+    Protocol:
+      θd_max → D high (sensitive exploration)
+      θd steady → D moderate (calibrated)
+      θd frozen → D → 0 (attractor lock-in)
+```
+
 ### GRT ↔ AGM Integration Protocol
 
 The GRT-AGM interface provides the dynamical regulation mechanism for governance — the endogenous perturbation source and gain modulation that maintains adaptive capacity:
@@ -5315,8 +6713,28 @@ Concordance pairs (measured independently, should agree directionally):
   Pair 9: P_system (AGM momentum) ↔ governance transition latency (GRT)
     High momentum should correspond to longer time between state transitions
     Discordance: high P_system but rapid transitions → external forcing
+    
+  Pair 10: Φ_contam (FCN) ↔ fesc propagation pattern (GRT)
+    Rising contamination flux should correspond to bottom-up fesc escalation
+    Discordance: Φ_contam > 0 but no upward fesc propagation → buffer absorbing
+    
+  Pair 11: R_i (FCN self-purification) ↔ SCC (GRT)
+    R_i components should track SCC trajectory
+    Discordance: R_i declining but SCC stable → measurement lag or compensating factor
+    
+  Pair 12: Σ (FCN frame dispersion) ↔ cross-domain I (GRT)
+    Rising Σ should correspond to declining cross-domain consistency
+    Discordance: Σ rising but I stable → domains diverging without conflict
+    
+  Pair 13: κ* (EDT risk index) ↔ governance state trajectory (GRT)
+    κ* > 1 sustained should correspond to degrading governance metrics
+    Discordance: κ* > 1 but metrics stable → environmental change not yet impacting
+    
+  Pair 14: Friction rate (EDT) ↔ conflict_rate/SCC ratio (GRT)
+    Friction in optimal band should correspond to healthy learning indicators
+    Discordance: friction optimal but learning metrics declining → processing failure
 
-System health = majority concordance across all 9 pairs
+System health = majority concordance across all 14 pairs
 System warning = any single pair discordant
 System alert = multiple pairs discordant
 System critical = majority pairs discordant
@@ -5359,6 +6777,39 @@ Deficit-Fractal Governance (DFG)
 │       Adaptive Necessity Theorem ↔ structural invariant T_eff > 0 for Rest Mode;
 │       No-Free-Lunch governance constraint ↔ irreducible Rest Mode cost;
 │       controlled stochastic freedom ↔ noise budget in landscape design
+├── From Call Centers to Neurons — ODE formalization, attractor dynamics, Cube Domination, Circular Closure
+│     ↕ GRT connection: S-equation → ODE decomposition (S̃ governance → Φ mechanistic);
+│       Circular Closure (원) ↔ Rest Mode as self-sustaining feedback loop;
+│       Layered cone architecture ↔ subsidiarity as information compression;
+│       Contamination flux Φ_contam ↔ cross-scale failure propagation mechanism;
+│       Self-purification R_i = D·F·V·T ↔ SCC decomposition into 4 factors;
+│       Immunity Paradox ↔ Self-Exciting Defect Layer ↔ AGM T_min;
+│       Cube Domination frame competition ↔ niche differentiation under collapse;
+│       Attractor basin geometry (depth vs width) ↔ energy barrier model precision;
+│       Landscape evolution ODE ↔ SSS→SCM cascade dynamical mechanism;
+│       Terrain design protocol (4-phase) ↔ θd bootstrapping phases;
+│       North Star (Criterion vs Principle) ↔ Global vs Local rule distinction;
+│       Eyes-and-feet principle ↔ dual-axis measurement justification;
+│       Branching capacity B ↔ effective density reduction n/B;
+│       Four intervention levers ↔ governance strategy optimization;
+│       Stochastic resonance ↔ optimal Storm intensity D*
+├── Environment Design Theory     — terrain cultivation, phase-gated seeding, branching manifold architecture
+│     ↕ GRT connection: Three-Axis Architecture (Boundary/Gain/Coupling) ↔ landscape design decomposition;
+│       Curvature Theory (curvature = compressed survival history) ↔ conflict log as curvature substrate;
+│       Curvature Ceiling Theorem ↔ subsidiarity as structural necessity;
+│       Curvature Withdrawal Schedule ↔ Rest Mode maturation arrow;
+│       Friction Management (zero friction = zero learning) ↔ conflict rate monitoring;
+│       Optimal friction band ↔ conflict rate between T_min and SCC capacity;
+│       Buffer as friction transformer ↔ meta-rules making conflicts processable;
+│       Therapeutic disturbance ↔ controlled perturbation injection;
+│       Risk Index κ (timescale mismatch) ↔ governance lag detection;
+│       κ-trajectory classification ↔ governance state assessment;
+│       Three-alarm detection ↔ multi-metric early warning;
+│       Terrain Resonance avoidance ↔ W and θd cycle non-resonance;
+│       Carrying Capacity n_max ↔ domain rule density limits;
+│       Contamination Permeability schedule ↔ phase-gated θd bootstrapping;
+│       Gain-induced effective potential ↔ correction values as curvature;
+│       Spectral radius reduction via branching ↔ position clarity as B increase
 ├── Recovery Theory              — defines contamination, immunity, restoration, and structural correction
 │     ↕ GRT connection: D0 geometry alignment ↔ vector degradation types;
 │       D6/SCM ↔ Case 4 SCC failure (Silent Criticality deepened to metric lock-in);
@@ -5440,7 +6891,10 @@ Deficit-Fractal Governance (DFG)
 46. Affective Gain Module (AGM, DFG component). Internal document, v2.4-README, March 2026. (Adaptive Necessity Theorem — T_eff > 0 structural requirement; Bifurcation Classification Theorem — Freeze/Runaway universality classes; Governance Completeness Theorem; T_eff as governance temperature; sensitivity s(t) as bifurcation discriminator; weight redistribution on simplex; momentum-bearing vector dynamics; Flow-Rest Mode equivalence; controlled stochastic freedom; No-Free-Lunch governance constraint; endogenous perturbation as SOC process; emotional state transition graph on weight simplex.)
 47. Csikszentmihalyi, M. (1990). *Flow: The Psychology of Optimal Experience*. Harper & Row. (Flow state — structural analogue for single-agent Rest Mode.)
 48. Fractal Governance System (FGS, DFG component). Internal document, March 2026. (Fractal lifecycle ODE; gain modulation as TYPE A — Law; controlled stochastic freedom formalization; discretization trade-off; North Star architecture.)
-49. Environmental Design Theory (EDT, DFG component). Internal document, March 2026. (Terrain cultivation; valley-ridge geometry; curvature accumulation; growth window dynamics.)
+49. Environmental Design Theory (EDT, DFG component). Internal document, v5.0-maximal, March 2026. (Three-Axis Architecture — Boundary/Gain/Coupling as S-equation parameters; Curvature Theory — curvature as compressed survival history, accumulation dynamics, Curvature Ceiling Theorem, withdrawal schedule; Friction Management — Zero Friction Pathology, optimal friction band, buffer as friction transformer, therapeutic disturbance; Risk Index κ — endogenous drift τ_E, capacity adaptation τ_C, κ* hybrid index, trajectory classification; Terrain Resonance — constructive/destructive conditions, timescale collision avoidance; Carrying Capacity — n_max for terrain quality, overshoot dynamics, graceful degradation; Contamination Permeability — flux formalism, phase-dependent control, self-purification R_i = D·F·V·T; Circular Closure — circle architecture, n_eff compression, pyramidal architecture; Buffer Dynamics — noised-vector transformer, four-axis function taxonomy, local North Star calibration; Ecological Succession — pioneer/colonist/climax lifecycle; Seed Propagation — 0→1→2 transition, dormancy dynamics.)
+50. From Call Centers to Neurons (FCN, DFG component). Internal document, v1.6, March 2026. (Mean-field ODE formalization; S-equation → Φ decomposition; attractor dynamics with basin geometry; Kramers escape with pre-exponential factor; Cube Domination frame competition dynamics; Circular Closure Theory — circle as fundamental governance unit, layered cone architecture, S-equation partitioning; Contamination Theory — cross-scale flux Φ_contam, three contamination modes, bottom-up propagation; Self-Purification Capacity R_i = D·F·V·T multiplicative decomposition; Terrain Design Protocol — 4-phase circle formation; North Star Architecture — Criterion vs Principle separation; Stochastic resonance at optimal Storm intensity D*.)
+51. Olfati-Saber, R. & Murray, R. M. (2004). Consensus problems in networks of agents with switching topology and time-delays. *IEEE Transactions on Automatic Control, 49*(9). (Multi-agent consensus — structural contrast: GRT mutual-reference coupling vs communication delay.)
+52. Beggs, J. M. & Plenz, D. (2003). Neuronal avalanches in neocortical circuits. *Journal of Neuroscience, 23*(35). (Neural criticality — power-law avalanche distributions analogous to governance Storm Scale Law.)
 
 ---
 

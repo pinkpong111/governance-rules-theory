@@ -5,7 +5,20 @@
 > A component theory of **Deficit-Fractal Governance (DFG)**  
 > Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
 > 
-> **Version: v1.8-expanded** (March 2026) — Major expansion: EDT deep integration (Three-Axis Architecture, Curvature Theory, Friction Management, Risk Index κ, Terrain Resonance, Carrying Capacity, Ecological Succession, Seed Propagation dynamics)
+> **Version: v1.9-middlelayer** (July 2026) — Middle-Layer Governance Interface integration from NAT v3.2 and RBIT v3.5
+>
+> v1.9-middlelayer changes from v1.8-expanded:
+> - **Middle-Layer Governance Interface promoted into Rule Architecture:** middle layer defined as a dual-map reconciliation, resolution-translation, conflict-preserving routing, and rule-patch governance layer rather than a generic buffer
+> - **Authority–epistemic separation:** Global Rules retain constitutional precedence, while upper/global maps are recognized as broad but incomplete; local evidence may trigger review without silently overriding constitutional authority
+> - **NAT imports with boundary lock:** ILMI terrain translation, Decision Complex multi-path conflict detection, typed routing, processing isolation, relationship-topology scheduling, and multiplex separation of task/evidence/memory/audit/recovery paths
+> - **RBIT imports with boundary lock:** Mutual Incompleteness, Mutual Terrain Reconciliation Loop, receiver-conditioned transfer/PTRV, information-loss accounting, rule-patch schema and lifecycle, clean-map certification, independent clean anchors, asymmetric promotion/demotion hysteresis, and reconciliation stability controls
+> - **Rule-patch lifecycle added:** LOCAL, CANDIDATE, VERIFIED, CONFLICT, UNKNOWN, STALE, QUARANTINED, REVOKED; conflict and uncertainty are preserved rather than flattened into consensus
+> - **Middle-layer self-certification refusal:** calibration reflexivity, cross-scale consistency, delayed-escalation audit, independent anchors, controlled perturbation, rollback, and provenance become mandatory safeguards against Mediator Drift and Interpretation Capture
+> - **Escalation asymmetry corrected:** under-escalation remains the generally more catastrophic direction, but over-escalation is not safe; queue, delay, privacy, authority, denial-of-service, and dependency costs must be included in expected route loss
+> - **GRT↔NAT and GRT↔RBIT protocols expanded:** operational ownership boundaries, bidirectional patch flow, local validation, residual return, and non-collapsing conflict fusion made explicit
+> - All previous content preserved.
+>
+> **Prior version: v1.8-expanded** (March 2026) — Major expansion: EDT deep integration (Three-Axis Architecture, Curvature Theory, Friction Management, Risk Index κ, Terrain Resonance, Carrying Capacity, Ecological Succession, Seed Propagation dynamics)
 >
 > v1.8-expanded changes from v1.7-expanded:
 > - **Three-Axis Architecture Integration:** Boundary Design (Axis 1), Gain Design (Axis 2), Coupling Geometry Design (Axis 3) mapped to GRT landscape design components; axis interactions and S-equation correspondence; gain-induced effective potential; spectral radius reduction via branching
@@ -892,9 +905,17 @@ Eyes-and-Feet Principle (Observation-Exploration Separation):
     Middle: filter/purifier between dirty feet and clean eyes
     
   GRT mapping:
-    Upper = Global Rules + system-level metrics → must not be contaminated
-    Middle = Meta-Rules + cross-domain coordination → absorbs noise
-    Lower = Local Rules + domain execution → generates and resolves conflicts
+    Upper = Global Rules + system-level metrics → constitutional direction and protected reference
+    Middle = Meta-Rules + cross-domain coordination → translates, classifies, buffers, routes, and preserves auditability
+    Lower = Local Rules + domain execution → explores, generates evidence, and resolves scoped conflicts
+
+  Reader-safety clarification (v1.9):
+    "Clean eyes" does not mean an infallible or information-complete upper map.
+    It means that strategic references remain independently auditable and are not
+    silently overwritten by raw operational influence. The upper map is broad but
+    incomplete; the lower map is narrow but high-contact. The middle layer must
+    reconcile them without collapsing their distinct resolution profiles.
+    See Rule Architecture — Middle-Layer Governance Interface.
     
   Critical requirement: eyes must not be fixed.
     Observation(t) = scan(all subspaces, period < drift_accumulation_time)
@@ -1059,14 +1080,540 @@ Decisions are handled at the lowest layer capable of resolving them. Upper layer
 ### Global Rules (Upper Layer)
 - Apply at all fractal scales
 - Immutable without upper-layer authorization
-- Always take precedence over local rules
+- Always take constitutional precedence over local rules
+- Define criteria, prohibited zones, identity anchors, and authority boundaries
+- Do **not** imply that the upper map contains fresher or deeper local evidence
+
+### Middle-Layer Governance Interface (Meta-Rule / Mediation Layer)
+- Translates global criteria into domain-usable rule contracts without replacing the criteria
+- Transforms local evidence and conflicts into structured, scoped, provenance-preserving governance events
+- Coordinates cross-domain conflicts that no single local layer can resolve
+- Selects routes by data type, required resolution, receiver capacity, harm, authority, reversibility, and expected route loss
+- Maintains conflict, uncertainty, lineage, version, quarantine, and rollback states
+- May propose and mediate rule changes but may not silently redefine Global Rules or self-certify its own calibration
 
 ### Local Rules (Layer-Autonomous)
 - Apply within that layer only
-- Require upper-layer validation before activation
-- Define local escalation thresholds, pathway advantages, penalties
+- Are generated and tested from local contact under the meta-rule envelope
+- Require the declared validation path before broader activation
+- Define local escalation thresholds, pathway advantages, penalties, and recovery procedures
+- Retain local evidence even when a Global Rule has immediate authority precedence
 
-**On conflict:** Global rule executes immediately → local rule suspended → conflict logged → local rule flagged for re-validation.
+**On conflict:** Global boundary executes immediately where required → conflicting local rule is suspended or scope-limited → evidence and interpretation remain preserved as separate records → middle layer classifies the conflict and routes it for local revision, cross-domain mediation, upper validation, or governance redesign. Constitutional precedence does not convert the upper interpretation into an infallible factual judgment.
+
+### Middle-Layer Governance Interface — Canonical Candidate Architecture
+
+> **Status lock (v1.9):** This section is a GRT candidate operational architecture assembled from NAT v3.2 Core and RBIT v3.5 candidate interfaces. GRT owns the **rule lifecycle and authority conditions**. NAT owns the **topology, typed routing, mediation, escalation, processing isolation, and multiplex paths**. RBIT owns the **resolution objects, receiver-conditioned transfer, information-loss accounting, mutual map reconciliation, and clean-map certification**. Inclusion here does not promote NAT/RBIT bridge hypotheses to GRT theorems.
+
+#### 1. Definition
+
+The **Middle-Layer Governance Interface** is the layer that maintains compatibility between:
+
+- an upper/global map that is broad, slow, cross-domain, and constitutionally authoritative but locally incomplete; and
+- lower/local maps that are narrow, fast, high-contact, and operationally detailed but globally incomplete.
+
+Its purpose is not to average the two maps or force consensus. Its purpose is to preserve their distinct resolution profiles while enabling safe rule movement between them.
+
+```text
+Middle Layer
+  = Dual-Map Reconciliation
+  + Resolution / Frame Translation
+  + Conflict-Preserving Classification and Routing
+  + Cross-Domain Mediation
+  + Rule-Patch Lifecycle Governance
+  + Reversible Purification and Audit
+  + Tempo / Resource Scheduling
+```
+
+The middle layer is therefore neither a passive relay nor a permanent ruler. It is a **governance interface** whose success is measured by the amount of correct coordination it internalizes while reducing unnecessary upper-layer intervention.
+
+#### 2. Authority–Epistemic Separation
+
+GRT distinguishes two questions that must not be collapsed:
+
+```text
+Authority question: Who is authorized to decide or modify the constraint?
+Epistemic question: Which layer currently has the best evidence about the terrain?
+```
+
+Global Rules may have constitutional priority while the local layer has fresher evidence. Therefore:
+
+1. A local observation cannot silently override a Global Rule.
+2. A Global Rule cannot erase or rewrite contradictory local evidence merely because it has higher authority.
+3. The middle layer must preserve the contradiction, classify its scope, and route it to the authority capable of revising the relevant rule level.
+4. Repeated independent local rejection of a global projection is evidence that the global map may be stale, overgeneralized, or frame-locked.
+5. Authority centrality, information centrality, computational capability, and audit authority are separate variables.
+
+This prevents two symmetric failures:
+
+- **Frame lock:** only the upper frame is retained; abstract invariants are transmitted without local adaptation.
+- **Frame capture:** only the lower frame is retained; local contamination or short-horizon incentives propagate upward as if they were global truth.
+
+#### 3. Core State Objects
+
+The interface operates on at least four logically distinct map roles:
+
+| Object | Role | Must not be collapsed into |
+|---|---|---|
+| `M_G` — Global map | broad relations, criteria, cross-domain constraints, long-horizon structure | complete terrain truth |
+| `M_i` — Local map | fresh local observations, procedures, failures, recovery paths | mere noisy fragment of `M_G` |
+| `M_B` — Mediation/buffer map | relation topology, conflict registry, translation contracts, pending patches, routing state | final constitutional authority |
+| `M_R` — Independent reference layer | clean anchors, protected checkpoints, external evaluators, lineage records, rollback references | ordinary shared memory |
+
+**Mutual Incompleteness Principle:** `M_G` and `M_i` are mutually incomplete. The upper map is not a perfect teacher; the lower map is not merely a student. Their relation is `global prior ↔ local evidence reconciliation`.
+
+#### 4. Functional Decomposition
+
+##### 4.1 Dual-Map Reconciliation
+
+The middle layer must retain both the global relation map and the local terrain map long enough to compare them. It may not flatten disagreement into a single latest state before the source, scope, frame, and uncertainty are inspected.
+
+Required outputs of reconciliation:
+
+- compatible overlap;
+- complementary information;
+- frame mismatch;
+- scope mismatch;
+- depth/resolution mismatch;
+- genuine contradiction;
+- stale dependency;
+- untested region;
+- suspected contamination.
+
+##### 4.2 Resolution and Frame Translation
+
+The NAT ILMI function is adopted as the translation interface:
+
+```text
+ILMI(resolution_in, frame_in, context, receiver_contract)
+  → {goal, feedback, mediation_signal, preserved_constraints,
+     declared_loss, uncertainty, rollback_requirement}
+```
+
+**Downward translation:**
+
+```text
+Global criterion
+→ role-projected principle
+→ domain contract
+→ locally testable rule candidate
+```
+
+**Upward translation:**
+
+```text
+Local event stream
+→ scoped terrain differential
+→ conflict / uncertainty structure
+→ cross-domain governance signal
+```
+
+The middle layer must translate both **content resolution** and **time resolution**. Fast local fluctuations should not automatically rewrite slow global structure; slow global criteria must not arrive as uninterpretable raw abstractions.
+
+##### 4.3 Independent Classification through a Decision Complex
+
+A middle-layer classification must not rely on one reasoning path. For consequential inputs it activates at least two sufficiently independent estimators and records:
+
+- output conflict score;
+- resolution-gap disagreement;
+- frame disagreement;
+- authority disagreement;
+- harm and reversibility disagreement;
+- correlated-source structure.
+
+Agreement from agents sharing the same model ancestry, dataset, prompt, mediator, or upstream patch is discounted as correlated evidence. Disagreement is not automatically error; it is a localization signal for blind spots, omitted dimensions, or incompatible frames.
+
+##### 4.4 Typed Routing and Jurisdiction
+
+Routing is not determined by one scalar threshold. The route function is contract-relative:
+
+```text
+Route(x) = f(
+  semantic_class,
+  required_resolution,
+  receiver_capacity,
+  urgency,
+  confidence,
+  harm,
+  authority,
+  reversibility,
+  privacy,
+  queue_cost,
+  recovery_cost,
+  expected_route_loss
+)
+```
+
+The middle layer separates **understanding capacity** from **decision authority**:
+
+| Resolution capacity | Authority | Default handling |
+|---|---|---|
+| sufficient | sufficient | process within declared scope |
+| sufficient | insufficient | produce recommendation; route for authorization |
+| insufficient | sufficient | abstain; request higher-resolution analysis |
+| insufficient | insufficient | contain, preserve evidence, and escalate |
+
+No route is globally safe. Under-escalation may cause hidden cascade failure; over-escalation may create queue saturation, delay, privacy loss, authority distortion, denial-of-service, human overload, and SCC dependency.
+
+##### 4.5 Cross-Domain Coordination
+
+Local optima are generally non-additive. A rule that is valid within domain `i` may conflict with domain `j` through shared resources, timing, authority, safety, or interaction terms. The middle layer therefore maintains a relational topology containing:
+
+- agent/domain pairs with repeated conflict;
+- stable complementarities;
+- shared dependencies;
+- coverage gaps;
+- quarantine boundaries;
+- recovery and audit paths;
+- unresolved interaction terms.
+
+It resolves only the conflicts inside its declared jurisdiction. Conflicts requiring criterion revision or Global–Global adjudication must be escalated without being cosmetically normalized.
+
+##### 4.6 Reversible Purification
+
+Purification does not mean producing zero error or unanimous consensus. A governance map is operationally clean when:
+
+- evidence and interpretation are separable;
+- scope and exclusions are explicit;
+- provenance and dependency are retained;
+- uncertainty and conflict remain visible;
+- versions and timestamps are traceable;
+- contaminated patches can be localized and quarantined;
+- at least one independent clean anchor remains accessible;
+- rollback or supersession can restore a prior usable state.
+
+The middle layer does not hide raw problems; it converts them into processable and reversible governance objects.
+
+##### 4.7 Rule-Patch Governance
+
+A **rule patch** is a proposed persistent change to rules, meta-rules, routing, boundaries, recovery procedures, or interpretation maps. Every patch eligible for persistent assimilation should carry at least:
+
+| Field | Required content |
+|---|---|
+| observation / proposal | what changed or is claimed |
+| frame | ontology, representation convention, coordinate system |
+| scope | valid domain, exclusions, affected agents |
+| provenance | sources, shared ancestry, mediator path |
+| uncertainty | confidence, disagreement, untested regions |
+| lifecycle state | current governance status |
+| version / dependency | timestamp, parent version, affected rules |
+| rollback / recovery | checkpoint, supersession, restoration procedure |
+| authority impact | who may propose, validate, activate, suspend, revoke |
+
+A patch without a frame or scope is not globally portable. A patch without provenance cannot support independent purification. A high-impact patch without rollback is not eligible for direct activation.
+
+##### 4.8 Tempo and Resource Scheduling
+
+The middle layer is a priority scheduler for scarce verification and governance capacity. It maintains a topology map of:
+
+- stable versus unstable agent pairs;
+- high-conflict histories;
+- under-observed regions;
+- near-cutoff discarded data;
+- recovery bottlenecks;
+- audit-path concentration;
+- pending patch age and risk.
+
+Recalibration should generally begin with the lowest-risk boundary data and expand progressively. High-context or high-authority changes require longer dwell, stronger evidence, and independent validation.
+
+#### 5. Input–Output Contract
+
+##### 5.1 Lower-to-Middle Input
+
+A lower agent submits a **committed scoped differential**, not its unconsolidated live internal state:
+
+```text
+Delta_i_up = {
+  new_observations,
+  changed_relations,
+  successful_and_failed_paths,
+  boundary_changes,
+  uncertainty,
+  provenance,
+  exclusions,
+  recovery_information
+}
+```
+
+The submission declares what was observed, under which conditions, what was not observed, and which parts remain inferred.
+
+##### 5.2 Middle-to-Upper Output
+
+The middle layer sends only the information that survives local handling and compression:
+
+- unresolved cross-domain conflicts;
+- repeated rule failure patterns;
+- evidence that a Global Rule or Meta²-rule may be stale;
+- aggregate escalation and recovery trends;
+- distributional anomalies;
+- clean-anchor disagreement;
+- authority redesign requests.
+
+##### 5.3 Middle-to-Lower Output
+
+The middle layer sends a **role-projected patch**, not a global overwrite. It may contain:
+
+- relevant global boundary constraints;
+- cross-local relations;
+- routing changes;
+- recovery procedures;
+- identified coverage gaps;
+- complementary discoveries from other domains;
+- explicit uncertainty and rollback conditions.
+
+The receiver retains the right and obligation to return `ACCEPT`, `CONDITIONAL`, `CONFLICT`, `OUT_OF_SCOPE`, `UNSAFE`, or `UNRESOLVED` within its evidence role. This is not constitutional veto power; it is local validation evidence.
+
+#### 6. Mutual Terrain Reconciliation Protocol
+
+```text
+1. Local independent processing
+2. Commit scoped evidence / rule patch
+3. Mediator schema, provenance, authority, and integrity checks
+4. Global fusion without forced consensus
+5. Role-projected downward patch
+6. Replay / sandbox / shadow / bounded deployment
+7. Local teach-back, action test, and recovery test
+8. Residual return
+9. Global / meta-rule revision if warranted
+10. Staged assimilation, monitoring, rollback, or supersession
+```
+
+The loop is bidirectional but not symmetric:
+
+- local layers contribute freshness and depth;
+- global layers contribute breadth, cross-scope relations, and constitutional constraints;
+- middle layers provide translation, comparison, routing, and reversible assimilation.
+
+#### 7. Processing Isolation and Multiplex Separation
+
+Same-layer agents must not exchange classification-relevant intermediate states by default. Permitted signaling transmits completed outputs, confidence, scope, and limit-state reports. Prohibited influence directly bends another agent's active classification before independent processing completes.
+
+The following paths are distinct and need not share the same topology or authority:
+
+- task execution;
+- evidence submission;
+- rule-patch distribution;
+- escalation;
+- clean-anchor access;
+- audit and rollback;
+- quarantine and recovery;
+- memory storage.
+
+A task coordinator may lack authority to rewrite memory. A memory service may lack authority to decide interpretation. A local specialist may reject a patch on evidence grounds without having authority to change Global Rules.
+
+#### 8. Translation-Loss Accounting
+
+Middle-layer success cannot be measured only by final agreement. For each consequential transfer, the declared total loss should be decomposed into:
+
+```text
+L_total
+  = L_projection
+  + L_transport
+  + L_fill
+  + L_routing
+  + L_synthesis
+  + L_drift
+  + L_interaction_residual
+```
+
+- `L_projection`: loss from reducing a broad map to a role-specific patch;
+- `L_transport`: corruption or omission during transmission;
+- `L_fill`: receiver bias used to reconstruct missing dimensions;
+- `L_routing`: loss from wrong receiver, path, timing, or authority route;
+- `L_synthesis`: loss from merging multiple local results;
+- `L_drift`: environment or dependency change after validation;
+- `L_interaction_residual`: non-additive loss created by the interaction of the above.
+
+A translation failure must be assigned to the correct loss class before the rule or agent is blamed.
+
+#### 9. Rule-Patch Lifecycle State Machine
+
+Canonical candidate states:
+
+| State | Meaning |
+|---|---|
+| `LOCAL` | observed or proposed within one scoped domain |
+| `CANDIDATE` | proposed for broader use; schema complete; not independently verified |
+| `VERIFIED` | passed declared evidence, external-reference, action, and recovery tests |
+| `CONFLICT` | incompatible validated observations remain unresolved |
+| `UNKNOWN` | evidence or coverage is insufficient |
+| `STALE` | freshness, dependency, or terrain assumptions expired |
+| `QUARANTINED` | credible contamination suspicion or unsafe action impact |
+| `REVOKED` | invalidated for active use; lineage and rollback record retained |
+
+Forbidden transitions:
+
+- no direct `LOCAL → VERIFIED`;
+- no direct `QUARANTINED → VERIFIED`;
+- no `CONFLICT → VERIFIED` without recorded resolution;
+- no silent deletion; invalidated patches are superseded or revoked with lineage preserved.
+
+**Hysteresis lock:** promotion is slow and multi-gate; demotion to `CONFLICT`, `STALE`, or `QUARANTINED` may be fast on one credible signal. Fast quarantine must still have a declared appeal, re-audit, and rate-limit path.
+
+#### 10. Clean-Map Certification Gates
+
+A rule or shared map may be treated as certifiably clean only when all declared gates pass:
+
+1. **Domain lock:** domain, users, scope, authority, cadence, and required resolution declared.
+2. **Correction-core separation:** content is distinct from the process that selects references, authorizes updates, evaluates outcomes, and accepts rollback.
+3. **Independent clean anchor:** at least one protected external evaluator, checkpoint, verifier, human authority, lineage log, or replacement implementation remains accessible.
+4. **Reality–record–interpretation separation:** external event, observation record, inferred terrain, and policy remain distinct.
+5. **Provenance graph:** common ancestry, shared data, prompt, mediator, and timestamp dependencies retained.
+6. **Conflict preservation:** disagreement and unknown regions are not overwritten by majority consensus.
+7. **Selective immutability:** evidence lineage is append-only or tamper-evident; interpretation remains revisable.
+8. **Local plasticity / global integrity:** local maps update faster; high-integrity global commitments require stronger gates.
+9. **Version and rollback:** every consequential update has a restoration or supersession route.
+10. **External and action tests:** teach-back alone is insufficient where shared wrong frames are possible.
+
+The middle layer may coordinate these gates but cannot be the sole source, evaluator, and certifier of the same patch.
+
+#### 11. Middle-Layer Self-Drift and Audit
+
+The middle layer is the primary locus of gradual governance drift because its classifications generate the logs used to recalibrate its own thresholds. It therefore cannot self-certify.
+
+Mandatory safeguards:
+
+- **Calibration Reflexivity:** treat threshold changes, classification bias, rejection patterns, and escalation anomalies as observable meta-data.
+- **Cross-Scale Consistency:** compare local activity, detected conflicts, correction events, escalation, and external outcomes.
+- **Delayed-Escalation Audit:** inspect source diversity, type distribution, timing, and correlation with recent calibration changes before upper action.
+- **Independent Reconstruction:** diverse agents reconstruct the same compressed patch; disagreement localizes missing dimensions.
+- **Known-Anomaly Injection:** periodically introduce bounded test cases to distinguish genuine stability from shared blindness.
+- **Clean-Anchor Rotation:** monitor whether anchors have become dependent on the same lineage or mediator loop.
+- **Rollback Drill:** verify that a contaminated or overgeneralized patch can actually be removed without destroying correction capacity.
+
+Key failure signatures:
+
+```text
+Interpretation Capture:
+  conflict volume stable
+  + escalation falling
+  + external instability rising
+  → middle layer is absorbing what should escalate
+
+Mediator Drift:
+  classification distribution changes after threshold updates
+  + source diversity narrows
+  + disagreement falls without perturbation confirmation
+
+Map Monoculture:
+  agreement rises
+  + independent evidence count falls
+  + external concordance stagnates or declines
+```
+
+#### 12. Reconciliation Dynamics and Rate Limits
+
+Instantly sharing everything is not the mature design. The middle layer must control update gain, delay, and dwell time.
+
+Candidate operating constraints imported from RBIT MTRL dynamics:
+
+```text
+Round-trip loop gain:
+  gamma_eff ~ gamma_global_fusion * gamma_local_assimilation * acceptance_rate
+
+Oscillation warning:
+  gamma_eff * tau_loop too large
+  → sign-alternating residuals, repeated reclassification, patch chattering
+
+Contamination amplification:
+  A_c ~ gamma_global_fusion * gamma_local_assimilation * p_contamination_survival
+  Required candidate condition: A_c < 1
+```
+
+Operational controls:
+
+- asynchronous exchange;
+- minimum evidence dwell before promotion;
+- dead band for insignificant patch differences;
+- progressive disclosure;
+- per-domain and per-authority rate limits;
+- sandbox before high-impact assimilation;
+- automatic rollback on declared regression;
+- no live unconsolidated state sharing by default.
+
+These are candidate control conditions, not a proved universal stability theorem.
+
+#### 13. Maturity, Withdrawal, and Rest Mode
+
+The middle layer does not mature by disappearing. It transitions from visible actor to background structure.
+
+Maturation sequence:
+
+```text
+Phase 0 — Direct mediation and maximum sensitivity
+Phase 1 — Supervised local rule formation
+Phase 2 — Feedback-only mediation and sampled validation
+Phase 3 — Background contracts, audit, and exception routing
+Rest Mode — local governance closes its own loop; middle layer remains dormant but observable and rollback-capable
+```
+
+Evidence of maturation includes:
+
+- local correction events rising relative to storm escalations;
+- upper workload `fesc` trending downward without external quality decline;
+- validation residual magnitude decreasing;
+- repeated rule patches accepted conditionally or locally resolved rather than globally overwritten;
+- independent perturbation recovery remaining within bounds;
+- conflict diversity remaining non-zero;
+- rollback, quarantine, and dormant recovery paths remaining functional.
+
+A silent middle layer is healthy only if active probing confirms that it **can** detect, mediate, and recover when needed.
+
+#### 14. Failure Modes
+
+| Failure | Mechanism | Observable consequence |
+|---|---|---|
+| Frame Lock | upper frame transmitted without contextual translation | local rejection, escalation flood, brittle compliance |
+| Frame Capture | lower frame dominates mediation | upward contamination, short-horizon policy drift |
+| Interpretation Capture | middle layer normalizes anomalies | calm dashboard with rising external instability |
+| False Consensus | live lateral influence or correlated validators | disagreement collapse, shared blind spots |
+| Middle-Layer Overreach | meta-rules prescribe local content | local SCC atrophy, permanent dependency |
+| Bypass | upper and lower communicate without mediation contract | abstraction shock or raw-noise overload |
+| Patch Oscillation | high gain / low dwell / no hysteresis | repeated promotion–demotion, rule churn |
+| Map Monoculture | shared memory overwrites distinct local maps | coverage loss, observability collapse |
+| Audit Capture | clean anchor shares contaminated lineage | false certification, irreversible spread |
+| Scheduler Starvation | low-status domains never receive review capacity | hidden governance gaps and delayed cascades |
+
+#### 15. Cross-Theory Ownership Boundary
+
+```text
+GRT owns:
+  rule authority, lifecycle, promotion, suspension, retirement,
+  Rest Mode and withdrawal conditions, governance redesign triggers
+
+NAT owns:
+  graph/topology, typed routing, mediation paths, processing isolation,
+  escalation structure, relationship topology, multiplex separation
+
+RBIT owns:
+  resolution gap, receiver terrain, degradation/upscaling contracts,
+  loss accounting, mutual map reconciliation, clean-map certification
+```
+
+GRT may reference NAT/RBIT interfaces but must not duplicate their full mathematical substrates or claim their candidate architectures as established universal optima.
+
+#### 16. Validation Commitments
+
+The middle-layer architecture remains candidate status until it is compared against simpler alternatives. Minimum benchmark families:
+
+- monolithic upper-controller baseline;
+- naive peer-to-peer sharing baseline;
+- majority-vote consensus baseline;
+- one-way global-to-local rule injection baseline;
+- shared-memory latest-write-wins baseline;
+- no-independent-anchor baseline.
+
+Kill conditions include:
+
+- no reduction in upper governance load after accounting for mediation cost;
+- no improvement in external concordance or recovery;
+- greater contamination amplification than simpler routing;
+- conflict retention causing unbounded paralysis;
+- independent anchors failing to remain independent;
+- receiver-conditioned transfer adding cost without reducing translation loss;
+- middle-layer intervention eroding local SCC.
+
+---
 
 ### Formal Conflict Resolution Protocol
 
@@ -1221,7 +1768,7 @@ Rule Interaction Graph G_rules = (V, E):
 
 ## Meta-Rules
 
-Meta-Rules are **rules about how rules are made**. The upper layer does not define the content of local rules — it defines the structure, format, and update conditions that all rules must follow.
+Meta-Rules are **rules about how rules are made**. The upper/global layer authorizes the constitutional meta-rule envelope; the middle layer operationalizes, applies, monitors, and audits that envelope; local layers generate domain content through contact and testing. Neither the upper layer nor the middle layer should define local rule content by default. They define the structure, format, authority path, evidence requirements, update conditions, and rollback obligations that local rules must follow.
 
 | Domain | Meta-Rule Content |
 |---|---|
@@ -1230,6 +1777,10 @@ Meta-Rules are **rules about how rules are made**. The upper layer does not defi
 | Logging obligation | All rule changes must be logged |
 | Update conditions | Rules may only change when conflict log threshold is exceeded |
 | Conflict priority | Global rules always supersede local rules |
+| Patch portability | Frame, scope, provenance, uncertainty, version, authority, and rollback must be declared |
+| Conflict preservation | CONFLICT and UNKNOWN remain explicit states; no silent consensus conversion |
+| Certification separation | The proposing/mediating layer cannot be the sole independent certifier |
+| Promotion hysteresis | Broader activation is slow and multi-gate; quarantine/demotion may be fast but appealable |
 
 **Meta-Rule Formal Properties:**
 
@@ -1423,7 +1974,7 @@ When an agent encounters an input outside its existing rules:
 | Conflict log accumulation | Δρ mixed (pattern operable, mechanism unknown) | Tacit Knowledge → operate locally, escalate on degradation |
 | Input fully unclassifiable | Δρ undefined | Noise → buffer or discard; upper layer may detect latent vectors |
 
-**Error asymmetry (RBIT v1.2):** Classification error in the dangerous direction (under-escalation: treating High-Context as Mathematical when Δρ < 0 is misread as Δρ ≈ 0) produces cascade failure (Vector Storm precondition). Error in the safe direction (over-escalation: escalating Mathematical data unnecessarily) produces only governance overhead cost. This asymmetry is structural, not a design preference — and it is why Step 2 specifies *conservative* escalation as the default when classification is uncertain.
+**Escalation error asymmetry (updated to RBIT v3.0–v3.5):** Under-escalation remains the generally more catastrophic direction because treating High-Context input as locally resolvable under sustained negative resolution gap can initiate cascade failure. However, over-escalation is **not safe**: it creates queue saturation, delay, privacy exposure, authority distortion, denial-of-service opportunities, human/upper-layer overload, and Dependency Trap risk that can erode local SCC. The correct default is therefore risk-relative conservative routing under a declared expected-loss function and a non-compensatory safety floor—not unconditional escalation of every uncertain item.
 
 **Connection to RBIT Seed Sufficiency Tests:** RBIT §Seed Sufficiency defines three tests that a seed must pass for Self-Correction Capacity to be possible. These tests validate the seeds from which the Expansion Protocol operates:
 
@@ -5675,6 +6226,9 @@ Three empirical directions are most immediately accessible:
 
 ### Implementation Architecture Overview
 
+> **v1.9 middle-layer lock:** The implementation architecture below must instantiate the Rule Architecture section's Middle-Layer Governance Interface: dual maps, typed routing, processing isolation, rule-patch lifecycle, independent clean anchors, local validation, residual return, and rollback. A generic message broker or single LLM judge does not satisfy this interface by itself.
+
+
 A GRT-compliant production system requires five structural components, each corresponding to a core theoretical construct:
 
 ```
@@ -6188,85 +6742,157 @@ GRT → RT (governance state for recovery context):
 
 ### GRT ↔ RBIT Integration Protocol
 
-The GRT-RBIT interface provides the information-theoretic foundation for rule governance:
+The GRT-RBIT interface provides the resolution, transfer, reconciliation, and certifiability substrate for rule governance:
 
+```text
+RBIT → GRT (information and map substrate):
+
+  Δρ resolution gap → receiver-relative routing:
+    RBIT provides supply-demand resolution comparison
+    GRT uses as one route variable alongside harm, authority,
+    reversibility, privacy, delay, recovery, and queue cost
+    Protocol: resolution sufficiency never implies authority sufficiency
+
+  Mutual Incompleteness → authority–epistemic separation:
+    RBIT provides broad/coarse global map vs narrow/deep local map
+    GRT uses to prevent upper infallibility and lower-totalization
+    Protocol: constitutional priority may suspend action,
+              but contradictory evidence and scope remain preserved
+
+  MTRL → bidirectional rule-patch reconciliation:
+    RBIT provides local differential → global fusion → role projection
+    → local validation → residual return
+    GRT uses for Seed, rule, and meta-rule patch movement
+    Protocol: no one-way teacher injection by default
+
+  Receiver-conditioned transfer / PTRV → Seed readiness:
+    RBIT provides low-risk probes, teach-back, external checks,
+    progressive disclosure, rollback, and drift monitoring
+    GRT uses before high-impact rule or Seed assimilation
+    Protocol: sender-side simplification alone is not calibrated transfer
+
+  Information-loss accounting → translation diagnosis:
+    RBIT decomposes projection / transport / fill / routing /
+    synthesis / drift / interaction losses
+    GRT assigns failed rule transfer to the correct correction site
+
+  Patch schema and lifecycle → rule lifecycle state machine:
+    RBIT provides LOCAL / CANDIDATE / VERIFIED / CONFLICT / UNKNOWN /
+    STALE / QUARANTINED / REVOKED with legal transitions
+    GRT uses for rule and meta-rule governance
+    Protocol: conflict and unknown are first-class states;
+              promotion slow, demotion/quarantine fast but appealable
+
+  Clean Map + clean anchor → purification certification:
+    RBIT provides evidence/interpretation separation, provenance,
+    independent anchors, selective immutability, rollback
+    GRT uses to define auditable rule cleanliness
+    Protocol: the mediator cannot be sole source, judge, and certifier
+
+  MTRL gain/delay model → update-rate controls:
+    RBIT provides oscillation and contamination-amplification candidates
+    GRT uses for dwell, dead band, asynchronous exchange, and rate limits
+    Protocol: share-everything-instantly is outside the safe default
+
+  F_RBIT health vector → Rest Mode validation:
+    RBIT provides multi-component health measurement
+    GRT uses as one independent channel in concordance validation
+    Protocol: no scalar or directional agreement alone certifies Rest Mode
+
+GRT → RBIT (governance objects and labels):
+
+  Rule-patch lifecycle → persistent terrain-update labels:
+    GRT supplies authority, activation, suspension, retirement,
+    appeal, and handover semantics for RBIT patches
+
+  Conflict logs → patch and health inputs:
+    GRT supplies structured rule pair, severity, domain, timestamp,
+    source, scope, authority, outcome, and recovery data
+
+  θd and λlog → operational calibration observables:
+    GRT supplies classification sensitivity and accumulation dynamics
+    RBIT evaluates whether these actually improve receiver-relative resolution
+
+  Rest Mode / withdrawal → reconciliation workload target:
+    GRT supplies maturity state and upper-intervention trajectory
+    RBIT tests whether lower maps retain recovery and external-reference capacity
 ```
-RBIT → GRT (information-theoretic framework):
 
-  Δρ resolution gap → Seed Expansion routing:
-    RBIT provides resolution gap measurement
-    GRT operationalizes as protocol step selection
-    Protocol: Δρ ≈ 0 → local processing;
-              Δρ < 0 → escalation;
-              Δρ mixed → local + degradation monitoring
-    
-  F_RBIT health vector → Rest Mode formal definition:
-    RBIT provides five-component health measurement
-    GRT uses for Rest Mode validation (all fᵢ bounded)
-    Protocol: F_RBIT directional concordance with S_norm
-    Key insight: eliminates F_RBIT weight calibration problem
-    (directional agreement sufficient, no weights needed)
-    
-  Seed sufficiency 3-tests → Expansion Protocol validation:
-    RBIT provides geometry update / contamination recognition / 
-    orthogonal recovery tests
-    GRT operationalizes as Seed design-time validation
-    Protocol: all three tests must pass before Seed deployment
-    Key insight: Test 3 failure imposes SCC ceiling that no
-    operational maturation can overcome
-    
-  Error asymmetry → conservative default justification:
-    RBIT provides formal basis for asymmetric error costs
-    GRT uses to justify θd_max during Phase 0
-    Protocol: under-escalation dangerous, over-escalation safe
-
-GRT → RBIT (governance metrics as information flow indicators):
-
-  Conflict logs → F_RBIT input:
-    GRT conflict logs provide raw data for RBIT health vector
-    RBIT uses for information flow assessment
-    Protocol: conflict log structured entries → F_RBIT component calculation
-    
-  θd calibration → degradation calibration D(Δρ):
-    GRT's θd is the operational implementation of RBIT's D(Δρ)
-    RBIT uses θd trajectory as resolution gap management indicator
-    Protocol: θd convergence → D(Δρ) convergence → domain stabilizing
-```
+**Interface status lock:** RBIT v3.5 defines these as candidate architectures, measurement commitments, and falsification protocols. GRT adopts the interfaces, not a claim that they universally outperform simpler memory or transfer systems.
 
 ### GRT ↔ NAT Integration Protocol
 
-The GRT-NAT interface provides structural enforcement and topology constraints:
+The GRT-NAT interface provides the structural routing, mediation, isolation, and topology enforcement for the Middle-Layer Governance Interface:
 
-```
+```text
 NAT → GRT (structural enforcement):
 
-  Processing isolation (3 mechanisms) → conflict detection reliability:
-    NAT provides Interface Narrowing, Temporal Decoupling, Write-Asymmetry
-    GRT operationalizes as conflict log structural requirements
-    Protocol: all three mechanisms must be satisfied simultaneously
-    
-  θ operationalization → θd calibration anchor:
-    NAT provides global θ via S₀ normalization
-    GRT uses as dual-anchor validation for per-domain θd
-    Protocol: θd must be consistent with both NAT θ and RBIT τ₁
-    
-  Sphere topology bounds → collapse propagation constraints:
-    NAT provides graph-theoretic propagation bounds
-    GRT uses for θd calibration cycle timing constraints
-    Protocol: θd cycle time < O(log n) propagation steps
-    
-  Coverage probability → Dint/U* calibration:
-    NAT provides P(uncovered) ≤ (1 − 1/d_eff)^k
-    GRT uses for U* threshold calibration
-    Protocol: Dint threshold must ensure detection capability
+  ILMI terrain translation → middle-layer translation contract:
+    NAT provides context- and receiver-relative conversion of
+    upper invariants and lower operational signals
+    GRT uses for Global → Meta/Local and Local → Governance translation
+    Protocol: every consequential translation declares preserved constraints,
+              uncertainty, expected loss, authority, and rollback need
 
-GRT → NAT (governance variables as network observables):
+  Decision Complex → independent conflict classification:
+    NAT provides multiple reasoning paths, conflict score,
+    and resolution-estimator disagreement
+    GRT uses before rule conflict labeling and escalation
+    Protocol: correlated agreement is discounted; disagreement is preserved
 
-  fesc → escalation frequency for θ validation:
-    GRT measures escalation frequency per domain
-    NAT uses for global θ calibration validation
-    Protocol: domain-level fesc aggregated for system-level θ
+  Typed routing → jurisdiction selection:
+    NAT provides semantic class, urgency, confidence, harm,
+    required resolution, receiver capacity, and expected route loss
+    GRT adds rule level, authority, reversibility, privacy, and recovery impact
+    Protocol: no single threshold determines all routes
+
+  Processing isolation → independent evidence generation:
+    NAT separates completed signaling from live trajectory influence
+    GRT uses to prevent false consensus before mediation
+    Protocol: same-layer intermediate classification states are not
+              shared by default; outputs are committed before comparison
+
+  Relationship topology → priority scheduling:
+    NAT provides conflict history, coverage stress, and pairwise relation map
+    GRT uses to allocate recalibration, validation, and audit resources
+    Protocol: low-risk boundary review before high-impact rule change
+
+  Multiplex separation → authority safety:
+    NAT separates task, information, authority, contamination,
+    recovery, audit, memory, and rollback paths
+    GRT uses to prevent a routing hub from becoming an unchecked rule sovereign
+
+  Reciprocal memory interface → staged patch deployment:
+    NAT provides evidence submission, conflict-buffered fusion,
+    role projection, local validation, and residual return topology
+    GRT uses for rule-patch and Seed handover
+
+  Coverage / propagation diagnostics → timing constraints:
+    NAT provides declared graph/process bounds and blind-spot diagnostics
+    GRT uses to set observation and response windows
+    Protocol: every spectral or path claim names its exact substrate;
+              fast mixing may spread benefit or harm
+
+GRT → NAT (governance semantics and authority):
+
+  Rule levels → typed edge authority:
+    GRT supplies Global / Meta / Local rule status, precedence,
+    suspension, appeal, and redesign semantics
+
+  Rule-patch states → routing permissions:
+    GRT supplies LOCAL / CANDIDATE / VERIFIED / CONFLICT / UNKNOWN /
+    STALE / QUARANTINED / REVOKED routing restrictions
+
+  fesc and correction/storm ratio → mediation-load observables:
+    GRT supplies domain and layer workload trends
+    NAT tests whether the architecture reduces governance cost per capability
+
+  Rest Mode → topology maintenance mode:
+    GRT supplies withdrawal and re-entry conditions
+    NAT retains dormant audit, rollback, clean-anchor, and recovery paths
 ```
+
+**Interface status lock:** NAT's sphere/expander topology is a reference candidate, not a universal architecture. GRT imports the operational functions—typed routing, mediation, isolation, multiplex separation, and staged reconciliation—without requiring one graph for every deployment layer.
 
 ### GRT ↔ EDT Integration Protocol
 

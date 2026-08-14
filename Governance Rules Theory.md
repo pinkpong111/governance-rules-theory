@@ -5,7 +5,20 @@
 > A component theory of **Deficit-Fractal Governance (DFG)**  
 > Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
 > 
-> **Version: v1.9-middlelayer** (July 2026) — Middle-Layer Governance Interface integration from NAT v3.2 and RBIT v3.5
+> **Version: v1.10-orchestration** (August 2026) — Learned orchestration, delegation maturity, and resource-intelligence integration
+>
+> v1.10-orchestration changes from v1.9-middlelayer:
+> - **Learned Orchestration Principle added:** model composition, routing, verification depth, authority budget, and stopping policy are treated as learnable governance decisions rather than fixed workflow logic
+> - **Upper-layer role migration formalized:** as lower layers mature, upper-layer work shifts from direct execution toward problem decomposition, resource-envelope setting, exception handling, supervision, and structural redesign
+> - **Upper–Middle–Lower ownership lock added:** upper layer owns criteria, authority ceilings, risk/resource envelopes, and escalation policy; middle layer owns active composition, routing, tempo, verification scheduling, and residual return; lower layers own scoped execution and local evidence generation
+> - **Resource Intelligence Log added:** task topology, selected agent set, active compute, latency, disagreement, verification depth, outcome, rollback, and escalation are accumulated as training data for future orchestration
+> - **Delegation Maturity and Governance Compilation added:** repeatedly validated lower-agent compositions may become reusable composite modules, while preserving audit paths, rollback, residual diversity, and an OOD escape route
+> - **Small-Model Experimental Population protocol added:** low-cost bounded agents may be used as sandbox populations to learn failure, coordination, and resource-allocation patterns before wider authority is granted; cross-scale transfer is explicitly not assumed
+> - **Production architecture expanded:** Orchestration & Resource Intelligence becomes a sixth production component with dedicated monitoring metrics
+> - **Falsifiability expanded:** predictions added for learned routing efficiency, upper-layer direct-work decline, orchestration learning, and cross-scale sandbox transfer
+> - All previous content preserved.
+>
+> **Prior version: v1.9-middlelayer** (July 2026) — Middle-Layer Governance Interface integration from NAT v3.2 and RBIT v3.5
 >
 > v1.9-middlelayer changes from v1.8-expanded:
 > - **Middle-Layer Governance Interface promoted into Rule Architecture:** middle layer defined as a dual-map reconciliation, resolution-translation, conflict-preserving routing, and rule-patch governance layer rather than a generic buffer
@@ -1304,7 +1317,7 @@ A patch without a frame or scope is not globally portable. A patch without prove
 
 ##### 4.8 Tempo and Resource Scheduling
 
-The middle layer is a priority scheduler for scarce verification and governance capacity. It maintains a topology map of:
+The middle layer is a priority scheduler for scarce verification, compute, attention, and governance capacity. It maintains a topology map of:
 
 - stable versus unstable agent pairs;
 - high-conflict histories;
@@ -1312,9 +1325,137 @@ The middle layer is a priority scheduler for scarce verification and governance 
 - near-cutoff discarded data;
 - recovery bottlenecks;
 - audit-path concentration;
-- pending patch age and risk.
+- pending patch age and risk;
+- model/capability availability and current load;
+- repeated composition success/failure patterns;
+- correlated model ancestry and shared failure exposure.
 
 Recalibration should generally begin with the lowest-risk boundary data and expand progressively. High-context or high-authority changes require longer dwell, stronger evidence, and independent validation.
+
+**Upper–Middle–Lower ownership lock:** resource control must not collapse into one layer.
+
+| Layer | Primary orchestration responsibility | Must not become |
+|---|---|---|
+| **Upper** | set criteria, risk budget, authority ceilings, global resource envelope, escalation policy, and redesign triggers | universal executor or per-event scheduler |
+| **Middle** | choose active agent composition, route tasks/evidence, assign tempo and verification depth, enforce budgets, stop/retry/escalate | constitutional authority or self-certifying optimizer |
+| **Lower** | execute scoped work, explore local terrain, report committed differentials and recovery evidence | silent global optimizer |
+
+The operational scheduler may be represented as a learned policy rather than a fixed dispatch table:
+
+```text
+π_orch(x, M, H, B, R)
+  → {A_active, G_task, b_compute, a_authority, v_verify, t_dwell, stop_rule}
+
+where:
+  x           = current task / event state
+  M           = capability and model map
+  H           = accumulated orchestration history
+  B           = current resource and queue budget
+  R           = risk / reversibility / authority state
+  A_active    = selected active agents or modules
+  G_task      = temporary interaction topology
+  b_compute   = compute/time/context allocation
+  a_authority = maximum action authority granted
+  v_verify    = verification depth and independent-check requirement
+  t_dwell     = minimum observation / stabilization interval
+  stop_rule   = terminate, retry, widen, replace, or escalate condition
+```
+
+This turns resource allocation itself into a governance learning problem. A mature scheduler should not ask only *which model is best*, but *what is the minimum sufficient active structure for this task under the required safety and quality floor*.
+
+**Resource Intelligence Log:** every consequential dispatch should accumulate at least:
+
+```text
+{task_signature, selected_agents, interaction_topology,
+ active_compute, context_budget, latency, authority_budget,
+ verification_depth, disagreement_pattern, outcome_quality,
+ rollback_event, escalation_event, recovery_time}
+```
+
+The log is not merely accounting. It is training data for future composition and resource decisions. Repeated evidence can teach the scheduler when a small specialist is sufficient, when parallel diversity is valuable, when sequential depth is necessary, and when a large/general model or upper-layer intervention is justified.
+
+No monotone scaling assumption is permitted: adding agents, context, or compute may increase translation loss, correlated error, queue cost, and coordination instability. Resource expansion must therefore be justified by expected marginal governance value, not by raw capacity.
+
+##### 4.9 Learned Orchestration and Upper-Layer Role Migration
+
+As lower layers specialize and stabilize, the function of the upper layer should migrate from **doing the work** to **governing the structure that does the work**. This is a maturation claim, not a prohibition on upper-layer execution.
+
+```text
+Immature system:
+  Upper layer = understand + decompose + execute + verify + recover
+
+Developing system:
+  Upper layer = decompose + compose + supervise + handle exceptions
+  Lower/middle = most execution and routine verification
+
+Mature system:
+  Upper layer = criteria + resource envelope + exception handling + redesign
+  Middle layer = learned routing / composition / supervision
+  Lower layer = specialized execution / exploration / local correction
+```
+
+Direct upper-layer execution remains justified when at least one of the following holds:
+
+- the task is genuinely out-of-distribution and decomposition itself is uncertain;
+- multiple lower modules disagree in a way the middle layer cannot localize;
+- a Global Rule, identity criterion, or authority boundary may require revision;
+- failure impact exceeds the authority or recovery capacity of the active lower structure;
+- no validated lower composition exists and exploration must be bootstrapped.
+
+A useful candidate maturity observable is the **Upper Direct Work Ratio**:
+
+```text
+UDWR = C_upper_direct / C_total_task
+```
+
+where `C` may be measured in normalized compute, decision events, or intervention-equivalent cost. A falling `UDWR` indicates maturation only if quality, SCC, consistency, and safety floors remain satisfied. Artificially suppressing upper work while lower quality deteriorates is delegation failure, not maturity.
+
+##### 4.10 Governance Compilation
+
+When the same lower-agent composition succeeds repeatedly under stable conditions, the orchestration history itself becomes compressible. The system may package the validated composition into a reusable **composite module**:
+
+```text
+novel task
+  → expensive decomposition
+  → multi-agent composition
+  → repeated validation
+  → stable orchestration pattern
+  → composite module
+  → cheap default execution + retained escape path
+```
+
+Governance Compilation is therefore the conversion of repeated orchestration decisions into lower-cost reusable structure. It is analogous to moving a repeatedly reasoned procedure into a habit, policy, or compiled routine.
+
+Compilation is allowed only if:
+
+1. performance remains above the declared quality floor across multiple evaluation windows;
+2. independent audit paths remain available;
+3. rollback to the uncompiled composition is possible;
+4. OOD detection can wake a higher-resolution path;
+5. residual diversity is not eliminated;
+6. resource savings do not come from hiding unresolved conflict.
+
+Over-compilation is a known failure direction: it raises efficiency while reducing plasticity, eventually producing router lock-in, hidden topology mismatch, or SCM-like inability to recompose when terrain changes.
+
+##### 4.11 Small-Model Experimental Population Protocol
+
+Small or bounded models may be used as a low-cost experimental population for governance learning. The objective is not to assume that small-model behavior is identical to frontier-model behavior, but to cheaply map candidate invariants and failure surfaces before larger authority is granted.
+
+Experimental dimensions may include:
+
+- capability size and specialization;
+- memory and context budget;
+- authority level;
+- agent count and interaction topology;
+- communication bandwidth and translation layer;
+- verification depth;
+- competition/cooperation regime;
+- reset frequency and recovery policy;
+- resource scarcity and queue pressure.
+
+The resulting trajectories can train or calibrate `π_orch`, identify candidate failure precursors, and estimate which compositions deserve promotion to larger-scale testing.
+
+**Cross-scale lock:** no safety or stability conclusion learned from small models may be promoted solely because it held at small scale. Promotion requires independent validation at increasing capability/authority scales, because stronger models may discover strategies, shortcuts, or failure routes absent in the experimental population.
 
 #### 5. Input–Output Contract
 
@@ -4739,6 +4880,9 @@ Active Mode (restart from Phase 1 socialization)
 
 - **Phase 1 — Socialization:** Upper layer installs Seed → conflict logs accumulate → θd calibrates → lower layer internalizes governance principles
 - **Phase 2 — Rest Mode propagation:** Lower layer loop transitions to virtuous → upper-layer oversight enters Rest Mode → human attention moves to next unsocialized layer
+- **Phase 3 — Delegation propagation:** repeatedly validated lower compositions become default modules → middle-layer routing becomes cheaper and more automatic → upper direct execution falls while wake-up authority and OOD escape paths remain available
+
+**Computational interpretation:** Rest Mode does not require the upper model to disappear. It means the upper layer is no longer the default execution path. The mature upper layer spends most of its capacity on sparse structural decisions — criteria, resource envelopes, unresolved conflicts, novelty, and redesign — while routine work is absorbed by validated lower compositions.
 
 ### What Rest Mode Preserves
 
@@ -6030,9 +6174,33 @@ A sustained decrease in conflict rate (fesc → 0) without corresponding improve
 
 *Falsification condition:* If fesc → 0 is equally likely to indicate genuine resolution as impending failure, or if no environmental indicator reliably distinguishes the two cases, the anomalous friction reduction signal has no diagnostic value.
 
+**Prediction 20 — Learned orchestration reduces active resource cost at matched quality:**
+
+Given a fixed heterogeneous pool of models/modules, an orchestration policy trained on outcome-linked resource logs should reduce average active compute, context, or latency per successful task relative to static routing or always-large-model baselines while maintaining declared quality and safety floors. The gain should come primarily from better conditional activation, not from lowering verification standards.
+
+*Falsification condition:* If learned orchestration produces no resource reduction at matched quality/safety, or if apparent savings disappear after accounting for retries, escalations, and rollback, the resource-intelligence claim is unsupported.
+
+**Prediction 21 — Upper direct work declines with governance maturity:**
+
+Across successful maturation from supervised delegation toward Rest Mode, UDWR should trend downward while SCC, I, and task quality remain stable or improve. OOD and criterion-conflict events should temporarily reverse this trend by reactivating higher layers.
+
+*Falsification condition:* If mature systems require the same or greater fraction of upper direct work than immature systems at matched workload and quality, the upper-layer role-migration claim is weakened.
+
+**Prediction 22 — Orchestration history improves composition choice beyond model capability scores alone:**
+
+A scheduler using task-conditioned success/failure trajectories, disagreement structure, topology history, and recovery cost should outperform a scheduler that chooses agents only by standalone benchmark capability. The largest advantage should appear in tasks requiring heterogeneous collaboration or asymmetric verification.
+
+*Falsification condition:* If composition history adds no predictive value beyond individual model capability/cost scores, the Resource Intelligence Log is unnecessary as a distinct governance object.
+
+**Prediction 23 — Small-model safety transfer is partial, not automatic:**
+
+Failure and coordination patterns discovered in bounded small-model populations should transfer to larger-capability systems better than chance only for a subset of structural invariants; capability-dependent strategies should generate measurable transfer gaps. Staged cross-scale validation should therefore outperform direct promotion of small-model conclusions.
+
+*Falsification condition:* If small-model results transfer uniformly without capability-dependent gaps, the cross-scale lock is unnecessarily conservative. If they transfer no better than chance even after structural matching, the experimental-population protocol has little predictive value for larger systems.
+
 ### Quantitative Test Design Framework
 
-The ten predictions above are qualitative directional claims. For empirical testing, each prediction must be converted to a quantitative hypothesis with specified effect size and sample size requirements:
+The predictions above are qualitative directional claims. For empirical testing, each prediction must be converted to a quantitative hypothesis with specified effect size and sample size requirements:
 
 ```
 Test Design Template:
@@ -6067,17 +6235,21 @@ Test Prioritization (by feasibility and informativeness):
     P2 (cumulative vs reactive measurement)
     P3 (min vs mean Dint aggregation)
     P9 (entropy production bounds)
+    P20 (learned routing resource efficiency)
+    P22 (orchestration history value)
     
   Tier 2 (testable with moderate instrumentation):
     P1 (AND/OR asymmetry)
     P4 (withdrawal protocol re-entry frequency)
     P10 (concordance reliability)
+    P21 (UDWR decline with maturity)
     
   Tier 3 (requires specialized experimental setup):
     P5 (Silent Criticality detection)
     P6 (energy barrier asymmetry)
     P7 (niche differentiation dynamics)
     P8 (vectorization kinetics)
+    P23 (small-to-large cross-scale transfer)
 ```
 
 ### Relationship to VST Falsifiability
@@ -6206,17 +6378,21 @@ All metrics presented in this document are at the theory stage and have not been
 
 ### Reproducibility Protocol
 
-To facilitate empirical testing, the following protocol specifies what must be measured in any implementing system: (1) pairwise rule conflict events logged with frequency, severity level, and involved rule identifiers; (2) escalation events logged with source layer, target layer, and timestamp; (3) rule lifecycle events: creation, modification, and retirement, each with triggering λlog mass; (4) self-correction events: disturbance detected AND resolved without upper-layer intervention, logged with latency and completeness; (5) perturbation response: controlled disturbance injection at the lowest governance layer, measuring recovery probability within evaluation window W. Any multi-agent system that logs these five quantities can compute I, Ic, fesc, SCC, and Lreinf and test GRT's predictions.
+To facilitate empirical testing, the following protocol specifies what must be measured in any implementing system: (1) pairwise rule conflict events logged with frequency, severity level, and involved rule identifiers; (2) escalation events logged with source layer, target layer, and timestamp; (3) rule lifecycle events: creation, modification, and retirement, each with triggering λlog mass; (4) self-correction events: disturbance detected AND resolved without upper-layer intervention, logged with latency and completeness; (5) perturbation response: controlled disturbance injection at the lowest governance layer, measuring recovery probability within evaluation window W; (6) orchestration events: task signature, selected agent/module set, temporary interaction topology, active compute/context, authority budget, verification depth, result quality, disagreement, escalation, rollback, and recovery time. The first five support the original GRT metrics; the sixth is required to test learned orchestration, delegation maturity, and resource-intelligence predictions.
 
 ### Empirical Path
 
-Three empirical directions are most immediately accessible:
+Five empirical directions are most immediately accessible:
 
 **(1)** Controlled multi-agent simulation comparing AND/OR withdrawal protocol against symmetric and binary alternatives, measuring false positive rate, re-entry frequency, and time-to-stable-operation.
 
 **(2)** Single-agent diversity measurement via preference tuning diversity metrics (measuring Dint and Poverlap across fine-tuning epochs to detect over-convergence).
 
 **(3)** Perturbation testing in production LLM systems to distinguish genuine stability from over-stability (Prediction 5).
+
+**(4)** Static-router vs learned-orchestrator comparison using the same pool of heterogeneous small models, measuring matched-quality compute, latency, escalation rate, rollback rate, and cross-domain generalization.
+
+**(5)** Small-model experimental populations with controlled variation in topology, resource budget, and authority, followed by staged transfer to larger models to measure which safety and coordination patterns survive scale changes.
 
 ---
 
@@ -6226,10 +6402,10 @@ Three empirical directions are most immediately accessible:
 
 ### Implementation Architecture Overview
 
-> **v1.9 middle-layer lock:** The implementation architecture below must instantiate the Rule Architecture section's Middle-Layer Governance Interface: dual maps, typed routing, processing isolation, rule-patch lifecycle, independent clean anchors, local validation, residual return, and rollback. A generic message broker or single LLM judge does not satisfy this interface by itself.
+> **v1.10 orchestration lock:** The implementation architecture below must instantiate the Rule Architecture section's Middle-Layer Governance Interface: dual maps, typed routing, processing isolation, rule-patch lifecycle, independent clean anchors, local validation, residual return, and rollback. A generic message broker or single LLM judge does not satisfy this interface by itself.
 
 
-A GRT-compliant production system requires five structural components, each corresponding to a core theoretical construct:
+A GRT-compliant production system requires six structural components, each corresponding to a core theoretical construct:
 
 ```
 Component 1 — Conflict Log Infrastructure
@@ -6319,6 +6495,31 @@ Component 5 — Cross-Theory Validation Layer
     - Independent monitoring pipelines for each measurement channel
     - Concordance dashboard with automated discordance detection
     - Alert routing to governance state machine for automated response
+
+Component 6 — Orchestration & Resource Intelligence Layer
+  Theoretical basis: Tempo/Resource Scheduling, Learned Orchestration,
+  Delegation Maturity, Governance Compilation
+  Structural requirement: separate selection/allocation policy from the
+  executors it schedules, and retain a full outcome-linked orchestration log
+  
+  Minimum viable implementation:
+    - Capability registry: {model/module, specialty, cost, latency, ancestry,
+                            authority ceiling, verification requirements}
+    - Orchestration event schema: {task_signature, selected_agents, topology,
+                                   compute/context budget, authority budget,
+                                   verification depth, quality, escalation,
+                                   rollback, recovery_time}
+    - Learned or adaptive routing policy with conservative fallback
+    - Upper direct-work accounting (UDWR) and lower autonomous success rate
+    - Composite-module registry with version, audit path, rollback, OOD escape
+    - Cross-scale promotion gate for small-model experimental findings
+  
+  Production mapping:
+    - Router/orchestrator service separated from specialist executors
+    - Budget controller for compute, context, latency, and authority
+    - Shadow/sandbox population runner for bounded composition experiments
+    - Offline policy evaluation before orchestration-policy promotion
+    - Automatic de-compilation / fallback when OOD or disagreement rises
 ```
 
 ### Monitoring Dashboard Specification
@@ -6357,6 +6558,16 @@ Dashboard Panel 5 — Bootstrapping Progress:
   - Phase transition history with timestamps
   - Estimated time to next phase transition
   - Backward transition alerts (if any)
+
+Dashboard Panel 6 — Orchestration Health:
+  - Upper Direct Work Ratio (UDWR)
+  - Average active model/module count per task
+  - Active compute and context per successful task
+  - Routing fallback / escalation / rollback rates
+  - Verification depth by risk class
+  - Topology churn and repeated composition stability
+  - Correlated-ancestry concentration in active teams
+  - Composite-module OOD escape / de-compilation events
 ```
 
 ### Alert Hierarchy

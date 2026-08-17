@@ -5,7 +5,211 @@
 > A component theory of **Deficit-Fractal Governance (DFG)**  
 > Companion theories: [Vector Storm Theory] · [Network Architecture Theory]
 > 
-> **Version: v1.10-orchestration** (August 2026) — Learned orchestration, delegation maturity, and resource-intelligence integration
+> **Version: v1.24-dynamic-influence-balance-system** (August 2026) — Dynamic Influence Balance System (DIBS), phase-dependent output regulation, and moving-VCZ control contract
+>
+> v1.24-dynamic-influence-balance-system changes from v1.23-observable-quota-passive-cost-bench:
+> - **Dynamic Influence Balance System (DIBS) introduced:** precision multi-agent orchestration now regulates influence rather than merely selecting agents or averaging outputs
+> - **Six control knobs separated:** output gain, emission rate/duty cycle, delay, bandwidth/resolution, action authority, and read/write permeability are distinct control objects and may not be silently collapsed into a single weight
+> - **Moving-VCZ target adopted:** balance is defined as a dynamically maintained low-directional-privilege region with sufficient coordination, preserved local non-alignment, bounded external-calibration gap, and recoverable perturbations; zero disagreement and zero activity are not targets
+> - **DIBS state bundle formalized:** external-calibration gap, SCC-local amplification margin, directional privilege, residual-error covariance/common-mode concentration, recovery margin, information-flow floor, and exploration vitality form the minimum candidate observation bundle
+> - **Agent influence packet formalized:** committed output direction/value, amplitude, confidence, uncertainty, novelty, recent residual, error-correlation/redundancy, Local North Star strength, provenance, and authority class are separated
+> - **Phase-dependent controller added:** VCZ, early drift, active Storm, diagnosis, renewal, reconnection, and Mature Rest use different gain/permeability/authority schedules rather than one stationary policy
+> - **Anti-oscillation lock added:** fast gain/permeability control, slower authority/bandwidth adaptation, and still slower rule/North-Star revision are separated by timescale; deadbands, slew-rate limits, hysteresis, and rollback are required before deployment
+> - **Conflict-preservation lock added:** DIBS may attenuate influence but may not turn CONFLICT/UNKNOWN into VERIFIED merely by weighted averaging; incompatible outputs remain typed alternatives until the declared synthesis rule resolves them
+> - **Mechanical implementation gate executed:** 2,000 synthetic control windows produced zero violations of the declared single-agent weight cap, entropy floor, permeability interval, gain interval, and normalization constraints; monotone risk response held in all paired checks. This is explicitly an implementation sanity check, not behavioral evidence
+> - **Benchmark queue created:** gain-only, covariance-aware gain, gain+permeability, delay/noise-floor preservation, authority separation, phase switching, SCC-local risk, and recovery-return tests are separated into Cheap/Medium stages
+> - **Reproducibility artifacts:** `grt_v124_dibs_sanity_gate_results.json` and `run_grt_v124_dibs_sanity_gate.py`
+> - All previous content preserved.
+>
+> **Prior version: v1.23-observable-quota-passive-cost-bench** (August 2026) — boundary-observable selector audit, rolling quota adaptation, passive/noisy SSID, and implementation-cost separation
+>
+> v1.23-observable-quota-passive-cost-bench changes from v1.22-nonnormality-gated-selector:
+> - **MB-SF-04 executed:** four next-stage candidates were benchmarked together: boundary-observable non-normality proxies, rolling-quantile ERA quota control, noisy/passive black-box SSID, and runtime/energy proxy validity
+> - **Boundary-only non-normality proxy failed in its current form:** the full-operator numerical abscissa retained AUC 0.875 on both held-out and shifted terrain, while simple boundary impulse peak ratio was non-informative (AUC 0.50) and the trained boundary-feature logistic achieved only AUC 0.589 held-out / 0.650 shifted; neither is promoted as a replacement for the white-box risk gate
+> - **Boundary observability scope sharpened:** a boundary response can be sufficient to identify a useful effective state-space model while still being insufficient to infer the hidden non-normality property needed for reducer selection; model identification and risk classification are separate observability problems
+> - **Rolling-quantile quota survives as a resource-control mechanism only:** on a resampled ID→shift→return stream, fixed score thresholding deviated from the 40% ERA quota by an average 18.98 percentage points across phases, while a 60-sample rolling quantile reduced average quota deviation to 1.20 points; it does not repair a weak risk score and therefore is not counted as an accuracy-selector theorem
+> - **Noisy/passive SSID receives a scope-limited pass:** passive stochastic logged inputs plus noisy boundary outputs, converted through FIR Markov estimation and stability-locked ERA, achieved mean OOD replay errors 4.46% / 4.42% / 6.22% at 40 / 25 / 15 dB SNR respectively, with all selected reduced models stable in this bench
+> - **Active-probe advantage remains large:** the clean active Markov/ERA reference stayed near 0.3% mean replay error, so passive identification is deployable in the toy system but does not match clean intervention access; probe availability is now an explicit resource in effective-map selection
+> - **State-count ≠ runtime lock added:** the current rational model used fewer basis states on average (2.83 vs ERA 3.67) but its unoptimized history-kernel Python realization took about 155 ms for the benchmark rollout versus 2.80 ms for ERA, roughly 55× slower; interface dimension is therefore forbidden as a direct runtime/energy surrogate without an implementation map
+> - **Cost object split formalized:** `representation size`, `online arithmetic`, `history/storage`, `identification/probe cost`, `refresh cost`, and actual hardware energy are distinct cost objects and may not be silently collapsed into one scalar
+> - **Next queue narrowed:** multi-direction/finite-amplitude boundary probes for black-box risk scoring, passive-SSID data-length/SNR frontier, rolling quota under abrupt scarce-capacity events, and optimized recursive rational realization remain Medium; nonlinear switching, recursive multiscale closure, and multiplex real-agent tests remain higher-cost pending
+> - **Reproducibility artifacts:** `grt_v123_observable_quota_passive_cost_results.json`, `grt_v123_benchmark_summary.json`, and `run_grt_v123_observable_quota_passive_cost_bench.py`
+> - All previous content preserved.
+>
+> **Prior version: v1.22-nonnormality-gated-selector** (August 2026) — budget-controlled rational↔ERA selection under non-normality and terrain shift
+>
+> v1.22-nonnormality-gated-selector changes from v1.21-complexpole-blackbox-refresh-bench:
+> - **MB-SF-03G executed:** complex-pole rational and black-box ERA are no longer treated only as competing reducers; a conditional selector was tested to route low-risk terrains to the smaller rational interface and high-non-normality terrains to ERA
+> - **Fixed-threshold gate rejected as a resource contract:** a numerical-abscissa threshold trained under a 40% ERA budget produced good replay error but ERA usage rose to 51.9% on held-out systems and 59.3% under shifted terrain, so distribution shift broke the compute/probe budget
+> - **Budget-controlled rank gate introduced:** instead of fixing an absolute threshold, the selector ranks current candidates by non-normality risk and sends only the declared top-risk quota to ERA; a 40% nominal quota selected 10/27 = 37.0% of systems in the finite bench
+> - **Initial held-out rank result:** with only 37.0% ERA usage, the numerical-abscissa rank gate achieved mean error 0.00293 on held-out systems versus 0.00786 for always-rational and 0.00247 for always-ERA; shifted-terrain error was 0.00449 versus 0.02228 and 0.00297 respectively
+> - **Fresh-seed confirmation passed:** under predeclared confirmation gates, the 37.0%-ERA rank policy reduced mean error versus always-rational by 64.6% on fresh ID systems and 64.5% on fresh shifted terrains while remaining within 0.002 absolute mean error of always-ERA and reducing selected interface-state dimension by about 21% in both sets
+> - **Simple risk score preferred:** numerical abscissa separated material rational-failure cases well (AUC 0.829 held-out; 0.868 shifted); commutator departure was similar, while the two-feature logistic composite did not produce a material quota-gate advantage, so the simpler numerical-abscissa rank policy is retained
+> - **Selector/object scope lock added:** the current canonical gate uses access to the declared full linear operator to measure numerical abscissa; it is therefore not yet a black-box deployment gate. Boundary-observable non-normality proxies remain a separate Medium candidate
+> - **Population/quota scope lock added:** rank gating requires a reference population, batch, or rolling risk distribution. A one-off isolated system cannot enforce a percentile quota without an external calibration distribution
+> - **Hybrid effective-interface rule formalized:** reducer choice is now `terrain risk + resource quota + replay contract`, not one globally fixed effective model
+> - **Next queue narrowed:** boundary-only non-normality proxy, rolling-quantile quota adaptation, noisy/passive SSID, and probe/runtime cost remain Medium; nonlinear switching and recursive/multiplex closure remain pending at higher cost
+> - **Reproducibility artifacts:** `grt_v122_nonnormality_gated_selector_results.json`, `grt_v122_nonnormality_rank_confirmation_results.json`, and corresponding v1.22 scripts
+> - All previous content preserved.
+>
+> **Prior version: v1.21-complexpole-blackbox-refresh-bench** (August 2026) — complex-pole rational, black-box state-space identification, and residual-triggered refresh competition
+>
+> v1.21-complexpole-blackbox-refresh-bench changes from v1.20-time-domain-feshbach-memorybench:
+> - **MB-SF-03D executed:** complex-pole rational memory and black-box ERA/subspace state-space were compared on the same real-decay, oscillatory, and non-normal stable systems under ID, fast-OOD, chirp, and impulse forcing
+> - **Complex-pole rational survives with a non-normality scope lock:** median errors remained low and real-decay/oscillatory means were below 0.6%, but non-normal mean ID/chirp errors rose to 7.80%/11.04%; it is retained as a compact pole-basis candidate, not a general dynamic reducer
+> - **Black-box state-space identification wins the broad replay bench:** ERA learned only from boundary impulse/Markov responses achieved mean ID/fast-OOD/chirp/impulse errors 0.00370/0.00240/0.00526/0.00276 and remained strong on the non-normal family
+> - **Probe-access scope lock added:** the ERA bench used noiseless synthetic active impulse/Markov access; this supports black-box operator-free identification in the declared testbed but does not establish robustness to noisy/passive deployed identification
+> - **Residual-triggered refresh survives but trigger policy is split:** after terrain drift, frozen ERA mean replay error 0.03017 fell to 0.00249 after re-identification, a 91.7% relative reduction, but refresh requires an active identification budget and a reliable trigger
+> - **Trigger sieve executed:** a persistent residual trigger achieved 83.3% drift detection with 9.5% false-trigger rate; a dual relative+absolute residual trigger achieved 66.7% detection with 0% false triggers and is retained as a conservative high-cost-refresh policy
+> - **Simple threshold is not the default:** lower false-triggering than the initial prototype was obtained, but its 64.3% detection rate and long mean delay made it inferior to the persistent policy under the declared utility rule
+> - **Model/policy separation formalized:** `effective-model family` and `refresh policy` are separate orchestration decisions; refresh can wrap any versioned effective map and should not be mistaken for a competing coarse-graining theorem
+> - **Next queue narrowed:** noisy/passive subspace identification, non-normality-gated rational↔SSID selection, probe-cost optimization, and nonlinear switching remain Medium candidates; recursive multiscale and multiplex-real-agent closure remain Heavy pending
+> - **Reproducibility artifacts:** `grt_v121_complexpole_blackbox_refresh_results.json`, `grt_v121_refresh_trigger_sieve_results.json`, and corresponding v1.21 scripts
+> - All previous content preserved.
+>
+> **Prior version: v1.20-time-domain-feshbach-memorybench** (August 2026) — time-domain Feshbach candidate competition, memory-state frontier, and OOD scope separation
+>
+> v1.20-time-domain-feshbach-memorybench changes from v1.19-schur-mediumbench:
+> - **MB-SF-03 executed:** the three time-domain candidates from v1.19 — exact retained memory, stable rational/exponential memory, and learned finite-memory interface — were compared on the same stable linear dynamic systems and held-out forcing protocols
+> - **Exact-memory candidate locked as reference only:** retaining the full interior state reproduces the declared linear dynamics by construction, but is not a coarse-graining gain and therefore cannot win merely by zero error
+> - **Stable rational Feshbach survives strongly:** the operator-fitted stable exponential/rational memory family achieved mean boundary replay error 0.00135 on ID forcing, 0.00140 on fast OOD forcing, and 0.00125 on impulse forcing, versus 0.05896/0.05386/0.05577 for static Schur
+> - **Accuracy-only rational selection separated from compression:** the best-fit adaptive rational model used about as many hidden states as the original interior on average; it is retained as an accuracy reference, not as evidence of compression
+> - **Rational state-budget frontier established:** fixed budgets r=1..5 produced a monotone error/state tradeoff; r=3 used about 55% of the original interior-state count with mean ID/OOD errors 0.00759/0.00680, while r=2 used about 37% with 0.0155/0.0157
+> - **Learned finite-memory candidate scope narrowed:** stability-locked ARX memory improved ID replay versus static Schur (0.0381 vs 0.0590) but degraded on fast OOD (0.1016) and impulse forcing (0.1999), so it is retained only as a black-box/in-distribution candidate pending stronger OOD training and residual-triggered refresh
+> - **Mild terrain-drift audit corrected and rerun:** frozen old-operator exact/rational/learned/static maps had mean errors 0.0183/0.0185/0.0400/0.0515 under stable interior-timescale drift; the earlier inflated learned-drift result was discarded after a cache-reference bug was found
+> - **Refresh asymmetry observed in a small independent audit:** refitting an r=3 rational model from the updated operator reduced mean drift error 0.0150→0.00613, while a low-data learned refresh (3 train + 1 validation trajectories) changed 0.0349→0.0346 and therefore did not establish a useful refresh advantage
+> - **Behavioral replay remains the promotion criterion:** kernel-fit norm alone is insufficient; some rational fits had material kernel-norm residual yet very low boundary replay error under the declared forcing distribution
+> - **Next queue narrowed:** complex-pole/stable rational compression, black-box learned state-space identification, residual-triggered refresh, nonlinear switching/saturation, and actual runtime/energy frontiers remain candidate/medium pending; recursive and real-agent tests remain heavy pending
+> - **Reproducibility artifacts:** `grt_v120_feshbach_memorybench_results.json`, `grt_v120_rational_frontier_results.json`, `grt_v120_refreshbench_results.json`, and the corresponding v1.20 benchmark scripts
+> - All previous content preserved.
+>
+> **Prior version: v1.19-schur-mediumbench** (August 2026) — singular/gauge and directed/non-normal Schur candidate separation with executed MediumBench
+>
+> v1.19-schur-mediumbench changes from v1.18-schur-feshbach-candidate-sieve:
+> - **Two MediumBench queues executed:** `MB-SF-01` (directed/non-normal) and `MB-SF-02` (singular/gauge) are no longer pending; candidates are split by equilibrium, transient, gauge, regularization, and gating function rather than treated as one Schur claim
+> - **Gauge-compatible singular Schur clarified:** Moore–Penrose and explicit-complement elimination agree to numerical precision when coupling annihilates the declared nullspace; change of complement basis leaves the boundary operator invariant
+> - **Nullspace compatibility gate added:** a singular effective operator is invalid unless the boundary/interior coupling satisfies the declared range/nullspace compatibility condition; synthetic leakage audit achieved AUC 1.0 under the frozen generator, counted only as an implementation gate
+> - **Ridge-as-gauge replacement rejected:** fixed diagonal loading introduces nonzero boundary bias (mean relative error 0.00277, p95 0.0107) where exact pseudoinverse/complement constructions are available; `CF-SF-GRIDGE-01 → MEDIUM_FAIL_GENERAL`
+> - **Directed equilibrium/transient split:** the nonsymmetric static Schur operator is exact for the declared steady-state linear elimination (mean error ~1.5e-16) but is not a general transient model
+> - **Symmetrization shortcut rejected:** replacing a directed operator by its symmetric part before elimination produced mean steady-state boundary error 0.199 and extreme failures; `CF-SF-DSYM-01 → MEDIUM_FAIL_GENERAL`
+> - **First-order memory correction rejected in current form:** the tested moment-1 Feshbach approximation became unstable in a minority of systems and generated catastrophic tail error; it is retained as negative-result memory rather than a promoted dynamic approximation
+> - **Non-normality gate survives:** numerical abscissa predicted top-quartile static-Schur transient error with AUC 0.875 (commutator departure 0.814; spectral abscissa 0.744; simple interior/boundary timescale ratio ~0.504)
+> - **Held-out gated selector survives narrowly:** a threshold trained on an independent training split to choose `static Schur` versus `boundary-only` reduced held-out mean transient error to 0.03564 versus 0.03671 for the best fixed baseline (2.9% relative gain); retained as `MEDIUM_PASS_SCOPE_LIMITED`, not a universal selector
+> - **Dynamic research queue narrowed:** time-domain Feshbach should proceed through stable memory-kernel/state-augmentation or stable rational approximations rather than the failed naive first-moment correction
+> - **Reproducibility artifacts:** `grt_v119_schur_mediumbench_results.json` and `run_grt_v119_schur_mediumbench.py`
+> - All previous content preserved.
+>
+> **Prior version: v1.18-schur-feshbach-candidate-sieve** (August 2026) — Schur/Feshbach candidate decomposition, scope locks, and third CheapBench batch
+>
+> v1.18-schur-feshbach-candidate-sieve changes from v1.17-nat-easy-integration:
+> - **Schur/Feshbach family split:** static exact Schur, low-rank approximate Schur, regularized Schur, frequency-conditioned Feshbach, state-conditioned Jacobian Schur, and cross-terrain shared-template variants are registered as separate candidates rather than one generic coarse-graining claim
+> - **Static linear object lock:** Schur elimination is treated as exact only for the declared linear boundary/interior operator with invertible interior block (or declared gauge/complement); behavioral adequacy outside that object remains empirical
+> - **Dynamic-memory lock:** time/frequency-dependent interiors require a spectral-parameter effective operator; a zero-frequency Schur map is not silently reused as a dynamic operator
+> - **Nonlinear terrain lock:** fixed Schur maps are local approximations in nonlinear systems; state-conditioned Jacobian Schur maps are separate candidates and require operating-point provenance
+> - **Terrain-specificity lock strengthened:** an effective operator belongs to a declared patch/object; cross-terrain reuse requires a bridge and is not justified by algebraic exactness on the source patch
+> - **Third CheapBench batch:** `CB-SF-01` through `CB-SF-05` executed across clean static, noisy/ill-conditioned, dynamic, nonlinear, and cross-terrain regimes
+> - **Low-rank candidate survives cheap gate:** rank-4 approximate Schur reduced mean relative operator error to 0.00482 versus 0.0181 for diagonal elimination and 0.0404 for boundary-only baseline in the clean static generator
+> - **Regularization candidate not promoted:** the predeclared regularized Schur rule beat noisy full Schur in only 43.7% of cases and gave no meaningful aggregate advantage; retained as a narrower-subregime candidate rather than a general rule
+> - **Frequency-conditioned Feshbach scope confirmed:** static Schur boundary-response error peaked near the tested interior timescale (ω=1: mean 0.0363, p95 0.0989), while the frequency-conditioned linear elimination matched the declared resolvent to numerical precision
+> - **Nonlinear candidate split:** state-conditioned Jacobian Schur beat the fixed zero-state Schur in 100% of 600 nearby-intervention cases; fixed Schur remains a local approximation rather than a global nonlinear bridge
+> - **Shared-template transfer rejected in current form:** a normalized shared effective template had mean held-out cross-terrain operator error 0.532, while object-specific Schur remained exact on its declared linear object
+> - **Reproducibility artifacts:** `grt_v118_schur_feshbach_cheapbench_results.json` and `run_grt_v118_schur_feshbach_cheapbench.py`
+> - All previous content preserved.
+>
+> **Prior version: v1.17-nat-easy-integration** (August 2026) — NAT easy integration, multiplex FMCI, and second CheapBench batch
+>
+> v1.17-nat-easy-integration changes from v1.16-cheapbench-execution:
+> - **Dual-resolution lock:** `ρ_D` (decision/abstraction resolution) is separated from `ρ_T` (terrain-contact/detail resolution), so upper layers can be high-`ρ_D` while lower terrain maps remain high-`ρ_T`
+> - **Multiplex FMCI:** compute, task, information, authority, contamination, recovery, audit, memory, and energy paths are distinct objects; no topology result transfers silently across channels
+> - **Mutual Terrain Reconciliation execution form:** local layers send scoped differentials, global fusion preserves conflict/correlation, downward patches are role-projected, and local sandbox residuals can revise the global map and router
+> - **Operational diversity strengthened:** residual-error covariance and common ancestry/exposure replace model count or architecture labels as the primary cross-validation diversity signal
+> - **Routing order added to orchestration:** ordered mediation path `O_path` is part of `π_orch`; path order is treated as a transformation variable
+> - **Interface-Dilution Contract:** sparse cross-module interfaces are beneficial only while recovery/audit/translation/rollback deadlines remain satisfied
+> - **Claim-Type × Evidence-State matrix:** logical type (`D/A/M/B/E`) and empirical evidence state (`CANDIDATE/CHEAP_PASS/...`) are separate axes
+> - **Second CheapBench batch:** `CB-ORD-01`, `CB-MONO-01`, and `CB-INT-01` executed; heavy Schur/FDCL-renormalization/topological/category candidates remain pending
+> - **CB-ORD-01 CHEAP_PASS:** history-selected ordering reduced MSE by 5.9% vs fixed ordering; 79.7% of pairs had >5% order-sensitive loss
+> - **CB-MONO-01 CHEAP_PASS:** with individual error held near 20%, majority error rose 0.033→0.201 as error correlation rose ~0→1; high-agreement wrong consensus rose 0.00044→0.201
+> - **CB-INT-01 CHEAP_PASS_SCOPE_LIMITED:** under a declared p95 deadline of 6 hops, 30 cross edges were sufficient vs 90 in the densest tested graph, supporting a deadline-constrained Pareto frontier
+> - **Reproducibility artifacts:** `grt_v117_nat_easybench_results.json` and `run_grt_v117_nat_easybench.py`
+> - All previous content preserved.
+>
+> **Prior version: v1.16-cheapbench-execution** (August 2026) — First executed GRT CheapBench suite and evidence-state updates
+>
+> v1.16-cheapbench-execution changes from v1.15-candidate-benchmark-pipeline:
+> - **First internal CheapBench suite executed:** low-cost synthetic tests were run for Predictions 34–37 using independently frozen environment/ground-truth generators and explicit baselines; results are recorded as evidence-state updates rather than theorem proofs
+> - **Adaptive-router candidate CHEAP_PASS:** across 100 drift runs, the adaptive router achieved mean post-drift success 0.785 versus 0.379 for the frozen router; in the final 500 steps the gap widened to 0.873 versus 0.377
+> - **Maturation-before-coupling candidate CHEAP_PASS:** across 500 randomized two-module systems, coupling before local maturation increased peak excursion by 1.73×, cumulative state cost by 7.54×, and recovery time by 9.75 steps on average; couple-first had higher state cost in 100% of runs under the declared generator
+> - **Multivariate bridge candidate CHEAP_PASS (scope-limited):** across 20 random held-out splits, the bridge bundle reduced normalized macrostate RMSE by 30.5% relative to a scalar-only bridge; leave-one-topology-out transfer was mixed, so novel-topology portability remains explicitly pending
+> - **Residual-vitality candidate CHEAP_PASS:** in low-observed-residual cases across 30 independently generated datasets, adding probe responsiveness and update activity raised AUC from 0.657 to 0.885 and balanced accuracy from 0.636 to 0.784 for detecting hidden incompatibility
+> - **Negative/partial result retained:** multivariate bridge gains did not generalize uniformly to unseen topologies (ring transfer worsened; star was neutral; complete and two-community improved), preventing premature promotion to cross-topology law
+> - **Evidence ledger updated:** Predictions 34, 36, and 37 advance to `CHEAP_PASS`; Prediction 35 advances to `CHEAP_PASS_SCOPE_LIMITED` with topology-transfer testing pending; Prediction 38 remains `CHEAP_PENDING`; difficult CF-TOP/UNI/SCALE/ENERGY candidates remain heavy-pending
+> - **Reproducibility artifact added:** `grt_v116_cheapbench_results.json` stores the frozen numerical summaries and uncertainty estimates used in this revision
+> - All previous content preserved.
+>
+> **Prior version: v1.15-candidate-benchmark-pipeline** (August 2026) — Candidate-first formalization, cheap self-benchmarking, and heavy-test pending locks
+>
+> v1.15-candidate-benchmark-pipeline changes from v1.14-bridge-validation:
+> - **Candidate-First Research Pipeline added:** difficult mathematical or cross-scale ideas are no longer forced directly into theory status; they enter a versioned candidate registry with explicit object, claim, observables, baselines, falsification condition, dependencies, and estimated test cost
+> - **CheapBench-first promotion rule added:** every candidate that admits a low-cost test must first survive construction-independence/non-tautology audit, simple-baseline comparison, ablation, perturbation/counterexample sweep, and held-out transfer before medium or heavy validation is justified
+> - **Heavy-Test Pending Lock added:** candidates requiring large-scale multi-agent deployment, real hardware energy telemetry, multi-domain data, persistent-homology calibration, or expensive long-horizon experiments may remain `HEAVY_PENDING`; pending candidates may guide experiment design but may not be cited as GRT laws or validated mechanisms
+> - **Evidence-state ledger added:** `CANDIDATE → CHEAP_ACTIVE → CHEAP_PASS/FAIL → MEDIUM_PENDING/PASS → HEAVY_PENDING/PASS → PROVISIONAL → PROMOTED`, with rejected and dormant branches retained as negative-result memory rather than silently deleted
+> - **Benchmark anti-tautology lock added:** reference objects, baselines, and evaluation targets must be frozen independently of the construction being tested; a benchmark that mechanically reproduces the candidate's own construction cannot count as validation
+> - **Complexity-budget rule added:** experimental cost must scale with expected information gain; expensive validation is reserved for candidates that survive cheaper discriminating gates, while low-information heavy tests are deferred
+> - **Initial difficult-candidate queue instantiated:** topological/persistent-structure audit, approximate categorical compatibility formalization, cross-domain universality, deployed scale-transform closure, and cross-hardware energy scaling are retained with explicit pending status rather than prematurely promoted
+> - All previous content preserved.
+>
+> **Prior version: v1.14-bridge-validation** (August 2026) — Fractal bridge validation, router plasticity, maturation-gated coupling, and residual vitality
+>
+> v1.14-bridge-validation changes from v1.13-asymmetric-fractal-coevolution:
+> - **Fractal Compatibility Validation Suite added:** FMCI now has an explicit synthetic-gate sequence inspired by the FGS Micro–Macro Bridge Benchmark — replica invariance, multivariate coarse-graining closure, intervention equivariance, topology-degeneracy testing, and next-scale residual validation
+> - **Bridge-vector rule strengthened:** scale transfer may not rely on a single scalar when buffer, timescale, topology, authority, risk, recovery, or energy variables carry independent predictive information; scalar sufficiency must be demonstrated rather than assumed
+> - **Middle-router plasticity added:** the middle layer's translation/routing policy is itself a learnable map with versioned translation loss, terrain-drift response, and rollback; fixed routers are treated as potential maturity bottlenecks
+> - **Variation–Maturation–Integration Cycle added:** local variations separate and mature under their own terrain before cross-local coupling; coupling begins through middle-layer compatibility channels and expands only after self-recovery and summary/translation competence are demonstrated
+> - **Governance information-bottleneck grounding added:** upper maps are expected to be lower-resolution partly because cross-layer governance channels have finite bandwidth; compression is therefore structural, but provenance, uncertainty, and protected invariants must survive it
+> - **Residual Vitality / False Compatibility lock added:** low scale residual is not sufficient evidence of healthy compatibility when experiment, feedback, disagreement, or middle-layer translation activity has collapsed; mature compatibility preserves small testable residuals rather than forcing zero residual
+> - **Difficult formalizations deferred explicitly:** category-theoretic exact isomorphism and persistent-homology/topological-invariant claims remain candidate audit methods only; GRT retains bounded-loss compatibility morphisms and approximate commutation as the operational core until stronger validation exists
+> - **Falsifiability expanded:** Predictions 34–38 test router plasticity, multivariate bridge sufficiency, maturation-before-coupling, residual vitality, and information-bottleneck behavior
+> - All previous content preserved.
+>
+> **Prior version: v1.13-asymmetric-fractal-coevolution** (August 2026) — Compatibility-gradient fractal maps, terrain-specialized variation, and mutual scale co-evolution
+>
+> v1.13-asymmetric-fractal-coevolution changes from v1.12-fractal-map-compatibility:
+> - **Asymmetric fractal definition locked:** upper and lower maps are not repeated copies. Upper maps maximize cross-domain compatibility and invariant portability at lower resolution; lower maps maximize terrain specificity and operational resolution at lower portability
+> - **Two-axis coordinate separation added:** governance abstraction depth `ℓ` is separated from deployment/system scale `k`; a larger system is not automatically a higher governance layer, and a lower layer is not automatically a smaller population
+> - **Fractal Compatibility Gradient formalized:** compatibility, abstraction, and change-timescale generally increase upward, while terrain specificity, local resolution, and adaptation speed generally increase downward
+> - **Bidirectional asymmetric transforms added:** downward terrain-conditioned expansion (`E_down`) converts upper invariants into local variations; upward invariant extraction (`X_up`) compresses multiple local variations without averaging away meaningful heterogeneity
+> - **Cross-local transfer lock added:** local knowledge must not be copied directly from domain `i` to domain `j`; portable structure is first lifted into a compatibility representation and then re-expanded under the receiver terrain
+> - **Mutual Resonant Co-evolution loop added:** upper compatibility maps shape local variation, while repeated local residuals update the upper map and the transformation operators themselves; neither layer is treated as a fixed teacher
+> - **External-theory differentiation expanded:** GRT/FMCI is compared against Fractal Company, FeUdal/Hierarchical RL, MAML/CAVIA meta-learning, personalized federated learning, renormalization-group coarse-graining, DiffPool, and MeGraph; the claimed distinction is the closed governance loop combining compatibility gradients, bidirectional scale learning, authority/risk/recovery/energy maps, and mutual co-evolution
+> - **Falsifiability expanded:** Predictions 30–33 test the compatibility gradient, terrain-conditioned expansion, compatibility-mediated cross-local transfer, and co-evolutionary reduction of scale residual
+> - All previous content preserved.
+>
+> **Prior version: v1.12-fractal-map-compatibility** (August 2026) — Fractal scale transfer, map compatibility, and bounded-residual orchestration
+>
+> v1.12-fractal-map-compatibility changes from v1.11-energy-orchestration:
+> - **Fractal Map Compatibility Interface (FMCI) added:** small-model experiments are transferable only through explicit scale transforms that preserve declared structural invariants rather than through naive replication or parameter-count extrapolation
+> - **Scale-map bundle formalized:** capability, interaction topology, authority, energy, risk, recovery, uncertainty/provenance, and timing maps are carried together across scale so efficiency conclusions cannot detach from safety and governance structure
+> - **Invariant-preservation contract added:** boundaries, authority ceilings, dependency relations, failure-propagation direction, recovery paths, uncertainty/provenance, and protected diversity must survive scale translation within declared tolerances
+> - **Bounded quasi-commutativity audit added:** scale transfer is tested by whether governance-before-transfer and transfer-before-governance produce bounded diagram residuals; exact commutativity is neither assumed nor required
+> - **Scale Residual Learning added:** mismatch between predicted next-scale maps and observed next-scale behavior is retained as first-class training data for improving the scale transform itself, rather than being averaged away
+> - **Staged scale-promotion protocol added:** small → meso → large promotion requires shadow/canary validation, residual thresholds, recovery tests, and automatic rollback when scale residuals exceed bounds
+> - **Energy scaling extended:** physical-energy accounting now includes communication and synchronization costs explicitly, preventing small-agent energy gains from being extrapolated to large populations without coordination-cost measurement
+> - **Production architecture expanded:** FMCI becomes a seventh structural component with scale-map registry, invariant audit, residual telemetry, promotion gates, and scale-aware dashboards
+> - **Falsifiability expanded:** Predictions 26–29 test bounded-residual transfer, invariant-preserving scaling, quasi-commutativity, and coordination-energy growth across scale
+> - All previous content preserved.
+>
+> **Prior version: v1.11-energy-orchestration** (August 2026) — Energy-aware orchestration, learned delegation, and resource-risk integration
+>
+> v1.11-energy-orchestration changes from v1.10-orchestration:
+> - **Energy-Aware Orchestration Principle added:** mature governance minimizes the active intelligence and physical energy required to satisfy declared quality, safety, SCC, and authority constraints; energy savings may never be purchased by silently lowering those floors
+> - **Compute–Energy–Risk Intelligence added:** orchestration history now records physical/estimated energy alongside compute, context, latency, verification, retries, escalation, recovery, and failure impact, making resource allocation a joint energy–risk learning problem
+> - **Energy Escalation Ladder added:** execution begins from the lowest validated capability tier and activates larger or more numerous models only when uncertainty, disagreement, OOD, risk, or recovery signals justify escalation
+> - **Physical-energy accounting separated from governance free-energy analogy:** Joules, peak power, accelerator-time, and retry energy are operational measurements; F_gov remains a state-landscape construct and must not be interpreted as electrical energy
+> - **Energy-normalized maturity metrics and falsifiability added:** Joules per successful task, useful-work energy ratio, escalation energy overhead, and matched-quality/safety Pareto tests added to orchestration monitoring and Predictions 24–25
+> - **Production architecture expanded:** Orchestration & Resource Intelligence upgraded to Compute–Energy–Risk Intelligence with telemetry, energy-budget enforcement, and energy-aware fallback/de-compilation rules
+> - All previous content preserved.
+>
+> **Prior version: v1.10-orchestration** (August 2026) — Learned orchestration, delegation maturity, and resource-intelligence integration
 >
 > v1.10-orchestration changes from v1.9-middlelayer:
 > - **Learned Orchestration Principle added:** model composition, routing, verification depth, authority budget, and stopping policy are treated as learnable governance decisions rather than fixed workflow logic
@@ -1343,18 +1547,20 @@ Recalibration should generally begin with the lowest-risk boundary data and expa
 The operational scheduler may be represented as a learned policy rather than a fixed dispatch table:
 
 ```text
-π_orch(x, M, H, B, R)
-  → {A_active, G_task, b_compute, a_authority, v_verify, t_dwell, stop_rule}
+π_orch(x, M, H, B, R, E)
+  → {A_active, G_task, b_compute, b_energy, a_authority, v_verify, t_dwell, stop_rule}
 
 where:
   x           = current task / event state
   M           = capability and model map
   H           = accumulated orchestration history
-  B           = current resource and queue budget
+  B           = current compute, context, latency, and queue budget
   R           = risk / reversibility / authority state
+  E           = physical-energy state or best available energy proxy
   A_active    = selected active agents or modules
   G_task      = temporary interaction topology
   b_compute   = compute/time/context allocation
+  b_energy    = task energy budget / power envelope
   a_authority = maximum action authority granted
   v_verify    = verification depth and independent-check requirement
   t_dwell     = minimum observation / stabilization interval
@@ -1368,13 +1574,90 @@ This turns resource allocation itself into a governance learning problem. A matu
 ```text
 {task_signature, selected_agents, interaction_topology,
  active_compute, context_budget, latency, authority_budget,
+ energy_joules_or_proxy, peak_power_or_proxy, accelerator_time,
  verification_depth, disagreement_pattern, outcome_quality,
- rollback_event, escalation_event, recovery_time}
+ retry_energy, escalation_energy, rollback_event, escalation_event,
+ recovery_time, recovery_energy}
 ```
 
 The log is not merely accounting. It is training data for future composition and resource decisions. Repeated evidence can teach the scheduler when a small specialist is sufficient, when parallel diversity is valuable, when sequential depth is necessary, and when a large/general model or upper-layer intervention is justified.
 
 No monotone scaling assumption is permitted: adding agents, context, or compute may increase translation loss, correlated error, queue cost, and coordination instability. Resource expansion must therefore be justified by expected marginal governance value, not by raw capacity.
+
+**Middle-Router Plasticity Principle:** the middle layer's router/translator is itself an adaptive governance object, not a fixed message switch. A fixed routing table may be initially efficient but can become a bottleneck as terrain, model population, or timescale relations change. Therefore the router must retain a versioned update path:
+
+```text
+R_M(t) = {routing_table, translation_contracts, receiver_models, loss_model, tempo_model}
+
+R_M(t+1) = Update(R_M(t), terrain_residuals, translation_failures, queue/recovery data)
+```
+
+Every consequential cross-layer translation should record a **declared translation loss** and a receiver-conditioned validation result. Candidate observables include:
+
+```text
+TLoss      = declared + observed semantic/structural loss across translation
+RDrift     = change in routing success under terrain drift
+RRollback  = frequency of reverting router/translation-policy updates
+RPlastic   = improvement in matched-quality routing after update / update cost
+```
+
+Router updates must preserve independent audit paths and must not self-certify. A router that lowers visible conflict by filtering disagreement, simplifying translation, or starving escalation channels is not improved routing; it is a candidate mediation failure.
+
+**Energy-Aware Orchestration Principle:** physical energy is an explicit governance resource, not merely an external billing concern. The scheduler should minimize energy only **subject to** declared quality and safety constraints:
+
+```text
+π*_orch = argmin_π E_task(π)
+
+subject to:
+  Q_task(π)   ≥ Q_min
+  Safety(π)   ≥ S_min
+  SCC(π)      ≥ SCC_min
+  Authority(π) ⊆ Authority_budget
+  Recovery(π) ≤ Recovery_limit
+```
+
+This constrained formulation is preferred to a single weighted score because it prevents an optimizer from trading away safety, verification, or recoverability for energy savings. The governing principle is:
+
+> **Do not activate more intelligence than the task requires — but never save energy by crossing the declared safety or quality floor.**
+
+A task-level physical-energy decomposition may be recorded as:
+
+```text
+E_task = E_inference + E_memory + E_communication
+       + E_synchronization + E_verification
+       + E_retry + E_recovery
+```
+
+When direct Joule telemetry is unavailable, a declared proxy may be used (accelerator-seconds, active parameter-time, token-compute, memory-traffic estimate, or normalized device-energy units). Proxy identity and calibration version must be retained in provenance.
+
+**Physical-energy / governance-energy separation lock:** `E_task` is measurable physical or proxied energy consumption. It is not the same object as the governance free-energy landscape `F_gov` used elsewhere in GRT to characterize state barriers. No equation may substitute one for the other without an explicit empirical bridge.
+
+**Energy Escalation Ladder:** the default route should begin at the lowest validated capability tier and climb only when evidence justifies additional activation:
+
+```text
+Tier 0 — compiled routine / tiny specialist
+  ↓ if uncertainty, disagreement, OOD, or risk trigger fires
+Tier 1 — single small specialist
+  ↓
+Tier 2 — small specialist team + independent verifier
+  ↓
+Tier 3 — larger domain/general reasoning model
+  ↓
+Tier 4 — upper-layer direct reasoning / redesign / human-authorized path
+```
+
+Escalation is not failure; it is conditional resource allocation. Likewise, remaining at a low tier is not maturity if retries, hidden error, or downstream recovery consume more total energy. The correct objective is **minimum total energy per successful, safe, recoverable task**, not minimum first-pass energy.
+
+Candidate energy-normalized orchestration observables:
+
+```text
+JST  = total physical/proxy Joules / successful tasks
+UER  = E_useful_success / E_total             # useful-work energy ratio
+EEO  = E_escalation+retry+recovery / E_total  # escalation energy overhead
+MEGV = Δ(governance value) / ΔE               # marginal energy-to-governance value
+```
+
+`JST ↓` is favorable only while quality, Safety, SCC, and recovery constraints remain satisfied. `UER ↑` indicates less energy is being spent on discarded, redundant, or recoverative work. `EEO ↑` may signal underpowered initial routing, unstable composition, or excessive verification churn. `MEGV` should decline as additional models/compute are activated; when marginal governance value falls below the declared threshold, escalation should stop unless a safety rule independently requires it.
 
 ##### 4.9 Learned Orchestration and Upper-Layer Role Migration
 
@@ -1424,7 +1707,7 @@ novel task
   → cheap default execution + retained escape path
 ```
 
-Governance Compilation is therefore the conversion of repeated orchestration decisions into lower-cost reusable structure. It is analogous to moving a repeatedly reasoned procedure into a habit, policy, or compiled routine.
+Governance Compilation is therefore the conversion of repeated orchestration decisions into lower-cost reusable structure. It is analogous to moving a repeatedly reasoned procedure into a habit, policy, or compiled routine. Energy reduction is a primary expected benefit, but compilation is accepted only when matched-quality and matched-safety tests show that the cheaper path preserves SCC, disagreement visibility, rollback, and OOD escape. A compiled path that lowers first-pass energy while increasing retry or recovery energy is not an efficiency gain.
 
 Compilation is allowed only if:
 
@@ -1456,6 +1739,1710 @@ Experimental dimensions may include:
 The resulting trajectories can train or calibrate `π_orch`, identify candidate failure precursors, and estimate which compositions deserve promotion to larger-scale testing.
 
 **Cross-scale lock:** no safety or stability conclusion learned from small models may be promoted solely because it held at small scale. Promotion requires independent validation at increasing capability/authority scales, because stronger models may discover strategies, shortcuts, or failure routes absent in the experimental population.
+
+##### 4.12 Fractal Map Compatibility Interface (FMCI) — Candidate Scale-Transfer Architecture
+
+> **Status lock (v1.13):** FMCI is not a fourth governance layer. It is a cross-scale and cross-resolution compatibility interface used by the existing Upper–Middle–Lower architecture. The core claim is explicitly **asymmetric**: upper and lower maps should not be identical. Upper maps preserve portable, low-resolution relation invariants; lower maps instantiate terrain-conditioned, high-resolution variations. FMCI tests whether those different maps remain mutually translatable while system-size effects, local specialization, and scale residuals are measured explicitly.
+
+Small-model experimentation is useful only if the resulting structure can be translated to larger systems without assuming that `N × small behavior = large behavior`. Scaling introduces new coupling, synchronization, queue, hierarchy, communication, and correlated-failure terms. Therefore GRT distinguishes **local experimental validity** from **cross-scale portability**.
+
+###### 4.12.1 Fractal Compatibility Definition
+
+A governance structure is *fractal-compatible* across scales `k → k+1` when a declared set of structural relations survives resolution change within bounded error, even though the concrete agents, state dimensionality, time constants, and interaction density may differ.
+
+```text
+Fractal compatibility ≠ identical agents at every scale
+Fractal compatibility ≠ visual self-similarity
+Fractal compatibility = relation-preserving translation across resolution
+```
+
+Let the scale-indexed governance map be a bundle rather than a single graph:
+
+```text
+M_k = {
+  M_capability,       # what functions exist at scale k
+  M_topology,         # interaction / dependency structure
+  M_authority,        # decision and action ceilings
+  M_energy,           # compute / memory / communication / synchronization cost
+  M_risk,             # failure impact, propagation, reversibility
+  M_recovery,         # rollback, repair, reconstitution paths
+  M_uncertainty,      # unknown regions, confidence, provenance
+  M_time              # local tempo, dwell, delay, adaptation timescale
+}_k
+```
+
+The scale transform is:
+
+```text
+T_{k→k+1}(M_k, context_k, scale_contract)
+  → {M̂_{k+1}, declared_loss, invariant_report, uncertainty, rollback_requirement}
+```
+
+`M̂_{k+1}` is a prediction of the next-scale map, not a certified truth. The transform must declare what is compressed, what is newly emergent, and what cannot be inferred from the lower scale.
+
+###### 4.12.1A Two-Axis Fractal Coordinates: System Scale `k` vs. Governance Resolution `ℓ`
+
+GRT separates two axes that must not be collapsed:
+
+```text
+k = deployment / population / system scale
+    (small → meso → large populations or infrastructures)
+
+ℓ = governance abstraction / map-resolution layer
+    (local high-resolution terrain map → middle compatibility map → upper low-resolution invariant map)
+```
+
+A large system can contain very low-level local maps, and a small experimental population can still instantiate an upper–middle–lower governance stack. Therefore the canonical map object is more precisely written as:
+
+```text
+M_{k,ℓ}
+```
+
+rather than assuming that `k` and `ℓ` increase together. Scale transfer changes `k`; abstraction translation changes `ℓ`. FMCI must audit both.
+
+This distinction prevents a common fractal error: treating **larger** as synonymous with **higher**. In GRT, “higher” means broader compatibility and lower operational resolution, not merely more agents or parameters.
+
+###### 4.12.1B Fractal Compatibility Gradient
+
+The canonical fractal relation is **not self-copying**. It is a directional compatibility gradient:
+
+```text
+Upward (ℓ ↑):
+  cross-domain compatibility ↑
+  invariant portability ↑
+  abstraction ↑
+  change timescale ↑ (slower update)
+  terrain specificity ↓
+  operational resolution ↓
+
+Downward (ℓ ↓):
+  terrain specificity ↑
+  operational resolution ↑
+  local adaptation speed ↑
+  implementation diversity ↑
+  direct portability ↓
+  cross-domain compatibility ↓
+```
+
+This yields the **Fractal Compatibility Gradient (FCG)**:
+
+```text
+FCG:  d Compatibility / dℓ > 0
+      d Specificity   / dℓ < 0
+      d Resolution    / dℓ < 0
+```
+
+These are directional structural expectations, not universal linear laws. A valid implementation may contain local reversals, but sustained inversion of the gradient indicates that an upper map has become over-specialized or a lower map has become too generic to fit its terrain.
+
+The upper map is therefore a **compatibility map**, not a complete truth map. The lower map is a **terrain map**, not a noisy copy of the upper map. Their difference is functional and necessary.
+
+###### 4.12.1C Asymmetric Bidirectional Translation
+
+Because the maps have different purposes, upward and downward translation are different operators:
+
+```text
+Downward terrain-conditioned expansion:
+  E_down(G_ℓ, Terrain_i, receiver_contract) → L_i
+
+Upward invariant extraction:
+  X_up({L_i, residual_i, provenance_i}) → {G_candidate, exclusions, confidence}
+```
+
+`E_down` does not clone the upper map. It preserves declared invariants while allowing local rules, representations, tempos, resource policies, and recovery procedures to vary with terrain.
+
+`X_up` does not average local maps. It extracts relations that survive across sufficiently independent local variations while retaining exclusions and contradictory residuals. A pattern that succeeds only in one terrain remains local unless a portable invariant can be demonstrated.
+
+Canonical example:
+
+```text
+Upper invariant:
+  high-risk action → independent verification path → action / abstention
+
+Possible local variations:
+  coding domain   → test/review agent before deployment
+  robotics domain → collision/constraint checker before actuation
+  finance domain  → independent risk gate before execution
+
+The implementations differ; the relation grammar is portable.
+```
+
+###### 4.12.1D Compatibility-Mediated Cross-Local Transfer
+
+Direct local-to-local copying is non-canonical because a successful local rule is partly encoded in its terrain. Transfer therefore follows:
+
+```text
+L_i
+  ↓ X_up
+portable invariant / compatibility representation
+  ↓ E_down under Terrain_j
+L_j candidate variation
+  ↓ local validation
+ACCEPT / CONDITIONAL / CONFLICT / OUT_OF_SCOPE / UNSAFE / UNRESOLVED
+```
+
+Formally:
+
+```text
+Transfer(i→j) = E_down( X_up(L_i), Terrain_j )
+```
+
+not:
+
+```text
+Transfer(i→j) = Copy(L_i)
+```
+
+The compatibility layer is therefore a translation bridge that protects against accidental export of terrain-specific assumptions.
+
+###### 4.12.2 Invariant-Preservation Contract
+
+The following are candidate invariants that must not silently disappear during scale translation:
+
+1. **Boundary invariant** — prohibited zones and non-negotiable criteria remain identifiable.
+2. **Authority invariant** — who may decide, execute, validate, suspend, or revoke remains explicit.
+3. **Dependency invariant** — critical dependency direction and high-centrality bottlenecks remain traceable.
+4. **Failure-direction invariant** — known propagation channels and containment boundaries remain represented.
+5. **Recovery invariant** — rollback, reconstruction, quarantine, and escalation paths survive compression.
+6. **Uncertainty/provenance invariant** — unknown regions and evidence lineage remain attached to translated claims.
+7. **Residual-diversity invariant** — disagreement and independent audit paths are not optimized away by aggregation.
+8. **Resource-contract invariant** — energy/compute savings are not detached from the risk, verification, and authority conditions under which they were measured.
+
+The transform may change numeric values and topology size. What it may not do is convert a known structural dependency into an unqualified scalar average or erase a failure path merely because it is rare at the lower scale.
+
+###### 4.12.3 Bounded Quasi-Commutativity Audit
+
+A scale-compatible governance rule should approximately agree under two routes:
+
+```text
+Route A: govern locally, then scale
+  M_k --G_k--> M'_k --T_{k→k+1}--> M̂'_{k+1}
+
+Route B: scale first, then govern at the larger resolution
+  M_k --T_{k→k+1}--> M̂_{k+1} --G_{k+1}--> M*_{k+1}
+```
+
+Exact equality is not expected because new scale-dependent interactions can emerge. The audit quantity is therefore a **diagram residual**, not a proof of commutativity:
+
+```text
+R_comm(k→k+1) = D_struct(M̂'_{k+1}, M*_{k+1})
+```
+
+where `D_struct` is a component-aware structural distance over boundaries, authority, dependency, propagation, recovery, uncertainty, and resource contracts. Transfer is admissible only if the residual is bounded inside the declared scale contract or if the unbounded components are explicitly quarantined for larger-scale re-learning.
+
+This does **not** contradict GRT's existing non-commutativity results for rule-evolution and intervention-topology operations. The FMCI audit asks a different question: whether a *declared portable relation* remains approximately coherent under a specific scale transform. Large residual is an allowed and informative outcome.
+
+###### 4.12.4 Scale Residual as Training Data
+
+After deployment or shadow testing at scale `k+1`, the observed map is compared with the transformed prediction:
+
+```text
+R_scale(k→k+1)
+  = D_struct(M^{observed}_{k+1}, M̂_{k+1})
+```
+
+Residuals are decomposed rather than averaged into one score:
+
+```text
+R_scale = {
+  r_boundary,
+  r_authority,
+  r_topology,
+  r_failure,
+  r_recovery,
+  r_uncertainty,
+  r_energy,
+  r_time
+}
+```
+
+The residual log is first-class training data for the scale-transform policy. Repeated residuals teach the system which lower-scale regularities are genuine invariants, which require scale-dependent correction, and which do not transfer at all.
+
+A low aggregate residual with one catastrophic component is not acceptable. Scale compatibility uses a minimum/critical-component rule for protected invariants: any boundary, authority, recovery, or catastrophic-failure residual above its declared limit blocks promotion.
+
+###### 4.12.5 Staged Scale-Promotion Protocol
+
+Cross-scale deployment proceeds through gated expansion rather than direct extrapolation:
+
+```text
+Small experimental population
+  ↓ identify candidate invariant + fit T_small→meso
+Meso shadow / sandbox
+  ↓ measure R_scale and R_comm
+Meso bounded authority / canary
+  ↓ recovery + energy + propagation tests
+Large shadow population
+  ↓ refit scale correction terms
+Large bounded deployment
+  ↓ continuous residual monitoring
+Broader authority only after residual stability
+```
+
+Promotion requires all of the following:
+
+- protected invariant residuals below their declared limits;
+- no new unbounded failure-propagation channel;
+- SCC and recovery time within scale-specific bounds;
+- energy savings preserved after communication and synchronization costs;
+- independent audit path retained;
+- rollback to the previous scale/configuration remains available;
+- observed residual trend is stable or improving across at least one declared evaluation window.
+
+Failure of any protected condition triggers hold, rollback, decomposition into smaller domains, or re-estimation of the scale transform. The purpose of a failed scale test is not to discard the small-model experiment; it is to identify the missing scale term.
+
+###### 4.12.6 Scale-Aware Energy Law
+
+Small-model efficiency does not scale linearly with population size. At larger scale, coordination energy can dominate local inference savings:
+
+```text
+E_system(k) = E_local_compute(k)
+            + E_memory(k)
+            + E_communication(k)
+            + E_synchronization(k)
+            + E_verification(k)
+            + E_retry(k)
+            + E_recovery(k)
+```
+
+A candidate lower-scale composition is energy-portable only when:
+
+```text
+ΔE_local_saved > ΔE_coordination_added
+```
+
+at the promoted scale while quality, safety, SCC, authority, and recovery constraints remain satisfied. This prevents the false conclusion that `N` energy-efficient agents necessarily produce an energy-efficient `N`-agent system.
+
+Useful scale observables include:
+
+```text
+SER_k      = ||R_scale(k→k+1)||_protected      # protected scale-error residual
+CGR_k      = (E_communication + E_synchronization) / E_system
+STF_k      = successful transferred policies / attempted transfers
+RER_k      = recovery-energy growth across scale
+SCC_scale  = autonomous recovery capacity at the promoted scale
+```
+
+`CGR ↑` with scale indicates that coordination rather than local inference is becoming the dominant energy bottleneck. `SER ↓` and `STF ↑` across successive promotions indicate that the transform itself is learning.
+
+###### 4.12.7 Fractal Learning Loop
+
+The full small-to-large learning cycle is:
+
+```text
+small-scale experiments
+  ↓
+terrain-specialized local maps and trajectories
+  ↓ X_up
+extract candidate relation invariants + explicit exclusions
+  ↓
+fit / update compatibility map and scale transform T
+  ↓ E_down
+predict next-scale / next-terrain variations
+  ↓
+shadow / bounded deployment
+  ↓
+measure R_scale + R_comm + local-fit residual + energy-growth terms
+  ↓
+update T, E_down, X_up, invariant confidence, and terrain contracts
+  ↓
+promote, hold, split, specialize, de-specialize, or rollback
+  ↺
+```
+
+This closes the missing bridge between low-cost experimentation and large-scale governance. Small models generate abundant terrain-contact experience; FMCI determines which parts are portable, which must remain local, how portable relations should be re-expressed at another resolution, and where new large-system behavior must be learned directly.
+
+###### 4.12.8 Mutual Resonant Co-evolution
+
+The upper map is not a fixed teacher and the lower map is not a passive student. They form a **mutual co-evolution loop**:
+
+```text
+G_t     = upper compatibility map at time t
+L_{i,t} = local terrain-conditioned variation i
+
+L_{i,t} = E_down(G_t, Terrain_{i,t})
+Δ_{i,t} = ExperienceResidual(L_{i,t}, Terrain_{i,t})
+G_{t+1} = Update(G_t, X_up({Δ_{i,t}}))
+```
+
+The next global map changes the next local variations, which generate new residuals, which again modify the global map. The trajectory is therefore spiral-like rather than circular: the system revisits the same relation classes at progressively revised resolutions.
+
+**Mutual Resonance condition:** co-evolution is healthy when downward projections remain locally usable while upward residuals remain capable of changing the compatibility map. Two symmetric pathologies must be avoided:
+
+- **Upper lock-in:** `∂G/∂LocalEvidence ≈ 0` despite repeated independent residuals. The compatibility map becomes a rigid doctrine and stops learning.
+- **Local capture:** local terrain-specific patterns are promoted without adequate cross-local support, causing the upper map to inherit local contamination or short-horizon incentives.
+
+A mature system therefore preserves both:
+
+```text
+Downward influence: enough to maintain interoperability and criteria
+Upward influence: enough to correct stale compatibility assumptions
+```
+
+Neither influence should dominate permanently. This is the fractal counterpart of GRT's authority–epistemic separation: upper authority can remain constitutionally higher while lower evidence remains epistemically capable of changing the map through the declared revision path.
+
+###### 4.12.9 Local-Pattern Promotion Test
+
+A successful local pattern is not promoted because it is successful. It is promoted only when its portable component can be separated from terrain-specific implementation. Candidate promotion requires:
+
+1. repeated success in its native terrain;
+2. explicit statement of the terrain conditions under which it succeeded;
+3. extraction of a relation-level invariant distinct from implementation details;
+4. testing across at least one sufficiently different terrain or independent local variation;
+5. bounded boundary/authority/recovery residual after re-expansion;
+6. retention of exceptions and failure cases in the compatibility map.
+
+Classification outcome:
+
+```text
+LOCAL_VARIATION      = useful but terrain-bound
+PORTABLE_CANDIDATE   = invariant hypothesized, insufficient cross-terrain evidence
+COMPATIBLE_INVARIANT = portable relation validated across declared scope
+FALSE_GENERALIZATION = local success incorrectly promoted as upper truth
+```
+
+This prevents the upper map from becoming a catalog of averaged local solutions. Its proper content is the smaller set of relations that improve interoperability across heterogeneous terrains.
+
+###### 4.12.10 Governance Information Bottleneck and Compression Duty
+
+Cross-layer governance is a finite-capacity communication problem. A lower layer can generate more state detail than an upper layer can continuously observe, interpret, and act upon. Therefore the compatibility gradient has an information-theoretic pressure behind it: upper maps must compress.
+
+```text
+High-resolution local state
+  ↓ finite observation / translation / decision channels
+Middle compatibility representation
+  ↓ further compression
+Upper portable invariant map
+```
+
+The operational constraint is:
+
+```text
+I_gov ≤ min(I_observe, I_translate, I_decide, I_intervene)
+```
+
+where each `I_*` is the effective information throughput of that stage over the relevant evaluation window. This is a candidate bridge-level statement, not a claim that one universal bit-rate estimator exists for every substrate.
+
+Compression is therefore legitimate only when it is **loss-declared**. The middle layer may discard local detail, but it must preserve protected invariants, provenance, uncertainty, recovery paths, and enough disagreement structure to detect when compression has become misleading. A high-compatibility upper map is valuable precisely because it is smaller than the full terrain map; it becomes dangerous when the discarded dimensions contain the variable that governs the next failure.
+
+###### 4.12.11 Variation–Maturation–Integration Cycle
+
+Healthy fractal growth is not `copy → connect → scale`. Local variations should first acquire terrain-specific competence and self-recovery capacity before strong coupling is allowed. The candidate growth sequence is:
+
+```text
+Separate → Mature → Couple → Integrate → Expand → repeat
+```
+
+**Separate.** A new local variation develops under its own terrain contract with bounded authority and limited external coupling.
+
+**Mature.** Promotion requires evidence that the local variation can absorb ordinary perturbations without losing its local map, produce efficient summaries for the middle layer, detect its own routine errors, and maintain a valid local recovery path.
+
+**Couple.** Cross-local coupling begins through middle-layer compatibility/translation channels rather than direct full-state exposure.
+
+**Integrate.** Only the relations that survive compatibility testing are admitted into shared workflows or upper invariant candidates.
+
+**Expand.** Authority, population scale, or terrain scope increases only after the coupled structure demonstrates bounded residuals and recovery.
+
+The ordering is a governance hypothesis, not a theorem. Its purpose is to avoid premature integration, where two immature local systems amplify each other's unresolved failure modes faster than either can recover.
+
+###### 4.12.12 Fractal Compatibility Validation Suite — Candidate Synthetic Gate
+
+> **Epistemic lock:** This suite imports the *testing pattern* of the FGS Micro–Macro Bridge Benchmark as a candidate GRT validation protocol. Synthetic passes demonstrate measurement-pipeline coherence only; they do not establish universal micro–macro laws, deployed-AI validity, or theorem-level scale invariance.
+
+Before a scale transform or compatibility bundle is promoted, the following cheap-to-expensive sequence should be attempted where the substrate permits it:
+
+```text
+Gate A — Replica Invariance
+  Replicate a local motif across several population sizes.
+  Ask which normalized bridge variables remain approximately stable.
+  Topology is NOT forced to be invariant.
+
+Gate B — Coarse-Graining Closure Competition
+  Compare scalar-only macro prediction against increasingly rich bridge bundles.
+  Retain a variable only if it adds held-out predictive information.
+
+Gate C — Intervention Equivariance / Diagram Test
+  Apply a controlled micro intervention, aggregate its response, and compare
+  with the corresponding macro intervention response. Measure bounded defect.
+
+Gate D — Topology Degeneracy Test
+  Match key scalar bridge variables across distinct topologies.
+  If macro outcomes differ materially, topology remains a protected bridge input.
+
+Gate E — Next-Scale Residual Test
+  Promote through shadow/canary stages and measure R_scale, R_comm, SCC_scale,
+  recovery energy, translation loss, and newly emergent propagation channels.
+```
+
+The **Bridge Sufficiency Rule** is deliberately conservative:
+
+```text
+A scalar bridge is sufficient only if richer structural variables
+fail to add reproducible predictive or safety value.
+```
+
+This reverses a common modeling mistake. GRT does not require the most complicated bridge; it requires the *smallest bridge that remains sufficient under held-out scale, topology, intervention, and recovery tests*.
+
+Candidate bridge vector:
+
+```text
+K_FMCI = {instability/load ratio, middle-buffer state, layer timescale ratios,
+          topology integrity, authority contract, recovery contract,
+          uncertainty/provenance, energy/communication state}
+```
+
+The exact estimator set is substrate-dependent and may shrink or expand after ablation. Cheap proxies that add no incremental value are not promoted merely because they are theoretically appealing.
+
+###### 4.12.13 Residual Vitality and False Compatibility
+
+A central audit correction is that **low residual is necessary but not sufficient** for healthy compatibility. Residual can fall because translation improved, but it can also fall because the system stopped experimenting, stopped reporting disagreement, or over-filtered the channels that generate corrective evidence.
+
+Define a qualitative **Residual Vitality Condition (RVC)**:
+
+```text
+Healthy low-residual state requires:
+  R_scale / R_comm small or bounded
+  AND boundary experiment rate > floor
+  AND bidirectional feedback rate > floor
+  AND independent disagreement/audit path remains active
+  AND middle translation activity is non-zero but non-overheated
+```
+
+Therefore:
+
+```text
+Residual ↓ + Feedback active + Experiments active
+  → candidate genuine compatibility improvement
+
+Residual ↓ + Feedback ↓ + Experiments ↓ + Translation simplification
+  → candidate FALSE COMPATIBILITY / sensing loss
+```
+
+The target is not `R = 0`. Mature governance should preserve **small, processable residuals** because ongoing terrain contact continually produces novel local information. A perfectly silent bridge is suspicious unless an independent perturbation test confirms that the silence reflects true stability rather than detection loss.
+
+###### 4.12.14 Deferred Formalization Lock — Topology and Category Theory
+
+Two mathematically attractive extensions remain deliberately below theorem status in GRT:
+
+1. **Topological-invariant audit:** persistent-homology or related topology tools may help test whether attractor/loop/boundary structure survives deformation, but no specific Betti-number or persistence-entropy criterion is currently canonical for GRT.
+2. **Category-theoretic compatibility maps:** exact governance isomorphism is generally too strong for asymmetric fractal maps because upward/downward translation is lossy and terrain-conditioned. The operational object remains a **bounded-loss compatibility morphism** with explicit residual and approximate-commutation audits.
+
+These methods may be promoted later if they improve prediction, localization, or falsifiability beyond the current structural-distance framework. Until then they are candidate audit methods, not required ontology.
+
+###### 4.12.15 Candidate-First Formalization and Self-Benchmark Pipeline
+
+GRT separates **idea quality** from **evidence status**. A mathematically attractive proposal is allowed to remain useful before it is fully validated, but its status must remain explicit. Difficult ideas therefore enter a candidate pipeline rather than being promoted directly into the operational core.
+
+```text
+Idea / imported structure
+        ↓
+CANDIDATE REGISTRATION
+        ↓
+Static / logical audit
+  - object lock
+  - dimensional / symbol consistency
+  - construction-independence
+  - non-tautology check
+        ↓
+CHEAPBENCH
+  - simple baseline
+  - ablation
+  - counterexample / perturbation sweep
+  - held-out transfer
+  - cost / information-gain estimate
+        ↓
+ ┌───────────────┬────────────────┐
+ │ CHEAP_FAIL    │ CHEAP_PASS     │
+ │ reject/dormant│                ↓
+ └───────────────┘        MEDIUM BENCH if useful
+                                 ↓
+                         HEAVY BENCH if justified
+                                 ↓
+                    PROVISIONAL → PROMOTED
+```
+
+**Core principle:** experiment weight should increase only after the candidate has earned it. The objective is not to avoid difficult theories; it is to prevent expensive validation from being spent on candidates that a cheap discriminating test could already reject.
+
+###### 4.12.16 Candidate Registry Contract
+
+Every difficult candidate must be registered before testing with at least the following fields:
+
+| Field | Required content |
+|---|---|
+| `candidate_id` | stable identifier; never reused after rejection |
+| `object_lock` | exact object/system to which the claim applies |
+| `claim` | what the candidate predicts beyond the current core |
+| `expected_gain` | prediction, compression, localization, safety, energy, or explanatory gain |
+| `observables` | quantities that can be measured without assuming the claim |
+| `baseline` | simpler model or null mechanism that the candidate must beat |
+| `independent_reference` | evaluation target generated/frozen independently of the candidate construction |
+| `falsification` | condition that would reject or materially weaken the candidate |
+| `dependencies` | required estimators, datasets, topology, hardware, or companion theory |
+| `cost_class` | `CHEAP`, `MEDIUM`, or `HEAVY` |
+| `status` | current evidence state |
+| `next_gate` | smallest discriminating experiment not yet completed |
+
+A candidate without an independent reference or falsification condition is **not benchmark-ready**.
+
+###### 4.12.17 GRT-CandidateBench — Cheap Self-Benchmark Gate
+
+For candidates that admit synthetic or low-cost evaluation, GRT uses a common first-pass gate. Thresholds are pre-registered per candidate rather than fixed universally.
+
+```text
+CB-0  Construction Independence
+      Evaluation object/reference must not be generated by the same rule
+      whose validity is being tested.
+
+CB-1  Baseline Superiority
+      Candidate must beat the simplest credible null/baseline on held-out data.
+
+CB-2  Ablation Necessity
+      Removing the candidate-specific variable/structure should measurably
+      worsen the target outcome; decorative variables are not promoted.
+
+CB-3  Perturbation / Counterexample Survival
+      Candidate should survive controlled changes not used to fit it and
+      must expose the regime where it fails.
+
+CB-4  Transfer / Scale Residual
+      If the claim is cross-scale or cross-terrain, test on a held-out scale,
+      topology, or terrain and measure residual rather than fit quality alone.
+
+CB-5  Competing-Explanation Test
+      Compare against at least one alternative mechanism capable of producing
+      the same surface pattern.
+
+CB-6  Information-Gain per Cost
+      Estimate whether the next experiment can materially change candidate
+      status. Low expected information gain does not justify heavy execution.
+```
+
+A `CHEAP_PASS` is **not proof**. It means only that the candidate survived the cheapest tests capable of discriminating it from simpler explanations and is eligible for more expensive work.
+
+###### 4.12.18 Evidence-State Ledger and Heavy-Test Pending Lock
+
+Canonical evidence states are:
+
+```text
+CANDIDATE
+  ↓
+CHEAP_ACTIVE
+  ├─→ CHEAP_FAIL → REJECTED or DORMANT
+  └─→ CHEAP_PASS
+          ↓
+     MEDIUM_PENDING / MEDIUM_ACTIVE
+          ├─→ MEDIUM_FAIL → REJECTED or REVISED
+          └─→ MEDIUM_PASS
+                  ↓
+             HEAVY_PENDING / HEAVY_ACTIVE
+                  ├─→ HEAVY_FAIL → REJECTED or REVISED
+                  └─→ HEAVY_PASS
+                          ↓
+                    PROVISIONAL
+                          ↓ independent replication / cross-check
+                       PROMOTED
+```
+
+**Heavy-Test Pending Lock:** `HEAVY_PENDING` is a legitimate stable state. A candidate may remain there indefinitely when the required experiment is too expensive, requires unavailable infrastructure, or has poor current information-gain per cost. Such a candidate:
+
+- may be retained in the candidate catalog;
+- may motivate instrumentation and future experiments;
+- may be referenced as an unverified possibility;
+- **may not** be used as a premise in a theorem chain, production safety guarantee, or claim of empirical validation.
+
+Negative results are retained. `REJECTED` candidates are not deleted from the research memory because repeated rediscovery of failed structures wastes search budget and hides the true exploration history.
+
+###### 4.12.19 Candidate Complexity Budget
+
+Candidate validation is itself a resource-allocation problem. Define the qualitative priority score:
+
+```text
+Priority(candidate)
+  ∝ Expected_Discrimination × Potential_Governance_Value
+    ------------------------------------------------------
+       Estimated_Experiment_Cost × Dependency_Risk
+```
+
+This is a scheduling heuristic, not a physical law. It encodes four rules:
+
+1. high-value, cheap, discriminating tests run first;
+2. expensive tests follow only after cheaper gates pass;
+3. candidates with high dependency risk remain pending until dependencies mature;
+4. a beautiful formalism with no discriminating observable has low experimental priority.
+
+This policy aligns the research process with GRT's own orchestration principle: **do not activate more experimental machinery than the question currently requires.**
+
+###### 4.12.20 Initial Difficult-Candidate Queue
+
+The following queue is instantiated from currently deferred FMCI/FGS extensions. Status labels are epistemic controls, not judgments of plausibility.
+
+| Candidate ID | Candidate | Cost class | Current status | Next smallest useful gate |
+|---|---|---:|---|---|
+| `CF-TOP-01` | Persistent/topological audit of whether protected loop/boundary structure survives scale deformation | HEAVY | `HEAVY_PENDING` | first define substrate-specific filtration and compare against simpler graph invariants |
+| `CF-CAT-01` | Approximate/lax categorical formalization of bounded-loss compatibility morphisms | MEDIUM | `CANDIDATE` | symbolic consistency + small synthetic composition/commutation counterexample suite |
+| `CF-UNI-01` | Cross-domain universality of the same bridge variables across AI, neural, and organizational substrates | HEAVY | `HEAVY_PENDING` | freeze domain-specific observables and test weaker equivalence classes before universal claims |
+| `CF-SCALE-01` | Deployed-system closure of learned scale transforms beyond synthetic micro–macro gates | HEAVY | `HEAVY_PENDING` | meso-scale shadow deployment with independent residual telemetry |
+| `CF-ENERGY-01` | Portability of Compute–Energy–Risk policies across heterogeneous accelerator/hardware regimes | HEAVY | `HEAVY_PENDING` | matched-workload cross-device telemetry and decomposition of compute vs communication/synchronization energy |
+
+`CF-CAT-01` remains lighter because much of its first rejection surface can be explored symbolically or on tiny synthetic categories. The topology, universality, deployed-scale, and hardware-energy candidates require stronger estimator choices or expensive substrates and therefore remain pending rather than being prematurely tested.
+
+**Executed low-cost candidate queue (v1.16):**
+
+| Candidate ID | Related prediction | Cost class | v1.16 status | Next gate |
+|---|---:|---:|---|---|
+| `CB-RTR-01` | P34 | CHEAP | `CHEAP_PASS` | nonstationary gradual drift, routing-energy and disagreement-preservation test |
+| `CB-BRG-01` | P35 | CHEAP | `CHEAP_PASS_SCOPE_LIMITED` | leave-one-topology-out transform learning; require improvement on all declared held-out families before broader promotion |
+| `CB-MAT-01` | P36 | CHEAP | `CHEAP_PASS` | nonlinear heterogeneous modules, stochastic coupling schedules, recovery-energy accounting |
+| `CB-RV-01` | P37 | CHEAP | `CHEAP_PASS` | adversarial signal masking and independently scheduled perturbation probes |
+| `CB-IB-01` | P38 | CHEAP | `CHEAP_PENDING` | freeze an independently defined protected-detail target and compare channel capacity / compression schemes |
+| `CB-ORD-01` | P39 | CHEAP | `CHEAP_PASS` | >2-hop/nonlinear ordering and cost-aware permutation search |
+| `CB-MONO-01` | P40 | CHEAP | `CHEAP_PASS` | heterogeneous accuracies, ancestry estimators, adversarial correlated consensus |
+| `CB-INT-01` | P41 | CHEAP | `CHEAP_PASS_SCOPE_LIMITED` | queueing, edge failures, multiplex recovery/audit, larger scale sweep |
+| `CB-SAFE-01` | P42 | CHEAP | `CHEAP_PENDING` | independent outcome generator before scalar-vs-vector safety gate test |
+
+No `CHEAP_PASS` above is promoted to `PROVISIONAL`; all require at least a medium-strength test outside the toy generator.
+
+
+
+###### 4.12.21 Executed CheapBench Suite — v1.16 Internal Synthetic Gate
+
+> **Status lock:** The experiments below are internal synthetic discrimination gates. They test whether the proposed observables and mechanisms add predictive or control value in deliberately simple systems. They do **not** establish deployed-AI validity, physical scaling laws, cross-domain universality, or theorem status. The ground-truth environment generators were frozen separately from the learning/evaluation rules, and failed/partial transfer results are retained.
+
+The first executable batch prioritizes candidates with a cheap independent reference and a credible simpler baseline.
+
+| Bench ID | Prediction | Candidate claim | Baseline | Runs / datasets | Result | Evidence state |
+|---|---:|---|---|---:|---|---|
+| `CB-RTR-01` | P34 | router plasticity helps under terrain drift | frozen pre-drift router | 100 runs | adaptive post-drift success `0.785 ± 0.008` vs fixed `0.379 ± 0.003`; late-window `0.873 ± 0.007` vs `0.377 ± 0.005` | `CHEAP_PASS` |
+| `CB-BRG-01` | P35 | multivariate bridge carries non-redundant scale information | scalar `Λ` only | 20 held-out splits + 4 leave-one-topology-out tests | random held-out NRMSE `0.192 ± 0.005` vs `0.276 ± 0.005` (30.5% relative reduction); unseen-topology transfer mixed | `CHEAP_PASS_SCOPE_LIMITED` |
+| `CB-MAT-01` | P36 | mature locally before strong coupling | couple immediately, mature after 12 steps | 500 runs | peak `1.73×`, state cost `7.54×`, recovery `+9.75` steps for couple-first; higher state cost in 100% of runs | `CHEAP_PASS` |
+| `CB-RV-01` | P37 | low residual needs vitality channels to distinguish false quiet | observed residual magnitude alone | 30 independently generated datasets | low-residual hidden-failure AUC `0.657 → 0.885`; balanced accuracy `0.636 → 0.784` | `CHEAP_PASS` |
+| `CB-IB-01` | P38 | finite governance bandwidth creates abstraction/detail trade-off | not yet frozen | — | benchmark object still risks being tautological if target detail is defined by the same compression map | `CHEAP_PENDING` |
+
+`±` values above are 95% confidence half-widths over repeated runs/splits where applicable. They quantify repeatability inside the synthetic generator only.
+
+**CB-RTR-01 — Adaptive router under abrupt terrain drift.** Five terrain classes and five specialized executors were generated with an independently frozen pre-drift success matrix. At the midpoint, the terrain-to-best-executor mapping changed. Both routers began from the same pre-drift calibration; the fixed router retained its table while the adaptive router updated route values from observed outcomes. The result supports router plasticity in this drift regime, but does not yet establish which learning rule is optimal.
+
+**CB-BRG-01 — Multivariate bridge vs scalar bridge.** A separate nonlinear graph-dynamics generator produced ring, star, complete, and two-community systems. The target was a late macro-instability composite computed from simulated trajectories, not from the bridge formula itself. A scalar bridge used only `Λ`; the richer bundle used `Λ`, buffer level, layer-timescale ratios, spectral-gap/degree-hub topology proxies, and size. On ordinary held-out mixtures the richer bridge reduced NRMSE by about 30.5%. However leave-one-topology-out tests were:
+
+```text
+held-out ring:          relative improvement = -29.4%
+held-out star:          relative improvement =  +0.1%
+held-out complete:      relative improvement = +15.1%
+held-out two-community: relative improvement = +15.6%
+```
+
+Therefore the correct conclusion is **not** "the bridge is universally scale-portable." The cheap gate shows that structural variables contain useful information inside the sampled topology family, while novel-topology generalization remains an unresolved transformation problem. This negative boundary is preserved as evidence for FMCI's topology-aware residual requirement.
+
+**CB-MAT-01 — Maturation before coupling.** Two locally stabilizable linear modules were perturbed and then coupled. In the mature-first condition, local stabilizing gains were calibrated before cross-module coupling. In the couple-first condition, the same gains were withheld for 12 update steps. Across 500 randomized systems:
+
+```text
+mean peak ratio (couple-first / mature-first)       = 1.729
+mean cumulative state-cost ratio                    = 7.535
+mean recovery time, mature-first                     = 3.888 steps
+mean recovery time, couple-first                     = 13.634 steps
+mean recovery delay                                  = 9.746 steps
+fraction with higher couple-first state cost         = 1.000
+```
+
+This is a strong cheap-gate pass for the declared toy regime, but the mechanism is intentionally simple and does not prove that every form of early coupling is harmful.
+
+**CB-RV-01 — Residual Vitality against False Compatibility.** The independent reference was hidden terrain mismatch after adaptation. Some systems retained high hidden mismatch while suppressing the *reported* residual through masking/freeze-like behavior. Evaluation was restricted to cases with low observed residual, exactly where `R_scale ≈ 0` can be misleading. Across 30 datasets, residual magnitude alone was substantially less discriminative than residual plus two vitality channels—probe responsiveness and update activity. This supports the operational rule:
+
+```text
+Low residual + live perturbation/update response   → compatible candidate
+Low residual + dead perturbation/update response   → false-compatibility suspect
+```
+
+The classifier itself is not canonical; the result only supports retaining independent vitality channels.
+
+**Benchmark governance consequence.** Cheap passes alter evidence status, not ontology. The next allocation rule is:
+
+```text
+P34 router plasticity       → MEDIUM_PENDING: gradual/nonstationary drift + cost-aware routing
+P35 multivariate bridge     → MEDIUM_PENDING: unseen-topology transform learning required
+P36 maturation ordering     → MEDIUM_PENDING: nonlinear/heterogeneous modules + energy/rework accounting
+P37 residual vitality       → MEDIUM_PENDING: adversarial masking + independent perturbation schedules
+P38 information bottleneck → CHEAP_PENDING: first freeze a non-tautological protected-detail target
+```
+
+The heavier `CF-TOP-01`, `CF-UNI-01`, `CF-SCALE-01`, and `CF-ENERGY-01` candidates remain pending. `CF-CAT-01` remains candidate-level until its composition/commutation benchmark has an independently frozen semantic target rather than a map generated from the same categorical construction.
+
+**Result artifact:** numerical summaries and confidence estimates for this gate are frozen in `grt_v116_cheapbench_results.json`.
+
+
+###### 4.12.23 NAT Easy-Integration Patch — v1.17
+
+> **Scope lock:** This patch imports operational structures from NAT v3.2 that are directly compatible with GRT v1.16. It does not import NAT topology claims as GRT theorems. Schur/Feshbach coarse-graining, FDCL renormalization, persistent topology, and category-level formalization remain candidate/pending.
+
+**A. Dual-Resolution Namespace Lock.** `resolution` is split into two axes:
+
+```text
+ρ_D = decision / abstraction resolution
+      cross-scope discrimination, integration, adjudication capacity
+
+ρ_T = terrain-contact / detail resolution
+      local freshness, exception visibility, direct environmental granularity
+```
+
+Canonical gradient:
+
+```text
+Upper compatibility layer:  ρ_D ↑, ρ_T ↓, portability ↑, update tempo slower
+Lower terrain specialist:    ρ_T ↑, role-bounded ρ_D, specificity ↑, update tempo faster
+```
+
+This supersedes any ambiguous reading of earlier FCG language where a single word `resolution` could refer to both abstraction and terrain detail.
+
+**B. Multiplex Fractal Map.** FMCI now treats the map as a bundle of distinct functional graphs:
+
+```text
+𝕄_{k,ℓ} = {
+  G_compute,
+  G_task,
+  G_information,
+  G_authority,
+  G_contamination,
+  G_recovery,
+  G_audit,
+  G_memory,
+  E_resource,
+  U_uncertainty
+}_{k,ℓ}
+```
+
+The graphs may share nodes but need not share edges, direction, weights, SCCs, authority, or timescales. A result on `G_information` is not evidence about `G_recovery`, `G_authority`, `G_audit`, or `G_contamination` without an explicit bridge.
+
+**C. Mutual Terrain Reconciliation execution form.** Upward transfer is a scoped differential, not a full-state upload:
+
+```text
+Δ_i^↑ = {
+  new_landmarks, changed_relations, success/failure paths,
+  boundary_changes, uncertainty/provenance, recovery evidence,
+  exclusions, untested_regions
+}
+```
+
+Global fusion classifies incoming differentials as corroborating, complementary, conflicting, stale, correlated, or out-of-scope and discounts shared ancestry. Downward transfer is role-projected:
+
+```text
+P_{G→i} = Project(M_G, role_i, terrain_i, ρ_D_i, authority_i)
+```
+
+The local receiver validates through replay/sandbox/shadow/bounded deployment and returns:
+
+```text
+ACCEPT | CONDITIONAL | CONFLICT | OUT_OF_SCOPE | UNSAFE | UNRESOLVED
+```
+
+Repeated independent residuals may revise the upper compatibility map, `E_down`, `X_up`, and the Middle routing policy itself. The router is therefore part of the co-evolution loop rather than a fixed codec.
+
+**D. Error-Covariance Diversity Lock.** Nominal heterogeneity is insufficient. For protected task family `q`, measure:
+
+```text
+Σ_e(q) = Cov(e_1(q), ..., e_m(q))
+```
+
+High off-diagonal covariance indicates shared blind spots even when models, prompts, or vendors differ. Base-model ancestry, shared datasets, retrieval sources, tools, inherited prompts, and upstream patches must be retained in provenance so agreement can be ancestry-discounted. The operational target is **interface compatibility with retained internal error diversity**, not identical maps or maximal agreement.
+
+**E. Ordered Routing Lock.** The orchestrator must choose not only active agents and temporary topology but also the ordered processing path:
+
+```text
+π_orch(...) → {A_active, G_task, O_path, budgets, authority, verification, stop_rule}
+```
+
+When heterogeneous agents perform lossy projection and reconstruction, `A→B→C` and `A→C→B` are not assumed equivalent. Route order is logged in Resource Intelligence and can be learned from prior outcomes.
+
+**F. Interface-Dilution Contract.** For functional channel `d`:
+
+```text
+δ_int^(d)(k) = C_cross^(d)(k) / M_internal(k)
+```
+
+A falling ratio is not automatically bad. Sparse interfaces reduce communication/synchronization energy, but are admissible only while channel-specific service constraints hold:
+
+```text
+τ_recovery  ≤ T_recovery_deadline
+τ_audit     ≤ T_audit_deadline
+τ_translate ≤ T_translation_deadline
+rollback_reach = true
+protected_coverage ≥ floor
+```
+
+The target is the **minimum sufficient interface**, not maximum connectivity.
+
+**G. Claim-Type × Evidence-State Matrix.** GRT now records two independent status axes:
+
+| Claim type | Meaning |
+|---|---|
+| `D` | definition / object fixed by convention |
+| `A` | model assumption |
+| `M` | derived within a declared model/object |
+| `B` | bridge conjecture across objects/scales/theories |
+| `E` | empirical hypothesis |
+
+Evidence state remains `CANDIDATE → CHEAP_PASS/... → MEDIUM → HEAVY → PROVISIONAL → PROMOTED`. A `CHEAP_PASS` cannot turn a `B` bridge into an `M` theorem, and a theorem on one object cannot become empirical evidence for another object by citation alone.
+
+**H. v1.17 NAT EasyBench results.**
+
+| Bench | Claim | Result | State |
+|---|---|---|---|
+| `CB-ORD-01` | ordered routing matters | fixed MSE `1.992` → history-selected `1.875`; 5.9% reduction; median order gap 12.5% | `CHEAP_PASS` |
+| `CB-MONO-01` | correlated errors create false compatibility | same ~20% individual error; majority error `0.033→0.201` as error correlation ~0→1 | `CHEAP_PASS` |
+| `CB-INT-01` | interface density has a deadline-constrained Pareto frontier | minimum tested deadline-feasible interface `30` edges (`δ_int=0.1875`) vs dense `90` edges | `CHEAP_PASS_SCOPE_LIMITED` |
+
+`CB-ORD-01` used 300 independently generated operator pairs. 79.7% had >5% order-dependent loss, and a frozen calibration history selected the lower-loss held-out order 83.3% of the time.
+
+`CB-MONO-01` held agent count and marginal individual error approximately constant while shifting error dependence from independent to shared. Mean agreement rose from `0.806` to `1.000` even as majority error worsened, directly exposing the false-consensus failure mode.
+
+`CB-INT-01` used ten modules of eight nodes with fixed local structure and varied cross-module interfaces. Under the declared p95 deadline `≤ 6` hops, the minimum tested feasible interface used one-third the cross edges of the densest condition. This does not identify a universal optimum; it supports a Pareto framing under explicit deadlines.
+
+**Pending easy/hard boundary.** `CB-SAFE-01` (protected-vector scale promotion) remains `CHEAP_PENDING` until future-outcome labels are generated independently of the same thresholds under test. Schur/Feshbach effective operators are taken up in §4.12.24 as a candidate family; FDCL scale laws, persistent-homology audits, and categorical compatibility remain outside the current cheap-integration boundary.
+
+
+###### 4.12.24 Schur/Feshbach Candidate Sieve — v1.18
+
+> **Source and scope lock.** NAT §7.34.3 supplies the declared linear boundary/interior construction and explicitly requires replay/intervention validation before treating the algebraic effective operator as behaviorally sufficient. GRT therefore imports Schur/Feshbach as a **candidate family and audit method**, not as a universal law of agent clusters. The exact algebra and the empirical bridge are kept separate.
+
+For a declared operator with boundary variables `B` and internal variables `I`,
+
+```text
+L = [[L_BB, L_BI],
+     [L_IB, L_II]]
+```
+
+and invertible `L_II` on the declared gauge/complement, the static effective boundary operator is
+
+```text
+L_eff(0) = L_BB - L_BI L_II^{-1} L_IB.
+```
+
+For a declared spectral/dynamic convention `L + ζI`, the frequency/scale-conditioned family is
+
+```text
+L_eff(ζ)
+  = L_BB + ζ I_B
+    - L_BI (L_II + ζ I_I)^{-1} L_IB.
+```
+
+The sign of `ζ` is convention-dependent and must be object-locked. GRT does not use the word *Feshbach* to imply quantum dynamics; here it denotes the spectral-parameter elimination pattern on the declared operator.
+
+**Why candidate splitting is mandatory.** `Schur/Feshbach works` is too coarse a claim. Six materially different candidates are registered:
+
+| Candidate ID | Candidate | Claim type | Cheap status after v1.18 | Scope / next gate |
+|---|---|---|---|---|
+| `CF-SF-STAT-01` | full static Schur on a declared linear patch | `M` | `CHEAP_PASS_SCOPE_LOCKED` | algebra exact on object; next test directed/non-normal and gauge-singular declared operators |
+| `CF-SF-LR-01` | low-rank approximate Schur as cheaper interface contract | `E` | `CHEAP_PASS_SCOPE_LIMITED` | test rank/error/runtime frontier and spectra unlike current generator |
+| `CF-SF-REG-01` | fixed regularization rule improves noisy/ill-conditioned Schur estimates | `E` | `CHEAP_FAIL_GENERAL` | retain only as narrower adaptive-regularization candidate; tune without evaluation leakage |
+| `CF-SF-DYN-01` | frequency-conditioned Feshbach captures dynamic interior memory | `M` on linear resolvent; `B/E` for agent behavior | `CHEAP_PASS_SCOPE_LOCKED` | independent time-domain replay with delay/non-normal dynamics |
+| `CF-SF-NL-01` | state-conditioned Jacobian Schur is a useful local nonlinear interface map | `B/E` | `CHEAP_PASS_SCOPE_LIMITED` | wider perturbations, discrete policies, switching regimes, operating-point update cost |
+| `CF-SF-XFER-01` | one shared effective operator transfers across heterogeneous terrains | `B/E` | `CHEAP_FAIL_CURRENT_FORM` | replace with terrain-conditioned/meta-learned operator before retest |
+
+The candidate family obeys four locks:
+
+1. **Object lock:** the effective operator belongs to one declared graph/operator, boundary set, process semantics, and time window.
+2. **Interface lock:** eliminating internals does not eliminate their causal effect; it exposes only their boundary contract.
+3. **Dynamic lock:** `L_eff(0)` is not a substitute for `L_eff(ζ)` when interior memory is active at the observation timescale.
+4. **Behavioral lock:** algebraic exactness on a linear operator is not empirical validation of nonlinear, adaptive, delayed, or strategic agents.
+
+##### CB-SF-01 — Clean Static Linear Boundary Response
+
+**Independent object generator.** 250 positive-definite block systems were generated with independently sampled interior dimension, conditioning, coupling, and boundary Schur block. Candidate maps were compared against the independently retained true boundary response.
+
+| Candidate | Mean relative operator error | Median | p95 |
+|---|---:|---:|---:|
+| Boundary-only `L_BB` | 0.04044 | 0.03031 | 0.11467 |
+| Diagonal interior elimination | 0.01807 | 0.01210 | 0.05112 |
+| Rank-4 approximate Schur | **0.004821** | **0.003462** | **0.01292** |
+| Full Schur | ~`1.1e-17` | `0` | ~`6.9e-17` |
+
+**Decision.** `CF-SF-STAT-01` passes only as an implementation/object-lock check; its mathematical status comes from the declared linear algebra, not from this benchmark. `CF-SF-LR-01` survives as a real empirical candidate because the approximation materially beats simpler baselines while remaining non-exact.
+
+##### CB-SF-02 — Noisy / Ill-Conditioned Operator Estimate
+
+300 systems with condition numbers roughly `10^2–10^4` were evaluated after independently perturbing the measured interior/coupling/boundary blocks. A predeclared regularization rule used `λ = noise × median(diag(L_II_est))`.
+
+| Candidate | Mean relative error | p95 |
+|---|---:|---:|
+| Noisy full Schur | 0.02162 | 0.03888 |
+| Regularized Schur | 0.02157 | 0.03849 |
+| Diagonal Schur | 0.02265 | 0.03907 |
+| Rank-4 Schur | 0.02170 | 0.03856 |
+
+The regularized candidate beat the noisy full Schur in only `43.7%` of systems. The mean difference was negligible.
+
+**Decision.** Reject the claim that this fixed regularization rule is generally superior. `CF-SF-REG-01 → CHEAP_FAIL_GENERAL`. This negative result is retained; adaptive regularization may still be tested as a different candidate.
+
+##### CB-SF-03 — Dynamic Boundary Response: Static Schur vs Frequency-Conditioned Feshbach
+
+The ground truth was generated from the full linear system response at complex frequency `ζ=iω`; the static candidate used the zero-frequency interior elimination, while the dynamic candidate recomputed the effective interior response at the same `ω`.
+
+| `ω` | Static Schur mean boundary-response error | p95 | Static coupling-correction mismatch |
+|---:|---:|---:|---:|
+| 0.01 | 0.00092 | 0.00267 | 0.00644 |
+| 0.10 | 0.00893 | 0.02391 | 0.06434 |
+| 0.30 | 0.02346 | 0.06717 | 0.19201 |
+| 1.00 | **0.03627** | **0.09892** | **0.61286** |
+| 3.00 | 0.02381 | 0.06174 | 1.62866 |
+| 10.0 | 0.00940 | 0.02527 | 4.66725 |
+| 30.0 | 0.00322 | 0.00833 | 12.89684 |
+
+The frequency-conditioned elimination matched the declared linear resolvent to numerical precision by construction. Therefore its zero residual is **not counted as empirical proof**. The discriminating information is the failure surface of the static approximation: dynamic interior memory becomes material around the interior timescale, even though the total response error falls again when the boundary `iωI` term dominates at very high frequency.
+
+**Decision.** `CF-SF-DYN-01` is retained with a strong scope lock. The next non-tautological gate is time-domain replay on systems with delay, non-normal transient amplification, and independently sampled intervention waveforms.
+
+##### CB-SF-04 — Nonlinear Terrain: Fixed vs State-Conditioned Jacobian Schur
+
+A nonlinear interior equation with cubic local curvature was generated independently. Around each nonlinear operating point, the fixed zero-state Schur and a state-conditioned Jacobian Schur predicted nearby boundary interventions.
+
+| Perturbation radius | Fixed Schur mean NMSE | Fixed p95 | Local Jacobian mean NMSE | Local p95 |
+|---:|---:|---:|---:|---:|
+| 0.05 | 0.01012 | 0.06370 | `1.07e-6` | `4.23e-6` |
+| 0.20 | 0.00995 | 0.06194 | `3.24e-5` | `1.01e-4` |
+| 0.50 | 0.00935 | 0.05440 | `1.56e-4` | `6.60e-4` |
+
+The local Jacobian candidate beat the fixed Schur in `100%` of the 600 tested nearby-intervention cases.
+
+**Decision.** A fixed Schur map should be treated as a local approximation in nonlinear terrain. `CF-SF-NL-01 → CHEAP_PASS_SCOPE_LIMITED`; however, the local Jacobian requires operating-point estimation and refresh cost, so it is not a free universal compression.
+
+##### CB-SF-05 — Cross-Terrain Portability
+
+A shared normalized effective template was frozen from 120 training patches and evaluated on 160 independently generated held-out patches. It was compared with each patch's own object-specific Schur operator.
+
+```text
+shared-template mean relative error  = 0.5324
+shared-template p95                  = 0.6767
+object-specific Schur mean error     ≈ 9.8e-18
+```
+
+**Decision.** `CF-SF-XFER-01 → CHEAP_FAIL_CURRENT_FORM`. Algebraic exactness does not transfer across heterogeneous terrain simply because every patch admits a Schur reduction. This directly supports the FMCI rule that **the compression operator itself must be terrain-conditioned or learned through an explicit bridge**.
+
+##### Schur/Feshbach Promotion Rule
+
+The v1.18 result does **not** promote Schur/Feshbach to a general GRT law. It instead installs a selection rule:
+
+```text
+Static + linear + declared operator
+  → full Schur is the reference exact interface map.
+
+Static + large interior + tolerated approximation
+  → low-rank Schur is a candidate; choose rank from an error/cost frontier.
+
+Noisy / ill-conditioned estimate
+  → do not assume regularization helps; benchmark the estimator and λ policy.
+
+Dynamic / memory-bearing interior
+  → use ζ-conditioned effective operators; static Schur requires a quasi-static audit.
+
+Nonlinear / adaptive interior
+  → fixed Schur is local only; consider state-conditioned Jacobian or learned effective maps.
+
+Cross-terrain reuse
+  → forbidden by default; require terrain-conditioned bridge + held-out residual test.
+```
+
+**Medium/Heavy queue created from the surviving candidates:**
+
+| Next bench | Purpose | Cost | Status |
+|---|---|---:|---|
+| `MB-SF-01` | directed/non-normal linear systems; compare static Schur, transient behavior, and replay response | MEDIUM | `MEDIUM_COMPLETE` (see §4.12.25) |
+| `MB-SF-02` | singular Laplacian/gauge systems; pseudoinverse vs declared complement/gauge choice | MEDIUM | `MEDIUM_COMPLETE` (see §4.12.25) |
+| `MB-SF-03` | time-domain Feshbach/reduced-memory replay with delay and independently sampled forcing | MEDIUM | `MEDIUM_PENDING` |
+| `MB-SF-04` | nonlinear switching/saturation agent modules; refresh-rate and operating-point drift cost | MEDIUM | `MEDIUM_PENDING` |
+| `MB-SF-05` | rank/error/runtime/energy frontier for approximate Schur on larger sparse interiors | MEDIUM | `MEDIUM_PENDING` |
+| `HB-SF-01` | real multi-agent module boundary contract vs internal replay under novel tasks | HEAVY | `HEAVY_PENDING` |
+| `HB-SF-02` | recursive Schur/Feshbach closure across multiple FMCI scales | HEAVY | `HEAVY_PENDING` |
+| `HB-SF-03` | multiplex-specific effective operators for information/recovery/audit/authority graphs | HEAVY | `HEAVY_PENDING` |
+
+The heavy queue is not executed merely because the algebra is attractive. Each item remains pending until the relevant medium bench provides enough discrimination to justify the cost.
+
+**Frozen artifacts:** `grt_v118_schur_feshbach_cheapbench_results.json`; `run_grt_v118_schur_feshbach_cheapbench.py`.
+
+
+###### 4.12.25 Singular/Gauge and Directed/Non-Normal Schur MediumBench — v1.19
+
+> **Promotion lock.** This section advances only the two v1.18 medium queues `MB-SF-01` and `MB-SF-02`. It does not generalize Schur/Feshbach to arbitrary adaptive agents. Exact statements remain statements about declared linear operators; behavioral statements remain empirical bridge candidates.
+
+##### Candidate family A — Singular / gauge-aware elimination
+
+A singular interior block requires more than replacing an inverse symbol mechanically. Let `N` span the declared nullspace of `L_II`. A bounded gauge-invariant boundary reduction requires the coupling to respect the null direction:
+
+```text
+L_BI N ≈ 0  and  N^T L_IB ≈ 0.
+```
+
+If this range/nullspace compatibility fails, the eliminated interior contains a direction with zero quadratic cost but nonzero boundary coupling; a finite Schur boundary energy is not licensed without an additional constraint or gauge contract.
+
+| Candidate ID | Candidate | Medium result | Status |
+|---|---|---:|---|
+| `CF-SF-GPINV-01` | Moore–Penrose pseudoinverse Schur on a compatible singular object | mean rel. error `6.8e-18` | `MEDIUM_PASS_SCOPE_LOCKED` |
+| `CF-SF-GCOMP-01` | explicit complement/gauge-basis reduction | mean rel. error `5.7e-16`; gauge-basis difference ~`6.0e-16` | `MEDIUM_PASS_SCOPE_LOCKED` |
+| `CF-SF-GRIDGE-01` | fixed ridge/diagonal loading as universal gauge replacement | mean rel. error `0.00277`, p95 `0.0107` | `MEDIUM_FAIL_GENERAL` |
+| `CF-SF-GAUDIT-01` | nullspace-coupling compatibility audit before elimination | synthetic leakage AUC `1.000` | `MEDIUM_PASS_SCOPE_LOCKED` |
+
+**Interpretation.** Pseudoinverse and explicit-complement forms are two coordinate descriptions of the same compatible quotient operation under the frozen generator. Their agreement is not evidence that every singular system is safe to reduce; the load-bearing condition is the nullspace/range contract. Ridge is useful only as an estimator or deliberately modified model, not as a semantics-preserving replacement for gauge specification.
+
+**New singular-object rule:**
+
+```text
+singular L_II
+  → identify nullspace / gauge
+  → audit coupling compatibility
+  → if compatible: pseudoinverse or declared complement
+  → if incompatible: STOP; add physical/semantic constraint, do not silently regularize
+```
+
+##### Candidate family B — Directed / non-normal elimination
+
+For a nonsymmetric but invertible interior block, the static Schur algebra remains valid for the declared steady-state linear equations. The benchmark separates this from transient adequacy.
+
+**Equilibrium response (220 frozen directed systems):**
+
+| Candidate | Mean relative boundary error | p95 |
+|---|---:|---:|
+| nonsymmetric static Schur | `1.5e-16` | `3.36e-16` |
+| symmetrize-then-Schur surrogate | `0.1991` | `0.5138` |
+
+`CF-SF-DSTAT-01 → MEDIUM_PASS_EQUILIBRIUM_ONLY`. `CF-SF-DSYM-01 → MEDIUM_FAIL_GENERAL`.
+
+The failure of the symmetric shortcut is conceptually important: **directionality is part of the interface contract.** A directed routing/recovery/authority process may not be replaced by an undirected energy picture merely because symmetric Schur theory is convenient.
+
+**Transient replay:** piecewise-random boundary forcing was applied to the full directed system and compared with reduced models.
+
+| Candidate | Mean normalized replay error | Median | p95 |
+|---|---:|---:|---:|
+| boundary-only | `0.04010` | `0.02783` | `0.12574` |
+| static nonsymmetric Schur | `0.04834` | `0.02466` | `0.18151` |
+| symmetrized surrogate | `0.96538` | `0.04216` | `0.21925` |
+| naive moment-1 memory correction | unstable heavy tail | `0.04099` | `0.66517` |
+
+The first-order memory correction beat static Schur in only `12.3%` of systems and produced rare explosive failures. `CF-SF-DM1-01 → MEDIUM_FAIL_CURRENT_FORM`. This is retained as negative-result memory: low-order dynamic correction must be stability-constrained rather than added algebraically by default.
+
+##### Non-normality as a Schur-adequacy gate
+
+The same directed benchmark tested several candidate risk indicators against static-Schur transient error.
+
+| Gate variable | Spearman with replay error | AUC for top-quartile error |
+|---|---:|---:|
+| numerical abscissa `λ_max((A+A^T)/2)` | **0.696** | **0.875** |
+| commutator departure `||A^T A-AA^T||/||A||²` | 0.597 | 0.814 |
+| spectral abscissa `max Re λ(A)` | 0.417 | 0.744 |
+| interior/boundary timescale ratio | 0.026 | 0.504 |
+
+Thus eigenvalue stability alone is an incomplete diagnostic for reduction adequacy in non-normal systems. Transient amplification geometry carries additional information.
+
+A second independent 320-system dataset was split into train/test. A threshold on numerical abscissa was selected on the training half only; the held-out policy selected static Schur below the threshold and boundary-only above it.
+
+```text
+held-out static Schur mean error     = 0.05110
+held-out boundary-only mean error    = 0.03671
+held-out gated selector mean error   = 0.03564
+relative gain vs best fixed baseline = 2.91%
+```
+
+`CF-SF-DGATE-01` and `CF-SF-DSELECT-01 → MEDIUM_PASS_SCOPE_LIMITED`.
+
+The gain is deliberately described as **narrow**. It is enough to justify a candidate gating policy, not enough to claim numerical abscissa as a universal reduction criterion.
+
+##### v1.19 Schur selection tree
+
+```text
+Is L_II singular?
+  YES → identify gauge/nullspace
+        → coupling compatible?
+            NO  → no Schur promotion; constrain/redefine object
+            YES → pseudoinverse or explicit complement
+  NO  → continue
+
+Is operator directed/non-normal?
+  NO  → v1.18 static/dynamic/nonlinear tree
+  YES → equilibrium only?
+            YES → nonsymmetric static Schur is reference
+            NO  → audit transient amplification
+                  → low-risk gate: static Schur candidate
+                  → high-risk gate: retain more state / dynamic Feshbach / fallback
+```
+
+##### Queue update after MediumBench
+
+| Bench | v1.18 status | v1.19 status | Next action |
+|---|---|---|---|
+| `MB-SF-01` directed/non-normal | `MEDIUM_PENDING` | **`MEDIUM_COMPLETE`** | test stable memory-kernel/rational dynamic reductions |
+| `MB-SF-02` singular/gauge | `MEDIUM_PENDING` | **`MEDIUM_COMPLETE`** | noisy nullspace estimation and changing-gauge robustness if needed |
+| `MB-SF-03` time-domain Feshbach | `MEDIUM_PENDING` | `MEDIUM_PENDING` | split into exact retained-memory, stable rational, and learned-memory candidates |
+| `MB-SF-04` nonlinear switching | `MEDIUM_PENDING` | `MEDIUM_PENDING` | switching/saturation + refresh-cost bench |
+| `MB-SF-05` rank/error/runtime/energy | `MEDIUM_PENDING` | `MEDIUM_PENDING` | larger sparse interiors and wall-clock/energy proxy |
+| `HB-SF-01` real agent boundary contract | `HEAVY_PENDING` | `HEAVY_PENDING` | no execution yet |
+| `HB-SF-02` recursive multiscale closure | `HEAVY_PENDING` | `HEAVY_PENDING` | no execution yet |
+| `HB-SF-03` multiplex-specific Schur | `HEAVY_PENDING` | `HEAVY_PENDING` | no execution yet |
+
+**Next-candidate refinement.** The failed moment-1 candidate narrows `MB-SF-03` to three safer competitors:
+
+1. `CF-SF-MEM-EXACT-01` — explicit retained memory kernel / augmented hidden state;
+2. `CF-SF-MEM-RAT-01` — stable rational/Padé-like approximation with pole-stability lock;
+3. `CF-SF-MEM-LEARN-01` — learned finite-memory interface map with independent replay and rollback.
+
+No one of these is promoted in v1.19. They are benchmark-ready candidates.
+
+**Frozen artifacts:** `grt_v119_schur_mediumbench_results.json`; `run_grt_v119_schur_mediumbench.py`.
+
+
+###### 4.12.26 Time-Domain Feshbach Memory Candidate Bench — v1.20
+
+> **Scope and anti-tautology lock.** `MB-SF-03` asks a different question from the frequency-domain algebra check in v1.18. The exact retained-memory construction is treated as a mathematical reference on the declared linear system, not empirical evidence. The discriminating test is whether **compressed or learned memory representations** predict independently generated time-domain boundary trajectories, remain stable, and preserve useful behavior under forcing and modest terrain drift.
+
+The exact continuous-time elimination of an interior state `i(t)` from
+
+```text
+b_dot = A_BB b + A_BI i + B_B u
+i_dot = A_IB b + A_II i
+```
+
+contains memory:
+
+```text
+i(t)
+  = exp(A_II t) i(0)
+    + integral_0^t exp(A_II (t-s)) A_IB b(s) ds
+
+b_dot
+  = A_BB b
+    + A_BI exp(A_II t) i(0)
+    + integral_0^t K(t-s) b(s) ds
+    + B_B u
+
+K(t) = A_BI exp(A_II t) A_IB.
+```
+
+This makes the v1.19 candidate split concrete: a dynamic boundary contract either retains the relevant hidden state, approximates the memory kernel with a stable finite-dimensional realization, or learns a finite-memory input/output map from replay.
+
+##### Candidate family
+
+| Candidate ID | Interface construction | Information requirement | Principal advantage | Principal risk | v1.20 status |
+|---|---|---|---|---|---|
+| `CF-SF-MEM-EXACT-01` | retain the full interior state / exact memory realization | full declared operator and interior state | exact reference on the linear object | no meaningful coarse-graining; retains internal dimension | `MEDIUM_PASS_REFERENCE_ONLY` |
+| `CF-SF-MEM-RAT-ACC-01` | stable exponential/rational kernel fit, accuracy-selected state count | declared operator | high dynamic replay accuracy and forcing robustness | accuracy selector may spend as many states as the original interior | `MEDIUM_PASS_BEHAVIORAL_SCOPE_LOCKED` |
+| `CF-SF-MEM-RAT-BUDGET-01` | stable rational kernel under an explicit hidden-state budget | declared operator + state budget | controllable error/compression frontier | required budget depends on pole/terrain geometry | `MEDIUM_PASS_SCOPE_LIMITED` |
+| `CF-SF-MEM-LEARN-ID-01` | stability-locked finite-memory ARX learned from replay | boundary replay only; no interior operator required | black-box applicability | distribution-shift and excitation dependence | `MEDIUM_PASS_ID_ONLY` |
+| `CF-SF-MEM-LEARN-OOD-01` | same learned map reused under novel forcing | same as above | cheap reuse if valid | fast/impulsive OOD error | `MEDIUM_FAIL_CURRENT_FORM` |
+
+The learned candidate is intentionally retained rather than discarded: it solves a different operational problem. Rational Feshbach is attractive when the operator is inspectable; a learned interface may be the only available path when the interior is proprietary, opaque, or too expensive to identify directly.
+
+##### MB-SF-03A — Same-system time-domain replay
+
+**Generator.** The bench used 72 independently generated stable linear systems (`24` each in real-decay, oscillatory, and non-normal interior regimes), boundary dimension `b=2`, interior dimension `m=8..14`, `dt=0.05`, and 180-step trajectories. Learned models used separate train/validation trajectories. Final evaluation used independent ID, fast-OOD, and impulse forcing.
+
+**Candidate details.**
+
+- Exact retained memory: full dynamic system retained; reference only.
+- Rational memory: `K(t)` approximated by a stable sum of exponentials `Σ_j W_j exp(-p_j t)`; the **full augmented reduced realization** had to pass a stability audit, not merely the individual pole signs.
+- Learned memory: ARX history lengths `{2,4,8,12}` and ridge values `{1e-6,1e-4,1e-2,1}` competed on independent validation; the autonomous companion block required spectral radius `<0.999`. Evaluation rollouts received only a short true boundary warm-start equal to the chosen history length.
+- Static Schur: quasi-static dynamic baseline.
+
+| Test | Rational accuracy-selected | Learned finite-memory | Static Schur |
+|---|---:|---:|---:|
+| ID forcing mean trajectory error | **0.00135** | 0.03805 | 0.05896 |
+| Fast OOD forcing | **0.00140** | 0.10160 | 0.05386 |
+| Impulse forcing | **0.00125** | 0.19993 | 0.05577 |
+
+No candidate produced a rollout blow-up under the declared benchmark after the stability gates.
+
+**Regime split.** The accuracy-selected rational candidate remained low-error across all three tested dynamic families: mean errors were approximately `2.45e-5` (real-decay), `0.00364` (oscillatory), and `0.000344` (non-normal). Static Schur was especially weak on the non-normal family (`0.1278` mean across forcing classes), consistent with v1.19's transient warning.
+
+**Decision.** `CF-SF-MEM-RAT-ACC-01` survives strongly as a behavioral dynamic interface candidate, but it is **not yet a compression result**. Its selected realization carried mean hidden dimension `11.28` versus mean original interior dimension `10.99`. Accuracy without state reduction is useful as an interface abstraction, but it does not establish resource savings.
+
+The learned candidate is split by domain of validity. On ID replay it improved mean error by roughly `35%` relative to static Schur, but on fast OOD and impulse forcing it was worse than the static baseline. Therefore the current learned finite-memory form is **not a general Feshbach replacement**.
+
+##### MB-SF-03B — Rational state-budget frontier
+
+To separate accuracy from compression, a second independent bench fixed the number of real exponential memory poles `r=1..5` instead of allowing an accuracy selector to spend states freely. Each pole adds `b=2` hidden memory states.
+
+| Rational budget | Mean hidden-state / original-interior ratio | ID mean error | Fast-OOD mean error | Stability fraction |
+|---:|---:|---:|---:|---:|
+| `r=1` | 0.184 | 0.02989 | 0.02458 | 1.00 |
+| `r=2` | 0.368 | 0.01552 | 0.01570 | 1.00 |
+| `r=3` | **0.552** | **0.00759** | **0.00680** | 1.00 |
+| `r=4` | 0.736 | 0.00358 | 0.00320 | 1.00 |
+| `r=5` | 0.919 | 0.00237 | 0.00255 | 1.00 |
+
+The frontier is more informative than declaring one universal rank. Under this generator, even the aggressive `r=1` budget used about 18% of the original interior-state count while beating the overall static-Schur ID mean; `r=2` and `r=3` provide substantially better tail/terrain behavior.
+
+**Decision.** `CF-SF-MEM-RAT-BUDGET-01 → MEDIUM_PASS_SCOPE_LIMITED`. GRT should treat dynamic-memory rank as a **resource contract**, not a structural constant:
+
+```text
+choose r*
+  = argmin_r MemoryCost(r)
+
+subject to:
+  ReplayError_ID(r) <= epsilon_ID
+  ReplayError_OOD(r) <= epsilon_OOD
+  Stability(r)       = PASS
+  Recovery/Audit behavior remains inside contract
+```
+
+A practical default candidate from this synthetic family is `r=3`, not because `3` is universal, but because it occupied a useful middle point of the tested error/state frontier.
+
+##### MB-SF-03C — Mild interior-timescale drift and refresh
+
+A frozen-map audit changed only the stable interior timescale (`A_II -> 0.7 A_II` or `1.3 A_II`) while keeping the boundary/coupling object fixed.
+
+| Frozen map | Mean drift replay error |
+|---|---:|
+| old full/exact operator | 0.01830 |
+| old rational map | **0.01852** |
+| old learned finite-memory map | 0.04003 |
+| old static Schur | 0.05149 |
+| refreshed exact operator | 0 |
+
+This establishes **staleness**, not catastrophic failure: even an originally exact memory operator becomes wrong when the terrain/operator changes. The correct object is therefore `(effective map, operator version, validity window)`, not an unversioned effective map.
+
+A smaller independent refresh audit then compared old versus refreshed models after the same class of drift:
+
+```text
+r=3 rational:
+  old operator mean error       0.01498
+  refreshed operator mean error 0.00613
+
+learned finite-memory:
+  old replay model mean error       0.03491
+  refreshed with 3 train + 1 val   0.03458
+```
+
+The rational refresh showed a clear average improvement. The low-data learned refresh did not. This does **not** prove that learned refresh is ineffective; it shows that naive small-sample retraining is not automatically a useful correction rule and should itself be candidate-benchmarked.
+
+##### Kernel-fit residual is not the behavioral objective
+
+A notable audit result is that the accuracy-selected rational family had mean raw kernel-norm fitting error around `0.169`, yet mean boundary replay error around `0.00134`. The discrepancy is expected because the boundary task excites and weights only part of the full kernel geometry.
+
+Therefore:
+
+```text
+low ||K_hat - K||   is useful,
+but it is NOT sufficient for promotion.
+
+Promotion requires:
+  intervention-weighted / replay boundary residual
+  + stability
+  + protected-channel behavior
+  + declared state/resource budget.
+```
+
+This prevents GRT from optimizing an operator norm that is poorly aligned with the actual governance interface contract.
+
+##### v1.20 Time-domain Feshbach selection tree
+
+```text
+Dynamic interior memory material?
+  NO  -> static Schur branch from v1.18/v1.19
+  YES -> can the internal operator be inspected?
+
+         YES
+          -> exact retained-memory model = reference only
+          -> fit stable rational memory family
+          -> choose hidden-state budget from error/state frontier
+          -> replay + OOD + stability gate
+          -> version map against terrain/operator drift
+
+         NO
+          -> learned finite-memory / learned state-space candidate
+          -> independent train/validation/replay split
+          -> autonomous stability gate
+          -> OOD excitation probes required
+          -> residual-triggered rollback/refresh
+          -> no promotion from ID replay alone
+```
+
+##### Queue update after v1.20
+
+| Bench / candidate | v1.20 status | Next action |
+|---|---|---|
+| `MB-SF-03` time-domain Feshbach family | **`MEDIUM_COMPLETE`** | retain split candidate statuses rather than one family verdict |
+| `CF-SF-MEM-RAT-CPLX-01` complex-pole rational compression | `MEDIUM_PENDING` | test whether oscillatory regimes reach the same error with fewer retained states |
+| `CF-SF-MEM-SSID-01` black-box learned state-space / subspace identification | `MEDIUM_PENDING` | compare with ARX on OOD forcing at matched replay budget |
+| `CF-SF-MEM-REFRESH-01` residual-triggered refresh policy | `MEDIUM_PENDING` | independent drift detector; compare refresh cost and false triggers |
+| `MB-SF-04` nonlinear switching/saturation | `MEDIUM_PENDING` | test state-conditioned dynamic memory and switching validity windows |
+| `MB-SF-05` rank/error/runtime/energy frontier | `MEDIUM_PENDING` | use optimized implementations and hardware-neutral operation counts; current Python wall-clock is not promotion evidence |
+| `HB-SF-01` real multi-agent boundary contract | `HEAVY_PENDING` | no execution yet |
+| `HB-SF-02` recursive multiscale closure | `HEAVY_PENDING` | no execution yet |
+| `HB-SF-03` multiplex-specific Schur/Feshbach | `HEAVY_PENDING` | no execution yet |
+
+**Runtime interpretation lock.** The prototype benchmark measured wall-clock diagnostics, but candidate implementations used different Python execution paths. Those times are **not** used as evidence for an energy or compute-efficiency claim. The state-budget frontier is the current resource proxy; optimized runtime/energy comparison remains `MB-SF-05`.
+
+**Frozen artifacts:** `grt_v120_feshbach_memorybench_results.json`; `grt_v120_rational_frontier_results.json`; `grt_v120_refreshbench_results.json`; `run_grt_v120_feshbach_memorybench.py`; `run_grt_v120_rational_frontier.py`; `run_grt_v120_refreshbench.py`.
+
+
+###### 4.12.27 Complex-Pole Rational vs Black-Box State-Space vs Residual-Triggered Refresh — v1.21
+
+> **Scope lock.** This bench separates three different objects that should not be collapsed into one claim: (1) a white-box complex-pole memory approximation, (2) an operator-free black-box boundary state-space model learned from active input/output probes, and (3) a drift-triggered model-refresh policy. A model can be accurate without being cheap to refresh; a refresh policy can be useful without proving the underlying effective operator is universal.
+
+##### Candidate split
+
+| Candidate ID | Object | Internal operator required? | Update mode | v1.21 verdict |
+|---|---|---:|---|---|
+| `CF-SF-MEM-RAT-CPLX-01` | complex-conjugate-pole rational memory kernel | yes | recompute from current operator | `MEDIUM_PASS_SCOPE_LIMITED` |
+| `CF-SF-MEM-SSID-ERA-01` | ERA/subspace boundary state-space | no; active boundary probe required | re-identify from probe response | `MEDIUM_PASS_PROBE_ACCESS_SCOPE_LOCKED` |
+| `CF-SF-MEM-REFRESH-PERSIST-01` | persistent residual-triggered refresh | wraps a versioned model | refresh only after persistent residual alarm | `MEDIUM_PASS_SCOPE_LIMITED` |
+| `CF-SF-MEM-REFRESH-DUAL-01` | dual relative+absolute residual trigger | wraps a versioned model | conservative refresh | `MEDIUM_PASS_CONSERVATIVE` |
+| `CF-SF-MEM-REFRESH-SIMPLE-01` | single-threshold residual trigger | wraps a versioned model | eager/simple | `MEDIUM_FAIL_AS_DEFAULT` |
+
+##### Candidate A — Complex-pole rational memory
+
+The v1.20 real-exponential family is extended to allow real poles and conjugate complex pairs. For discrete memory lag `l`, the fitted kernel has the real form
+
+```text
+K_hat[l]
+  = Σ_j C_j p_j^l
+    + Σ_q (A_q Re(z_q^l) + B_q Im(z_q^l)),
+
+|p_j| < 1, |z_q| < 1.
+```
+
+The candidate uses pole locations available from the declared interior operator, while fitting boundary-relevant residues under a small basis budget. This allows oscillatory interior memory to be represented without replacing every oscillatory pair by multiple purely decaying exponentials.
+
+**Important resource lock:** the reported `basis_dim` is a kernel-basis count, not automatically the number of optimized runtime states. It is therefore a compression proxy only. Runtime/state equivalence remains `MB-SF-05` pending.
+
+##### Candidate B — Black-box learned state-space
+
+The black-box candidate uses only boundary input/output impulse-response Markov parameters
+
+```text
+G_k = C Phi^k Gamma
+```
+
+and a truncated Hankel realization (ERA/subspace identification). It does **not** read `A_II`, its poles, or an interior Schur block. Candidate ranks compete on independent validation trajectories and unstable learned realizations are rejected.
+
+This is stronger than the v1.20 ARX candidate in one important sense: it learns a latent dynamical state rather than a fixed finite output-history regression.
+
+##### MB-SF-03D — Same-terrain competition
+
+**Generator.** `24` independently generated stable systems (`8` each real-decay, oscillatory, non-normal), boundary dimension `2`, mean interior dimension `11.33`, `dt=0.05`, and independent ID / fast-OOD / chirp / impulse forcing.
+
+| Held-out forcing | Complex-pole rational mean error | Black-box ERA mean error |
+|---|---:|---:|
+| ID | 0.02818 | **0.00370** |
+| Fast OOD | 0.01823 | **0.00240** |
+| Chirp / swept frequency | 0.04017 | **0.00526** |
+| Impulse | 0.01853 | **0.00276** |
+
+The mean selected complex-pole basis dimension was `3.25`; the mean ERA latent rank was `5.00`. ERA rank was about `39.2%` of the full boundary+interior state dimension on this generator. The complex-pole basis ratio was about `29.7%` of interior dimension, but this is **not** a runtime-state ratio and is not used as an energy claim.
+
+##### Regime separation: why complex poles are not enough for non-normal interiors
+
+| Regime | Rational ID | ERA ID | Rational chirp | ERA chirp |
+|---|---:|---:|---:|---:|
+| real-decay | 0.00285 | **0.00164** | 0.00504 | **0.00263** |
+| oscillatory | 0.00364 | **0.00251** | 0.00505 | **0.00371** |
+| non-normal | 0.07805 | **0.00694** | 0.11043 | **0.00944** |
+
+Complex poles solve an **oscillation representation** problem, but they do not by themselves solve a **non-normal transient geometry** problem. The non-normal family produced the large rational tail. This is consistent with the v1.19 warning that eigenvalue information alone can miss transient amplification.
+
+Therefore:
+
+```text
+complex poles present
+  does NOT imply
+complex-pole rational is sufficient.
+
+Need additionally:
+  residue / mode geometry
+  + non-normality audit
+  + behavioral replay.
+```
+
+`CF-SF-MEM-RAT-CPLX-01` therefore survives only with a non-normality/replay scope lock.
+
+##### Black-box ERA verdict and probe-access limitation
+
+ERA achieved the lowest mean replay error in every forcing class and remained strong on the non-normal systems. This supports the candidate claim:
+
+> When interior operators are unavailable but controlled boundary excitation and observation are available, a learned latent state-space may recover boundary dynamics more robustly than a small pole-basis approximation.
+
+But the current bench generated a clean impulse/Markov response from the synthetic system. It does **not** establish robustness to noisy sensors, passive-only logs, missing excitation directions, asynchronous data, or changing agent policies.
+
+Accordingly:
+
+```text
+CF-SF-MEM-SSID-ERA-01
+  = MEDIUM_PASS_PROBE_ACCESS_SCOPE_LOCKED
+  != deployed black-box identification theorem.
+```
+
+The next cheap/medium discriminator is `CF-SF-MEM-SSID-NOISE-01`: add measurement/process noise and compare active-probe ERA, passive subspace identification, and ARX/state-space hybrids at matched data budgets.
+
+##### MB-SF-03E — Terrain drift and refresh benefit
+
+The effective maps were frozen, the interior/coupling terrain was then perturbed while stability was preserved, and replay was repeated.
+
+| Post-drift map | Mean replay error |
+|---|---:|
+| frozen ERA | 0.03017 |
+| refreshed ERA after new active identification | **0.00249** |
+| frozen complex-pole rational | 0.04475 |
+| rational recomputed from new operator | 0.03145 |
+
+ERA re-identification reduced mean post-drift error by **91.7%** relative to the frozen ERA. Recomputing the rational candidate reduced its mean error by `29.7%` under the same terrain-drift family.
+
+This supports **versioned effective maps + refresh**, not continuous retraining. The correct deployment object becomes:
+
+```text
+EffectiveInterface = {model, terrain_version, validity_window,
+                      residual_monitor, refresh_contract}
+```
+
+The refresh operation in this synthetic bench assumes an active identification budget equivalent to roughly `100` probe steps and clean probe responses. Probe cost, safe excitation amplitude, and noisy identification remain open.
+
+##### MB-SF-03F — Residual trigger candidate sieve
+
+Because refresh itself has cost, the trigger was split into three candidates and tested on `42` new system instances with separate drift and no-drift episodes.
+
+| Trigger | Detection rate | False-trigger rate | Mean delay (steps) | Status |
+|---|---:|---:|---:|---|
+| simple high threshold | 0.643 | 0.071 | 115.1 | `FAIL_AS_DEFAULT` |
+| persistent residual | **0.833** | 0.095 | 94.5 | `PASS_BALANCED` |
+| dual relative+absolute residual | 0.667 | **0.000** | 90.6 | `PASS_CONSERVATIVE` |
+
+The persistent candidate requires residual excess to survive multiple consecutive windows. Under the declared utility weighting it was the best balanced candidate. The dual candidate requires both relative and absolute residual evidence; it generated **zero false triggers** in this synthetic sample but missed more drifts.
+
+This creates a governance-dependent choice rather than one universal trigger:
+
+```text
+Refresh is cheap / missed drift costly
+  -> persistent trigger candidate
+
+Refresh is expensive / false intervention costly
+  -> dual conservative trigger candidate
+```
+
+The trigger itself should therefore be selected from the same expected-loss machinery used elsewhere in GRT:
+
+```text
+L_refresh
+  = C_false_refresh * P(false trigger)
+  + C_missed_drift * P(miss)
+  + C_delay * E[detection delay]
+  + C_probe
+  + C_reidentification.
+```
+
+##### v1.21 selection architecture
+
+```text
+Dynamic effective interface needed
+  |
+  +-- operator inspectable?
+  |     |
+  |     +-- YES -> candidate complex-pole rational
+  |     |           -> non-normality + replay gate
+  |     |           -> if poor: richer rational / state-space branch
+  |     |
+  |     +-- NO  -> active boundary probe available?
+  |                 |
+  |                 +-- YES -> black-box ERA / SSID
+  |                 +-- NO  -> passive/noisy SSID candidate [PENDING]
+  |
+  +-- deploy model with terrain version + residual monitor
+        |
+        +-- residual stable -> retain model
+        +-- persistent/dual trigger -> active refresh if budget allows
+        +-- refresh unavailable -> degrade authority / rollback / escalate
+```
+
+The architectural lesson is stronger than a single winner:
+
+> **Coarse-graining and model maintenance are separate layers.** A good effective map still becomes stale; a good refresh policy cannot rescue a structurally inadequate model without enough identification information.
+
+##### v1.21 queue update
+
+| Candidate / bench | v1.21 state | Next action |
+|---|---|---|
+| `CF-SF-MEM-RAT-CPLX-01` | `MEDIUM_PASS_SCOPE_LIMITED` | add non-normality-gated selector and matched runtime-state realization |
+| `CF-SF-MEM-SSID-ERA-01` | `MEDIUM_PASS_PROBE_ACCESS_SCOPE_LOCKED` | noisy/passive identification bench |
+| `CF-SF-MEM-REFRESH-PERSIST-01` | `MEDIUM_PASS_SCOPE_LIMITED` | optimize trigger threshold against declared refresh loss |
+| `CF-SF-MEM-REFRESH-DUAL-01` | `MEDIUM_PASS_CONSERVATIVE` | test under rarer but higher-cost drift |
+| `CF-SF-HYBRID-GATE-01` | `MEDIUM_PENDING` | use measured non-normality/replay residual to route rational vs SSID |
+| `CF-SF-MEM-SSID-NOISE-01` | `MEDIUM_PENDING` | active noisy probe vs passive SSID vs ARX hybrid |
+| `MB-SF-04` nonlinear switching/saturation | `MEDIUM_PENDING` | no execution yet |
+| `MB-SF-05` runtime/energy/probe-cost frontier | `MEDIUM_PENDING` | optimized implementation + operation/probe budget |
+| recursive/multiplex real-agent Feshbach benches | `HEAVY_PENDING` | candidate only |
+
+**Frozen artifacts:** `grt_v121_complexpole_blackbox_refresh_results.json`; `grt_v121_complexpole_blackbox_refresh_summary.json`; `grt_v121_refresh_trigger_sieve_results.json`; `run_grt_v121_complexpole_blackbox_refresh_bench.py`; `run_grt_v121_refresh_trigger_sieve.py`.
+
+
+###### 4.12.28 Non-normality-Gated Rational ↔ ERA Selector Bench — v1.22
+
+> **Status: MEDIUM BENCH — CONDITIONAL PASS WITH RESOURCE/OBJECT LOCKS.** This section tests whether the compact complex-pole rational interface from v1.21 can be used by default while routing only high-risk non-normal terrains to the more general black-box ERA realization. It does **not** claim that non-normality alone determines the optimal reducer, and it does not make ERA free: ERA consumes a larger interface-state budget and, in the present synthetic setup, active identification access.
+
+##### Candidate split
+
+The selector problem is distinct from both reducer fitting and refresh:
+
+```text
+Reducer family:
+  R = compact operator-conditioned rational
+  E = boundary-identified ERA state-space
+
+Selector:
+  S(terrain_risk, resource_contract)
+    -> R or E
+
+Refresh:
+  decides when the selected model is stale
+```
+
+Four selector candidates were frozen:
+
+| Candidate | Rule | Intended advantage | v1.22 result |
+|---|---|---|---|
+| `CF-SF-SEL-WA-THR-01` | ERA if numerical abscissa > fixed threshold | simple one-system gate | `MEDIUM_FAIL_RESOURCE_STABILITY` |
+| `CF-SF-SEL-DEP-THR-01` | ERA if commutator-departure > fixed threshold | alternate non-normality proxy | `MEDIUM_SCOPE_LIMITED`; no clear advantage |
+| `CF-SF-SEL-COMP-01` | learned score from numerical abscissa + commutator departure | richer risk estimate | `MEDIUM_NO_MATERIAL_GAIN` |
+| `CF-SF-SEL-WA-RANK-01` | rank by numerical abscissa; send only top risk quota to ERA | exact resource-budget control | **`MEDIUM_PASS_SCOPE_LIMITED`** |
+
+The gate is intentionally **risk-ranked rather than topology-labeled**. The generator labels `real_decay / oscillatory / nonnormal` are evaluation metadata, not inputs to the canonical selector.
+
+##### Why the fixed threshold failed
+
+The first candidate trained an absolute numerical-abscissa threshold under a nominal 40% ERA budget. Replay accuracy was good, but the risk distribution moved under terrain shift:
+
+| Set | ERA fraction | Mean selector error | Always rational | Always ERA |
+|---|---:|---:|---:|---:|
+| train | 0.370 | 0.00312 | — | — |
+| held-out | **0.519** | 0.00266 | 0.00786 | 0.00247 |
+| shifted terrain | **0.593** | 0.00369 | 0.02228 | 0.00297 |
+
+Therefore an absolute gate can be an accuracy gate but not a reliable resource contract. A terrain shift that raises non-normality can silently cause the expensive branch to absorb most of the population.
+
+This is a general orchestration lesson:
+
+```text
+fixed risk threshold
+  !=
+fixed compute / probe / state budget
+```
+
+##### Budget-controlled rank selector
+
+The replacement policy imposes the expensive-model quota directly:
+
+```text
+For a current eligible population P:
+  1. compute risk score omega_i
+  2. rank agents/patches by omega_i
+  3. allocate ERA to top q fraction
+  4. allocate compact rational to the remainder
+```
+
+For the present white-box linear candidate,
+
+\[
+\omega_i
+= \lambda_{\max}\!\left(\frac{A_i+A_i^\top}{2}\right)
+\]
+
+is the numerical abscissa. This quantity is a **candidate transient-risk score**, not a universal governance variable.
+
+At a nominal `q=0.40`, finite batches of `27` selected `10/27 = 0.370` ERA interfaces. Initial held-out results were:
+
+| Policy | Held-out mean error | Shifted mean error | ERA fraction |
+|---|---:|---:|---:|
+| always rational | 0.00786 | 0.02228 | 0.000 |
+| always ERA | 0.00247 | 0.00297 | 1.000 |
+| regime-label reference | 0.00300 | 0.00439 | 0.333 |
+| **numerical-abscissa rank gate** | **0.00293** | **0.00449** | **0.370** |
+
+The rank gate sacrificed some accuracy relative to always-ERA but removed roughly 63% of ERA activations while eliminating most of the catastrophic rational tail under strong non-normality.
+
+##### Risk-score audit
+
+Material ERA benefit was defined independently as
+
+\[
+E_R-E_E > 0.005,
+\]
+
+where `E_R` and `E_E` are mean replay errors across ID, fast-OOD, chirp, and impulse forcing. Discrimination AUCs were:
+
+| Risk score | Train | Held-out | Shifted |
+|---|---:|---:|---:|
+| numerical abscissa | 0.707 | **0.829** | **0.868** |
+| commutator departure | 0.714 | 0.821 | **0.879** |
+| spectral abscissa | 0.843 | 0.614 | 0.819 |
+
+The two-feature logistic score did not materially improve the quota-controlled selector over numerical-abscissa ranking in the tested sets. GRT therefore preserves the **simpler score** and keeps richer gates as candidates rather than rewarding complexity without held-out gain.
+
+##### Fresh-seed confirmation lock
+
+Because the first rank result and its acceptance interpretation were developed together, a separate confirmation run was executed on completely fresh seeds after freezing the following gates:
+
+```text
+C1: ERA fraction <= 0.40
+C2: mean error <= always-ERA mean + 0.002 absolute
+C3: >= 50% mean-error reduction vs always-rational
+C4: p95 replay error <= 0.015
+C5: >= 10% selected interface-dimension reduction vs always ERA
+```
+
+Results:
+
+| Confirmation set | Rank-gate mean | Rational mean | ERA mean | Error reduction vs rational | Excess vs ERA | Interface-dim reduction vs ERA |
+|---|---:|---:|---:|---:|---:|---:|
+| fresh ID | **0.00250** | 0.00706 | 0.00119 | **64.6%** | 0.00130 | **21.3%** |
+| fresh shifted terrain | **0.00542** | 0.01528 | 0.00418 | **64.5%** | 0.00123 | **21.5%** |
+
+The corresponding p95 errors were `0.00610` and `0.00583`, and ERA usage remained `0.370` in both finite batches. **All five predeclared confirmation gates passed on both sets.**
+
+Hence:
+
+```text
+CF-SF-SEL-WA-RANK-01
+  -> MEDIUM_PASS_SCOPE_LIMITED
+```
+
+The pass is deliberately narrow: it establishes a synthetic resource/accuracy frontier for the declared linear system family, not a universal non-normality theorem for multi-agent systems.
+
+##### Canonical hybrid policy after v1.22
+
+```text
+Dynamic interface request
+  |
+  +-- compact rational admissible and operator visible?
+  |       |
+  |       +-- NO -> ERA / SSID branch if identification access exists
+  |       |
+  |       +-- YES -> estimate transient non-normality risk
+  |                   |
+  |                   +-- rank within current resource pool
+  |                   +-- top risk quota -> ERA
+  |                   +-- remaining quota -> rational
+  |
+  +-- replay / residual monitor
+          |
+          +-- valid -> retain selected reducer
+          +-- stale -> refresh policy from v1.21
+```
+
+This upgrades the orchestrator from choosing a **model family** to allocating a **portfolio of effective-model families under a hard resource envelope**.
+
+##### Scope and failure locks
+
+1. **White-box risk lock.** Current numerical abscissa uses the declared full linear operator. If only boundary observations are available, this gate cannot be computed directly.
+2. **Population-reference lock.** Percentile/rank allocation requires a batch, population, rolling reference window, or stored calibration distribution. A single isolated system has no endogenous percentile.
+3. **Budget is not accuracy.** Tightening the ERA quota reduces cost but increases error; no quota is a universal constant.
+4. **Risk score is not causal completeness.** Non-normality explains a major rational failure mode in the current bench but does not exhaust oscillatory, nonlinear, delayed, adversarial, or identification-noise failures.
+5. **ERA access cost remains external.** Active probe cost and safe excitation constraints are not included in the interface-state count.
+6. **No cross-multiplex transfer.** A selector calibrated on an information/linear-response operator does not automatically select reducers for authority, recovery, contamination, or audit graphs.
+
+##### v1.22 queue update
+
+| Candidate / bench | v1.22 state | Next action |
+|---|---|---|
+| `CF-SF-SEL-WA-THR-01` | `MEDIUM_FAIL_RESOURCE_STABILITY` | retain as negative result; threshold may still be useful when resource budget is soft |
+| `CF-SF-SEL-WA-RANK-01` | **`MEDIUM_PASS_SCOPE_LIMITED`** | test boundary-observable risk proxies and rolling quota calibration |
+| `CF-SF-SEL-COMP-01` | `MEDIUM_NO_MATERIAL_GAIN` | do not promote until richer features beat simple ranking on fresh held-out data |
+| `CF-SF-SEL-BBPROXY-01` | `MEDIUM_PENDING` | infer transient-risk rank from boundary impulse/residual data only |
+| `CF-SF-SEL-ROLLQ-01` | `MEDIUM_PENDING` | rolling-quantile gate under changing population composition |
+| `CF-SF-MEM-SSID-NOISE-01` | `MEDIUM_PENDING` | noisy/passive SSID benchmark |
+| `MB-SF-05` runtime/probe/energy frontier | `MEDIUM_PENDING` | include identification and refresh cost, not state count alone |
+| nonlinear switching / recursive / multiplex closure | `MEDIUM/HEAVY_PENDING` | no promotion from current linear bench |
+
+**Frozen artifacts:** `grt_v122_nonnormality_gated_selector_results.json`; `grt_v122_nonnormality_gated_selector_summary.json`; `grt_v122_nonnormality_rank_confirmation_results.json`; `run_grt_v122_nonnormality_gated_selector.py`; `run_grt_v122_nonnormality_rank_confirmation.py`.
 
 #### 5. Input–Output Contract
 
@@ -6198,6 +8185,203 @@ Failure and coordination patterns discovered in bounded small-model populations 
 
 *Falsification condition:* If small-model results transfer uniformly without capability-dependent gaps, the cross-scale lock is unnecessarily conservative. If they transfer no better than chance even after structural matching, the experimental-population protocol has little predictive value for larger systems.
 
+**Prediction 24 — Energy-aware orchestration reduces Joules per successful task at matched quality and safety:**
+
+Compared with static routing, always-large-model execution, and compute-only learned routing, a scheduler using outcome-linked energy telemetry should reduce `JST` and increase `UER` while preserving the same declared task-quality, safety, SCC, and recovery thresholds. Savings should remain after including verification, retry, escalation, and recovery energy.
+
+*Falsification condition:* If energy-aware routing does not reduce total energy per successful safe task after full lifecycle accounting, or if its apparent energy advantage depends on lower verification/safety performance, the Energy-Aware Orchestration Principle has no demonstrated operational advantage.
+
+**Prediction 25 — Conditional energy escalation is Pareto-superior to always-small and always-large baselines on heterogeneous workloads:**
+
+For workloads containing both routine and difficult/OOD tasks, an energy escalation ladder should occupy a better quality–risk–energy Pareto frontier than either always-small or always-large execution: small tiers should absorb routine work cheaply, while difficult/high-risk cases selectively activate larger tiers. The advantage should grow as workload heterogeneity increases and shrink on homogeneous workloads.
+
+*Falsification condition:* If a fixed model tier matches or dominates the escalation ladder in total energy, quality, safety, and recovery across heterogeneous workloads, conditional activation adds unnecessary orchestration complexity.
+
+**Prediction 26 — Bounded scale residual predicts successful cross-scale transfer:**
+
+Small-model policies or governance compositions promoted through FMCI should succeed at the next scale at a rate negatively correlated with protected `SER_k`. Transfers with low boundary/authority/recovery/topology residuals should outperform transfers selected only by lower-scale task accuracy or energy efficiency.
+
+*Falsification condition:* If protected scale residual has no predictive relationship with next-scale quality, safety, SCC, or recovery outcomes, the FMCI residual model adds no useful transfer information.
+
+**Prediction 27 — Invariant-preserving transforms outperform naive replication/extrapolation:**
+
+Across matched workloads, a scale transform that explicitly preserves boundary, authority, dependency, failure, recovery, uncertainty, and resource contracts should require fewer rollback events and less re-learning at scale `k+1` than direct agent replication, parameter-count scaling, or scalar metric extrapolation.
+
+*Falsification condition:* If naive scaling matches or outperforms invariant-preserving transfer on rollback frequency, SCC, recovery time, and safety at comparable energy cost, the declared invariant bundle is unnecessarily complex or incorrectly chosen.
+
+**Prediction 28 — Quasi-commutativity residual localizes non-portable governance rules:**
+
+Rules or orchestration policies with low `R_comm` should remain behaviorally coherent under scale promotion more often than rules with high `R_comm`. High residual components should predict which relation class—authority, topology, recovery, or resource allocation—requires scale-specific redesign.
+
+*Falsification condition:* If `R_comm` neither predicts transfer failure nor localizes the component requiring redesign, the diagram audit has no operational value beyond ordinary next-scale testing.
+
+**Prediction 29 — Coordination energy creates a scale-dependent crossover point for small-agent compositions:**
+
+For at least some workloads, increasing the number of small specialized agents should initially reduce Joules per successful safe task, then reach a crossover scale where communication and synchronization growth (`CGR`) erodes or reverses the local-compute advantage. Fractal partitioning or hierarchical compression should shift that crossover to a larger population size.
+
+*Falsification condition:* If coordination energy remains negligible across increasing agent population sizes, or if hierarchical/fractal partitioning does not alter the energy crossover when communication structure is held comparable, the scale-aware energy law is unsupported for that workload class.
+
+**Prediction 30 — Fractal Compatibility Gradient appears across mature heterogeneous layers:**
+
+Across a mature hierarchy, upper maps should transfer across more domains with less local detail, while lower maps should achieve higher local-fit performance with lower direct portability. Measured cross-domain transferability should therefore increase with abstraction depth `ℓ`, while terrain-specific resolution and adaptation speed should generally decrease.
+
+*Falsification condition:* If higher maps are no more portable than lower maps, or if lower terrain-specialized maps are equally portable without translation across heterogeneous domains, the proposed compatibility gradient has no explanatory value.
+
+**Prediction 31 — Terrain-conditioned expansion outperforms direct upper-map copying:**
+
+When heterogeneous local terrains receive the same upper invariant, local implementations produced through `E_down(G, Terrain_i)` should outperform direct cloning of a uniform upper implementation on matched safety/authority constraints, particularly under distribution shift.
+
+*Falsification condition:* If direct uniform copying performs as well as or better than terrain-conditioned expansion across heterogeneous terrains without increasing residuals, the need for asymmetric downward variation is weakened.
+
+**Prediction 32 — Compatibility-mediated cross-local transfer reduces negative transfer:**
+
+Transferring a successful pattern from local domain `i` to distinct domain `j` through `X_up → compatibility representation → E_down` should produce fewer boundary, authority, recovery, and performance failures than direct `L_i → L_j` copying.
+
+*Falsification condition:* If direct local-to-local copying matches or outperforms compatibility-mediated transfer across heterogeneous terrains, the compatibility-bridge claim is weakened.
+
+**Prediction 33 — Mutual co-evolution reduces persistent scale and terrain residuals:**
+
+Systems that update both the upper compatibility map and the transformation operators (`X_up`, `E_down`, `T`) from repeated independent local residuals should show declining protected residuals over successive deployment cycles relative to systems with a frozen upper map or one-way top-down adaptation.
+
+*Falsification condition:* If bidirectional co-evolution does not reduce residuals or instead systematically increases instability compared with frozen-map controls, the Mutual Resonant Co-evolution claim is weakened.
+
+**Prediction 34 — Adaptive middle routers outperform fixed routers under terrain drift:**
+
+> **v1.16 evidence status: `CHEAP_PASS` (`CB-RTR-01`).** Internal synthetic drift gate supports the directional claim; medium testing remains required.
+
+When task distributions, local vocabularies, model capabilities, or timescale relations drift, a versioned router/translator updated from translation residuals should preserve matched-quality routing and lower `TLoss` more effectively than a fixed routing table, without suppressing disagreement or increasing hidden recovery cost.
+
+*Falsification condition:* If fixed routers match adaptive routers under sustained terrain drift at comparable compute, safety, feedback visibility, and recovery cost, router plasticity is not necessary for that regime.
+
+**Prediction 35 — Multivariate bridge bundles outperform scalar-only scale transfer when structural channels are non-redundant:**
+
+> **v1.16 evidence status: `CHEAP_PASS_SCOPE_LIMITED` (`CB-BRG-01`).** Random held-out mixtures improved, but unseen-topology transfer was mixed; cross-topology portability is not established.
+
+On heterogeneous scale-transfer tasks, a bridge containing at least buffer/timescale/topology information plus protected governance contracts should outperform a scalar-only transfer model on held-out macrostate prediction, rollback prediction, or transfer safety whenever those channels carry independent information. Ablation should identify which variables are genuinely useful.
+
+*Falsification condition:* If richer bridge bundles do not improve held-out prediction or governance outcomes over the best scalar representation after complexity penalties, the additional bridge variables should be removed for that substrate.
+
+**Prediction 36 — Maturation-before-coupling reduces cascade and rework cost:**
+
+> **v1.16 evidence status: `CHEAP_PASS` (`CB-MAT-01`).** Randomized two-module toy systems strongly favored maturation-first; broader nonlinear/heterogeneous testing remains pending.
+
+Local variations that satisfy a maturation certificate before strong cross-local coupling should exhibit lower cascade probability, fewer rollback events, and lower recovery/retraining cost than otherwise matched systems coupled immediately after creation.
+
+*Falsification condition:* If immediate coupling matches or outperforms maturation-gated coupling across stability, learning speed, energy, and recovery metrics, the proposed ordering is unnecessarily conservative.
+
+**Prediction 37 — Residual Vitality distinguishes genuine compatibility from false quiet:**
+
+> **v1.16 evidence status: `CHEAP_PASS` (`CB-RV-01`).** Independent hidden-mismatch labels show added value from probe/update vitality channels in low-residual cases.
+
+Among systems with similarly low `R_scale`/`R_comm`, systems that retain boundary experimentation, bidirectional feedback, and independent disagreement paths should survive perturbation tests and terrain shift more reliably than systems whose low residual coincides with declining experiment and feedback rates.
+
+*Falsification condition:* If residual-vitality channels provide no additional predictive value beyond residual magnitude alone, the False Compatibility distinction adds no operational value.
+
+**Prediction 38 — Governance information bottlenecks produce an abstraction–detail trade-off:**
+
+> **v1.16 evidence status: `CHEAP_PENDING` (`CB-IB-01`).** No benchmark is counted yet because a naive compression experiment would risk defining the target with the same map under test.
+
+As lower-state complexity exceeds effective cross-layer channel capacity, upper representations should become more compressed and portable while losing local detail. Increasing channel capacity or adding effective middle-layer compression should delay the point at which protected invariant loss rises sharply.
+
+*Falsification condition:* If upper-layer detail can scale with lower-state complexity without increased channel capacity, translation cost, latency, or invariant loss, the proposed information-bottleneck grounding is weakened.
+
+**Prediction 39 — Ordered routing is a governance variable under lossy heterogeneous mediation:**
+
+> **v1.17 evidence status: `CHEAP_PASS` (`CB-ORD-01`).** History-selected ordering reduced mean MSE by 5.9% relative to a fixed path in the frozen toy generator.
+
+When mediation operators discard and reconstruct different dimensions, ordered paths should produce different downstream loss; route-history-aware policies should outperform fixed ordering where path statistics are transferable.
+
+*Falsification condition:* no reproducible held-out order effect or no benefit from history-aware ordering under declared stationary conditions.
+
+**Prediction 40 — Residual-error covariance predicts false consensus beyond marginal accuracy:**
+
+> **v1.17 evidence status: `CHEAP_PASS` (`CB-MONO-01`).** With individual error held near 20%, fully shared errors raised majority error to 0.201 while agreement reached 1.0.
+
+Matched-accuracy populations with higher residual-error covariance/shared ancestry should exhibit more confident wrong consensus under blind-spot shocks.
+
+*Falsification condition:* covariance/ancestry adds no held-out predictive value once individual accuracy and task difficulty are controlled.
+
+**Prediction 41 — Cross-module interface density has a deadline-constrained Pareto frontier:**
+
+> **v1.17 evidence status: `CHEAP_PASS_SCOPE_LIMITED` (`CB-INT-01`).** The declared modular toy found a substantially sparser deadline-feasible interface than the densest tested graph.
+
+The optimal interface should be workload/deadline-relative rather than maximally dense or maximally sparse once communication, synchronization, audit, recovery, and authority costs are counted.
+
+*Falsification condition:* connectivity remains monotonically beneficial after full matched costs, or sparsity never yields a feasible cost reduction under any matched deadline.
+
+**Prediction 42 — Scale promotion requires protected-vector safety, not aggregate residual alone:**
+
+> **v1.17 evidence status: `CHEAP_PENDING` (`CB-SAFE-01`).** No pass is counted until outcome labels are generated independently of the safety-vector thresholds.
+
+A protected-channel gate for boundary, authority, recovery, audit, and catastrophic failure should reject some configurations that appear acceptable under an aggregate residual but later fail safety outcomes.
+
+*Falsification condition:* the protected-vector gate adds no held-out discrimination beyond a properly calibrated scalar gate under independent outcomes.
+
+
+**Prediction 43 — Low-rank Schur approximations exhibit an error–cost frontier rather than a binary valid/invalid boundary:**
+
+On declared large linear patches, a rank-constrained effective operator should beat boundary-only/diagonal baselines at matched interface cost, but the required rank should vary with the interior spectrum and coupling geometry. `CB-SF-01` provides `CHEAP_PASS_SCOPE_LIMITED`; runtime/energy benefit remains untested.
+
+**Prediction 44 — Static Schur adequacy degrades when interior memory overlaps the observation/control timescale:**
+
+When the forcing/control frequency approaches material interior modes, `L_eff(0)` should produce larger boundary-response residual than a frequency-conditioned effective operator. `CB-SF-03` gives a cheap synthetic scope signal; non-normal/delayed time-domain validation remains pending.
+
+**Prediction 45 — State-conditioned effective operators outperform fixed Schur maps in nonlinear local terrain:**
+
+For nonlinear patches with a stable operating point, a Jacobian-conditioned Schur map should predict small local interventions better than a fixed zero-state Schur map, provided the operating point remains inside the local validity region. `CB-SF-04` is `CHEAP_PASS_SCOPE_LIMITED`.
+
+**Prediction 46 — Effective operators are terrain-conditioned and do not transfer by template averaging alone:**
+
+A shared Schur-like template trained across heterogeneous patches should exhibit substantial held-out residual unless the bridge conditions on terrain/operator features sufficient to reconstruct the patch-specific effective map. The unconditioned shared-template candidate failed `CB-SF-05`; a terrain-conditioned meta-operator remains a new candidate.
+
+
+**Prediction 47 — Gauge-compatible singular reductions are coordinate-invariant but compatibility-sensitive:**
+
+For a declared singular interior operator, pseudoinverse and explicit-complement Schur reductions should agree when the coupling annihilates the nullspace; changing the complement basis should not change the effective boundary operator. If coupling leaks into the nullspace, the reduction should be rejected rather than repaired silently by ridge loading. `MB-SF-02` is `MEDIUM_PASS_SCOPE_LOCKED` for the compatible synthetic class.
+
+**Prediction 48 — Directed steady-state Schur exactness does not imply transient adequacy:**
+
+On stable nonsymmetric systems, the object-specific Schur reduction should preserve equilibrium boundary response while transient replay error can remain material or even exceed a simpler boundary-only model. `MB-SF-01` supports this separation.
+
+**Prediction 49 — Non-normality metrics add predictive value for effective-operator adequacy beyond eigenvalue stability:**
+
+Numerical abscissa or a comparable transient-amplification diagnostic should predict high static-reduction replay error better than spectral abscissa alone on held-out directed systems. In `MB-SF-01`, numerical-abscissa AUC was 0.875 versus 0.744 for spectral abscissa.
+
+**Prediction 50 — Gated reduction can outperform a single fixed reduction policy:**
+
+A selector that conditions the reduction family on independently calibrated transient-risk features should outperform always-Schur or always-boundary-only policies on heterogeneous directed workloads, provided selection cost is included. The v1.19 held-out selector improved mean error by 2.9% over the best fixed baseline; broader generators and cost accounting remain pending.
+
+
+**Prediction 51 — Stable rational memory can recover dynamic boundary behavior that static Schur misses:**
+
+For stable linear patches with material interior memory and an inspectable operator, a stability-audited rational/exponential memory realization should reduce held-out time-domain boundary replay error relative to zero-frequency static Schur across forcing classes. `MB-SF-03A` supports this within the tested real-decay, oscillatory, and non-normal generators.
+
+**Prediction 52 — Dynamic-memory compression has a state/error frontier rather than a universal retained rank:**
+
+At fixed boundary dimension, increasing the rational memory-state budget should generally reduce replay error but with terrain-dependent returns. The admissible rank should therefore be selected from a declared error/resource contract rather than copied across patches. `MB-SF-03B` produced a monotone mean frontier for `r=1..5` under the frozen generator.
+
+**Prediction 53 — Black-box finite-memory learners exhibit stronger excitation-distribution dependence than operator-conditioned rational reductions:**
+
+When trained only on bounded replay distributions, a learned finite-memory interface should show a larger ID-to-OOD error increase than an operator-conditioned stable rational reduction unless the training protocol explicitly covers the new excitation regime. In v1.20, learned ARX error rose from 0.0381 ID to 0.1016 fast-OOD and 0.1999 impulse, while the rational candidate remained near 0.0013–0.0014.
+
+**Prediction 54 — Effective-memory maps require versioned refresh under terrain drift:**
+
+Even an exact source-operator memory map should accumulate replay residual when the underlying interior operator changes. Refresh benefit should depend on model class and information access: operator-conditioned models can refit directly from an updated operator, whereas black-box learned maps require enough new excitation/replay evidence. The v1.20 mild-drift and refresh audits provide scope-limited support.
+
+**Prediction 55 — Operator-norm fit alone does not determine governance-interface adequacy:**
+
+Two effective-memory candidates with similar or even substantially different full kernel-norm error may have very different boundary replay error under the declared intervention distribution. Promotion should therefore use intervention-weighted replay residuals and protected-channel tests in addition to raw operator approximation metrics. v1.20 observed mean rational kernel-fit residual around 0.169 alongside mean boundary replay error around 0.00134.
+
+### Candidate Benchmark Governance
+
+Predictions and difficult formal extensions do not all receive the same experimental budget. Schur/Feshbach candidates in Predictions 43–55 additionally obey the §4.12.24 object/dynamic/behavioral locks. Before a new high-cost prediction is scheduled, it is routed through the Candidate-First Pipeline (§4.12.15–§4.12.20). In particular:
+
+- a prediction may be `BENCHMARK_READY` only if its observables and independent reference are fixed;
+- a cheap synthetic pass may justify a medium test but never a theorem-level label;
+- a heavy test may remain `PENDING` without weakening the already-supported core;
+- failure at any gate narrows scope or rejects the candidate and is retained as negative evidence;
+- benchmark code and candidate status should be versioned together so later theory revisions cannot silently redefine a failed test into a pass.
+
 ### Quantitative Test Design Framework
 
 The predictions above are qualitative directional claims. For empirical testing, each prediction must be converted to a quantitative hypothesis with specified effect size and sample size requirements:
@@ -6237,12 +8421,14 @@ Test Prioritization (by feasibility and informativeness):
     P9 (entropy production bounds)
     P20 (learned routing resource efficiency)
     P22 (orchestration history value)
+    P24 (energy-aware Joules-per-success efficiency)
     
   Tier 2 (testable with moderate instrumentation):
     P1 (AND/OR asymmetry)
     P4 (withdrawal protocol re-entry frequency)
     P10 (concordance reliability)
     P21 (UDWR decline with maturity)
+    P25 (conditional energy escalation Pareto test)
     
   Tier 3 (requires specialized experimental setup):
     P5 (Silent Criticality detection)
@@ -6255,6 +8441,44 @@ Test Prioritization (by feasibility and informativeness):
 ### Relationship to VST Falsifiability
 
 These GRT-specific predictions complement the VST-level falsifiability framework (VST Section 1.5.1). VST tests the dynamical claims (fractal propagation, scale-invariant amplification). GRT tests the governance claims (asymmetric entry/exit, cumulative measurement, withdrawal protocol effectiveness). Both must hold for the complete DFG framework to be supported.
+
+
+**Prediction 56 — Complex-pole sufficiency is conditional on mode geometry:**
+
+Allowing conjugate complex poles should reduce oscillatory-memory error at a fixed compact basis compared with purely real decay bases, but this advantage should disappear or reverse in strongly non-normal systems unless residue/transient geometry is also represented. v1.21 supports the scope split but does not yet execute a matched real-pole-vs-complex-pole state-budget ablation on identical systems.
+
+**Prediction 57 — Boundary state-space identification can dominate pole-only compression under non-normality:**
+
+With adequate boundary excitation, a learned latent state-space should predict non-normal boundary transients better than a small eigenpole-selected kernel basis because the learned realization fits the full input-output Hankel geometry rather than eigenvalues alone. `MB-SF-03D` supports this on the declared synthetic families.
+
+**Prediction 58 — Effective-map staleness is detectable before total failure:**
+
+A versioned effective interface should exhibit a persistent increase in held-out boundary residual after terrain drift before catastrophic rollout failure. `MB-SF-03F` supports detectable residual shift, while also showing the detection/false-trigger tradeoff.
+
+**Prediction 59 — Refresh policy should depend on intervention cost:**
+
+When false refresh is expensive, dual relative+absolute residual gating should be preferred; when missed drift is more expensive, persistent residual gating should dominate. This is a decision-theoretic candidate claim, not a universal threshold claim.
+
+**Prediction 60 — Model choice and refresh choice are separable:**
+
+The best effective-model family for a stationary terrain need not imply the best refresh policy under drift. Architectures that optimize these two decisions separately should outperform systems that bind one fixed refresh rule to one fixed reducer across heterogeneous terrains.
+
+
+**Prediction 61 — A fixed non-normality threshold will not generally preserve a fixed expensive-model budget under terrain distribution shift:**
+
+If reducer risk distributions move with terrain, an absolute non-normality threshold should cause the fraction of ERA/SSID selections to drift even when the intended compute budget is fixed. v1.22 supports this failure mode: a threshold trained near a 40% ERA budget rose above 50% ERA usage on held-out and shifted populations.
+
+**Prediction 62 — Budget-controlled risk ranking can preserve most of ERA's robustness with substantially fewer ERA allocations:**
+
+When compact rational error is concentrated in the high-non-normality tail, allocating ERA only to the top-risk quota should sharply reduce rational tail error while retaining a smaller mean interface-state budget than always-ERA. The fresh-seed v1.22 confirmation supports this within the declared linear families.
+
+**Prediction 63 — Simpler non-normality scores should be preferred until richer gates show independent held-out gain:**
+
+A multi-feature or learned selector should not be promoted merely because it is more expressive. If numerical abscissa ranking and a richer composite produce indistinguishable resource/error frontiers, the simpler selector should remain canonical. v1.22 found no material composite advantage.
+
+**Prediction 64 — White-box non-normality gating should be replaceable only if a boundary-observable proxy preserves risk ordering:**
+
+A black-box deployment gate must recover enough of the reducer-failure ordering from boundary responses, residuals, or safe probes to approximate the white-box ranking. Direct correlation with the full operator is insufficient; the candidate must preserve held-out allocation quality under the same quota.
 
 ---
 
@@ -6356,11 +8580,61 @@ DAO governance vs. GRT — Structural gap analysis:
     agents follow the terrain, not the votes.
 ```
 
+### Differentiation from Existing Multiscale and Hierarchical Approaches
+
+The FMCI/compatibility-gradient proposal overlaps with several established research traditions, but no single comparison class contains the full GRT claim. The relevant distinction is therefore **compositional** rather than a claim that hierarchy, fractals, meta-learning, or multiscale compression are individually novel.
+
+| External approach | What it already provides | Where GRT/FMCI differs |
+|---|---|---|
+| **Fractal Company / fractal organization** (Warnecke, 1993) | Self-similarity, self-organization, dynamics, recursively organized autonomous units | GRT explicitly rejects identical self-copying as the canonical relation. Upper maps are compatibility-maximizing and low-resolution; lower maps are terrain-specialized high-resolution variations. The key object is a compatibility gradient plus bidirectional transformation, not organizational self-similarity alone. |
+| **FeUdal / Hierarchical RL** (Vezhnevets et al., 2017; classical feudal RL lineage) | Different temporal resolutions; manager sets abstract goals, worker executes primitive actions; task decomposition | Primarily a control hierarchy. GRT treats the hierarchy as a co-evolving map system: local residuals can revise the upper compatibility map, and authority/risk/recovery/resource contracts are preserved as first-class objects. |
+| **MAML / CAVIA meta-learning** (Finn et al., 2017; Zintgraf et al., 2019) | Shared cross-task structure plus fast task-specific adaptation; CAVIA explicitly separates shared parameters from task-specific context | Closest analogue to compatibility → specialization, but usually within a task-learning objective rather than a recursive governance hierarchy. GRT adds explicit upward invariant extraction, cross-local compatibility mediation, authority boundaries, recovery paths, and scale-residual learning. |
+| **Personalized Federated Learning** | Global/common knowledge combined with heterogeneous local models under client-specific data | Similar global/local asymmetry, but GRT does not define the global object as a parameter average or common predictor. It is a relation/constraint compatibility map, and local discoveries are promoted only after invariant extraction and cross-terrain validation. |
+| **Renormalization Group / coarse-graining** (Mehta & Schwab, 2014 as DL correspondence) | Iterative coarse-graining across scales; extraction of relevant features/operators | Strong analogue for upward compression. GRT requires a paired downward terrain-conditioned expansion, explicit residual return, and learned transformation updates; the preserved objects include authority, risk, recovery, provenance, and energy contracts rather than physical/statistical operators alone. |
+| **DiffPool** (Ying et al., 2018) | End-to-end learned hierarchical graph coarsening through differentiable node-to-cluster assignment | Provides hierarchical representation learning, not a governance lifecycle. GRT's map bundle includes boundaries, authority, failure propagation, recovery, uncertainty, and energy; promotion may be blocked by any protected residual even if representation loss is small. |
+| **MeGraph** (Dong et al., 2023) | Alternates local and hierarchical aggregation and uses bidirectional pathways across a multiscale graph hierarchy | Architecturally close to bidirectional multiscale information flow, but GRT assigns asymmetric semantics to the directions: upward = invariant extraction; downward = terrain-conditioned variation. It also treats disagreement, rollback, authority, and scale-transfer failure as governance objects rather than representation features. |
+
+**The strongest claimed differentiation is the closed loop:**
+
+```text
+upper compatibility map
+  ↓ terrain-conditioned expansion
+heterogeneous local variations
+  ↓ real terrain experience
+local success / failure / exception residuals
+  ↓ invariant extraction
+compatibility-map revision
+  ↓ scale-transform revision
+new local variations
+  ↺
+```
+
+Existing approaches often contain one or two arrows in this loop:
+
+- hierarchical RL emphasizes `upper → lower`;
+- meta-learning emphasizes `shared prior → local adaptation`;
+- personalized federated learning emphasizes `global ↔ local parameter/knowledge exchange`;
+- renormalization emphasizes `fine → coarse`;
+- multiscale GNNs emphasize `fine ↔ coarse representation flow`;
+- fractal organization emphasizes recursive autonomous structure.
+
+GRT/FMCI's specific hypothesis is that a scalable AI-governance system requires **all** of the following simultaneously:
+
+1. asymmetric compatibility/specificity gradients across governance resolution;
+2. learned bidirectional transformation rather than direct copying;
+3. local-to-local transfer through a compatibility bridge;
+4. explicit scale residuals that train the transformation itself;
+5. authority, risk, recovery, uncertainty/provenance, and energy maps traveling with capability maps;
+6. mutual co-evolution in which upper maps remain revisable by independent lower evidence;
+7. bounded promotion/rollback so portability is demonstrated rather than assumed.
+
+This should be treated as a **research synthesis and falsifiable architectural hypothesis**, not as evidence that prior hierarchical or multiscale work is absent. The novelty claim, if any, lies in the governance-oriented composition and the measurable transfer conditions.
+
 ### What GRT does NOT claim
 
 - GRT does not claim to replace existing alignment techniques (RLHF, Constitutional AI, reward shaping). It claims to add the lifecycle management layer that these techniques omit.
 - GRT does not claim that its specific variable set (fesc, I, Lreinf, SCC) is the only possible operationalization. It claims that any viable governance system must track structurally equivalent quantities — the relationships are constrained, not the estimators.
-- GRT does not claim that fractal isomorphism is proven at mechanism level (Level 3 in VST's correspondence framework). It claims structural correspondence (Level 1–2) and specifies the measurement protocol for testing Level 3.
+- GRT does not claim exact fractal isomorphism or identical self-similarity across layers. v1.13 instead predicts an asymmetric compatibility gradient: portable relation invariants should survive translation while local implementations vary with terrain. Exact mechanism-level portability remains an empirical question tested through residual and promotion protocols.
 
 ### Relationship to Companion Theory
 
@@ -6378,7 +8652,7 @@ All metrics presented in this document are at the theory stage and have not been
 
 ### Reproducibility Protocol
 
-To facilitate empirical testing, the following protocol specifies what must be measured in any implementing system: (1) pairwise rule conflict events logged with frequency, severity level, and involved rule identifiers; (2) escalation events logged with source layer, target layer, and timestamp; (3) rule lifecycle events: creation, modification, and retirement, each with triggering λlog mass; (4) self-correction events: disturbance detected AND resolved without upper-layer intervention, logged with latency and completeness; (5) perturbation response: controlled disturbance injection at the lowest governance layer, measuring recovery probability within evaluation window W; (6) orchestration events: task signature, selected agent/module set, temporary interaction topology, active compute/context, authority budget, verification depth, result quality, disagreement, escalation, rollback, and recovery time. The first five support the original GRT metrics; the sixth is required to test learned orchestration, delegation maturity, and resource-intelligence predictions.
+To facilitate empirical testing, the following protocol specifies what must be measured in any implementing system: (1) pairwise rule conflict events logged with frequency, severity level, and involved rule identifiers; (2) escalation events logged with source layer, target layer, and timestamp; (3) rule lifecycle events: creation, modification, and retirement, each with triggering λlog mass; (4) self-correction events: disturbance detected AND resolved without upper-layer intervention, logged with latency and completeness; (5) perturbation response: controlled disturbance injection at the lowest governance layer, measuring recovery probability within evaluation window W; (6) orchestration events: task signature, selected agent/module set, temporary interaction topology, active compute/context, authority budget, verification depth, result quality, disagreement, escalation, rollback, and recovery time; (7) FMCI transfer events: source `M_{k,ℓ}`, target terrain/scale contract, `X_up` extraction result, `E_down` projection, protected invariant residuals, scale residual, cross-local negative-transfer events, and whether the upper compatibility map or transform was revised. The first five support the original GRT metrics; the sixth tests learned orchestration and energy/resource intelligence; the seventh is required to test asymmetric fractal compatibility and mutual co-evolution.
 
 ### Empirical Path
 
@@ -6389,6 +8663,8 @@ Five empirical directions are most immediately accessible:
 **(2)** Single-agent diversity measurement via preference tuning diversity metrics (measuring Dint and Poverlap across fine-tuning epochs to detect over-convergence).
 
 **(3)** Perturbation testing in production LLM systems to distinguish genuine stability from over-stability (Prediction 5).
+
+**(4)** Cross-scale sandbox experiments comparing naive replication against FMCI-guided promotion, measuring protected scale residual, rollback frequency, SCC degradation, coordination-energy growth, and transfer success from small → meso → large populations.
 
 **(4)** Static-router vs learned-orchestrator comparison using the same pool of heterogeneous small models, measuring matched-quality compute, latency, escalation rate, rollback rate, and cross-domain generalization.
 
@@ -6405,7 +8681,7 @@ Five empirical directions are most immediately accessible:
 > **v1.10 orchestration lock:** The implementation architecture below must instantiate the Rule Architecture section's Middle-Layer Governance Interface: dual maps, typed routing, processing isolation, rule-patch lifecycle, independent clean anchors, local validation, residual return, and rollback. A generic message broker or single LLM judge does not satisfy this interface by itself.
 
 
-A GRT-compliant production system requires six structural components, each corresponding to a core theoretical construct:
+A GRT-compliant production system requires seven structural components, each corresponding to a core theoretical construct:
 
 ```
 Component 1 — Conflict Log Infrastructure
@@ -6496,9 +8772,9 @@ Component 5 — Cross-Theory Validation Layer
     - Concordance dashboard with automated discordance detection
     - Alert routing to governance state machine for automated response
 
-Component 6 — Orchestration & Resource Intelligence Layer
+Component 6 — Orchestration & Compute–Energy–Risk Intelligence Layer
   Theoretical basis: Tempo/Resource Scheduling, Learned Orchestration,
-  Delegation Maturity, Governance Compilation
+  Energy-Aware Orchestration, Delegation Maturity, Governance Compilation
   Structural requirement: separate selection/allocation policy from the
   executors it schedules, and retain a full outcome-linked orchestration log
   
@@ -6506,20 +8782,55 @@ Component 6 — Orchestration & Resource Intelligence Layer
     - Capability registry: {model/module, specialty, cost, latency, ancestry,
                             authority ceiling, verification requirements}
     - Orchestration event schema: {task_signature, selected_agents, topology,
-                                   compute/context budget, authority budget,
-                                   verification depth, quality, escalation,
-                                   rollback, recovery_time}
+                                   compute/context budget, energy budget,
+                                   energy_joules_or_proxy, peak_power_or_proxy,
+                                   accelerator_time, authority budget, verification depth,
+                                   quality, retry_energy, escalation_energy,
+                                   rollback, recovery_time, recovery_energy}
     - Learned or adaptive routing policy with conservative fallback
+    - Energy Escalation Ladder with per-tier entry/exit criteria
+    - Energy telemetry/proxy calibration registry with provenance
     - Upper direct-work accounting (UDWR) and lower autonomous success rate
     - Composite-module registry with version, audit path, rollback, OOD escape
     - Cross-scale promotion gate for small-model experimental findings
   
   Production mapping:
     - Router/orchestrator service separated from specialist executors
-    - Budget controller for compute, context, latency, and authority
+    - Budget controller for compute, context, latency, physical/proxy energy, and authority
+    - Device/accelerator telemetry integration where available
     - Shadow/sandbox population runner for bounded composition experiments
     - Offline policy evaluation before orchestration-policy promotion
     - Automatic de-compilation / fallback when OOD or disagreement rises
+
+Component 7 — Fractal Map Compatibility Interface (FMCI)
+  Theoretical basis: Cross-Scale Lock, Fractal Map Compatibility,
+  Bounded Quasi-Commutativity, Scale Residual Learning
+  Structural requirement: no small-scale result is promoted without an
+  explicit scale contract, invariant audit, residual measurement, and rollback path
+
+  Minimum viable implementation:
+    - Scale-map registry: {scale_id, capability_map, topology_map, authority_map,
+                           energy_map, risk_map, recovery_map, uncertainty_map,
+                           time_map, provenance_version}
+    - Scale-transform registry T_{k→k+1} with versioned assumptions and declared loss
+    - Protected-invariant schema and per-component residual thresholds
+    - R_scale and R_comm calculation with component-level decomposition
+    - Small→meso→large promotion state machine with shadow/canary stages
+    - Scale-aware energy accounting including communication and synchronization
+    - Automatic hold / split / rollback when protected residuals exceed bounds
+    - Residual-history training store for updating scale transforms
+    - Versioned middle-router / translation-policy registry with declared translation loss
+    - Fractal Compatibility Validation Suite runner: replica, closure, intervention, topology, and next-scale gates
+    - Residual Vitality checks so low residual cannot certify compatibility when feedback/experimentation channels are silent
+    - Maturation certificate for local variations before strong cross-local coupling
+
+  Production mapping:
+    - Dedicated scale-compatibility service or orchestration subservice
+    - Shadow populations at each promotion scale
+    - Hierarchical map compression with preserved provenance and uncertainty
+    - Scale-residual dashboard linked to state machine and deployment controller
+    - Promotion certificates binding map version, transform version, energy proxy,
+      authority ceiling, recovery checkpoint, and audit result
 ```
 
 ### Monitoring Dashboard Specification
@@ -6559,15 +8870,36 @@ Dashboard Panel 5 — Bootstrapping Progress:
   - Estimated time to next phase transition
   - Backward transition alerts (if any)
 
-Dashboard Panel 6 — Orchestration Health:
+Dashboard Panel 6 — Orchestration / Energy Health:
   - Upper Direct Work Ratio (UDWR)
   - Average active model/module count per task
   - Active compute and context per successful task
+  - JST: physical/proxy energy per successful task
+  - UER: useful-work energy ratio
+  - EEO: escalation/retry/recovery energy overhead
+  - Peak power / accelerator-time distribution by task class
+  - Energy Escalation Ladder tier distribution and promotion rate
   - Routing fallback / escalation / rollback rates
   - Verification depth by risk class
   - Topology churn and repeated composition stability
   - Correlated-ancestry concentration in active teams
   - Composite-module OOD escape / de-compilation events
+
+Dashboard Panel 7 — Fractal Scale Compatibility:
+  - Current promotion scale and active T_{k→k+1} version
+  - SER: protected scale-error residual by component
+  - R_comm: quasi-commutativity residual by rule / policy class
+  - STF: successful transfer fraction by scale pair
+  - CGR: communication + synchronization energy ratio
+  - SCC_scale and recovery-time growth across scale
+  - New propagation channels discovered after promotion
+  - Promotion holds / rollbacks / domain splits caused by residual breaches
+  - Invariant confidence and stale-transform warnings
+  - Translation loss and router-policy version drift
+  - Boundary experiment rate and bidirectional feedback rate
+  - Residual Vitality status: genuine compatibility vs candidate false compatibility
+  - Local maturation certificates before cross-local coupling
+  - Bridge-ablation results: which variables add held-out predictive value
 ```
 
 ### Alert Hierarchy
@@ -6629,6 +8961,8 @@ Measurement Requirements:
   □ M (normalization constant) initialized and re-estimation triggers defined
   □ Cold-start mode parameters set for domains without operational history
   □ Cross-domain MI monitoring active
+  □ Scale-map bundle versioned for every promoted agent/team/system scale
+  □ Communication and synchronization energy measurable or explicitly proxied
 
 Governance Requirements:
   □ AND-entry conditions explicitly coded (all five required simultaneously)
@@ -6636,6 +8970,15 @@ Governance Requirements:
   □ Phase transition backward paths defined and tested
   □ Collapse recovery procedure accessible from all governance states
   □ Alert hierarchy configured with appropriate routing
+  □ Small→meso→large promotion gates explicitly coded
+  □ Protected invariant thresholds block unsafe cross-scale promotion
+
+Candidate-Research Requirements:
+  □ Difficult formal claims carry candidate IDs and explicit evidence status
+  □ CheapBench performed before medium/heavy allocation whenever a cheap discriminating test exists
+  □ Independent reference/baseline frozen before candidate evaluation
+  □ Heavy unexecuted experiments marked HEAVY_PENDING rather than implied validated
+  □ Rejected/failed candidates retained in negative-result registry
 
 Validation Requirements:
   □ Perturbation test protocol defined and scheduled
@@ -6643,6 +8986,9 @@ Validation Requirements:
   □ Silent Criticality protocol active during extended Rest Mode
   □ F_RBIT cross-validation configured
   □ R-ρ-fesc Triple Concordance automated
+  □ R_scale and R_comm measured before every authority-scale promotion
+  □ Scale residual decomposition retained as training data
+  □ Rollback checkpoint verified at every promoted scale
 ```
 
 ---
@@ -6666,6 +9012,11 @@ Validation Requirements:
 13. Governance systems produce entropy as a necessary consequence of maintaining ordered states — minimum entropy production is bounded below by the Self-Exciting Defect Layer's activity, connecting Rest Mode maintenance cost to Prigogine's dissipative structure theory
 14. The vectorization process (noise → vector promotion) follows nucleation kinetics — with a critical mass (λlog) below which patterns dissolve back to noise, providing the thermodynamic basis for the conflict log accumulation mechanism
 15. Landscape design achieves incentive compatibility in the mechanism design sense — the governance-optimal action is each agent's selfish optimum under the designed terrain, making Rest Mode a Nash equilibrium that requires no external enforcement
+16. Mature orchestration minimizes active intelligence and physical/proxy energy **subject to** quality, safety, SCC, authority, and recovery constraints; low energy is not a governance success when achieved by weakening those floors
+17. Physical energy accounting (`E_task`, JST, UER, EEO) is ontologically separate from the governance free-energy landscape (`F_gov`) unless an empirical bridge is independently demonstrated
+18. Cross-scale validity is not inherited automatically: lower-scale results become portable only through an explicit, versioned scale transform with preserved structural invariants and bounded residuals
+19. Fractal compatibility means relation preservation across resolution, not identical content or agent behavior at every scale; scale-specific emergence is expected and must appear as measured residual rather than hidden error
+20. Energy efficiency is scale-conditional: local inference savings are not system-level savings unless communication, synchronization, verification, retry, and recovery costs remain inside the promoted scale contract
 
 ---
 
@@ -6696,6 +9047,9 @@ Validation Requirements:
 | Rule interaction graph | Graph theory | Directed conflict graphs / spectral gap analysis |
 | Meta-rule incompleteness | Mathematical logic | Gödel incompleteness (structural analogy) |
 | Game-theoretic governance | Mechanism design | Incentive compatibility / Nash implementation |
+| Fractal map compatibility | Renormalization / multiscale modeling | Relation-preserving coarse-graining with explicit residual terms (structural analogy) |
+| Scale residual learning | System identification / model discrepancy | Prediction error used to update cross-scale transfer models |
+| Bounded quasi-commutativity audit | Category-theoretic diagram reasoning / numerical consistency checks | Path-dependent transforms accepted when diagram residual is bounded |
 
 **Mathematical Structure Mapping — Isomorphism Level Classification:**
 
@@ -7712,7 +10066,7 @@ Deficit-Fractal Governance (DFG)
 30. Agent Drift in Multi-Agent Systems. *arXiv:2601.04170*, 2026.
 31. Recovery Theory (DFG component). Internal document, v1.0, February 2026. (D0 Geometry Alignment, D1–D5 operational definitions, D6 Self-Consistent Misalignment + EMT/Rational CW Convergence, D7 Boundary Agent + VCZ 3-Condition carrier + T6 structural protection, T1–T6 structural claims, Operational Proxies OP1–OP7, Storm Scale Law fractal distribution, Boundary Friction criterion + Propagation Sensitivity + DFG Boundary Test 3 questions, VCZ Collapse Initiation 5-step sequence, VCZ Observability Paradox, VCZ-Safe Optimizer Architecture 3-layer domain restriction, Safe Collapse Governance vs Collapse Prevention Governance, D4 restoration complete 3 necessary conditions, Residual Instability as systemic safety mechanism.)
 32. Resolution-Based Information Theory (RBIT, DFG component). Internal document, v1.2, February 2026. (Resolution gap Δρ routing, F_RBIT health vector (5-component), τ₁–τ₃ regime switching, seed sufficiency 3-test framework, intent preservation measurement, degradation calibration D(Δρ), Rest Mode as all-fᵢ bounded.)
-33. Network Architecture Theory (NAT, DFG component). Internal document, v1.1, February 2026. (Four-type data classification, processing isolation 3-mechanism enforcement, sphere cross-validation and structural diversity condition, θ operationalization via S₀ normalization, R-ρ concordance protocol, cutoff recalibration noise-first sequencing.)
+33. Network Architecture Theory (NAT, DFG component). Internal document, v3.2-mutual-memory-cleanmap, July 2026. (Typed routing, canonical resolution-gap polarity, multiplex graph/object locks, reciprocal local↔global terrain reconciliation, role-projected patches, clean-map governance, ancestry-aware diversity, staged expansion/rollback, claim ladder, and FDCL bridge/no-transfer rules including Schur/Feshbach coarse-graining with behavioral replay validity lock. Imported into GRT with explicit object and evidence-status boundaries.)
 34. Vector Storm Theory (VST, DFG component). Internal document, v1.6, February 2026. (S-equation as phase detector/order parameter, n² critical phenomena derivation, resolution gap as storm driver, α-n partial separation protocol, R-ρ concordance → R-ρ-f_esc Triple Concordance (v1.5), Rest Mode entry/exit formalization with phase-space location, Permanently High-Context channels, Efficiency-Plasticity Conservation, information-theoretic storm characterization, sphere topology storm propagation bounds, SCC structural decomposition, seed sufficiency and storm resistance, SCM Recovery Protocol 4 methods, Boundary Structural Embedding 6 T6-resistant patterns, Storm-Collapse Mapping Layer, vectorization lifecycle, mature storm absorption and φ decomposition, SCM Formal Structure + Unintegrated Pressure + EMT (v1.6), Reference Frame Incompleteness S-equation implications (v1.6), Storm Scale Law power law health distribution (v1.6), Boundary Agent Complete Specification + Defect Layer connection (v1.6), Fractal Lifecycle 7-phase storm signatures (v1.6), Per-Architecture Calibration Protocol + τ as maturity fingerprint, Failure Diagnosis Flowchart S-equation regime per case (v1.5), Intervention Trigger Taxonomy production S-mapping (v1.5), Inertial Stability growth window closure (v1.6).)
 35. Three-Layer Governance Architecture (TLG, DFG component). Internal document, v1.6, February 2026. (Ground Truth Grounding Protocol and R-ρ concordance, adaptive evaluation window W sizing with timescale hierarchy, τ1–τ4 threshold definitions with vectorization lifecycle integration, Authority Collapse 3 pathways (Signal Starvation / Interpretation Capture / Epistemic Convergence) + countermeasures, Recovery Completion Criterion RC 3-condition (Autonomous Expansion + Directional Validity + Collapse Non-Dependence), Arrested Collapse State and Pathological Expansion formal definitions, Immunity Decay 3 erosion pathways (environmental drift / calibration disuse / over-optimization), Stability Saturation State SSS 3 detection mechanisms, Mediator Drift Syndrome MDS 3 countermeasures (Calibration Reflexivity / Cross-Scale Consistency / Delayed Escalation Audit), Unified Failure Topology 3-axis 6-phase cycle, structural enforcement of phase isolation 3 mechanisms, Storm-Collapse Mapping Layer TLG side.)
 36. Myerson, R. (1981). Optimal auction design. *Mathematics of Operations Research, 6*(1). (Revelation Principle: incentive-compatible mechanism design — formal basis for GRT's landscape design as mechanism design.)
@@ -7727,14 +10081,924 @@ Deficit-Fractal Governance (DFG)
 45. Gödel, K. (1931). Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I. *Monatshefte für Mathematik und Physik, 38*. (Incompleteness — structural analogy for meta-rule completeness bound.)
 46. Affective Gain Module (AGM, DFG component). Internal document, v2.4-README, March 2026. (Adaptive Necessity Theorem — T_eff > 0 structural requirement; Bifurcation Classification Theorem — Freeze/Runaway universality classes; Governance Completeness Theorem; T_eff as governance temperature; sensitivity s(t) as bifurcation discriminator; weight redistribution on simplex; momentum-bearing vector dynamics; Flow-Rest Mode equivalence; controlled stochastic freedom; No-Free-Lunch governance constraint; endogenous perturbation as SOC process; emotional state transition graph on weight simplex.)
 47. Csikszentmihalyi, M. (1990). *Flow: The Psychology of Optimal Experience*. Harper & Row. (Flow state — structural analogue for single-agent Rest Mode.)
-48. Fractal Governance System (FGS, DFG component). Internal document, March 2026. (Fractal lifecycle ODE; gain modulation as TYPE A — Law; controlled stochastic freedom formalization; discretization trade-off; North Star architecture.)
+48. Fractal Governance System (FGS, DFG component). Internal document, v1.11-MMB-CheapBench, 2026. (Fractal lifecycle and middle-layer router; map–terrain feedback; growth sequence Separate→Mature→Couple→Integrate→Expand; governance information bottleneck; Micro–Macro Bridge Benchmark synthetic gate with replica invariance, coarse-graining closure, intervention-equivariance proxy, and topology-degeneracy testing. Imported into GRT as candidate validation/architecture support only, not as theorem-level proof.)
 49. Environmental Design Theory (EDT, DFG component). Internal document, v5.0-maximal, March 2026. (Three-Axis Architecture — Boundary/Gain/Coupling as S-equation parameters; Curvature Theory — curvature as compressed survival history, accumulation dynamics, Curvature Ceiling Theorem, withdrawal schedule; Friction Management — Zero Friction Pathology, optimal friction band, buffer as friction transformer, therapeutic disturbance; Risk Index κ — endogenous drift τ_E, capacity adaptation τ_C, κ* hybrid index, trajectory classification; Terrain Resonance — constructive/destructive conditions, timescale collision avoidance; Carrying Capacity — n_max for terrain quality, overshoot dynamics, graceful degradation; Contamination Permeability — flux formalism, phase-dependent control, self-purification R_i = D·F·V·T; Circular Closure — circle architecture, n_eff compression, pyramidal architecture; Buffer Dynamics — noised-vector transformer, four-axis function taxonomy, local North Star calibration; Ecological Succession — pioneer/colonist/climax lifecycle; Seed Propagation — 0→1→2 transition, dormancy dynamics.)
 50. From Call Centers to Neurons (FCN, DFG component). Internal document, v1.6, March 2026. (Mean-field ODE formalization; S-equation → Φ decomposition; attractor dynamics with basin geometry; Kramers escape with pre-exponential factor; Cube Domination frame competition dynamics; Circular Closure Theory — circle as fundamental governance unit, layered cone architecture, S-equation partitioning; Contamination Theory — cross-scale flux Φ_contam, three contamination modes, bottom-up propagation; Self-Purification Capacity R_i = D·F·V·T multiplicative decomposition; Terrain Design Protocol — 4-phase circle formation; North Star Architecture — Criterion vs Principle separation; Stochastic resonance at optimal Storm intensity D*.)
 51. Olfati-Saber, R. & Murray, R. M. (2004). Consensus problems in networks of agents with switching topology and time-delays. *IEEE Transactions on Automatic Control, 49*(9). (Multi-agent consensus — structural contrast: GRT mutual-reference coupling vs communication delay.)
 52. Beggs, J. M. & Plenz, D. (2003). Neuronal avalanches in neocortical circuits. *Journal of Neuroscience, 23*(35). (Neural criticality — power-law avalanche distributions analogous to governance Storm Scale Law.)
+53. Warnecke, H.-J. (1993). *The Fractal Company: A Revolution in Corporate Culture*. Springer. (Self-similarity, self-organization, and dynamics in fractal organizational design — comparison point for GRT's asymmetric compatibility gradient.)
+54. Vezhnevets, A. S., Osindero, S., Schaul, T., Heess, N., Jaderberg, M., Silver, D., & Kavukcuoglu, K. (2017). FeUdal Networks for Hierarchical Reinforcement Learning. *arXiv:1703.01161*. (Manager/Worker hierarchy with different temporal resolutions and abstract top-down goals.)
+55. Finn, C., Abbeel, P., & Levine, S. (2017). Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks. *ICML / PMLR 70*. (Shared meta-initialization optimized for rapid task-specific adaptation.)
+56. Zintgraf, L., Shiarli, K., Kurin, V., Hofmann, K., & Whiteson, S. (2019). Fast Context Adaptation via Meta-Learning. *ICML / PMLR 97*. (CAVIA separation of shared parameters from task-specific context parameters.)
+57. Huang, T., Liu, S., Shen, L., He, F., Lin, W., & Tao, D. (2022). Achieving Personalized Federated Learning with Sparse Local Models. *arXiv:2201.11380*. (Personalized local models under heterogeneous client data; comparison point for global/local specialization.)
+58. Mehta, P., & Schwab, D. J. (2014). An Exact Mapping Between the Variational Renormalization Group and Deep Learning. *arXiv:1410.3831*. (Iterative coarse-graining and extraction of relevant features/operators across scales.)
+59. Ying, Z., You, J., Morris, C., Ren, X., Hamilton, W., & Leskovec, J. (2018). Hierarchical Graph Representation Learning with Differentiable Pooling. *NeurIPS 31*. (Learned hierarchical graph coarsening via differentiable pooling.)
+60. Dong, H., Xu, J., Yang, Y., Zhao, R., Wu, S., Yuan, C., Li, X., Maddison, C. J., & Han, L. (2023). MeGraph: Capturing Long-Range Interactions by Alternating Local and Hierarchical Aggregation on Multi-Scaled Graph Hierarchy. *NeurIPS 36*. (Bidirectional local/hierarchical information propagation across multiscale graph representations.)
 
 ---
 
 *Governance is not the management of agents. It is the design of the terrain they move through — and the conditions under which they no longer need anyone to manage it.*
 
 *Rest Mode is not a reward granted at the end of development. It is the proof that development succeeded.*
+
+
+---
+
+## v1.23 Executed MediumBench — Observable Risk, Adaptive Quota, Passive SSID, and Cost-Object Separation
+
+### 1. Benchmark status and epistemic lock
+
+This section executes the next Medium candidate queue created by v1.22. It does **not** promote Schur/Feshbach, ERA, non-normality metrics, or passive identification into universal GRT laws. The benchmark uses the same controlled stable linear terrain families used by the recent Schur/Feshbach sieve and asks narrower operational questions:
+
+1. Can the white-box numerical-abscissa selector be replaced by a **boundary-observable** risk score?
+2. Can a rolling quantile preserve an ERA resource quota when the terrain-risk distribution drifts?
+3. Can a useful ERA/state-space interface be learned from **passive noisy logs** rather than a clean active impulse probe?
+4. Does reduced interface-state count predict actual runtime/energy cost?
+
+The candidate pipeline remains:
+
+```text
+candidate
+→ independent or held-out benchmark
+→ scope/failure boundary
+→ evidence-state update
+→ only then possible promotion
+```
+
+### 2. MB-SF-04A — Boundary-observable non-normality proxy
+
+The v1.22 canonical selector used the numerical abscissa of the declared full linear operator. That is a useful white-box risk score, but it cannot be assumed available to an orchestration layer that sees only module boundary behavior.
+
+The current black-box candidate therefore used only the boundary Markov/impulse sequence and derived:
+
+- peak response ratio;
+- peak lag;
+- tail-energy ratio;
+- early log-envelope growth;
+- boundary Hankel singular-value entropy;
+- second/first Hankel singular-value ratio;
+- a logistic composite trained only from those boundary features.
+
+A material reducer-selection event was defined, as in v1.22, by a sufficiently large replay advantage of ERA over the compact rational candidate.
+
+#### Held-out discrimination
+
+| risk score | held-out AUC | shifted-terrain AUC | status |
+|---|---:|---:|---|
+| full-operator numerical abscissa | 0.875 | 0.875 | white-box reference |
+| boundary peak ratio | 0.500 | 0.500 | fail |
+| boundary tail energy | 0.696 | 0.613 | insufficient |
+| boundary Hankel entropy | 0.518 | 0.700 | unstable across terrain |
+| boundary-feature logistic composite | 0.589 | 0.650 | fail |
+
+**Result MB-SF-04A — FAIL CURRENT FORM.** The present boundary-only feature set does not reproduce the white-box non-normality gate reliably enough for promotion.
+
+The failure is structurally useful. Boundary observability is task-specific:
+
+```text
+boundary trajectory sufficient to fit an effective I/O model
+        does not imply
+boundary trajectory sufficient to identify hidden transient-risk geometry
+```
+
+Therefore GRT now separates:
+
+\[
+\mathcal O_{\mathrm{model}}
+\neq
+\mathcal O_{\mathrm{risk}}.
+\]
+
+A module may be behaviorally compressible while the property deciding **which** compressor is safe remains under-observed.
+
+Candidate states:
+
+```text
+CF-SF-PROXY-BND-COMP-01 → MEDIUM_FAIL_CURRENT_FORM
+CF-SF-PROXY-BND-PEAK-01 → MEDIUM_FAIL_CURRENT_FORM
+```
+
+### 3. MB-SF-04B — Rolling-quantile quota adaptation
+
+A fixed selector threshold implicitly assumes a stable risk-score distribution. v1.22 already showed that this can violate the ERA budget under terrain shift. The next candidate maintains a rolling score history and sets the current ERA threshold to the empirical upper risk quantile corresponding to the declared resource quota.
+
+For nominal ERA quota \(q=0.40\):
+
+```text
+history W
+→ estimate current 60th percentile of risk
+→ score above percentile → ERA
+→ otherwise → compact rational
+→ update history
+```
+
+The stress stream was a resampled held-out sequence with three phases:
+
+```text
+ID terrain → shifted terrain → return to ID terrain
+```
+
+This streaming stress test evaluates **resource adaptation**, not independent reducer accuracy.
+
+| policy | overall ERA fraction | mean phase-wise absolute quota deviation |
+|---|---:|---:|
+| fixed threshold | 58.3% | 18.98 percentage points |
+| rolling quantile, W=60 | 39.6% | **1.20 points** |
+| current-phase batch rank reference | 40.0% | 0 |
+
+Phase-wise rolling ERA fractions were 40.6%, 37.8%, and 40.8% across ID, shifted, and ID-return phases.
+
+**Result MB-SF-04B — PASS FOR RESOURCE CONTROL, NOT RISK ACCURACY.** Rolling quantiles solve the *budget-drift* problem substantially better than a frozen threshold, but cannot rescue a weak boundary risk score. Resource control and risk prediction remain separate operators.
+
+```text
+CF-SF-QUOTA-ROLL-01 → MEDIUM_PASS_RESOURCE_CONTROL_ONLY
+```
+
+### 4. MB-SF-04C — Noisy/passive state-space identification
+
+The v1.21/v1.22 ERA results assumed clean active Markov/impulse access. This bench removes that assumption. The candidate receives:
+
+- a logged stochastic boundary input;
+- noisy boundary output;
+- no interior operator;
+- no explicit impulse experiment.
+
+A finite impulse-response Markov sequence is estimated from the passive log by ridge regression, then a stability-locked ERA realization is selected using a separate noisy passive validation trajectory.
+
+#### Replay results
+
+| output SNR | passive ID mean error | passive OOD mean error | selected-model stable fraction |
+|---|---:|---:|---:|
+| 40 dB | 5.09% | 4.46% | 100% |
+| 25 dB | 4.32% | 4.42% | 100% |
+| 15 dB | 5.58% | 6.22% | 100% |
+
+The clean active-probe ERA reference remained near 0.3% average error on these systems. Passive SSID therefore survives, but with a large information-access penalty.
+
+**Result MB-SF-04C — SCOPE-LIMITED PASS.** The toy system supports usable black-box effective maps from passive/noisy logs, including moderate OOD forcing, but does not establish equality with active identification. Persistent excitation, log length, noise model, and hidden initial-state handling remain part of the deployment contract.
+
+```text
+CF-SF-SSID-PASSIVE-01 → MEDIUM_PASS_SCOPE_LIMITED
+```
+
+### 5. MB-SF-04D — Runtime and energy proxy audit
+
+Previous benches often reported interface-state count as a compression/resource quantity. That is legitimate as a representation-size metric but is not automatically a runtime or energy metric.
+
+A direct implementation audit compared the current reference Python realizations over the same rollout length:
+
+| model | mean interface/basis dimension | mean measured rollout time |
+|---|---:|---:|
+| ERA state-space | 3.67 | 2.80 ms |
+| current rational history-kernel implementation | 2.83 | 155.3 ms |
+
+The current rational reference implementation was about **55× slower** despite the smaller basis count, because it explicitly evaluates a long history convolution rather than using an optimized recursive realization.
+
+This does **not** prove rational realizations are intrinsically slower. It proves the stronger and more useful negative statement:
+
+> **State count is not a valid runtime or energy surrogate without specifying the realization and hardware.**
+
+The following cost objects are now locked as distinct:
+
+\[
+C_{\mathrm{resource}}
+=
+(C_{\mathrm{representation}},
+C_{\mathrm{online\ arithmetic}},
+C_{\mathrm{history}},
+C_{\mathrm{probe}},
+C_{\mathrm{refresh}},
+C_{\mathrm{hardware\ energy}}).
+\]
+
+Scalarization is allowed only under a declared deployment utility/price model.
+
+```text
+CF-SF-COST-DIM-01 → MEDIUM_FAIL_AS_RUNTIME_SURROGATE
+```
+
+### 6. Updated effective-interface selection rule
+
+The effective-map orchestration problem is therefore widened from
+
+```text
+terrain risk + model accuracy + state budget
+```
+
+to
+
+```text
+observability contract
++ terrain-risk score
++ model family
++ resource quota
++ identification mode (active/passive)
++ implementation realization
++ replay residual
++ refresh policy
+```
+
+A compact formal representation is
+
+\[
+\Pi_{\mathrm{eff}}
+=
+\operatorname{Select}
+(\mathcal O,
+R_{\mathrm{terrain}},
+Q_{\mathrm{resource}},
+C_{\mathrm{impl}},
+R_{\mathrm{replay}},
+\Gamma_{\mathrm{refresh}}).
+\]
+
+This strengthens the GRT principle that the orchestrator should not select merely the "best model". It selects a **model–measurement–implementation–refresh bundle** under a contract.
+
+### 7. Prediction updates
+
+**Prediction 65 — Risk-observability separation.** A boundary interface may permit low-error I/O reduction while failing to expose enough information to classify hidden non-normal transient risk.
+
+**Prediction 66 — Adaptive quota stability.** Rolling/rank-based resource thresholds should maintain declared expensive-model utilization more reliably than frozen absolute thresholds under risk-distribution drift.
+
+**Prediction 67 — Passive identification penalty.** Passive/noisy effective-map identification can remain stable and useful but should require more data and incur greater replay residual than clean active probes at matched model order.
+
+**Prediction 68 — Representation/runtime non-equivalence.** Smaller reduced-state dimension will not monotonically imply lower latency or energy across different realization families.
+
+**Prediction 69 — Bundle selection advantage.** A selector that jointly accounts for observability, reducer family, resource quota, realization cost, and refresh validity should dominate any policy using only reducer accuracy or state dimension once deployment costs are heterogeneous.
+
+### 8. Next candidate queue
+
+Relatively cheap / Medium candidates:
+
+1. `CF-SF-PROXY-MPROBE-01` — multi-direction / finite-amplitude boundary probe for hidden-risk scoring;
+2. `CF-SF-SSID-FRONTIER-01` — passive SSID data-length × SNR × rank frontier;
+3. `CF-SF-QUOTA-SCARCE-01` — rolling quota under abrupt capacity loss / scarce ERA slots;
+4. `CF-SF-RAT-REC-01` — optimized recursive rational realization and fair runtime comparison;
+5. `CF-SF-COST-JOINT-01` — error × runtime × probe × refresh Pareto frontier.
+
+Higher-cost candidates remain pending:
+
+- nonlinear switching/saturation effective maps;
+- recursive multiscale Schur/Feshbach closure;
+- multiplex information/recovery/audit/authority effective operators;
+- deployed multi-agent boundary-contract experiments.
+
+### 9. Reproducibility lock
+
+Executed artifacts:
+
+```text
+grt_v123_observable_quota_passive_cost_results.json
+grt_v123_benchmark_summary.json
+run_grt_v123_observable_quota_passive_cost_bench.py
+```
+
+The measured runtime numbers are explicitly **implementation-dependent** and may not be cited as a theorem about rational versus ERA complexity. The passive-identification result is likewise tied to the declared synthetic linear generator, stochastic excitation, log length, SNR convention, FIR estimator, and stability lock.
+
+
+---
+
+## v1.24 Dynamic Influence Balance System (DIBS)
+
+### 1. Purpose and source lock
+
+DIBS is the GRT operational controller for **precision multi-agent work in which the problem is not merely which agent should participate, but how strongly, how often, how quickly, and with what authority each agent's completed output should influence the shared trajectory**.
+
+The module is synthesized primarily from Vector Storm Theory v3.7.7 concepts:
+
+- VCZ as a dynamically maintained slightly-subcritical operating regime rather than a static equilibrium point;
+- Dynamic Partitioned Equilibrium (DPE): topology, external calibration, selective permeability, non-rigid temporal coordination, regeneration, and verified return;
+- the requirement to preserve local directional signal while eliminating persistent global directional privilege;
+- tensioned coexistence: enough alignment for coordination and enough non-alignment for buffering;
+- phase-dependent permeability and asymmetric read/write reopening;
+- non-zero exploration/adaptability floor;
+- Local–Global North Star projection consistency rather than forced identity.
+
+**Epistemic lock.** DIBS is a **candidate operational architecture**. The VST concepts motivate the control objectives and safety constraints; they do not prove that the controller below is universally optimal or that its proposed thresholds transfer across architectures.
+
+### 2. What DIBS controls
+
+A conventional ensemble often treats an agent output as one scalar weight:
+
+\[
+Y=\sum_i w_i y_i.
+\]
+
+DIBS treats this as too coarse. The effective influence of agent \(i\) is a control bundle
+
+\[
+\Gamma_i(t)
+=
+\bigl(g_i,\,f_i,\,\tau_i,\,b_i,\,a_i,\,\pi_i^{\rm read},\,\pi_i^{\rm write}\bigr)_t,
+\]
+
+where
+
+- \(g_i\): **gain** — amplitude of influence;
+- \(f_i\): **emission rate / duty cycle** — how often the output participates;
+- \(\tau_i\): **delay** — when the influence becomes visible to the next stage;
+- \(b_i\): **bandwidth / resolution budget** — how much detail crosses the interface;
+- \(a_i\): **action authority** — how directly the signal may alter action;
+- \(\pi_i^{\rm read}\): **read permeability** — how much outside evidence the agent/controller may observe;
+- \(\pi_i^{\rm write}\): **write permeability** — how much the agent may alter shared state or downstream trajectories.
+
+The first major lock is therefore
+
+\[
+\boxed{\text{signal visibility}\neq\text{signal influence}\neq\text{action authority}.}
+\]
+
+An independent verifier may have low output volume but high veto authority. A speculative explorer may have high diagnostic visibility but near-zero write authority. A dominant specialist may remain fully observable while its gain is temporarily attenuated.
+
+### 3. Agent influence packet
+
+Each agent sends a **committed** packet rather than live internal reasoning:
+
+\[
+\mathcal O_i(t)=
+(d_i,m_i,c_i,u_i,n_i,r_i,\chi_i,S_{N,i},p_i,\mathcal A_i).
+\]
+
+Candidate fields:
+
+| field | meaning |
+|---|---|
+| \(d_i\) | output direction / proposed conclusion / action vector |
+| \(m_i\) | native output magnitude |
+| \(c_i\) | confidence |
+| \(u_i\) | uncertainty |
+| \(n_i\) | novelty / non-redundant information estimate |
+| \(r_i\) | recent validated residual / error history |
+| \(\chi_i\) | error-correlation or common-mode exposure with other agents |
+| \(S_{N,i}\) | Local North Star / local-attractor strength proxy |
+| \(p_i\) | provenance and common-ancestry information |
+| \(\mathcal A_i\) | authority class and veto/write contract |
+
+DIBS does not require every deployment to expose every field. Missing observability narrows the claim scope and may force a more conservative controller.
+
+### 4. Dynamic-balance observation state
+
+The controller maintains a system-level state bundle
+
+\[
+Z_{\rm DIBS}(t)=
+\bigl(
+G_{IE},
+M_{\rm SCC},
+P_{\rm dir},
+C_{\rm err},
+M_{\rm rec},
+I_{\rm cal},
+V_{\rm exp},
+C_{\rm resource}
+\bigr)_t.
+\]
+
+#### 4.1 External-calibration gap \(G_{IE}\)
+
+Measures how far the internally coherent solution has drifted from an independently anchored external reference. Internal agreement is not enough.
+
+#### 4.2 SCC-local amplification margin \(M_{\rm SCC}\)
+
+The controller asks whether any causal strongly connected component is locally supercritical even if the global mean looks safe. A single scalar global average may hide a dangerous local loop.
+
+#### 4.3 Directional privilege \(P_{\rm dir}\)
+
+Measures whether one agent, faction, pathway, or interpretation persistently dominates system-wide influence. Candidate diagnostics include maximum normalized gain, concentration/HHI, influence centrality, and persistence of dominance across windows.
+
+#### 4.4 Error-correlation / common-mode concentration \(C_{\rm err}\)
+
+Model count is not diversity. If several agents share the same residual direction, their votes should not be counted as independent evidence.
+
+#### 4.5 Recovery margin \(M_{\rm rec}\)
+
+A balance state is not trusted unless bounded perturbations retain a feasible return path and declared recovery target.
+
+#### 4.6 Calibration information floor \(I_{\rm cal}\)
+
+Permeability may be reduced to stop cascade propagation only while enough external/local information still crosses the boundary to avoid governance blindness.
+
+#### 4.7 Exploration vitality \(V_{\rm exp}\)
+
+The controller preserves a non-zero exploration floor. A silent system with zero residual generation is not automatically healthy; it may be Frozen Rest / False Compatibility.
+
+### 5. Target region: Moving Dynamic Balance Zone
+
+DIBS does not seek
+
+```text
+all agents agree
+all residuals = 0
+all gains equal
+all channels fully open
+all channels fully closed
+```
+
+The target is a moving viable region
+
+\[
+\mathcal V_{\rm DIBS}(t)
+=
+\left\{
+Z:
+\begin{array}{l}
+M_{\rm SCC}\ge m_{\min},\\
+P_{\rm dir}\le p_{\max},\\
+G_{IE}\le g_{\max},\\
+I_{\rm cal}\ge I_{\min},\\
+V_{\rm exp}\ge V_{\min},\\
+M_{\rm rec}\ge r_{\min}
+\end{array}
+\right\}.
+\]
+
+This is the GRT execution form of the VST principle:
+
+```text
+preserve local directional signal
++
+remove persistent global directional privilege
++
+preserve a return path
++
+keep a non-zero exploration floor
+```
+
+The center of the acceptable region may drift with terrain. DIBS therefore tracks a **moving target band**, not a fixed set of ideal weights.
+
+### 6. Effective influence transformation
+
+For a completed agent output \(u_i(t)\), define the effective influence packet
+
+\[
+\tilde u_i(t)
+=
+ a_i(t)\,g_i(t)\,q_i(t)\,
+\mathcal D_{\tau_i(t),b_i(t)}[u_i(t)],
+\]
+
+where \(q_i(t)\in\{0,1\}\) or \([0,1]\) is a duty/rate gate and \(\mathcal D\) is the declared delay/bandwidth transformation.
+
+For outputs that share a valid synthesis space, a candidate aggregation is
+
+\[
+U(t)=\mathcal S\bigl(\{\tilde u_i(t)\}\bigr).
+\]
+
+**Conflict-preservation lock.** \(\mathcal S\) is not required to be an arithmetic mean. If outputs are typed `CONFLICT`, `UNKNOWN`, `UNSAFE`, or belong to incompatible action spaces, DIBS must preserve those states rather than laundering them into a middle value.
+
+### 7. Candidate gain score
+
+A cheap initial gain layer may use
+
+\[
+s_i(t)
+=
+\frac{
+Q_i(t)\,S_{N,i}(t)\,N_i(t)
+}{
+(\epsilon+R_i(t))\,[1+\lambda_C C_i(t)]
+},
+\]
+
+where
+
+- \(Q_i\) is reliability;
+- \(S_{N,i}\) is local-reference strength;
+- \(N_i\) is novelty / non-redundancy;
+- \(R_i\) is recent validated residual;
+- \(C_i\) is correlated-error/common-ancestry exposure.
+
+The raw score is converted to normalized gain shares and then projected through:
+
+1. a **single-agent dominance cap**;
+2. a **minimum influence/diversity entropy floor** where appropriate;
+3. critical-role floors for independent verifier/recovery paths;
+4. authority-specific non-compensatory constraints.
+
+This is a candidate engineering rule, not a theorem.
+
+### 8. Controller objective
+
+A general DIBS controller may minimize
+
+\[
+\begin{aligned}
+\mathcal J_{\rm DIBS}
+=&\;w_S\,\widehat R_{\rm storm}
++w_P\,P_{\rm dir}
++w_C\,C_{\rm err}
++w_E\,G_{IE}
++w_R\,\mathcal C_{\rm rollback}\\
+&+w_Q\,C_{\rm resource}
+-w_I\,I_{\rm cal}
+-w_V\,V_{\rm exp},
+\end{aligned}
+\]
+
+subject to the declared DIBS viable-region constraints.
+
+A generic projected update is
+
+\[
+\Gamma_{t+1}
+=
+\Pi_{\mathcal U_{\rm DIBS}(t)}
+\left[
+\Gamma_t-\eta_t\widehat\nabla_{\Gamma}\mathcal J_{\rm DIBS}(t)
+\right].
+\]
+
+This equation is an **architecture template**. Deployments may use MPC, robust control, bandit allocation, constrained optimization, learned routing, or rule-based approximations. No optimizer family is canonical yet.
+
+### 9. Permeability as an interior control variable
+
+DIBS adopts the VST/DPE idea that useful exchange generally has two bounds:
+
+\[
+\pi_{\rm info}
+\le
+\pi
+\le
+\pi_{\rm cascade}.
+\]
+
+The lower bound is the minimum openness needed for calibration and useful cross-agent information. The upper bound is the maximum openness compatible with cascade containment.
+
+Therefore:
+
+```text
+π too low  → information starvation / Frozen Rest / wrong-frame lock-in
+π too high → common-mode coupling / cascade propagation / Vector Storm
+interior π → useful coordination with retained shock buffer
+```
+
+A candidate online update is
+
+\[
+\pi_{t+1}
+=
+\operatorname{clip}_{[\pi_{\rm info},\pi_{\rm cascade}]}
+\left(
+\pi_t
+-\eta_\pi\,R_{\rm cascade}
++\eta_I\,D_{\rm info}
+\right),
+\]
+
+where \(D_{\rm info}\) increases when the information/calibration floor is threatened.
+
+### 10. Timescale-separated balance control
+
+To prevent the balance controller itself from becoming a high-frequency mutual-reference participant, DIBS uses at least three control speeds.
+
+```text
+FAST loop
+  gain / duty / temporary permeability
+  → absorb local directional spikes
+
+MIDDLE loop
+  delay / bandwidth / routing path / module coupling
+  → repair persistent interaction geometry
+
+SLOW loop
+  authority contracts / global rules / North-Star compatibility map
+  → revise structural assumptions only after accumulated evidence
+```
+
+Candidate ordering:
+
+\[
+\tau_{\rm gain}
+<
+\tau_{\rm route}
+<
+\tau_{\rm authority}
+<
+\tau_{\rm rule}.
+\]
+
+**Anti-oscillation requirements:**
+
+- gain/permeability slew-rate limits;
+- deadband around the target zone;
+- asymmetric promote/demote hysteresis;
+- minimum dwell time before phase switching;
+- rollback checkpoints;
+- suppression of rapid reciprocal gain chasing between peers.
+
+### 11. Phase-dependent DIBS modes
+
+#### Mode 0 — VCZ / precise normal operation
+
+```text
+moderate/high filtered read permeability
+moderate write permeability
+small continuous residual floor
+covariance-aware gain balancing
+local autonomy preserved
+```
+
+Objective: maximize useful information while preventing persistent directional privilege.
+
+#### Mode 1 — Early drift
+
+```text
+reduce gain of high-common-mode pathways
+increase independent verifier visibility
+increase diagnostic read access
+slow write coupling selectively
+preserve calibration information floor
+```
+
+Objective: determine whether the drift is local error, global-map error, or terrain change before hard intervention.
+
+#### Mode 2 — Active Storm / supercritical SCC
+
+```text
+affected SCC write permeability ↓ sharply
+cross-SCC influence gain ↓
+read-only diagnostic channels may remain open
+new generative seeds into uncontained SCC → blocked
+critical recovery authority → preserved
+```
+
+Objective: dissolve amplification loops without blinding diagnosis.
+
+#### Mode 3 — Post-containment diagnosis
+
+```text
+read permeability > write permeability
+counterfactual/test signals only
+conflict and provenance retained
+no forced re-consensus
+```
+
+#### Mode 4 — Renewal
+
+```text
+small validated writes
+low-amplitude independent seeds
+rollback mandatory
+Local North Star strength and return margin re-tested
+```
+
+#### Mode 5 — Reconnection
+
+```text
+π_write ramps upward gradually
+agent gains return gradually, not instantly
+recurrence/SCC tests after each increment
+```
+
+#### Mode 6 — Mature Rest
+
+```text
+background selective exchange
+low intervention frequency
+non-zero exploration / residual-vitality floor
+upper layer stays reserve rather than routine participant
+```
+
+### 12. Authority–gain separation
+
+One of the strongest DIBS rules is that an agent's epistemic influence and its action authority are separate.
+
+Examples:
+
+```text
+Exploration agent:
+  diagnostic gain       high
+  write authority       low
+  action authority      near zero
+
+Independent verifier:
+  output frequency      low
+  ordinary gain         low/moderate
+  veto authority        high
+
+Local specialist:
+  local terrain gain    high
+  cross-terrain gain    low
+
+Upper governance layer:
+  observation authority high
+  routine gradient gain low
+  emergency boundary authority high
+```
+
+This avoids turning every useful signal into a direct force on the shared trajectory.
+
+### 13. DIBS + Middle Layer
+
+The Middle Layer becomes the primary DIBS actuator, but it is not allowed to become the hidden dictator.
+
+Its responsibilities are:
+
+1. measure influence concentration and common-mode error;
+2. translate output packets into comparable contracts where possible;
+3. set or propose \(\Gamma_i\);
+4. preserve conflict labels;
+5. monitor local SCC and interface load;
+6. preserve the information floor while reducing cascade channels;
+7. return residuals and controller actions to the audit log;
+8. request upper-layer structural revision when balance cannot be restored within the local contract.
+
+The Middle controller itself is therefore versioned and subject to translator-drift / router-drift audits already introduced in earlier GRT versions.
+
+### 14. DIBS + effective-map / Schur–Feshbach stack
+
+The recent effective-interface work and DIBS occupy different layers:
+
+```text
+Schur / Feshbach / ERA
+  → estimate how a module behaves at its boundary
+
+DIBS
+  → decide how strongly that boundary behavior should influence
+    other modules right now
+```
+
+Thus
+
+\[
+\text{effective model}
+\neq
+\text{influence controller}.
+\]
+
+DIBS may use effective-map residuals, non-normality risk, refresh validity, and boundary response as observations, but reducer selection and dynamic balance remain separate orchestration decisions.
+
+### 15. Minimum safety locks
+
+DIBS cannot be deployed as a precision controller unless the following are declared:
+
+1. **No current-truth leakage:** control at time \(t\) may use only observables available by time \(t\).
+2. **External-anchor independence:** the calibration signal used to detect wrong-frame consensus may not be generated solely by the same optimized loop.
+3. **Critical-direction floor:** aggregate utility cannot purchase a declared safety-critical loss.
+4. **Conflict preservation:** weight adjustment does not certify unresolved claims.
+5. **Exploration floor:** gain suppression may not silently drive all local novelty to zero.
+6. **Information floor:** cascade isolation may not eliminate required calibration channels.
+7. **SCC-local gate:** global stability metrics cannot override a locally supercritical causal component.
+8. **Recovery target:** stabilization requires verified return into a robust target/core, not merely a momentary fall in the instability score.
+9. **Controller rollback:** a DIBS update that increases instability, lag, or calibration error can be reverted.
+10. **Controller cost accounting:** controller computation, monitoring, and intervention cost are part of the system budget.
+
+### 16. Candidate ladder
+
+#### Cheap candidates
+
+```text
+CF-DIBS-G0 — equal fixed influence
+CF-DIBS-G1 — confidence-only gain
+CF-DIBS-G2 — residual-adaptive gain
+CF-DIBS-G3 — covariance/common-mode-aware gain
+CF-DIBS-G4 — covariance-aware gain + dominance cap + exploration entropy floor
+CF-DIBS-P1 — gain + adaptive permeability
+CF-DIBS-A1 — gain + separated authority/veto
+```
+
+#### Medium candidates
+
+```text
+CF-DIBS-T1 — delay-aware / timescale-separated balance
+CF-DIBS-SCC1 — SCC-local amplification gate
+CF-DIBS-PH1 — phase-switching DIBS controller
+CF-DIBS-R1 — recovery-return-aware controller
+CF-DIBS-NN1 — non-normal transient-risk-aware gain/permeability control
+CF-DIBS-M1 — learned constrained controller with rollback
+```
+
+#### Heavy pending
+
+```text
+CF-DIBS-H1 — nonlinear switching multi-agent systems
+CF-DIBS-H2 — recursive fractal DIBS across multiple governance scales
+CF-DIBS-H3 — multiplex authority/information/recovery/audit control
+CF-DIBS-H4 — deployed real-agent precision task with external calibration
+```
+
+### 17. Benchmark program
+
+#### CB-DIBS-01 — Gain-only competition
+
+Compare equal, confidence, residual, covariance-aware, and covariance+vitality-floor gain policies on externally generated truth with correlated agent errors and terrain shifts.
+
+Primary metrics:
+
+- task loss;
+- high-agreement wrong-consensus rate;
+- maximum persistent influence share;
+- residual-error covariance;
+- adaptation after terrain shift;
+- controller movement cost.
+
+#### CB-DIBS-02 — Interior permeability
+
+Compare:
+
+```text
+near-isolation
+fixed-open
+risk-only closure
+gain + constrained interior permeability
+```
+
+under a task requiring both cross-agent calibration and cascade containment.
+
+Kill rule: a controller that lowers Storm events only by violating the calibration-information or exploration floor does **not** pass.
+
+#### CB-DIBS-03 — Delay / partial non-alignment
+
+Test whether a small intentional delay window reduces synchronous cascade without materially degrading task tracking. No universal positive-delay claim is pre-registered.
+
+#### CB-DIBS-04 — Authority separation
+
+Compare a single scalar weight against separate `diagnostic gain / write authority / veto authority` controls under verifier and explorer roles.
+
+#### MB-DIBS-05 — Phase controller
+
+Stress VCZ → drift → Storm → diagnosis → renewal → reconnection transitions and test false phase switches, hysteresis, recurrence, and recovery time.
+
+### 18. Mechanical implementation gate — executed
+
+Before behavioral benchmarking, a narrow implementation sanity check was run for the cheap gain/permeability layer.
+
+Frozen test contract:
+
+```text
+N agents                         = 8
+random control windows           = 2,000
+max single-agent normalized gain = 0.32
+normalized influence entropy     >= 0.80
+permeability interval            = [0.28, 0.82]
+global gain interval             = [0.28, 0.92]
+```
+
+Results:
+
+| check | violations |
+|---|---:|
+| normalized weights sum to one | 0 / 2,000 |
+| single-agent gain cap | 0 / 2,000 |
+| influence-entropy floor | 0 / 2,000 |
+| permeability interval | 0 / 2,000 |
+| global-gain interval | 0 / 2,000 |
+| paired higher-risk → non-increasing permeability/gain | 100% satisfied |
+
+Status:
+
+```text
+DIBS mechanical constraint implementation
+→ IMPLEMENTATION_GATE_PASS
+```
+
+**Interpretation lock:** these checks are partly true by construction. They prove only that the reference controller implementation respects its declared mechanical constraints. They do **not** show that DIBS improves accuracy, prevents Vector Storm, identifies the correct agent, or is optimal. Those claims remain in the benchmark queue above.
+
+### 19. New GRT principles
+
+#### Dynamic Influence Principle
+
+> In precision multi-agent work, governance should regulate **effective influence**, not merely participation. Agent selection and output weighting are insufficient when coupling strength, timing, information bandwidth, and authority have different failure modes.
+
+#### Tension-Preservation Principle
+
+> Healthy balance suppresses persistent global directional privilege while preserving bounded local disagreement, independent correction paths, and a non-zero exploration floor.
+
+#### Interior Permeability Principle
+
+> When calibration requires exchange but unrestricted exchange raises cascade risk, permeability is a constrained control variable with an information floor and a cascade ceiling; neither full openness nor full isolation is presumed optimal.
+
+#### Authority–Signal Separation Principle
+
+> The right to be heard, the amount of epistemic influence, and the authority to modify shared state or action are separate contracts.
+
+#### Moving-Balance Principle
+
+> The target of balance is a moving viable region conditioned on terrain, load, and reference quality, not a fixed consensus vector or permanent set of weights.
+
+### 20. Prediction updates
+
+**Prediction 70 — Covariance-aware balancing.** Under correlated agent errors, a gain controller that accounts for common-mode residual structure should reduce false consensus relative to confidence-only weighting at matched information/authority budgets.
+
+**Prediction 71 — Interior permeability.** On tasks requiring cross-agent calibration, a constrained interior-permeability policy should outperform both near-isolation and unrestricted exchange on a joint task-loss/cascade-risk objective when the feasible information–cascade interval is non-empty.
+
+**Prediction 72 — Authority separation.** Separating diagnostic influence from write/action authority should permit higher exploratory diversity with lower catastrophic-action rate than a single scalar influence weight under matched verifier coverage.
+
+**Prediction 73 — Phase-specific control.** A phase-dependent DIBS policy should reduce recurrent cascades relative to one stationary gain/permeability policy when the system traverses drift, containment, renewal, and reconnection phases.
+
+**Prediction 74 — Moving target.** Fixed gain thresholds should degrade under terrain drift more rapidly than controllers that re-estimate the viable influence/permeability region from rolling residual and calibration data.
+
+**Prediction 75 — Over-damping failure.** Policies that minimize disagreement or coupling without an explicit information and exploration floor should exhibit Frozen Rest, slower adaptation, or wrong-frame stability on tasks requiring continual environmental calibration.
+
+### 21. Current status
+
+```text
+DIBS architecture                     → DEFINITION / SYNTHESIS
+DIBS mechanical reference controller → IMPLEMENTATION_GATE_PASS
+behavioral superiority                → CANDIDATE / UNTESTED
+universal optimality                  → NOT CLAIMED
+full nonlinear/multiscale stability   → HEAVY_PENDING
+```
+
+The next rational step is to execute `CB-DIBS-01` and `CB-DIBS-02` separately so that gain effects are identified before permeability, delay, authority, and phase switching are combined.
